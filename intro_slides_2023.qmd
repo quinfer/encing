@@ -1,0 +1,364 @@
+---
+Title: "Introduction and rethinking econometrics"
+date: ""
+output: revealjs
+---
+
+# Introduction
+
+## Contact details
+
+### Lecturer
+  - **Barry Quinn**
+  - Room 02.035, Building 3
+  - Email: b.quinn@qub.ac.uk (or via [Teams Channel](https://teams.microsoft.com/l/team/19%3a2243c0fcf4414e2780c4cdfe8062b58a%40thread.tacv2/conversations?groupId=c58f4c7f-b09c-48da-9eb3-040637c10b99&tenantId=eaab77ea-b4a5-49e3-a1e8-d6dd23a1f286))
+
+### Tutor
+  - **Veronica Zhang**
+  - Email: veronica.zhang@qub.ac.uk
+  - Studying for a PhD in Financial Regulation in Chinese Banking.
+
+## Brief bio
+  - Lecturer of Finance, Queen's Management School
+  - Chartered Statistician (Royal Statistical Society)
+  - 8 years industry + 10 years academia
+
+<!-- \begin{textblock}{5.9}(6.6,8.2)\begin{alertblock}{}\Large barryquinn.com\end{alertblock}\end{textblock} -->
+
+## Module objectives
+
+\fontsize{12}{14}\sf
+
+- Learn to download and process online financial information
+- Provide basic knowledge of financial time series (FTS) characteristics
+- Skewness, heavy tails, measure of dependence of asset returns 
+- Introduce statistical methods and econometric models useful for analysing FTS
+- Gain experience in analysing and forecasting FTS
+  
+## Module objectives
+
+  - Gain insight into the limitations of statistical models
+  - Begin to use statistical models responsibly, ethically, and professionally.
+  - To have enough *statistical knowledge* to be comfortable with *knowing that you don't know*.
+
+\begin{alertblock}{}\large
+\centerline{\bf Building up your empirical stamina}
+\end{alertblock}
+    
+  
+## Teaching and learning philosopy
+  - To instill:
+  1. Intellectual discipline
+    - Think critically and form your own opinions
+  2. Intellectual humility
+    - Enough confidence to be comfortable in your own confusion
+  3. Good citizenship
+    - Acting ethically, altruistically,  responsibly and professionally
+  4. Employability
+
+## Teaching and learning approach
+
+  - Lectures will combine concepts and financial application with live-coding.
+  - Come prepared and bring your laptop.
+  - Computer labs are where you will gain feedback on your progress.
+  - Interactive tutorials on QMS Remote Analytics Platform RStudio Connect
+
+## Feedback
+
+  - Student *feedback* is important to me and I will provide this in a *professional* manner *conditional* on students behaving in a *professional and courteous* manner.
+  - Each week there will be an anonymous polly poll in the Teams Channel where you can give feedback.
+  - I am a NICE person when students act in a professional and courteous.
+  - Otherwise I can be a fastidious scold.
+
+\begin{alertblock}{}\large
+\centerline{\bf drbq.co/CommsPolicy}
+\end{alertblock}
+
+## Course overview
+
+- [Read the canvas home] carefully(https://canvas.qub.ac.uk/courses/11736/pages/please-read-carefully)
+
+    
+## Active learning and the 15 minute rule
+
+\begin{alertblock}{}
+\centerline{\bf \href{https://youtu.be/ZS8QHRtzcPg}{\beamergotobutton{Batman learnings from his mistakes}}}
+\end{alertblock}  
+
+  - We will use the **15 minute** rule in this class.
+  - If you encounter problems, spend 15 minutes troubleshooting on your own.
+  - Make use of Google and StackOverflow to resolve the error
+  - If your problem is not resolved after 15 minutes, **ask for help**
+    
+## Plagiarism
+
+* I am trying to balance two competing perspectives:
+  1. Collaboration is good
+  2. Collaboration is cheating
+* In-class collaboration is good **to a point**.
+* You are always expected to write and submit your **own work**.
+* Asking for help is ok (after 15 minute rule), 
+* Blindly copy from your peers (or published work) is not.
+
+## Important Dates
+
+\hbox{\hspace*{-0.5cm}\begin{tabular}{rp{8cm}l}
+\toprule
+\textbf{Task} & \textbf{Due Date} & \textbf{Value} \\
+\midrule
+Project & Friday 8 April 50\%  \\
+Class Test TBC 50\% \\
+\bottomrule
+\end{tabular}}
+
+
+# Rethinking econometrics
+
+## Rethinking econometrics
+
+ - Statistics is the science of uncertainty and variation.
+ - Time series financial econometrics is the application of statistics to dynamic problems in finance.
+ - Ethically, statistical models should be thought of as engineered robots.
+
+## Rethinking econometrics
+  - Statistic courses and books, including this one, resemble horoscopes
+    - In order to remain plausibly correct, they must remain tremendously vague
+    - There are strong incentives for statisticians to exaggerate the power of their advice.
+  - Scientific discovery is not an additive process and statistical inference is only as critical as every other part of research.
+  
+## Rethinking econometrics
+
+\href{http://iase-web.org/documents/papers/icots2/Speed.pdf}{\bf"Statistics is no closer to mathematics than cooking is to chemistry"- Terry Speed 1986}
+
+\bigskip
+
+  - In statistics context is king, and in econometrics we have to look to the context of the research questions before applying techniques.
+  - Blind application of techniques without understanding is dangerous and unethical.
+  
+
+## Rethinking econometric models
+\includegraphics[width=4cm]{robot}
+
+\fontsize{12}{14}\sf
+
+ - Modestly, models can be thought of as **engineer statistical robots**. 
+ - Engineered via a set of (usually unrealistic) assumptions.
+ - Animated by "truth".
+ - Hopefully powerful.
+ - Blind to the creator's intent.
+ - Easy to misuse.
+ - Not even false: They are as false as a hammer!
+ 
+ 
+## "Scaffolding" by Seamus Heaney, 1939–2013
+
+\newcommand\Fontvi{\fontsize{12}{9.2}\selectfont}
+\settowidth{\versewidth}{Are careful to test out the scaffolding;}
+\begin{verse}[\versewidth]
+\Fontvi
+Masons, when they start upon a building, \\
+Are careful to test out the scaffolding; \\~\\
+
+Make sure that planks won’t slip at busy points, \\
+Secure all ladders, tighten bolted joints.\\~\\
+
+And yet all this comes down when the job’s done \\
+Showing off walls of sure and solid stone.\\~\\
+
+So if, my dear, there sometimes seem to be \\
+Old bridges breaking between you and me \\~\\
+
+Never fear. We may let the scaffolds fall \\ 
+Confident that we have built our wall.
+\end{verse}
+
+## Ethical econometrics
+
+  - Ethical econometrics is having enough confidence and knowledge in statistics to understand its limitations.
+  - This course provides an *ethical* scaffold, to construct *statistical* models.
+  - This course will force you to perform step-by-step calculations that are usually automated.
+  
+## Ethical econometrics  
+
+  - The reason for all the algorithmic fuss is to ensure that you understand enough of the details to make sensible choices and interpretations in your own modeling work.
+  - At first we will take things slow but move on to use more automation.
+
+\begin{alertblock}{}
+\centerline{\bf Put up your wall, and then let the scaffolding fall.}
+\end{alertblock}
+
+## Rethinking: Staring into the abyss. 
+
+* Econometric models can be complicated monsters. 
+* But as models become more monstrous, so too does the code needed to compute predictions and display them. **With power comes hardship.** 
+* It’s better to see the guts of the machine than to live in awe or fear of it.  
+* Software can be and often is written to hide all the monstrosity from us. 
+* But this doesn’t make it go away. 
+* Instead, it just makes the models forever mysterious. 
+* For some users, mystery translates into awe. 
+* For others, it translates into skepticism. 
+* Neither condition is necessary, as long as we’re willing to learn the structure of the models we are using.
+* And if you aren’t willing to learn the structure of the models, then don’t do your own statistics. 
+* Instead, collaborate with or hire a statistician.
+
+## Model checking
+
+* Every model is a merger of **sense** and **nonsense**
+* When we understand a model, we find its sense and control its nonsense.
+* Complex models should not be view with awe but with **informed** suspicion.
+* Intellectual discipline provides the base to be *informed* 
+      * comes with breaking down the model into its components and checking its validity.
+
+## Ethical econometrics with R
+
+  - An industry standard for modern statistical analysis.
+  - Creates reusable, transparent, and interpretable code.
+  - Ethical econometrics is about creating reproducible research.
+  - The goal of this course is to teach basic computational skills for sensible FTS analysis.
+  - You will not become an expert programmer!
+
+## Install required packages
+```
+install.packages("fpp2")
+install.packages("tidyverse")
+install.packages("tidyquant")
+```
+\begin{alertblock}{}
+\centerline{\bf Good coding style guide : style.tidyverse.org}
+\end{alertblock}  
+
+# Uncertainty in econometrics
+
+## Uncertainty in econometrics
+  - Uncertainty is the overarching tenent of statistics.
+  - Uncertainty is applied using a probability theory.
+  - Probability theory is just a calculus for counting; and thus can be used to represent plausibility of things like model parameters.
+  - Unlike most other branches of mathematics, statistics has no unifying theory of probability.
+  - The two popular approaches to probability are bayesian and frequentist.
+  
+## Bayesian inference
+  - The term *bayesian* has many uses in statistics but mainly as a way of interpreting probability.
+  - In modest terms, Bayesian inference is no more than counting the number of ways things can happen, according to our assumptions.
+  - More plausible things can happen more ways.
+  
+## Bayesian inference  
+  - Once assumptions are defined, Bayesian inference forces a purely logical way of processing that information to produce inference.
+  - Count all the ways data can happen, according to assumptions
+  - Assumptions with more ways that are consistent with the data are more plausible.
+  - In this way all parts of the model building process can exhibit uncertainty.
+  
+## Frequentist inference
+  - Frequentist probability is a special case of Bayesian probability.
+  - It defines probability by connection to countable events and their frequencies in very large samples.
+  - The leads to frequentist uncertainty being premised on imaginery resampling of data.
+  - A fantasy of repeating the measurement many many times, to collect a list of values which will have some pattern to it.
+  
+## Frequentist inference  
+  - This means that parameters and models cannot have probability distributions, only measurement (data).
+  - The distribution of these measurement is called a **SAMPLING DISTRIBUTION**.
+  - In practice resampling is never done, and in general it doesn't even make sense. 
+  
+## Bayesian Versus frequentist
+
+\small 
+
+  - The frequentist philosophical approach (sometime referred to as *classical*) is convention in econometrics.
+    - This is probably more to do with scientists' desire for results via *bright line* hypothesis testing than rigorous analysis.
+  - It involves postulating a theory then setting up a model and collecting data to test this model.
+  - Based on the results of the model, the theory is supported or refuted.
+  - A common approach is null hypothesis significance testing (NHST) using p-values.
+  
+## Bayesian versus frequentist
+
+  - In Bayesian inference the theory and model are developed together.
+    - Parameters, models and measurement have probability distributions.
+  - An assessment of existing knowledge is formulated into *prior* probabilities.
+  - Data are combined with *priors* to form and model in a strictly logical way to produce updated probabilities known as *posteriors*.
+  - Bayesian inference is computationally intensive, which used to be a barrier to application.
+  
+## Bayesian Versus frequentist
+
+  - Some *classical* researcher find Bayesian approach controversial.
+  - Strong priors can be hard to dominate with data, so researchers can pick whatever results they want!
+  - In modern statistics this controversy is largely redundant.
+
+## Rethinking econometrics 
+  - In ethical econometrics, each approach can arguable have fantastical assumptions:
+    1. What does the data look like under resampling?
+    2. Using probability to describe prior beliefs or knowledge.
+  - Rather like robots, statistical models are neither true or false, rather constructs engineered for some purpose.
+  - Importantly, context is everything in statistics, and a *ethical econometrician* should use all avaliable tools in their statistical engineering arsenal.
+  
+# Applying time series financial econometrics
+
+## Rethinking econometrics: \small to explain, predict or describe
+
+\fontsize{12}{14}\sf
+
+  - It is **wrongly** assumed that high explanatory = high predictive power. 
+  - Explanatory models apply statistics to data to test **casual** hypothesis of theoretical constructs.
+  - Prediction models apply statistics or data mining algorithms to data to predict future observations.
+  - The type of model uncertainty is different for each choice.
+  - Explaining minimises *bias*, while prediction minimises *bias + variance* occasionally sacrificing theoretical accuracy for empirical precision.
+  
+## Building a model
+
+  * How to use probability to do typical statistical modeling?
+  1. Design the model (data story)
+    * Formulated using theory from previous studies
+  2. Condition on the data (update or estimate model)
+  3. Evaluate the model (critique)
+  * **And Repeat Until Satisified**
+  
+## Reading finance papers (the context)
+
+  - You data story comes from reading research papers
+  
+### Research project tips
+  
+  - Does it develop a new model?
+  - Is it an existing technique with a new application?
+  - Is it a data mining excercise?
+  - Is the data of *good quality* ? Reliable, sample size etc.
+
+## Reading finance papers
+
+### Research project tips
+
+  - Have model assumptions been validly checked and critiqued?
+  - Are results interpreted sensibly or exaggerated?
+  - Do results actually address the questions posed?
+  - Have conclusions been drawn appropriate or overstated?
+  
+## Model comparison
+
+  - Instead of falsifying a null model, compare meaningful models.
+  - Basic problems
+    - Overfitting or Data Snooping
+    - Causal inference
+  - Ockham's razor is silly
+  - Information theory is less silly
+    - AIC, cross-validation
+  - Must distinguish prediction from inference
+  
+
+## Applying financial time series econometrics
+
+  - Financial time series econometrics is concerned with theory and practice of asset valuation over time
+  - It has similarity to other time series analysis but has some added uncertainty.
+  - FTS analysis must deal with the ever-changing business and economic enviroment and the fact that volatility is not directly observed.
+  
+## Applying financial time series econometrics
+  
+  **Describe**
+  
+  1. Estimating parameters of well-defined probability models that describe the behaviour of financial time series.
+  
+  **Explain**
+  
+  2. Testing hypotheses on how financial markets generate the series of interest. 
+  
+  **Predict**
+  
+  3. Forecast future realisations of the financial time series.
+  

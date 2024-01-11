@@ -1,0 +1,257 @@
+---
+title: "Statistics Primer"
+author: "Barry Quinn"
+editor: visual
+---
+
+## Fundamentals
+
+### Definition of Statistics and Probability
+
+Statistics is the scientific study of collecting, organizing, analyzing, and interpreting data to draw conclusions and make informed decisions. Probability theory forms the backbone of statistics, dealing with uncertainty and random phenomena.
+
+### Scalar Quantities
+
+Scalar quantities are numerical values that don't depend on direction, such as temperature, mass, or height. In finance, scalars often appear in the form of returns, exchange rates, or prices. As a real-world finance application, suppose you want to compute the annualized return of a stock.
+
+#### Example: Annualized Return Computation
+
+```{R}
+current_price <- 100
+initial_price <- 80
+holding_period <- 180 # Days
+annualized_return <- (current_price / initial_price)^(365 / holding_period) - 1
+annualized_return
+```
+
+### Vectors and Matrix Algebra Basics
+
+Vectors are arrays of numbers, and matrices are rectangular arrays. Both play a crucial role in expressing relationships between variables and performing computations efficiently. Consider a hypothetical scenario where you compare monthly returns across three different assets.
+
+#### Example: Monthly Returns Comparison
+
+```{R}
+monthly_returns <- c(0.02, -0.01, 0.03)
+asset_names <- c("Asset A", "Asset B", "Asset C")
+returns_dataframe <- data.frame(Asset = asset_names, Return = monthly_returns)
+returns_dataframe
+```
+
+### Functions
+
+Functions map inputs to outputs and are ubiquitous in mathematics, statistics, and finance. Suppose you seek to calculate compound interest.
+
+#### Example: Compound Interest Function
+
+```{R}
+compound_interest <- function(principal, rate, periods) {
+  return_amount <- principal * (1 + rate)^periods
+  return_amount
+}
+
+initial_balance <- 5000
+yearly_rate <- 0.04
+years <- 5
+final_balance <- compound_interest(initial_balance, yearly_rate, years * 12)
+final_balance
+```
+
+### Descriptive Statistics
+
+Descriptive statistics capture essential information about data, such as location, spread, skewness, and variability. These measurements aid in understanding the overall behavior of the data. For instance, you might want to examine a firm's quarterly sales revenue.
+
+#### Example: Sales Revenue Summary
+
+```{R}
+sales_revenue <- c(25000, 27000, 26000, 28000, 30000)
+sales_stats <- summary(sales_revenue)
+sales_stats
+```
+
+# Probability Theory
+
+## Introduction\*
+
+Probability theory offers a systematic approach to studying uncertain events and measuring uncertainty. Understanding probability theory is essential for comprehending various statistical techniques and conducting robust data analysis.
+
+## Elements of Probability Theory
+
+-   **Sample spaces**: Collection of all possible outcomes of an event.
+-   **Events**: Subsets of sample spaces.
+-   **Probability measures**: Functions assigning probabilities to events.
+
+## Important Probability Definitions
+
+-   **Union**: Union of two events A and B consists of all outcomes belonging to either A or B, denoted by A U B.
+-   **Intersection**: Intersection of two events A and B contains all outcomes shared by both A and B, denoted by A ∩ B.
+-   **Complement**: Complement of an event A contains all outcomes outside of A, denoted by A'.
+
+## Probability Axioms
+
+1.  Nonnegativity: P(A) ≥ 0 for every event A.
+2.  Unit measure: P(Ω) = 1, where Ω is the sample space.
+3.  Additivity: If A and B are disjoint events, i.e., A ∩ B = ∅, then P(A U B) = P(A) + P(B).
+
+## Conditional Probability
+
+Conditional probability refers to the probability of an event A given that another event B occurred, expressed as P(A\|B).
+
+**Section 2: Basic Principles and Tools of Probability Theory**
+
+**2.1 Sample Space and Events**
+
+A sample space $\Omega$ is a set containing all conceivable outcomes of a random phenomenon. An event $A$ is a subset of the sample space $\Omega$; thus, $A \subseteq \Omega$. The notation $P(\cdot)$ indicates probability.
+
+**2.2 Union, Intersection, and Complement of Events**
+
+Given two events $A$ and $B$, the union operation $(A \cup B)$ corresponds to the set of outcomes contained in either $A$ or $B$ or both. The intersection operation $(A \cap B)$ is the set of outcomes that lie in both $A$ and $B$. The complement of an event $A'$ refers to the set of outcomes in the sample space that are not in $A$: $$\Omega = A \cup A'\quad,\quad A \cap A' = \emptyset$$
+
+**2.3 Conditional Probability**
+
+Conditional probability is the probability of an event $A$ given that another event $B$ occurs: $$P(A \mid B) = \frac{P(A \cap B)}{P(B)} \qquad (\text{assuming}\;\; P(B)>0)$$
+
+**2.4 Multiplicative Property of Conditional Probability**
+
+For any two events $A$ and $B$, the joint probability satisfies the identity: $$P(A \cap B) = P(A)\times P(B \mid A) = P(B) \times P(A \mid B)$$
+
+**2.5 Chain Rule for Conditional Probability**
+
+Given three events $A$, $B$, and $C$, the chain rule decomposes the joint probability as follows: $$P(A \cap B \cap C) = P(A) \times P(B \mid A) \times P(C \mid A \cap B)$$
+
+**2.6 Bayes' Formula**
+
+Bayes' formula relates the conditional probabilities of two events, say $A$ and $B$, as follows: $$P(A \mid B) = \frac{P(B \mid A) \times P(A)}{P(B)}$$
+
+**2.7 Independence of Events**
+
+Two events $A$ and $B$ are independent if and only if $$P(A \cap B) = P(A) \times P(B)$$
+
+Independent events satisfy the following equality: $$P(A \mid B) = P(A) \qquad \text{and} \qquad P(B \mid A) = P(B)$$
+
+**2.8 Partition of the Sample Space**
+
+A finite set $\{A_1, A_2, \dots , A_n\}$ is a partition of the sample space if the following two conditions are satisfied:
+
+1.  The events in the set are mutually exclusive: $$A_i \cap A_j = \emptyset \qquad \forall \; i \neq j$$
+2.  The union of the events coincides with the whole sample space: $$\bigcup_{i=1}^n A_i = \Omega$$
+
+**2.9 Total Probability Theorem**
+
+Consider a partition of the sample space $\{A_1, A_2, \dots , A_n\}$ and an arbitrary event $B$. The total probability theorem states that: $$P(B) = \sum_{i=1}^{n} P(B \cap A_i) = \sum_{i=1}^{n} P(B \mid A_i) \times P(A_i)$$
+
+**2.10 Bayes' Theorem Extensions**
+
+Generalizations of Bayes' theorem arise from the total probability theorem. Given a partition of the sample space $\{A_1, A_2, \dots , A_n\}$ and an arbitrary event $B$, the extended Bayes' theorem reads: $$P(A_i \mid B) = \frac{P(B \mid A_i) \times P(A_i)}{\sum_{j=1}^{n} P(B \mid A_j) \times P(A_j)}, \quad \forall\; i \in \{1, 2, \dots, n\}$$
+
+These concepts and relations form the backbone of probability theory, allowing us to perform calculations and make inferences based on the underlying structure of random phenomena. In the following sections, we explore more advanced tools and techniques, such as random variables, probability distributions, moments, and densities, which are essential for modeling financial and economic processes.
+
+### Example: Fraction of Domestic Production Exports
+
+Assume the US produces 20 billion barrels of oil annually, exports 5 billion barrels, imports 2 billion barrels, and consumes the rest domestically. What percentage of domestic production does the US export?
+
+```{R}
+domestic_production <- 20 - 2
+export_percentage <- 5 / domestic_production * 100
+export_percentage
+```
+
+## Independent Events
+
+Two events are independent if the occurrence of one doesn't affect the probability of the other. That is, P(A\|B) = P(A) and P(B\|A) = P(B). Equivalently, P(A ∩ B) = P(A) × P(B).
+
+## Random Variables
+
+A random variable is a rule associating numerical values with outcomes in a sample space. There are two types of random variables: discrete and continuous.
+
+## Probability Mass Functions (Discrete Random Variables)
+
+For a discrete random variable, the PMF gives the probability of each value taken by the variable.
+
+### Example: Rolling a Six-Sided Die
+
+What is the probability of rolling a six-sided die twice and getting a sum equal to 7?
+
+```{R}
+die_faces <- 6
+combinations <- expand.grid(die1 = 1:die_faces, die2 = 1:die_faces)
+desired_combinations <- combinations[(combinations$die1 + combinations$die2) == 7,]
+probability <- nrow(desired_combinations) / (die_faces ^ 2)
+probability
+```
+
+## Probability Density Functions (Continuous Random Variables)
+
+For a continuous random variable, the PDF gives the relative likelihood of the variable taking on any specific value within a defined region.
+
+### Example: Generating Random Values
+
+Generate 10 random values drawn from a uniform distribution between 0 and 1 and plot the PDF.
+
+```{R}
+library(ggplot2)
+set.seed(123)
+random_values <- runif(10, 0, 1)
+pdf_plot <- data.frame(x = random_values, pdf = dnorm(random_values))
+ggplot(pdf_plot, aes(x = x, y = pdf)) +
+  geom_bar(stat = "identity") +
+  scale_x_continuous(limits = c(0, 1)) +
+  theme_minimal()
+```
+
+This section builds on the Fundamentals introduced in Section 1, providing a foundation in probability theory essential for understanding more advanced statistical techniques. Including examples and R code encourages interactive learning and promotes better retention. Move forward with Section 3, focusing on Statistical Inference, and remember to provide clear definitions, descriptions, and R code examples.
+
+## Proability Schools of Thought
+
+Classical probability, Frequentism, and Bayesian methods constitute the three main schools of thought in probability theory, each having unique interpretations of probability and approaches to statistical inference. Though they differ philosophically, they still share some connections.
+
+### Classical Probability
+
+Classical probability is built upon the assumption of equally likely outcomes in an experiment. The probability of an event reflects the relative frequency of the event in a long series of repeated trials. This paradigm focuses on estimating probabilities of hypotheses derived from a null hypothesis.
+
+In finance, the classical probability paradigm manifests in cases like determining the probability of a stock returning a positive value during a fixed period, assuming historical stock returns follow a symmetric distribution. Another example is estimating the probability of exceeding a given level of credit risk based on historical borrower profiles.
+
+::: callout-important
+Classical Probability, sometimes referred to as the "equiprobable" or "axiomatic" approach, goes back to the seventeenth century, with the pioneering work of French mathematician Blaise Pascal and Dutch scientist Christiaan Huygens. The classical interpretation posits that probabilities are ratios of favorable outcomes to the total number of equally probable outcomes. Jacob Bernoulli, Swiss mathematician, expanded upon the classical interpretation in his influential book "*Ars Conjectandi*" published posthumously in 1713.
+
+Reference:
+
+-   Todhunter, Isaac. A History of the Mathematical Theory of Probability: From the Time of Pascal to That of Lagrange. London: Macmillan and Co., 1865.
+:::
+
+## Frequentism
+
+Frequentism posits that probabilities correspond to the long-run frequencies of events in repeated trials. It concentrates on estimating the parameters of probability distributions governing the generation of data, instead of considering alternative hypotheses. Many commonly used statistical tests, such as t-tests and chi-square tests, stem from the Frequentist perspective.
+
+In finance, Frequentist methods surface in areas like value-at-risk (VaR) estimation, where VaR represents the worst-case loss of a portfolio within a given confidence interval. Frequentist methods allow the construction of asymptotic confidence bands for the VaR estimates. Another instance is estimating Sharpe Ratios using t-tests to assess significance and distinguish superior investment strategies from inferior ones.
+
+::: callout-important
+Frequentism takes a long-run frequency perspective, asserting that probabilities are the relative frequencies of events obtained through repeated observations. This perspective became widely accepted in the nineteenth century thanks to British polymath John Venn and Austrian mathematician Johann Radon, among others. Sir Ronald Fisher, a renowned geneticist and statistician, championed Frequentism in the twentieth century, arguing that probability should solely deal with random variation in observations.
+
+Reference:
+
+-   von Mises, Richard. Probability, Statistics, and Truth. London: George Allen & Unwin Ltd., 1957.
+:::
+
+**Bayesian Methods**
+
+Bayesian methods treat probabilities as degrees of belief concerning the truthfulness of propositions, conditioned on prior evidence. Bayesian inference combines prior knowledge with current evidence to update beliefs. This paradigm excels at capturing uncertainty in model parameters and accounts for complex interactions between variables.
+
+In finance, Bayesian methods come in handy for numerous applications, such as estimating financial models with small datasets, incorporating expert judgment, and monitoring dynamic systems susceptible to sudden shifts. Examples include calibrating Black-Scholes option pricing models with Bayesian inference, detecting regime switching in Markov-Switching models, and assessing the impact of exogenous events on financial markets using Bayesian networks.
+
+::: callout-importance
+Lastly, Bayesian methods trace their roots to English cleric and mathematician Thomas Bayes, whose revolutionary work, "*An Essay Towards Solving a Problem in the Doctrine of Chances*" laid the groundwork for Bayesian inference. Bayesian methods were subsequently promoted by French scholar Pierre-Simon Laplace in the late eighteenth century and garnered renewed interest in the mid-twentieth century, largely owing to British statistician Harold Jeffreys and American statistician Leonard Savage.
+
+Reference:
+
+-   Dale, Andrew I.; Walker, Samuel G. A Course in Bayesian Statistical Methods. Boca Raton, FL: CRC Press, Taylor & Francis Group, 2020.
+:::
+
+### Relationship Between the Three Schools
+
+There are some overlaps between the three paradigms, despite their differences in philosophy.
+
+-   **Connection between Classical Probability and Bayesian Methods:** Bayesian methods utilize prior distributions that encode prior beliefs and information. Classical probability supplies one possible source of priors, especially when the prior information is vague.
+-   **Link Between Frequentism and Bayesian Methods:** Bayesian methods produce credible intervals, analogous to frequentist confidence intervals. Both intervals indicate the reliability of the estimated parameter, but the interpretation varies. A frequentist confidence interval conveys the probability of containing the true parameter in repeated sampling, while a Bayesian credible interval signifies the probability of the true parameter lying within the interval, conditioned on the observed data.
+-   **Shared Tenets Across Paradigms:** All three paradigms accept some fundamental principles, such as the laws of probability, the central limit theorem, and the law of large numbers. These shared principles promote cooperation and mutual respect between supporters of competing paradigms.
+
+Overall, the relationships between Classical Probability, Frequentism, and Bayesian methods enrich the field of statistics, promoting a holistic understanding of probability theory and inspiring innovative approaches to solving complex financial problems. Adopting a pluralistic stance towards these schools of thought invites researchers and practitioners to flexibly switch between paradigms, leveraging their strengths according to the situation at hand.

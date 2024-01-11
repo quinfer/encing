@@ -1,0 +1,4 @@
+"0","returns <- pivot_longer(returns,-date, names_to = stock, values_to = Return) # Reshape to wide format
+"
+"2","Error: object 'stock' not found
+"

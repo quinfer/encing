@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Barry Quinn">
+
+<title>Advanced Financial Analytics - 3&nbsp; Financial times series econometrics</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./bayesian_methods.html" rel="next">
+<link href="./primer.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./time_series.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Advanced Financial Analytics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Advanced Financial Analytics — Time Series Econometrics, Bayesian Methods, and AI</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./primer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primer</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./time_series.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bayesian_methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">bayesian_methods_in_finance</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">machine learning in finance</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./multilevel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data:</span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#definition-and-importance-of-financial-time-series" id="toc-definition-and-importance-of-financial-time-series" class="nav-link active" data-scroll-target="#definition-and-importance-of-financial-time-series"><span class="header-section-number">3.1</span> Definition and Importance of Financial Time Series</a>
+  <ul class="collapse">
+  <li><a href="#what-is-financial-time-series-data" id="toc-what-is-financial-time-series-data" class="nav-link" data-scroll-target="#what-is-financial-time-series-data"><span class="header-section-number">3.1.1</span> What is Financial Time Series Data?</a></li>
+  <li><a href="#role-in-economic-forecasting" id="toc-role-in-economic-forecasting" class="nav-link" data-scroll-target="#role-in-economic-forecasting"><span class="header-section-number">3.1.2</span> Role in Economic Forecasting</a></li>
+  <li><a href="#application-in-financial-markets" id="toc-application-in-financial-markets" class="nav-link" data-scroll-target="#application-in-financial-markets"><span class="header-section-number">3.1.3</span> Application in Financial Markets</a></li>
+  <li><a href="#importance-in-investment-strategy" id="toc-importance-in-investment-strategy" class="nav-link" data-scroll-target="#importance-in-investment-strategy"><span class="header-section-number">3.1.4</span> Importance in Investment Strategy</a></li>
+  </ul></li>
+  <li><a href="#characteristics-of-financial-time-series-data" id="toc-characteristics-of-financial-time-series-data" class="nav-link" data-scroll-target="#characteristics-of-financial-time-series-data"><span class="header-section-number">3.2</span> Characteristics of Financial Time Series Data</a>
+  <ul class="collapse">
+  <li><a href="#volatility-clustering" id="toc-volatility-clustering" class="nav-link" data-scroll-target="#volatility-clustering"><span class="header-section-number">3.2.1</span> Volatility Clustering</a></li>
+  <li><a href="#leverage-effects" id="toc-leverage-effects" class="nav-link" data-scroll-target="#leverage-effects"><span class="header-section-number">3.2.2</span> Leverage Effects</a></li>
+  <li><a href="#heavy-tails-and-kurtosis" id="toc-heavy-tails-and-kurtosis" class="nav-link" data-scroll-target="#heavy-tails-and-kurtosis"><span class="header-section-number">3.2.3</span> Heavy Tails and Kurtosis</a></li>
+  <li><a href="#mean-reversion" id="toc-mean-reversion" class="nav-link" data-scroll-target="#mean-reversion"><span class="header-section-number">3.2.4</span> Mean Reversion</a></li>
+  <li><a href="#non-stationarity" id="toc-non-stationarity" class="nav-link" data-scroll-target="#non-stationarity"><span class="header-section-number">3.2.5</span> Non-Stationarity</a></li>
+  </ul></li>
+  <li><a href="#types-of-financial-data" id="toc-types-of-financial-data" class="nav-link" data-scroll-target="#types-of-financial-data"><span class="header-section-number">3.3</span> Types of Financial Data</a>
+  <ul class="collapse">
+  <li><a href="#stocks" id="toc-stocks" class="nav-link" data-scroll-target="#stocks"><span class="header-section-number">3.3.1</span> Stocks</a></li>
+  <li><a href="#bonds" id="toc-bonds" class="nav-link" data-scroll-target="#bonds"><span class="header-section-number">3.3.2</span> Bonds</a></li>
+  <li><a href="#derivatives" id="toc-derivatives" class="nav-link" data-scroll-target="#derivatives"><span class="header-section-number">3.3.3</span> Derivatives</a></li>
+  <li><a href="#forex-foreign-exchange" id="toc-forex-foreign-exchange" class="nav-link" data-scroll-target="#forex-foreign-exchange"><span class="header-section-number">3.3.4</span> Forex (Foreign Exchange)</a></li>
+  <li><a href="#commodities" id="toc-commodities" class="nav-link" data-scroll-target="#commodities"><span class="header-section-number">3.3.5</span> Commodities</a></li>
+  <li><a href="#data-frequency" id="toc-data-frequency" class="nav-link" data-scroll-target="#data-frequency"><span class="header-section-number">3.3.6</span> Data Frequency</a></li>
+  </ul></li>
+  <li><a href="#time-series-components" id="toc-time-series-components" class="nav-link" data-scroll-target="#time-series-components"><span class="header-section-number">3.4</span> Time Series Components</a>
+  <ul class="collapse">
+  <li><a href="#trend" id="toc-trend" class="nav-link" data-scroll-target="#trend"><span class="header-section-number">3.4.1</span> Trend</a></li>
+  <li><a href="#seasonality" id="toc-seasonality" class="nav-link" data-scroll-target="#seasonality"><span class="header-section-number">3.4.2</span> Seasonality</a></li>
+  <li><a href="#cyclicality" id="toc-cyclicality" class="nav-link" data-scroll-target="#cyclicality"><span class="header-section-number">3.4.3</span> Cyclicality</a></li>
+  <li><a href="#irregular-random-component" id="toc-irregular-random-component" class="nav-link" data-scroll-target="#irregular-random-component"><span class="header-section-number">3.4.4</span> Irregular (Random) Component</a></li>
+  <li><a href="#combining-components-in-financial-analysis" id="toc-combining-components-in-financial-analysis" class="nav-link" data-scroll-target="#combining-components-in-financial-analysis"><span class="header-section-number">3.4.5</span> Combining Components in Financial Analysis</a></li>
+  </ul></li>
+  <li><a href="#simulation-excercise" id="toc-simulation-excercise" class="nav-link" data-scroll-target="#simulation-excercise"><span class="header-section-number">3.5</span> Simulation excercise</a></li>
+  <li><a href="#time-series-components-1" id="toc-time-series-components-1" class="nav-link" data-scroll-target="#time-series-components-1"><span class="header-section-number">3.6</span> Time Series Components</a>
+  <ul class="collapse">
+  <li><a href="#r-code-for-simulating-time-series-data" id="toc-r-code-for-simulating-time-series-data" class="nav-link" data-scroll-target="#r-code-for-simulating-time-series-data"><span class="header-section-number">3.6.1</span> R Code for Simulating Time Series Data</a></li>
+  <li><a href="#explanation-of-simulated-components" id="toc-explanation-of-simulated-components" class="nav-link" data-scroll-target="#explanation-of-simulated-components"><span class="header-section-number">3.6.2</span> Explanation of Simulated Components</a></li>
+  </ul></li>
+  <li><a href="#stationarity-and-unit-roots-in-financial-time-series" id="toc-stationarity-and-unit-roots-in-financial-time-series" class="nav-link" data-scroll-target="#stationarity-and-unit-roots-in-financial-time-series"><span class="header-section-number">3.7</span> Stationarity and Unit Roots in Financial Time Series</a>
+  <ul class="collapse">
+  <li><a href="#stationarity" id="toc-stationarity" class="nav-link" data-scroll-target="#stationarity"><span class="header-section-number">3.7.1</span> Stationarity</a></li>
+  <li><a href="#unit-roots" id="toc-unit-roots" class="nav-link" data-scroll-target="#unit-roots"><span class="header-section-number">3.7.2</span> Unit Roots</a></li>
+  <li><a href="#r-code-example-for-stationarity-testing" id="toc-r-code-example-for-stationarity-testing" class="nav-link" data-scroll-target="#r-code-example-for-stationarity-testing"><span class="header-section-number">3.7.3</span> R Code Example for Stationarity Testing</a></li>
+  </ul></li>
+  <li><a href="#linear-time-series-models" id="toc-linear-time-series-models" class="nav-link" data-scroll-target="#linear-time-series-models"><span class="header-section-number">3.8</span> Linear Time Series Models</a>
+  <ul class="collapse">
+  <li><a href="#autoregressive-ar-models" id="toc-autoregressive-ar-models" class="nav-link" data-scroll-target="#autoregressive-ar-models"><span class="header-section-number">3.8.1</span> Autoregressive (AR) Models</a></li>
+  <li><a href="#moving-average-ma-models" id="toc-moving-average-ma-models" class="nav-link" data-scroll-target="#moving-average-ma-models"><span class="header-section-number">3.8.2</span> Moving Average (MA) Models</a></li>
+  <li><a href="#autoregressive-moving-average-arma-models" id="toc-autoregressive-moving-average-arma-models" class="nav-link" data-scroll-target="#autoregressive-moving-average-arma-models"><span class="header-section-number">3.8.3</span> Autoregressive Moving Average (ARMA) Models</a></li>
+  <li><a href="#autoregressive-integrated-moving-average-arima-models" id="toc-autoregressive-integrated-moving-average-arima-models" class="nav-link" data-scroll-target="#autoregressive-integrated-moving-average-arima-models"><span class="header-section-number">3.8.4</span> Autoregressive Integrated Moving Average (ARIMA) Models</a></li>
+  <li><a href="#seasonal-arima-sarima-models" id="toc-seasonal-arima-sarima-models" class="nav-link" data-scroll-target="#seasonal-arima-sarima-models"><span class="header-section-number">3.8.5</span> Seasonal ARIMA (SARIMA) Models</a></li>
+  <li><a href="#r-code-example-for-arima-model" id="toc-r-code-example-for-arima-model" class="nav-link" data-scroll-target="#r-code-example-for-arima-model"><span class="header-section-number">3.8.6</span> R Code Example for ARIMA Model</a></li>
+  <li><a href="#explanation-of-the-r-code" id="toc-explanation-of-the-r-code" class="nav-link" data-scroll-target="#explanation-of-the-r-code"><span class="header-section-number">3.8.7</span> Explanation of the R Code</a></li>
+  </ul></li>
+  <li><a href="#volatility-models-in-financial-time-series" id="toc-volatility-models-in-financial-time-series" class="nav-link" data-scroll-target="#volatility-models-in-financial-time-series"><span class="header-section-number">3.9</span> Volatility Models in Financial Time Series</a>
+  <ul class="collapse">
+  <li><a href="#autoregressive-conditional-heteroskedasticity-arch-models" id="toc-autoregressive-conditional-heteroskedasticity-arch-models" class="nav-link" data-scroll-target="#autoregressive-conditional-heteroskedasticity-arch-models"><span class="header-section-number">3.9.1</span> Autoregressive Conditional Heteroskedasticity (ARCH) Models</a></li>
+  <li><a href="#generalized-arch-garch-models" id="toc-generalized-arch-garch-models" class="nav-link" data-scroll-target="#generalized-arch-garch-models"><span class="header-section-number">3.9.2</span> Generalized ARCH (GARCH) Models</a></li>
+  <li><a href="#exponential-garch-egarch" id="toc-exponential-garch-egarch" class="nav-link" data-scroll-target="#exponential-garch-egarch"><span class="header-section-number">3.9.3</span> Exponential GARCH (EGARCH)</a></li>
+  <li><a href="#integrated-garch-igarch" id="toc-integrated-garch-igarch" class="nav-link" data-scroll-target="#integrated-garch-igarch"><span class="header-section-number">3.9.4</span> Integrated GARCH (IGARCH)</a></li>
+  <li><a href="#r-code-example-for-garch-model" id="toc-r-code-example-for-garch-model" class="nav-link" data-scroll-target="#r-code-example-for-garch-model"><span class="header-section-number">3.9.5</span> R Code Example for GARCH Model</a></li>
+  <li><a href="#explanation-of-the-r-code-1" id="toc-explanation-of-the-r-code-1" class="nav-link" data-scroll-target="#explanation-of-the-r-code-1"><span class="header-section-number">3.9.6</span> Explanation of the R Code</a></li>
+  </ul></li>
+  <li><a href="#multivariate-time-series-analysis-in-finance" id="toc-multivariate-time-series-analysis-in-finance" class="nav-link" data-scroll-target="#multivariate-time-series-analysis-in-finance"><span class="header-section-number">3.10</span> Multivariate Time Series Analysis in Finance</a>
+  <ul class="collapse">
+  <li><a href="#vector-autoregression-var-models" id="toc-vector-autoregression-var-models" class="nav-link" data-scroll-target="#vector-autoregression-var-models"><span class="header-section-number">3.10.1</span> Vector Autoregression (VAR) Models</a></li>
+  <li><a href="#cointegration-and-error-correction-models-ecm" id="toc-cointegration-and-error-correction-models-ecm" class="nav-link" data-scroll-target="#cointegration-and-error-correction-models-ecm"><span class="header-section-number">3.10.2</span> Cointegration and Error Correction Models (ECM)</a></li>
+  <li><a href="#vector-error-correction-models-vecm" id="toc-vector-error-correction-models-vecm" class="nav-link" data-scroll-target="#vector-error-correction-models-vecm"><span class="header-section-number">3.10.3</span> Vector Error Correction Models (VECM)</a></li>
+  <li><a href="#granger-causality-tests" id="toc-granger-causality-tests" class="nav-link" data-scroll-target="#granger-causality-tests"><span class="header-section-number">3.10.4</span> Granger Causality Tests</a></li>
+  <li><a href="#state-space-models-and-the-kalman-filter" id="toc-state-space-models-and-the-kalman-filter" class="nav-link" data-scroll-target="#state-space-models-and-the-kalman-filter"><span class="header-section-number">3.10.5</span> State-Space Models and the Kalman Filter</a></li>
+  <li><a href="#r-code-example-for-var-model" id="toc-r-code-example-for-var-model" class="nav-link" data-scroll-target="#r-code-example-for-var-model"><span class="header-section-number">3.10.6</span> R Code Example for VAR Model</a></li>
+  <li><a href="#explanation-of-the-r-code-2" id="toc-explanation-of-the-r-code-2" class="nav-link" data-scroll-target="#explanation-of-the-r-code-2"><span class="header-section-number">3.10.7</span> Explanation of the R Code</a></li>
+  </ul></li>
+  <li><a href="#forecasting-financial-time-series" id="toc-forecasting-financial-time-series" class="nav-link" data-scroll-target="#forecasting-financial-time-series"><span class="header-section-number">3.11</span> Forecasting Financial Time Series</a>
+  <ul class="collapse">
+  <li><a href="#forecasting-techniques" id="toc-forecasting-techniques" class="nav-link" data-scroll-target="#forecasting-techniques"><span class="header-section-number">3.11.1</span> Forecasting Techniques</a></li>
+  <li><a href="#model-evaluation-and-selection" id="toc-model-evaluation-and-selection" class="nav-link" data-scroll-target="#model-evaluation-and-selection"><span class="header-section-number">3.11.2</span> Model Evaluation and Selection</a></li>
+  <li><a href="#practical-considerations-in-forecasting" id="toc-practical-considerations-in-forecasting" class="nav-link" data-scroll-target="#practical-considerations-in-forecasting"><span class="header-section-number">3.11.3</span> Practical Considerations in Forecasting</a></li>
+  <li><a href="#r-code-example-for-time-series-forecasting" id="toc-r-code-example-for-time-series-forecasting" class="nav-link" data-scroll-target="#r-code-example-for-time-series-forecasting"><span class="header-section-number">3.11.4</span> R Code Example for Time Series Forecasting</a></li>
+  <li><a href="#explanation-of-the-r-code-3" id="toc-explanation-of-the-r-code-3" class="nav-link" data-scroll-target="#explanation-of-the-r-code-3"><span class="header-section-number">3.11.5</span> Explanation of the R Code</a></li>
+  </ul></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">3.12</span> Further reading</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Barry Quinn </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="definition-and-importance-of-financial-time-series" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="definition-and-importance-of-financial-time-series"><span class="header-section-number">3.1</span> Definition and Importance of Financial Time Series</h2>
+<p>Financial time series data represents a sequence of quantifiable financial events occurring at or over time intervals. This type of data is integral to various aspects of the financial world, ranging from individual stock performance to broader economic indicators. Understanding financial time series is crucial for analysts, investors, economists, and policy makers as it forms the basis for informed decision-making in financial markets.</p>
+<section id="what-is-financial-time-series-data" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="what-is-financial-time-series-data"><span class="header-section-number">3.1.1</span> What is Financial Time Series Data?</h3>
+<p>Financial time series data is typically a sequence of values recorded over regular time intervals. Examples include daily closing prices of stocks, monthly interest rates, or annual GDP figures. Each data point in a time series is time-stamped and is often followed by subsequent data points, forming a continuous stream of data. This time-dependency is a defining feature and differentiates it from other types of statistical data.</p>
+</section>
+<section id="role-in-economic-forecasting" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="role-in-economic-forecasting"><span class="header-section-number">3.1.2</span> Role in Economic Forecasting</h3>
+<p>Time series data is pivotal in economic forecasting. By analyzing historical data, economists and analysts can identify trends, seasonal patterns, and cyclic behaviors, which are instrumental in predicting future economic activities. These predictions guide crucial decisions in portfolio management, risk assessment, and policy formulation.</p>
+</section>
+<section id="application-in-financial-markets" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="application-in-financial-markets"><span class="header-section-number">3.1.3</span> Application in Financial Markets</h3>
+<p>In financial markets, time series analysis is used for stock price prediction, risk evaluation, and identifying trading opportunities. For instance, traders analyze past price movements to forecast future price behavior. Similarly, risk managers use historical data to assess the likelihood of adverse market movements and mitigate potential risks.</p>
+</section>
+<section id="importance-in-investment-strategy" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="importance-in-investment-strategy"><span class="header-section-number">3.1.4</span> Importance in Investment Strategy</h3>
+<p>Investment strategies often rely heavily on time series analysis. Investors use these data to track market performance, analyze trends, and make decisions about when to buy or sell assets. In-depth analysis of financial time series helps in constructing diversified investment portfolios that align with risk tolerance and investment goals.</p>
+<p>In conclusion, financial time series data is fundamental to understanding and navigating the financial world. Its analysis provides insights that are essential for effective decision-making in various sectors of finance.</p>
+</section>
+</section>
+<section id="characteristics-of-financial-time-series-data" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="characteristics-of-financial-time-series-data"><span class="header-section-number">3.2</span> Characteristics of Financial Time Series Data</h2>
+<p>Financial time series data exhibits unique characteristics that set it apart from other types of data. Understanding these characteristics is crucial for anyone looking to analyze or model financial markets. These features not only define the behavior of financial data but also guide the selection of appropriate analytical methods.</p>
+<section id="volatility-clustering" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="volatility-clustering"><span class="header-section-number">3.2.1</span> Volatility Clustering</h3>
+<p>One of the most notable features of financial time series data is volatility clustering. This phenomenon refers to the tendency for periods of high volatility to be followed by more high volatility periods, and low volatility periods to be followed by more low volatility periods. This characteristic is particularly evident in stock market data, where large changes in prices are often followed by similar-sized changes.</p>
+</section>
+<section id="leverage-effects" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="leverage-effects"><span class="header-section-number">3.2.2</span> Leverage Effects</h3>
+<p>Leverage effects are observed when negative asset returns are associated with an increase in volatility, more than positive returns of the same magnitude. This asymmetric volatility is crucial in risk management and derivative pricing. It challenges the assumption of constant volatility in traditional financial models.</p>
+</section>
+<section id="heavy-tails-and-kurtosis" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="heavy-tails-and-kurtosis"><span class="header-section-number">3.2.3</span> Heavy Tails and Kurtosis</h3>
+<p>Financial time series often exhibit heavy tails and excess kurtosis compared to a normal distribution. This means there is a higher likelihood of observing extreme values. Understanding this aspect is important for risk management, as it impacts the prediction of rare, extreme events, such as financial crises or market crashes.</p>
+</section>
+<section id="mean-reversion" class="level3" data-number="3.2.4">
+<h3 data-number="3.2.4" class="anchored" data-anchor-id="mean-reversion"><span class="header-section-number">3.2.4</span> Mean Reversion</h3>
+<p>Mean reversion is the tendency of a financial variable to return to its historical mean over time. This characteristic is often used in various trading strategies, where it’s assumed that prices or returns will eventually move back towards the mean or average level.</p>
+</section>
+<section id="non-stationarity" class="level3" data-number="3.2.5">
+<h3 data-number="3.2.5" class="anchored" data-anchor-id="non-stationarity"><span class="header-section-number">3.2.5</span> Non-Stationarity</h3>
+<p>Financial time series data is typically non-stationary, meaning its statistical properties change over time. This non-stationarity can be in the form of a changing mean or variance. It poses a significant challenge for traditional time series analysis, as most statistical methods assume stationarity.</p>
+<p>In summary, the distinct characteristics of financial time series data, including volatility clustering, leverage effects, heavy tails, mean reversion, and non-stationarity, require specialized analytical techniques. Recognizing and understanding these features is essential for effective modeling and forecasting in finance.</p>
+</section>
+</section>
+<section id="types-of-financial-data" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="types-of-financial-data"><span class="header-section-number">3.3</span> Types of Financial Data</h2>
+<p>Financial data comes in various forms, each serving different purposes and offering unique insights into financial markets. Understanding the different types of financial data is crucial for effective analysis and interpretation. This section highlights the primary types of financial data encountered in time series analysis.</p>
+<section id="stocks" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="stocks"><span class="header-section-number">3.3.1</span> Stocks</h3>
+<ul>
+<li><strong>Definition</strong>: Stock data represents the ownership shares of companies and is one of the most commonly analyzed forms of financial data.</li>
+<li><strong>Characteristics</strong>: Includes price data (open, high, low, close), volume, and dividends.</li>
+<li><strong>Usage</strong>: Used for analyzing company performance, market trends, and for developing trading strategies.</li>
+</ul>
+</section>
+<section id="bonds" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="bonds"><span class="header-section-number">3.3.2</span> Bonds</h3>
+<ul>
+<li><strong>Definition</strong>: Bond data relates to fixed-income securities, representing debt obligations by entities such as governments or corporations.</li>
+<li><strong>Characteristics</strong>: Includes yield, maturity, coupon rate, and credit ratings.</li>
+<li><strong>Usage</strong>: Important for assessing risk and return in fixed-income investments and understanding economic conditions.</li>
+</ul>
+</section>
+<section id="derivatives" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="derivatives"><span class="header-section-number">3.3.3</span> Derivatives</h3>
+<ul>
+<li><strong>Definition</strong>: Derivatives are financial instruments whose value is derived from underlying assets like stocks, bonds, commodities, or indices.</li>
+<li><strong>Characteristics</strong>: Includes options (calls and puts), futures, and swaps.</li>
+<li><strong>Usage</strong>: Used for hedging risk, speculating, and arbitrage opportunities.</li>
+</ul>
+</section>
+<section id="forex-foreign-exchange" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="forex-foreign-exchange"><span class="header-section-number">3.3.4</span> Forex (Foreign Exchange)</h3>
+<ul>
+<li><strong>Definition</strong>: Forex data involves currency exchange rates.</li>
+<li><strong>Characteristics</strong>: Highly liquid, influenced by global economic factors, and trades 24 hours a day.</li>
+<li><strong>Usage</strong>: Critical for international financial operations, currency risk management, and global investment strategies.</li>
+</ul>
+</section>
+<section id="commodities" class="level3" data-number="3.3.5">
+<h3 data-number="3.3.5" class="anchored" data-anchor-id="commodities"><span class="header-section-number">3.3.5</span> Commodities</h3>
+<ul>
+<li><strong>Definition</strong>: Commodity data includes information on raw materials and agricultural products.</li>
+<li><strong>Characteristics</strong>: Includes prices of oil, gold, agricultural products, etc. Subject to supply and demand dynamics.</li>
+<li><strong>Usage</strong>: Important for understanding economic cycles, inflation, and for diversification in investment portfolios.</li>
+</ul>
+</section>
+<section id="data-frequency" class="level3" data-number="3.3.6">
+<h3 data-number="3.3.6" class="anchored" data-anchor-id="data-frequency"><span class="header-section-number">3.3.6</span> Data Frequency</h3>
+<ul>
+<li><strong>Explanation</strong>: Financial data can be categorized based on the frequency of observation: high-frequency (intraday), daily, weekly, monthly, or quarterly.</li>
+<li><strong>Relevance</strong>: The choice of frequency has implications for the type of analysis conducted and the models used.</li>
+</ul>
+<p>In this course, we will explore these various types of financial data, understanding their unique characteristics and how they can be analyzed effectively using time series econometric techniques.</p>
+</section>
+</section>
+<section id="time-series-components" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="time-series-components"><span class="header-section-number">3.4</span> Time Series Components</h2>
+<p>Understanding the components of a time series is crucial in financial data analysis. A time series can be decomposed into several systematic and unsystematic components, each representing different aspects of the data’s behavior over time. This section outlines these components and their relevance in financial time series.</p>
+<section id="trend" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="trend"><span class="header-section-number">3.4.1</span> Trend</h3>
+<ul>
+<li><strong>Definition</strong>: The trend component of a time series represents the long-term progression of the series. In financial data, this could be a gradual increase in a stock’s average price due to the company’s growth.</li>
+<li><strong>Identification</strong>: Identified using methods like moving averages or smoothing techniques.</li>
+<li><strong>Significance</strong>: Trends are important for identifying long-term investment opportunities or market directions.</li>
+</ul>
+</section>
+<section id="seasonality" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="seasonality"><span class="header-section-number">3.4.2</span> Seasonality</h3>
+<ul>
+<li><strong>Definition</strong>: Seasonality refers to the regular and predictable patterns that repeat over a known period, such as quarterly earnings reports or holiday shopping seasons affecting stock prices.</li>
+<li><strong>Identification</strong>: Seasonal patterns can be detected using methods like seasonal decomposition or Fourier analysis.</li>
+<li><strong>Significance</strong>: Recognizing seasonal patterns helps in making short-term predictions and adjusting trading strategies accordingly.</li>
+</ul>
+</section>
+<section id="cyclicality" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="cyclicality"><span class="header-section-number">3.4.3</span> Cyclicality</h3>
+<ul>
+<li><strong>Definition</strong>: Cyclical components are fluctuations occurring at irregular intervals, influenced by economic cycles or business conditions.</li>
+<li><strong>Identification</strong>: Cyclical changes are often identified through spectral analysis or business cycle analysis.</li>
+<li><strong>Significance</strong>: Understanding cyclicality aids in preparing for potential market changes during different economic phases.</li>
+</ul>
+</section>
+<section id="irregular-random-component" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="irregular-random-component"><span class="header-section-number">3.4.4</span> Irregular (Random) Component</h3>
+<ul>
+<li><strong>Definition</strong>: This component consists of random, unpredictable variations in the time series. In finance, these could be unexpected market events or anomalies.</li>
+<li><strong>Identification</strong>: The irregular component is what remains after the trend, seasonal, and cyclical components have been accounted for.</li>
+<li><strong>Significance</strong>: The irregular component is crucial for risk management and developing strategies to mitigate unexpected market movements.</li>
+</ul>
+</section>
+<section id="combining-components-in-financial-analysis" class="level3" data-number="3.4.5">
+<h3 data-number="3.4.5" class="anchored" data-anchor-id="combining-components-in-financial-analysis"><span class="header-section-number">3.4.5</span> Combining Components in Financial Analysis</h3>
+<ul>
+<li><strong>Approach</strong>: In practice, these components are often modeled together to provide a comprehensive analysis of financial time series data.</li>
+<li><strong>Application</strong>: For instance, a stock’s price movement could be analyzed in terms of its long-term trend (growth), seasonal patterns (quarterly earnings impact), and cyclical influences (economic cycles), along with random shocks (news events).</li>
+</ul>
+<p>Understanding these components is the first step in any time series analysis, forming the basis for more complex models and forecasts in financial data analysis.</p>
+</section>
+</section>
+<section id="simulation-excercise" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="simulation-excercise"><span class="header-section-number">3.5</span> Simulation excercise</h2>
+</section>
+<section id="time-series-components-1" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="time-series-components-1"><span class="header-section-number">3.6</span> Time Series Components</h2>
+<p>Understanding the components of a time series is crucial in financial data analysis. A time series can be decomposed into several systematic and unsystematic components, each representing different aspects of the data’s behavior over time. This section outlines these components and their relevance in financial time series, accompanied by a simulated R example.</p>
+<section id="r-code-for-simulating-time-series-data" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="r-code-for-simulating-time-series-data"><span class="header-section-number">3.6.1</span> R Code for Simulating Time Series Data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load necessary packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("ggplot2")</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Time variable</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>time <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">120</span>  <span class="co"># Representing 120 months (10 years)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate Trend component</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>trend <span class="ot">&lt;-</span> <span class="fl">0.05</span> <span class="sc">*</span> time</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate Seasonal component</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>seasonality <span class="ot">&lt;-</span> <span class="fu">sin</span>(pi <span class="sc">*</span> time <span class="sc">/</span> <span class="dv">6</span>) <span class="sc">+</span> <span class="fu">cos</span>(pi <span class="sc">*</span> time <span class="sc">/</span> <span class="dv">12</span>)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate Cyclical component</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>cycle <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">sin</span>(pi <span class="sc">*</span> time <span class="sc">/</span> <span class="dv">18</span>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate Irregular component</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># For reproducibility</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>irregular <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">120</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="fl">0.5</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine all components</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>simulated_ts <span class="ot">&lt;-</span> trend <span class="sc">+</span> seasonality <span class="sc">+</span> cycle <span class="sc">+</span> irregular</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dataframe for plotting</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">time =</span> time, <span class="at">series =</span> simulated_ts)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> time, <span class="at">y =</span> series)) <span class="sc">+</span> </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Simulated Time Series with Trend, Seasonality, Cyclical, and Irregular Components"</span>) <span class="sc">+</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Time (Months)"</span>) <span class="sc">+</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="time_series_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="explanation-of-simulated-components" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="explanation-of-simulated-components"><span class="header-section-number">3.6.2</span> Explanation of Simulated Components</h3>
+<ol type="1">
+<li><strong>Trend</strong>: Represented by a linearly increasing function over time.</li>
+<li><strong>Seasonality</strong>: Simulated using sine and cosine functions to create regular, predictable patterns.</li>
+<li><strong>Cyclicality</strong>: Represented by a longer period sine function, indicating less frequent fluctuations.</li>
+<li><strong>Irregular Component</strong>: Random noise added to the series, simulating unexpected variations.</li>
+</ol>
+<p>The resulting plot from this R code will show how these components interact to form a complex time series. This simulation helps in visualizing and understanding the distinct parts that make up financial time series data.</p>
+<blockquote class="blockquote">
+<p>Your turn</p>
+</blockquote>
+<p>Can you plot the components seperately?</p>
+</section>
+</section>
+<section id="stationarity-and-unit-roots-in-financial-time-series" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="stationarity-and-unit-roots-in-financial-time-series"><span class="header-section-number">3.7</span> Stationarity and Unit Roots in Financial Time Series</h2>
+<p>In financial time series analysis, understanding the concepts of stationarity and unit roots is fundamental. These concepts are critical in selecting appropriate models for analysis and ensuring the reliability of statistical inferences.</p>
+<section id="stationarity" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="stationarity"><span class="header-section-number">3.7.1</span> Stationarity</h3>
+<ul>
+<li><strong>Definition</strong>: A time series is said to be stationary if its statistical properties such as mean, variance, and autocorrelation are constant over time. In finance, this implies that the time series does not evolve in a predictable manner over time.</li>
+<li><strong>Importance</strong>: Stationarity is a key assumption in many time series models. Non-stationary data can lead to spurious results in statistical tests and forecasts.</li>
+<li><strong>Testing for Stationarity</strong>: Common tests include the Augmented Dickey-Fuller (ADF) test and the Kwiatkowski-Phillips-Schmidt-Shin (KPSS) test.</li>
+</ul>
+</section>
+<section id="unit-roots" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="unit-roots"><span class="header-section-number">3.7.2</span> Unit Roots</h3>
+<ul>
+<li><strong>Definition</strong>: A unit root is a characteristic of a time series that makes it non-stationary. Presence of a unit root indicates that the time series is subject to random walks or drifts.</li>
+<li><strong>Detection</strong>: Unit roots can be detected using tests such as the ADF test, where the null hypothesis is that the time series has a unit root.</li>
+<li><strong>Implications</strong>: Time series with unit roots require differencing or other transformations to achieve stationarity before further analysis.</li>
+</ul>
+</section>
+<section id="r-code-example-for-stationarity-testing" class="level3" data-number="3.7.3">
+<h3 data-number="3.7.3" class="anchored" data-anchor-id="r-code-example-for-stationarity-testing"><span class="header-section-number">3.7.3</span> R Code Example for Stationarity Testing</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load necessary packages</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("tseries")</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tseries)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Simulated non-stationary time series</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>non_stationary_ts <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Augmented Dickey-Fuller Test</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">adf.test</span>(non_stationary_ts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Augmented Dickey-Fuller Test
+
+data:  non_stationary_ts
+Dickey-Fuller = -1.8871, Lag order = 4, p-value = 0.6234
+alternative hypothesis: stationary</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the time series</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(non_stationary_ts, <span class="at">main =</span> <span class="st">"Simulated Non-Stationary Time Series"</span>, <span class="at">ylab =</span> <span class="st">"Value"</span>, <span class="at">xlab =</span> <span class="st">"Time"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="time_series_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Certainly! The next section in your course outline could focus on “Linear Time Series Models,” a critical area in financial time series analysis. This section will be more extensive, covering several key models and their applications. Here’s the markdown-formatted content for inclusion in your Quarto notebook:</p>
+</section>
+</section>
+<section id="linear-time-series-models" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="linear-time-series-models"><span class="header-section-number">3.8</span> Linear Time Series Models</h2>
+<p>Linear time series models are foundational in financial data analysis. They provide a basis for understanding and forecasting financial time series data. This section covers several essential linear models, their characteristics, and their applications in finance.</p>
+<section id="autoregressive-ar-models" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="autoregressive-ar-models"><span class="header-section-number">3.8.1</span> Autoregressive (AR) Models</h3>
+<ul>
+<li><strong>Definition</strong>: An AR model is a linear model where the current value of the series is based on its previous values. The AR model of order ( p ) (AR(p)) is defined as ( X_t = c + X<em>{t-1} + X</em>{t-2} + … + p X*{t-p} + _t ), where ( _t ) is white noise.</li>
+<li><strong>Application</strong>: Useful in modeling and forecasting stock prices or economic indicators where the future value is a linear combination of past values.</li>
+</ul>
+</section>
+<section id="moving-average-ma-models" class="level3" data-number="3.8.2">
+<h3 data-number="3.8.2" class="anchored" data-anchor-id="moving-average-ma-models"><span class="header-section-number">3.8.2</span> Moving Average (MA) Models</h3>
+<ul>
+<li><strong>Definition</strong>: The MA model is another linear time series model where the current value of the series is a linear function of past error terms. The MA model of order ( q ) (MA(q)) is given by ( X_t = + _t + * + * + … + q* ).</li>
+<li><strong>Application</strong>: MA models are used in scenarios where the series is thought to be influenced by shock events, such as sudden financial market movements.</li>
+</ul>
+</section>
+<section id="autoregressive-moving-average-arma-models" class="level3" data-number="3.8.3">
+<h3 data-number="3.8.3" class="anchored" data-anchor-id="autoregressive-moving-average-arma-models"><span class="header-section-number">3.8.3</span> Autoregressive Moving Average (ARMA) Models</h3>
+<ul>
+<li><strong>Definition</strong>: ARMA models combine the AR and MA models and are defined as ARMA(p, q). This model incorporates both past values and past error terms.</li>
+<li><strong>Application</strong>: ARMA models are well-suited for short-term forecasting in stable financial markets without long-term trends or seasonality.</li>
+</ul>
+</section>
+<section id="autoregressive-integrated-moving-average-arima-models" class="level3" data-number="3.8.4">
+<h3 data-number="3.8.4" class="anchored" data-anchor-id="autoregressive-integrated-moving-average-arima-models"><span class="header-section-number">3.8.4</span> Autoregressive Integrated Moving Average (ARIMA) Models</h3>
+<ul>
+<li><strong>Definition</strong>: The ARIMA model extends the ARMA model by including differencing to make the time series stationary. An ARIMA model is denoted as ARIMA(p, d, q), where ( d ) is the degree of differencing.</li>
+<li><strong>Application</strong>: Widely used for forecasting stock prices, economic indicators, and other financial time series data that exhibit non-stationarity.</li>
+</ul>
+</section>
+<section id="seasonal-arima-sarima-models" class="level3" data-number="3.8.5">
+<h3 data-number="3.8.5" class="anchored" data-anchor-id="seasonal-arima-sarima-models"><span class="header-section-number">3.8.5</span> Seasonal ARIMA (SARIMA) Models</h3>
+<ul>
+<li><strong>Definition</strong>: SARIMA models extend ARIMA by accounting for seasonality. A SARIMA model is denoted as SARIMA(p, d, q)(P, D, Q)s, where ( P, D, Q ) represent the seasonal components of the model and ( s ) is the length of the season.</li>
+<li><strong>Application</strong>: Useful for modeling and forecasting seasonal financial data like quarterly sales or seasonal commodity prices.</li>
+</ul>
+</section>
+<section id="r-code-example-for-arima-model" class="level3" data-number="3.8.6">
+<h3 data-number="3.8.6" class="anchored" data-anchor-id="r-code-example-for-arima-model"><span class="header-section-number">3.8.6</span> R Code Example for ARIMA Model</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Simulate an ARIMA process</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>simulated_arima <span class="ot">&lt;-</span> <span class="fu">arima.sim</span>(<span class="at">model =</span> <span class="fu">list</span>(<span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="at">ar =</span> <span class="fl">0.5</span>, <span class="at">ma =</span> <span class="fl">0.5</span>), <span class="at">n =</span> <span class="dv">100</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit an ARIMA model</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>fit_arima <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(simulated_arima)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecasting</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>forecast_arima <span class="ot">&lt;-</span> <span class="fu">forecast</span>(fit_arima, <span class="at">h =</span> <span class="dv">10</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the forecast</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forecast_arima)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="time_series_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="explanation-of-the-r-code" class="level3" data-number="3.8.7">
+<h3 data-number="3.8.7" class="anchored" data-anchor-id="explanation-of-the-r-code"><span class="header-section-number">3.8.7</span> Explanation of the R Code</h3>
+<ul>
+<li>The <code>forecast</code> package is used for fitting and forecasting ARIMA models.</li>
+<li><code>arima.sim</code> function simulates a time series data following an ARIMA process.</li>
+<li><code>auto.arima</code> automatically selects the best ARIMA model for the given time series.</li>
+<li>The forecast is then plotted to visualize the future values as predicted by the model.</li>
+</ul>
+<p>Understanding and applying these linear time series models are pivotal in financial time series analysis, as they provide essential tools for forecasting and analyzing financial market data.</p>
+<p>Continuing with the detailed sections for your course, the next important topic in financial time series analysis is “Volatility Models.” Here’s an extensive markdown-formatted content on this topic for your Quarto notebook:</p>
+</section>
+</section>
+<section id="volatility-models-in-financial-time-series" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="volatility-models-in-financial-time-series"><span class="header-section-number">3.9</span> Volatility Models in Financial Time Series</h2>
+<p>Volatility models are crucial in financial time series analysis, particularly in understanding and forecasting the variability of asset prices and returns. This section delves into key volatility models and their applications in finance.</p>
+<section id="autoregressive-conditional-heteroskedasticity-arch-models" class="level3" data-number="3.9.1">
+<h3 data-number="3.9.1" class="anchored" data-anchor-id="autoregressive-conditional-heteroskedasticity-arch-models"><span class="header-section-number">3.9.1</span> Autoregressive Conditional Heteroskedasticity (ARCH) Models</h3>
+<ul>
+<li><strong>Definition</strong>: ARCH models, introduced by Engle (1982), are used to model and forecast time-varying volatility. The basic idea is that the current period’s volatility is a function of the previous period’s squared residuals. The ARCH model of order ( q ) is given by ( _t^2 = _0 + * ^2 + … + q* ^2 ).</li>
+<li><strong>Application</strong>: ARCH models are widely used in the analysis of financial market volatility, particularly for assets like stocks and foreign exchange.</li>
+</ul>
+</section>
+<section id="generalized-arch-garch-models" class="level3" data-number="3.9.2">
+<h3 data-number="3.9.2" class="anchored" data-anchor-id="generalized-arch-garch-models"><span class="header-section-number">3.9.2</span> Generalized ARCH (GARCH) Models</h3>
+<ul>
+<li><strong>Definition</strong>: The GARCH model, an extension of the ARCH model introduced by Bollerslev (1986), incorporates both ARCH and moving average components. A GARCH model of order (p, q) is defined as ( t^2 =* +* ^{p} i* ^2 + ^{q} j* ^2 ).</li>
+<li><strong>Application</strong>: GARCH models are fundamental in financial econometrics for modeling and forecasting the volatility of returns for various financial instruments.</li>
+</ul>
+</section>
+<section id="exponential-garch-egarch" class="level3" data-number="3.9.3">
+<h3 data-number="3.9.3" class="anchored" data-anchor-id="exponential-garch-egarch"><span class="header-section-number">3.9.3</span> Exponential GARCH (EGARCH)</h3>
+<ul>
+<li><strong>Definition</strong>: The EGARCH model, introduced by Nelson (1991), is a variant of the GARCH model that allows for asymmetric responses of volatility to positive and negative shocks. It is expressed in terms of the logarithm of the variance, allowing for negative coefficients and ensuring that the conditional variance is always positive.</li>
+<li><strong>Application</strong>: EGARCH is particularly useful for financial data exhibiting leverage effects, where negative and positive shocks have different impacts on volatility.</li>
+</ul>
+</section>
+<section id="integrated-garch-igarch" class="level3" data-number="3.9.4">
+<h3 data-number="3.9.4" class="anchored" data-anchor-id="integrated-garch-igarch"><span class="header-section-number">3.9.4</span> Integrated GARCH (IGARCH)</h3>
+<ul>
+<li><strong>Definition</strong>: IGARCH models, a special case of GARCH, assume that the effects of past variances are persistent over time. This model is often used when the sum of the GARCH and ARCH coefficients is close to one, indicating a high level of persistence in volatility.</li>
+<li><strong>Application</strong>: Commonly applied in long-term financial risk modeling and for assets exhibiting persistent volatility over time.</li>
+</ul>
+</section>
+<section id="r-code-example-for-garch-model" class="level3" data-number="3.9.5">
+<h3 data-number="3.9.5" class="anchored" data-anchor-id="r-code-example-for-garch-model"><span class="header-section-number">3.9.5</span> R Code Example for GARCH Model</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load necessary packages</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rugarch)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: parallel</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'rugarch'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:stats':
+
+    sigma</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use European DAX index data </span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"EuStockMarkets"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>spec <span class="ot">&lt;-</span> <span class="fu">ugarchspec</span>(</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">variance.model =</span> <span class="fu">list</span>(<span class="at">model =</span> <span class="st">"sGARCH"</span>, <span class="at">garchOrder =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean.model =</span> <span class="fu">list</span>(<span class="at">armaOrder =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">include.mean =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">distribution.model =</span> <span class="st">"norm"</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">ugarchfit</span>(<span class="at">spec =</span> spec, <span class="at">data =</span> EuStockMarkets[, <span class="st">"DAX"</span>])</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary of the fitted model</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Length     Class      Mode 
+        1 uGARCHfit        S4 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecasting volatility</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>forecast_garch <span class="ot">&lt;-</span> <span class="fu">ugarchforecast</span>(fit, <span class="at">n.ahead =</span> <span class="dv">10</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forecast_garch,<span class="at">which=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="time_series_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="explanation-of-the-r-code-1" class="level3" data-number="3.9.6">
+<h3 data-number="3.9.6" class="anchored" data-anchor-id="explanation-of-the-r-code-1"><span class="header-section-number">3.9.6</span> Explanation of the R Code</h3>
+<ul>
+<li>The <code>rugarch</code> package is used for modeling and forecasting using various GARCH models.</li>
+<li><code>ugarchsim</code> simulates a time series following a GARCH process.</li>
+<li><code>ugarchfit</code> fits a GARCH model to the simulated data, and the model’s summary provides insights into the volatility dynamics.</li>
+<li><code>ugarchforecast</code> is used for forecasting future volatility, and the plot visualizes the forecasted volatility.</li>
+</ul>
+<p>Volatility models like ARCH, GARCH, EGARCH, and IGARCH play a pivotal role in financial econometrics, enabling analysts to understand and predict the complex nature of financial market volatility.</p>
+<p>This section provides an in-depth overview of various volatility models, their theoretical foundations, and practical applications, along with an R example for GARCH modeling.</p>
+<p>Continuing with the course material, the next significant topic is “Multivariate Time Series Analysis.” This section is particularly important in finance for understanding the relationships between multiple financial variables. Here’s an extended markdown-formatted content for this topic:</p>
+</section>
+</section>
+<section id="multivariate-time-series-analysis-in-finance" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="multivariate-time-series-analysis-in-finance"><span class="header-section-number">3.10</span> Multivariate Time Series Analysis in Finance</h2>
+<p>Multivariate time series analysis involves the study of simultaneous time series. It’s crucial for understanding the dynamic relationships between multiple financial variables and is widely used in risk management, asset pricing, and macroeconomic forecasting.</p>
+<section id="vector-autoregression-var-models" class="level3" data-number="3.10.1">
+<h3 data-number="3.10.1" class="anchored" data-anchor-id="vector-autoregression-var-models"><span class="header-section-number">3.10.1</span> Vector Autoregression (VAR) Models</h3>
+<ul>
+<li><strong>Definition</strong>: VAR models are an extension of univariate autoregression (AR) models to multivariate time series data. A VAR model captures the linear interdependencies among multiple time series. For a VAR model of order ( p ), the value of each variable at time ( t ) is a linear function of its own previous values and the past values of all other variables in the system.</li>
+<li><strong>Application</strong>: Commonly used in analyzing and forecasting economic indicators and understanding the impact of shocks in one variable on others.</li>
+</ul>
+</section>
+<section id="cointegration-and-error-correction-models-ecm" class="level3" data-number="3.10.2">
+<h3 data-number="3.10.2" class="anchored" data-anchor-id="cointegration-and-error-correction-models-ecm"><span class="header-section-number">3.10.2</span> Cointegration and Error Correction Models (ECM)</h3>
+<ul>
+<li><strong>Definition</strong>: When non-stationary time series variables are combined in a way that results in a stationary series, they are said to be cointegrated. Error Correction Models (ECM) are used to model the short-term adjustments that return the cointegrated series to long-term equilibrium after a shock.</li>
+<li><strong>Application</strong>: ECMs are essential in financial econometrics for modeling and forecasting relationships between long-term economic variables, such as interest rates and economic growth.</li>
+</ul>
+</section>
+<section id="vector-error-correction-models-vecm" class="level3" data-number="3.10.3">
+<h3 data-number="3.10.3" class="anchored" data-anchor-id="vector-error-correction-models-vecm"><span class="header-section-number">3.10.3</span> Vector Error Correction Models (VECM)</h3>
+<ul>
+<li><strong>Definition</strong>: VECM is a special form of a VAR model that is used for cointegrated time series. It combines the concepts of differencing for stationarity with error correction to model the long-term relationship.</li>
+<li><strong>Application</strong>: VECMs are particularly useful in modeling and forecasting financial time series that are cointegrated, like pairs trading in finance.</li>
+</ul>
+</section>
+<section id="granger-causality-tests" class="level3" data-number="3.10.4">
+<h3 data-number="3.10.4" class="anchored" data-anchor-id="granger-causality-tests"><span class="header-section-number">3.10.4</span> Granger Causality Tests</h3>
+<ul>
+<li><strong>Definition</strong>: Granger causality tests are used to determine if one time series can be used to forecast another. Note that ‘causality’ in this context does not imply a true causal relationship, but rather a predictive capability.</li>
+<li><strong>Application</strong>: Widely used to test for lead-lag relationships between financial variables, such as stock prices and economic indicators.</li>
+</ul>
+</section>
+<section id="state-space-models-and-the-kalman-filter" class="level3" data-number="3.10.5">
+<h3 data-number="3.10.5" class="anchored" data-anchor-id="state-space-models-and-the-kalman-filter"><span class="header-section-number">3.10.5</span> State-Space Models and the Kalman Filter</h3>
+<ul>
+<li><strong>Definition</strong>: State-space models are a class of models that use observed and unobserved variables to model time series data. The Kalman filter is an algorithm used in state-space models for estimating the hidden states in the model.</li>
+<li><strong>Application</strong>: Useful in high-frequency trading and for modeling time-varying relationships in finance, such as dynamic risk factors in asset pricing.</li>
+</ul>
+</section>
+<section id="r-code-example-for-var-model" class="level3" data-number="3.10.6">
+<h3 data-number="3.10.6" class="anchored" data-anchor-id="r-code-example-for-var-model"><span class="header-section-number">3.10.6</span> R Code Example for VAR Model</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load necessary packages</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("vars")</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: MASS</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: strucchange</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: zoo</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'zoo'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    as.Date, as.Date.numeric</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: sandwich</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: urca</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: lmtest</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Simulate two related time series</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>ts1 <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>ts2 <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">*</span> ts1 <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine into a multivariate time series</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>mts <span class="ot">&lt;-</span> <span class="fu">cbind</span>(ts1, ts2)</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a VAR model</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>fit_var <span class="ot">&lt;-</span> <span class="fu">VAR</span>(mts, <span class="at">p =</span> <span class="dv">2</span>)</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary of the fitted VAR model</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+VAR Estimation Results:
+========================= 
+Endogenous variables: ts1, ts2 
+Deterministic variables: const 
+Sample size: 98 
+Log Likelihood: -263.353 
+Roots of the characteristic polynomial:
+0.9462 0.3214 0.3214 0.05576
+Call:
+VAR(y = mts, p = 2)
+
+
+Estimation results for equation ts1: 
+==================================== 
+ts1 = ts1.l1 + ts2.l1 + ts1.l2 + ts2.l2 + const 
+
+       Estimate Std. Error t value Pr(&gt;|t|)    
+ts1.l1  0.94911    0.11146   8.516 2.81e-13 ***
+ts2.l1  0.02638    0.09815   0.269   0.7887    
+ts1.l2 -0.06675    0.11925  -0.560   0.5770    
+ts2.l2  0.10921    0.09785   1.116   0.2673    
+const   0.23285    0.13914   1.673   0.0976 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+
+Residual standard error: 0.9254 on 93 degrees of freedom
+Multiple R-Squared: 0.8528, Adjusted R-squared: 0.8465 
+F-statistic: 134.7 on 4 and 93 DF,  p-value: &lt; 2.2e-16 
+
+
+Estimation results for equation ts2: 
+==================================== 
+ts2 = ts1.l1 + ts2.l1 + ts1.l2 + ts2.l2 + const 
+
+       Estimate Std. Error t value Pr(&gt;|t|)    
+ts1.l1  0.55838    0.12818   4.356  3.4e-05 ***
+ts2.l1 -0.12708    0.11288  -1.126    0.263    
+ts1.l2 -0.02279    0.13715  -0.166    0.868    
+ts2.l2 -0.04436    0.11253  -0.394    0.694    
+const   0.04679    0.16002   0.292    0.771    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+
+Residual standard error: 1.064 on 93 degrees of freedom
+Multiple R-Squared: 0.5069, Adjusted R-squared: 0.4857 
+F-statistic: 23.91 on 4 and 93 DF,  p-value: 1.288e-13 
+
+
+
+Covariance matrix of residuals:
+       ts1    ts2
+ts1 0.8564 0.3853
+ts2 0.3853 1.1327
+
+Correlation matrix of residuals:
+       ts1    ts2
+ts1 1.0000 0.3912
+ts2 0.3912 1.0000</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecasting with VAR</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>forecast_var <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_var, <span class="at">n.ahead =</span> <span class="dv">10</span>)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forecast_var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="time_series_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="explanation-of-the-r-code-2" class="level3" data-number="3.10.7">
+<h3 data-number="3.10.7" class="anchored" data-anchor-id="explanation-of-the-r-code-2"><span class="header-section-number">3.10.7</span> Explanation of the R Code</h3>
+<ul>
+<li>The <code>vars</code> package provides functions for VAR model estimation and diagnostics.</li>
+<li>Two simulated time series (<code>ts1</code> and <code>ts2</code>) are generated and combined.</li>
+<li><code>VAR</code> function fits a VAR model to the multivariate time series.</li>
+<li>The summary of the model provides insights into the relationships between the variables.</li>
+<li>The forecast from the VAR model is plotted to visualize future values.</li>
+</ul>
+<p>Multivariate time series models like VAR, VECM, and state-space models offer powerful tools for analyzing complex relationships in financial data and are essential for advanced financial analytics.</p>
+<p>Continuing the course content, the next crucial topic is “Forecasting Financial Time Series.” This section is fundamental for students to learn how to predict future financial trends based on historical data. Here’s a comprehensive markdown-formatted content for this topic:</p>
+</section>
+</section>
+<section id="forecasting-financial-time-series" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="forecasting-financial-time-series"><span class="header-section-number">3.11</span> Forecasting Financial Time Series</h2>
+<p>Forecasting is a key aspect of financial time series analysis, enabling analysts and investors to make informed decisions based on predictions of future market trends and behaviors. This section covers key forecasting techniques and their application in financial data.</p>
+<section id="forecasting-techniques" class="level3" data-number="3.11.1">
+<h3 data-number="3.11.1" class="anchored" data-anchor-id="forecasting-techniques"><span class="header-section-number">3.11.1</span> Forecasting Techniques</h3>
+<ul>
+<li><strong>Overview</strong>: Forecasting in financial time series involves using historical data to predict future values. Techniques range from simple moving averages to complex machine learning algorithms.</li>
+<li><strong>Time Series Decomposition</strong>: Involves separating a time series into trend, seasonality, and residual components, and forecasting each component separately.</li>
+<li><strong>Exponential Smoothing</strong>: A family of forecasting methods that apply weighted averages of past observations, where the weights decrease exponentially over time.</li>
+<li><strong>ARIMA/SARIMA Models</strong>: These models are among the most commonly used forecasting methods in finance, especially for time series that exhibit non-stationarity or seasonality.</li>
+</ul>
+</section>
+<section id="model-evaluation-and-selection" class="level3" data-number="3.11.2">
+<h3 data-number="3.11.2" class="anchored" data-anchor-id="model-evaluation-and-selection"><span class="header-section-number">3.11.2</span> Model Evaluation and Selection</h3>
+<ul>
+<li><strong>Importance</strong>: Accurate model selection is crucial for reliable forecasts. It involves comparing different models based on their performance metrics.</li>
+<li><strong>Performance Metrics</strong>: Common metrics include Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and Akaike Information Criterion (AIC).</li>
+<li><strong>Cross-Validation</strong>: Time series cross-validation is used to assess the predictive performance of a model on a validation set.</li>
+</ul>
+</section>
+<section id="practical-considerations-in-forecasting" class="level3" data-number="3.11.3">
+<h3 data-number="3.11.3" class="anchored" data-anchor-id="practical-considerations-in-forecasting"><span class="header-section-number">3.11.3</span> Practical Considerations in Forecasting</h3>
+<ul>
+<li><strong>Data Preprocessing</strong>: Ensuring data quality and relevance, handling missing values, and considering the impact of outliers.</li>
+<li><strong>Economic and Market Conditions</strong>: Awareness of current economic and market trends that could impact the forecast.</li>
+<li><strong>Risk Assessment</strong>: Understanding the uncertainties and risks associated with forecasts.</li>
+</ul>
+</section>
+<section id="r-code-example-for-time-series-forecasting" class="level3" data-number="3.11.4">
+<h3 data-number="3.11.4" class="anchored" data-anchor-id="r-code-example-for-time-series-forecasting"><span class="header-section-number">3.11.4</span> R Code Example for Time Series Forecasting</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load necessary packages</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Simulated time series data</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>ts_data <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">rnorm</span>(<span class="dv">120</span>, <span class="at">mean =</span> <span class="dv">100</span>, <span class="at">sd =</span> <span class="dv">10</span>), <span class="at">frequency =</span> <span class="dv">12</span>)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit an ARIMA model</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>fit_arima <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(ts_data)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecast future values</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>forecast_values <span class="ot">&lt;-</span> <span class="fu">forecast</span>(fit_arima, <span class="at">h =</span> <span class="dv">12</span>)</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the forecast</span></span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forecast_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="time_series_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="explanation-of-the-r-code-3" class="level3" data-number="3.11.5">
+<h3 data-number="3.11.5" class="anchored" data-anchor-id="explanation-of-the-r-code-3"><span class="header-section-number">3.11.5</span> Explanation of the R Code</h3>
+<ul>
+<li>The <code>forecast</code> package in R is a versatile tool for fitting and forecasting time series data.</li>
+<li><code>auto.arima</code> automatically selects the best fitting ARIMA model for the given time series.</li>
+<li>The <code>forecast</code> function is used to predict future values based on the fitted model.</li>
+<li>The resulting plot shows the forecast along with confidence intervals, providing a visual representation of future trends and the uncertainty around these predictions.</li>
+</ul>
+<p>Forecasting financial time series is a blend of art and science, requiring not only technical expertise in statistical methods but also a keen understanding of financial markets and economic conditions.</p>
+</section>
+</section>
+<section id="further-reading" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">3.12</span> Further reading</h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./primer.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Primer</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./bayesian_methods.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">bayesian_methods_in_finance</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

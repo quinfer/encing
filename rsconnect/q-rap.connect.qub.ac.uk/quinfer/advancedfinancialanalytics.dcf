@@ -1,0 +1,12 @@
+name: advancedfinancialanalytics
+title: AdvancedFinancialAnalytics
+username: quinfer
+account: quinfer
+server: q-rap.connect.qub.ac.uk
+hostUrl: https://q-rap.connect.qub.ac.uk/__api__
+appId: 65
+bundleId: 372
+url: https://q-rap.connect.qub.ac.uk/content/abc920f6-2146-468b-83dc-f233a4435a9d/
+version: 1
+asMultiple: FALSE
+asStatic: TRUE

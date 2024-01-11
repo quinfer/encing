@@ -1,0 +1,9 @@
+"0","# Install and load the cluster package"
+"0","#install.packages(""cluster"")"
+"0","library(cluster)"
+"0",""
+"0","# Run k-means clustering with 3 clusters and 25 initialization attempts"
+"0","kmeansRes <- kmeans(returns[, -1], centers = 3, nstart = 25)"
+"2","Warning: NAs introduced by coercion"
+"2","Error in do_one(nmeth) : NA/NaN/Inf in foreign function call (arg 1)
+"

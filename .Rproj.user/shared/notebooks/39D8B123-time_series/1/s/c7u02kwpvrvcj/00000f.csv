@@ -1,0 +1,21 @@
+"0","# Install and load necessary packages"
+"0","library(rugarch)"
+"2","Loading required package: parallel
+"
+"2","
+Attaching package: ‘rugarch’
+
+"
+"2","The following object is masked from ‘package:stats’:
+
+    sigma
+
+"
+"0","# Example: Simulate GARCH(1,1) process"
+"0","set.seed(123)"
+"0","spec <- ugarchspec(variance.model = list(model = ""sGARCH"", garchOrder = c(1, 1)),"
+"0","                   mean.model = list(armaOrder = c(0, 0)))"
+"0","simulated_garch <- ugarchsim(spec, n.sim = 200)"
+"2","Error in UseMethod(""ugarchsim"") : 
+  no applicable method for 'ugarchsim' applied to an object of class ""c('uGARCHspec', 'GARCHspec', 'rGARCH')""
+"

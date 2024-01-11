@@ -1,0 +1,5 @@
+[1,"==> quarto preview tools.qmd --to html --no-watch-inputs --no-browse\n\n"]
+[1,"\u001B[31m\n\nprocessing file: tools.qmd\n\u001B[39m"]
+[1,"\r  |                                                          \r  |                                                    |   0%\r  |                                                          \r  |...                                                 |   6%                  "]
+[1,"\r  |                                                          \r  |......                                              |  12% [unnamed-chunk-1]\u001B[31m\nQuitting from lines 26-37 [unnamed-chunk-1] (tools.qmd)\n\u001B[39m"]
+[1,"\u001B[31mError in `contrib.url()`:\n! trying to use CRAN without setting a mirror\nBacktrace:\n 1. utils::install.packages(\"dplyr\")\n 2. utils::contrib.url(repos, \"source\")\n\u001B[39m\r                                                                                                            \n\u001B[31mExecution halted\n\u001B[39m"]
