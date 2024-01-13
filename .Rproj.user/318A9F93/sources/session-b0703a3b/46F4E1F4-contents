@@ -1,0 +1,37 @@
+project:
+  type: book
+
+book:
+  title: "Advanced Financial Data Analytics"
+  subtitle: "Time series econometrics, Bayesian methods, and machine learning"
+  author: "Barry Quinn"
+  cover-image: "IMG_2706.JPG"
+  date: '`r Sys.Date()`'
+  chapters:
+    - index.qmd
+    - part: "Core Concepts"
+      chapters: 
+        - chapters/primer.qmd
+        - time_series.qmd
+        - bayesian_methods.qmd
+        - ml.qmd
+    - part: "Advanced Material"
+      chapters: 
+        - multilevel.qmd
+        - causal.qmd
+        - colliderbias.qmd
+    - references.qmd
+  appendices: 
+    - tools.qmd
+    - resources.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+
