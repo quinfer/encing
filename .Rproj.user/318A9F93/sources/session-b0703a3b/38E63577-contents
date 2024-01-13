@@ -9,15 +9,17 @@ book:
   date: '`r Sys.Date()`'
   chapters:
     - index.qmd
-    - part: "Core"
+    - part: "Core Concepts"
       chapters: 
         - primer.qmd
         - time_series.qmd
         - bayesian_methods.qmd
         - ml.qmd
-    - part: "Advanced"
+    - part: "Advanced Material"
       chapters: 
         - multilevel.qmd
+        - causal.qmd
+        - colliderbias.qmd
     - references.qmd
   appendices: 
     - tools.qmd

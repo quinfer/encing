@@ -266,11 +266,9 @@ long_data <- wide_data %>%
 
 The Tidyverse offers a coherent, fluent, and expressive syntax for data analysis in R, making it an indispensable part of the financial data scientist's toolkit. Its components work seamlessly together, enabling efficient and elegant data analysis workflows, crucial for insightful financial analysis.
 
+::: footnote
 This section provides an overview of the Tidyverse and its application in financial data science, including key packages and their functionalities. The R code examples illustrate how these packages can be used in practical financial data analysis scenarios. This content can be further elaborated upon or tailored to suit specific use cases or audience needs.
-
-
-Continuing with the detailed markdown content for Section 4, "Git and GitHub for Collaborative Coding," we will explore how these tools are utilized in financial data science for version control and collaboration. This section will be formatted for a Quarto book and include practical examples.
-
+:::
 
 # Git and GitHub for Collaborative Coding
 
@@ -294,7 +292,7 @@ Git is a distributed version control system that helps track changes in source c
 
 Note: These commands are run in a terminal or command line interface, not in the R console.
 
-```{bash}
+```{shell}
 # Navigate to your project directory
 cd path/to/your/project
 
@@ -317,7 +315,7 @@ Versioning is crucial in tracking the evolution of a project and facilitates rev
 
 ### Command line code example: Committing Changes
 
-```{bash}
+```{shell}
 # Stage all changes for commit
 git add .
 
@@ -341,7 +339,7 @@ GitHub provides a platform for hosting repositories and enables collaborative wo
 
 To collaborate on an existing project, you would first clone the repository.
 
-```{bash}
+```
 # Clone a repository
 git clone https://github.com/yourusername/your-repository.git
 ```
