@@ -8,7 +8,7 @@
 
 <meta name="author" content="Barry Quinn">
 
-<title>Advanced Financial Data Analytics - 1&nbsp; Statistics and Probability Primer</title>
+<title>Advanced Financial Data Analytics - 2&nbsp; Statistics and Probability Primer</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -111,7 +111,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./primer.html">Core Concepts</a></li><li class="breadcrumb-item"><a href="./primer.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Statistics and Probability Primer</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./primer.html">Core Concepts</a></li><li class="breadcrumb-item"><a href="./primer.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistics and Probability Primer</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -139,7 +139,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -154,25 +154,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./primer.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Statistics and Probability Primer</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistics and Probability Primer</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./time_series.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bayesian_methods.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ml.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span></a>
   </div>
 </li>
       </ul>
@@ -189,19 +189,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./multilevel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./causal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Causal inference</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Causal inference</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./colliderbias.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Causal Salad, Endogeneity and collider bias</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Causal Salad, Endogeneity and collider bias</span></span></a>
   </div>
 </li>
       </ul>
@@ -245,57 +245,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#statistical-concepts" id="toc-statistical-concepts" class="nav-link active" data-scroll-target="#statistical-concepts"><span class="header-section-number">2</span> Statistical Concepts</a>
+  <li><a href="#statistical-concepts" id="toc-statistical-concepts" class="nav-link active" data-scroll-target="#statistical-concepts"><span class="header-section-number">3</span> Statistical Concepts</a>
   <ul class="collapse">
-  <li><a href="#scalar-quantities" id="toc-scalar-quantities" class="nav-link" data-scroll-target="#scalar-quantities"><span class="header-section-number">2.1</span> Scalar Quantities</a>
+  <li><a href="#scalar-quantities" id="toc-scalar-quantities" class="nav-link" data-scroll-target="#scalar-quantities"><span class="header-section-number">3.1</span> Scalar Quantities</a>
   <ul class="collapse">
-  <li><a href="#example-annualized-return-computation" id="toc-example-annualized-return-computation" class="nav-link" data-scroll-target="#example-annualized-return-computation"><span class="header-section-number">2.1.1</span> Example: Annualized Return Computation</a></li>
+  <li><a href="#example-annualized-return-computation" id="toc-example-annualized-return-computation" class="nav-link" data-scroll-target="#example-annualized-return-computation"><span class="header-section-number">3.1.1</span> Example: Annualized Return Computation</a></li>
   </ul></li>
-  <li><a href="#vectors-and-matrix-algebra-basics" id="toc-vectors-and-matrix-algebra-basics" class="nav-link" data-scroll-target="#vectors-and-matrix-algebra-basics"><span class="header-section-number">2.2</span> Vectors and Matrix Algebra Basics</a>
+  <li><a href="#vectors-and-matrix-algebra-basics" id="toc-vectors-and-matrix-algebra-basics" class="nav-link" data-scroll-target="#vectors-and-matrix-algebra-basics"><span class="header-section-number">3.2</span> Vectors and Matrix Algebra Basics</a>
   <ul class="collapse">
-  <li><a href="#example-monthly-returns-comparison" id="toc-example-monthly-returns-comparison" class="nav-link" data-scroll-target="#example-monthly-returns-comparison"><span class="header-section-number">2.2.1</span> Example: Monthly Returns Comparison</a></li>
+  <li><a href="#example-monthly-returns-comparison" id="toc-example-monthly-returns-comparison" class="nav-link" data-scroll-target="#example-monthly-returns-comparison"><span class="header-section-number">3.2.1</span> Example: Monthly Returns Comparison</a></li>
   </ul></li>
-  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">2.3</span> Functions</a>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">3.3</span> Functions</a>
   <ul class="collapse">
-  <li><a href="#example-compound-interest-function" id="toc-example-compound-interest-function" class="nav-link" data-scroll-target="#example-compound-interest-function"><span class="header-section-number">2.3.1</span> Example: Compound Interest Function</a></li>
+  <li><a href="#example-compound-interest-function" id="toc-example-compound-interest-function" class="nav-link" data-scroll-target="#example-compound-interest-function"><span class="header-section-number">3.3.1</span> Example: Compound Interest Function</a></li>
   </ul></li>
-  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics"><span class="header-section-number">2.4</span> Descriptive Statistics</a>
+  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics"><span class="header-section-number">3.4</span> Descriptive Statistics</a>
   <ul class="collapse">
-  <li><a href="#example-sales-revenue-summary" id="toc-example-sales-revenue-summary" class="nav-link" data-scroll-target="#example-sales-revenue-summary"><span class="header-section-number">2.4.1</span> Example: Sales Revenue Summary</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#probability-theory" id="toc-probability-theory" class="nav-link" data-scroll-target="#probability-theory"><span class="header-section-number">3</span> Probability Theory</a>
-  <ul class="collapse">
-  <li><a href="#basic-principles-and-tools-of-probability-theory" id="toc-basic-principles-and-tools-of-probability-theory" class="nav-link" data-scroll-target="#basic-principles-and-tools-of-probability-theory"><span class="header-section-number">3.1</span> Basic Principles and Tools of Probability Theory</a>
-  <ul class="collapse">
-  <li><a href="#sample-space-and-events" id="toc-sample-space-and-events" class="nav-link" data-scroll-target="#sample-space-and-events"><span class="header-section-number">3.1.1</span> Sample Space and Events</a></li>
-  <li><a href="#union-intersection-and-complement-of-events" id="toc-union-intersection-and-complement-of-events" class="nav-link" data-scroll-target="#union-intersection-and-complement-of-events"><span class="header-section-number">3.1.2</span> Union, Intersection, and Complement of Events</a></li>
-  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability"><span class="header-section-number">3.1.3</span> Conditional Probability</a></li>
-  <li><a href="#multiplicative-property-of-conditional-probability" id="toc-multiplicative-property-of-conditional-probability" class="nav-link" data-scroll-target="#multiplicative-property-of-conditional-probability"><span class="header-section-number">3.1.4</span> Multiplicative Property of Conditional Probability</a></li>
-  <li><a href="#chain-rule-for-conditional-probability" id="toc-chain-rule-for-conditional-probability" class="nav-link" data-scroll-target="#chain-rule-for-conditional-probability"><span class="header-section-number">3.1.5</span> Chain Rule for Conditional Probability</a></li>
-  <li><a href="#bayes-formula" id="toc-bayes-formula" class="nav-link" data-scroll-target="#bayes-formula"><span class="header-section-number">3.1.6</span> Bayes’ Formula</a></li>
-  <li><a href="#independence-of-events" id="toc-independence-of-events" class="nav-link" data-scroll-target="#independence-of-events"><span class="header-section-number">3.1.7</span> Independence of Events</a></li>
-  <li><a href="#partition-of-the-sample-space" id="toc-partition-of-the-sample-space" class="nav-link" data-scroll-target="#partition-of-the-sample-space"><span class="header-section-number">3.1.8</span> Partition of the Sample Space</a></li>
-  <li><a href="#total-probability-theorem" id="toc-total-probability-theorem" class="nav-link" data-scroll-target="#total-probability-theorem"><span class="header-section-number">3.1.9</span> Total Probability Theorem</a></li>
-  <li><a href="#bayes-theorem-extensions" id="toc-bayes-theorem-extensions" class="nav-link" data-scroll-target="#bayes-theorem-extensions"><span class="header-section-number">3.1.10</span> Bayes’ Theorem Extensions</a></li>
-  <li><a href="#example-fraction-of-domestic-production-exports" id="toc-example-fraction-of-domestic-production-exports" class="nav-link" data-scroll-target="#example-fraction-of-domestic-production-exports"><span class="header-section-number">3.1.11</span> Example: Fraction of Domestic Production Exports</a></li>
-  <li><a href="#independent-events" id="toc-independent-events" class="nav-link" data-scroll-target="#independent-events"><span class="header-section-number">3.1.12</span> Independent Events</a></li>
-  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables"><span class="header-section-number">3.1.13</span> Random Variables</a></li>
-  <li><a href="#probability-mass-functions-discrete-random-variables" id="toc-probability-mass-functions-discrete-random-variables" class="nav-link" data-scroll-target="#probability-mass-functions-discrete-random-variables"><span class="header-section-number">3.1.14</span> Probability Mass Functions (Discrete Random Variables)</a></li>
-  <li><a href="#probability-density-functions-continuous-random-variables" id="toc-probability-density-functions-continuous-random-variables" class="nav-link" data-scroll-target="#probability-density-functions-continuous-random-variables"><span class="header-section-number">3.1.15</span> Probability Density Functions (Continuous Random Variables)</a></li>
+  <li><a href="#example-sales-revenue-summary" id="toc-example-sales-revenue-summary" class="nav-link" data-scroll-target="#example-sales-revenue-summary"><span class="header-section-number">3.4.1</span> Example: Sales Revenue Summary</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#proability-schools-of-thought" id="toc-proability-schools-of-thought" class="nav-link" data-scroll-target="#proability-schools-of-thought"><span class="header-section-number">4</span> Proability Schools of Thought</a>
+  <li><a href="#probability-theory" id="toc-probability-theory" class="nav-link" data-scroll-target="#probability-theory"><span class="header-section-number">4</span> Probability Theory</a>
   <ul class="collapse">
-  <li><a href="#classical-probability" id="toc-classical-probability" class="nav-link" data-scroll-target="#classical-probability"><span class="header-section-number">4.1</span> Classical Probability</a></li>
-  <li><a href="#frequentism" id="toc-frequentism" class="nav-link" data-scroll-target="#frequentism"><span class="header-section-number">4.2</span> Frequentism</a></li>
-  <li><a href="#bayesian-methods" id="toc-bayesian-methods" class="nav-link" data-scroll-target="#bayesian-methods"><span class="header-section-number">4.3</span> Bayesian Methods</a></li>
-  <li><a href="#classical-probability-1" id="toc-classical-probability-1" class="nav-link" data-scroll-target="#classical-probability-1"><span class="header-section-number">4.4</span> Classical Probability</a>
+  <li><a href="#basic-principles-and-tools-of-probability-theory" id="toc-basic-principles-and-tools-of-probability-theory" class="nav-link" data-scroll-target="#basic-principles-and-tools-of-probability-theory"><span class="header-section-number">4.1</span> Basic Principles and Tools of Probability Theory</a>
   <ul class="collapse">
-  <li><a href="#connection-between-classical-probability-and-bayesian-methods" id="toc-connection-between-classical-probability-and-bayesian-methods" class="nav-link" data-scroll-target="#connection-between-classical-probability-and-bayesian-methods"><span class="header-section-number">4.4.1</span> Connection between Classical Probability and Bayesian Methods</a></li>
-  <li><a href="#link-between-frequentism-and-bayesian-methods" id="toc-link-between-frequentism-and-bayesian-methods" class="nav-link" data-scroll-target="#link-between-frequentism-and-bayesian-methods"><span class="header-section-number">4.4.2</span> Link Between Frequentism and Bayesian Methods</a></li>
-  <li><a href="#shared-tenets-across-paradigms" id="toc-shared-tenets-across-paradigms" class="nav-link" data-scroll-target="#shared-tenets-across-paradigms"><span class="header-section-number">4.4.3</span> Shared Tenets Across Paradigms</a></li>
-  <li><a href="#impact-in-financial-analytics" id="toc-impact-in-financial-analytics" class="nav-link" data-scroll-target="#impact-in-financial-analytics"><span class="header-section-number">4.4.4</span> Impact in Financial Analytics</a></li>
+  <li><a href="#sample-space-and-events" id="toc-sample-space-and-events" class="nav-link" data-scroll-target="#sample-space-and-events"><span class="header-section-number">4.1.1</span> Sample Space and Events</a></li>
+  <li><a href="#union-intersection-and-complement-of-events" id="toc-union-intersection-and-complement-of-events" class="nav-link" data-scroll-target="#union-intersection-and-complement-of-events"><span class="header-section-number">4.1.2</span> Union, Intersection, and Complement of Events</a></li>
+  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability"><span class="header-section-number">4.1.3</span> Conditional Probability</a></li>
+  <li><a href="#multiplicative-property-of-conditional-probability" id="toc-multiplicative-property-of-conditional-probability" class="nav-link" data-scroll-target="#multiplicative-property-of-conditional-probability"><span class="header-section-number">4.1.4</span> Multiplicative Property of Conditional Probability</a></li>
+  <li><a href="#chain-rule-for-conditional-probability" id="toc-chain-rule-for-conditional-probability" class="nav-link" data-scroll-target="#chain-rule-for-conditional-probability"><span class="header-section-number">4.1.5</span> Chain Rule for Conditional Probability</a></li>
+  <li><a href="#bayes-formula" id="toc-bayes-formula" class="nav-link" data-scroll-target="#bayes-formula"><span class="header-section-number">4.1.6</span> Bayes’ Formula</a></li>
+  <li><a href="#independence-of-events" id="toc-independence-of-events" class="nav-link" data-scroll-target="#independence-of-events"><span class="header-section-number">4.1.7</span> Independence of Events</a></li>
+  <li><a href="#partition-of-the-sample-space" id="toc-partition-of-the-sample-space" class="nav-link" data-scroll-target="#partition-of-the-sample-space"><span class="header-section-number">4.1.8</span> Partition of the Sample Space</a></li>
+  <li><a href="#total-probability-theorem" id="toc-total-probability-theorem" class="nav-link" data-scroll-target="#total-probability-theorem"><span class="header-section-number">4.1.9</span> Total Probability Theorem</a></li>
+  <li><a href="#bayes-theorem-extensions" id="toc-bayes-theorem-extensions" class="nav-link" data-scroll-target="#bayes-theorem-extensions"><span class="header-section-number">4.1.10</span> Bayes’ Theorem Extensions</a></li>
+  <li><a href="#example-fraction-of-domestic-production-exports" id="toc-example-fraction-of-domestic-production-exports" class="nav-link" data-scroll-target="#example-fraction-of-domestic-production-exports"><span class="header-section-number">4.1.11</span> Example: Fraction of Domestic Production Exports</a></li>
+  <li><a href="#independent-events" id="toc-independent-events" class="nav-link" data-scroll-target="#independent-events"><span class="header-section-number">4.1.12</span> Independent Events</a></li>
+  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables"><span class="header-section-number">4.1.13</span> Random Variables</a></li>
+  <li><a href="#probability-mass-functions-discrete-random-variables" id="toc-probability-mass-functions-discrete-random-variables" class="nav-link" data-scroll-target="#probability-mass-functions-discrete-random-variables"><span class="header-section-number">4.1.14</span> Probability Mass Functions (Discrete Random Variables)</a></li>
+  <li><a href="#probability-density-functions-continuous-random-variables" id="toc-probability-density-functions-continuous-random-variables" class="nav-link" data-scroll-target="#probability-density-functions-continuous-random-variables"><span class="header-section-number">4.1.15</span> Probability Density Functions (Continuous Random Variables)</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#proability-schools-of-thought" id="toc-proability-schools-of-thought" class="nav-link" data-scroll-target="#proability-schools-of-thought"><span class="header-section-number">5</span> Proability Schools of Thought</a>
+  <ul class="collapse">
+  <li><a href="#classical-probability" id="toc-classical-probability" class="nav-link" data-scroll-target="#classical-probability"><span class="header-section-number">5.1</span> Classical Probability</a></li>
+  <li><a href="#frequentism" id="toc-frequentism" class="nav-link" data-scroll-target="#frequentism"><span class="header-section-number">5.2</span> Frequentism</a></li>
+  <li><a href="#bayesian-methods" id="toc-bayesian-methods" class="nav-link" data-scroll-target="#bayesian-methods"><span class="header-section-number">5.3</span> Bayesian Methods</a></li>
+  <li><a href="#classical-probability-1" id="toc-classical-probability-1" class="nav-link" data-scroll-target="#classical-probability-1"><span class="header-section-number">5.4</span> Classical Probability</a>
+  <ul class="collapse">
+  <li><a href="#connection-between-classical-probability-and-bayesian-methods" id="toc-connection-between-classical-probability-and-bayesian-methods" class="nav-link" data-scroll-target="#connection-between-classical-probability-and-bayesian-methods"><span class="header-section-number">5.4.1</span> Connection between Classical Probability and Bayesian Methods</a></li>
+  <li><a href="#link-between-frequentism-and-bayesian-methods" id="toc-link-between-frequentism-and-bayesian-methods" class="nav-link" data-scroll-target="#link-between-frequentism-and-bayesian-methods"><span class="header-section-number">5.4.2</span> Link Between Frequentism and Bayesian Methods</a></li>
+  <li><a href="#shared-tenets-across-paradigms" id="toc-shared-tenets-across-paradigms" class="nav-link" data-scroll-target="#shared-tenets-across-paradigms"><span class="header-section-number">5.4.3</span> Shared Tenets Across Paradigms</a></li>
+  <li><a href="#impact-in-financial-analytics" id="toc-impact-in-financial-analytics" class="nav-link" data-scroll-target="#impact-in-financial-analytics"><span class="header-section-number">5.4.4</span> Impact in Financial Analytics</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -306,7 +306,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Statistics and Probability Primer</span></h1>
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistics and Probability Primer</span></h1>
 </div>
 
 
@@ -333,13 +333,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Advanced financial analytics leverages these statistical tools not just for descriptive purposes, but also for prescriptive and predictive analytics. This includes the development of sophisticated models for risk management, portfolio optimization, and algorithmic trading. These models rely heavily on the principles of statistical inference, where conclusions about the entire financial market are drawn from sample data.</p>
 <p>Moreover, the advent of big data and computational advancements has significantly expanded the scope and complexity of financial statistical analysis. Machine learning algorithms, which are an extension of traditional statistical techniques, are increasingly being used to identify complex nonlinear patterns in financial markets that were previously undetectable.</p>
 <p>In summary, statistics and probability theory are not just academic disciplines; they are the bedrock of financial decision-making in an uncertain world. This primer will guide readers through the fundamental statistical concepts and methods that are crucial for mastering advanced financial analytics, providing the necessary tools to navigate and excel in the dynamic field of financial analysis.</p>
-<section id="statistical-concepts" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Statistical Concepts</h1>
-<section id="scalar-quantities" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="scalar-quantities"><span class="header-section-number">2.1</span> Scalar Quantities</h2>
+<section id="statistical-concepts" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Statistical Concepts</h1>
+<section id="scalar-quantities" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="scalar-quantities"><span class="header-section-number">3.1</span> Scalar Quantities</h2>
 <p>Scalar quantities are numerical values that don’t depend on direction, such as temperature, mass, or height. In finance, scalars often appear in the form of returns, exchange rates, or prices. As a real-world finance application, suppose you want to compute the annualized return of a stock.</p>
-<section id="example-annualized-return-computation" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="example-annualized-return-computation"><span class="header-section-number">2.1.1</span> Example: Annualized Return Computation</h3>
+<section id="example-annualized-return-computation" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="example-annualized-return-computation"><span class="header-section-number">3.1.1</span> Example: Annualized Return Computation</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>current_price <span class="ot">&lt;-</span> <span class="dv">100</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>initial_price <span class="ot">&lt;-</span> <span class="dv">80</span></span>
@@ -352,11 +352,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="vectors-and-matrix-algebra-basics" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="vectors-and-matrix-algebra-basics"><span class="header-section-number">2.2</span> Vectors and Matrix Algebra Basics</h2>
+<section id="vectors-and-matrix-algebra-basics" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="vectors-and-matrix-algebra-basics"><span class="header-section-number">3.2</span> Vectors and Matrix Algebra Basics</h2>
 <p>Vectors are arrays of numbers, and matrices are rectangular arrays. Both play a crucial role in expressing relationships between variables and performing computations efficiently. Consider a hypothetical scenario where you compare monthly returns across three different assets.</p>
-<section id="example-monthly-returns-comparison" class="level3" data-number="2.2.1">
-<h3 data-number="2.2.1" class="anchored" data-anchor-id="example-monthly-returns-comparison"><span class="header-section-number">2.2.1</span> Example: Monthly Returns Comparison</h3>
+<section id="example-monthly-returns-comparison" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="example-monthly-returns-comparison"><span class="header-section-number">3.2.1</span> Example: Monthly Returns Comparison</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>monthly_returns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.02</span>, <span class="sc">-</span><span class="fl">0.01</span>, <span class="fl">0.03</span>)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>asset_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Asset A"</span>, <span class="st">"Asset B"</span>, <span class="st">"Asset C"</span>)</span>
@@ -371,11 +371,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="functions" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="functions"><span class="header-section-number">2.3</span> Functions</h2>
+<section id="functions" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="functions"><span class="header-section-number">3.3</span> Functions</h2>
 <p>Functions map inputs to outputs and are ubiquitous in mathematics, statistics, and finance. Suppose you seek to calculate compound interest.</p>
-<section id="example-compound-interest-function" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="example-compound-interest-function"><span class="header-section-number">2.3.1</span> Example: Compound Interest Function</h3>
+<section id="example-compound-interest-function" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="example-compound-interest-function"><span class="header-section-number">3.3.1</span> Example: Compound Interest Function</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>compound_interest <span class="ot">&lt;-</span> <span class="cf">function</span>(principal, rate, periods) {</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  return_amount <span class="ot">&lt;-</span> principal <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> rate)<span class="sc">^</span>periods</span>
@@ -393,11 +393,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="descriptive-statistics" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="descriptive-statistics"><span class="header-section-number">2.4</span> Descriptive Statistics</h2>
+<section id="descriptive-statistics" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="descriptive-statistics"><span class="header-section-number">3.4</span> Descriptive Statistics</h2>
 <p>Descriptive statistics capture essential information about data, such as location, spread, skewness, and variability. These measurements aid in understanding the overall behavior of the data. For instance, you might want to examine a firm’s quarterly sales revenue.</p>
-<section id="example-sales-revenue-summary" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="example-sales-revenue-summary"><span class="header-section-number">2.4.1</span> Example: Sales Revenue Summary</h3>
+<section id="example-sales-revenue-summary" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="example-sales-revenue-summary"><span class="header-section-number">3.4.1</span> Example: Sales Revenue Summary</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>sales_revenue <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25000</span>, <span class="dv">27000</span>, <span class="dv">26000</span>, <span class="dv">28000</span>, <span class="dv">30000</span>)</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>sales_stats <span class="ot">&lt;-</span> <span class="fu">summary</span>(sales_revenue)</span>
@@ -410,8 +410,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 </section>
-<section id="probability-theory" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Probability Theory</h1>
+<section id="probability-theory" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Probability Theory</h1>
 <p>Probability theory offers a systematic approach to studying uncertain events and measuring uncertainty, serving as the cornerstone for much of statistical analysis. It provides a framework for quantifying the likelihood of events, ranging from the most mundane to the highly complex, and is essential for comprehending various statistical techniques used in data analysis.</p>
 <p>This theory revolves around the concept of a ‘probability’, a measure that assigns a numerical value to the likelihood of an event occurring, ranging from 0 (impossibility) to 1 (certainty). These probabilities are fundamental to understanding and interpreting data in a wide range of disciplines, from finance and economics to the natural and social sciences.</p>
 <p>In the context of statistics, probability theory is integral to the development and application of models that describe real-world phenomena. It underpins key statistical concepts such as random variables, probability distributions, expectation, variance, and covariance. These concepts are crucial for conducting hypothesis testing, estimating model parameters, and predicting future observations.</p>
@@ -419,56 +419,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>In addition, probability theory lays the groundwork for advanced statistical techniques such as Bayesian inference, which incorporates prior knowledge into the statistical analysis, and stochastic modeling, used extensively in areas like financial modeling and risk assessment.</p>
 <p>The role of probability in statistics is not just theoretical; it has practical implications in everyday data analysis. Whether it’s deciding the probability of a stock’s return over a certain threshold or assessing the risk of a new investment, probability theory is the tool that helps convert raw data into actionable insights.</p>
 <p>As we delve deeper into this chapter, we will explore the fundamental principles of probability theory, its applications in various statistical methods, and its crucial role in making sense of uncertainty and variability in data. By gaining a solid understanding of probability theory, readers will be well-equipped to tackle complex data analysis tasks with confidence and precision.</p>
-<section id="basic-principles-and-tools-of-probability-theory" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="basic-principles-and-tools-of-probability-theory"><span class="header-section-number">3.1</span> Basic Principles and Tools of Probability Theory</h2>
-<section id="sample-space-and-events" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="sample-space-and-events"><span class="header-section-number">3.1.1</span> Sample Space and Events</h3>
+<section id="basic-principles-and-tools-of-probability-theory" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="basic-principles-and-tools-of-probability-theory"><span class="header-section-number">4.1</span> Basic Principles and Tools of Probability Theory</h2>
+<section id="sample-space-and-events" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="sample-space-and-events"><span class="header-section-number">4.1.1</span> Sample Space and Events</h3>
 <p>A sample space <span class="math inline">\(\Omega\)</span> is a set containing all conceivable outcomes of a random phenomenon. An event <span class="math inline">\(A\)</span> is a subset of the sample space <span class="math inline">\(\Omega\)</span>; thus, <span class="math inline">\(A \subseteq \Omega\)</span>. The notation <span class="math inline">\(P(\cdot)\)</span> indicates probability.</p>
 </section>
-<section id="union-intersection-and-complement-of-events" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="union-intersection-and-complement-of-events"><span class="header-section-number">3.1.2</span> Union, Intersection, and Complement of Events</h3>
+<section id="union-intersection-and-complement-of-events" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="union-intersection-and-complement-of-events"><span class="header-section-number">4.1.2</span> Union, Intersection, and Complement of Events</h3>
 <p>Given two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, the union operation <span class="math inline">\((A \cup B)\)</span> corresponds to the set of outcomes contained in either <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span> or both. The intersection operation <span class="math inline">\((A \cap B)\)</span> is the set of outcomes that lie in both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. The complement of an event <span class="math inline">\(A'\)</span> refers to the set of outcomes in the sample space that are not in <span class="math inline">\(A\)</span>: <span class="math display">\[\Omega = A \cup A'\quad,\quad A \cap A' = \emptyset\]</span></p>
 </section>
-<section id="conditional-probability" class="level3" data-number="3.1.3">
-<h3 data-number="3.1.3" class="anchored" data-anchor-id="conditional-probability"><span class="header-section-number">3.1.3</span> Conditional Probability</h3>
+<section id="conditional-probability" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="conditional-probability"><span class="header-section-number">4.1.3</span> Conditional Probability</h3>
 <p>Conditional probability is the probability of an event <span class="math inline">\(A\)</span> given that another event <span class="math inline">\(B\)</span> occurs: <span class="math display">\[P(A \mid B) = \frac{P(A \cap B)}{P(B)} \qquad (\text{assuming}\;\; P(B)&gt;0)\]</span></p>
 </section>
-<section id="multiplicative-property-of-conditional-probability" class="level3" data-number="3.1.4">
-<h3 data-number="3.1.4" class="anchored" data-anchor-id="multiplicative-property-of-conditional-probability"><span class="header-section-number">3.1.4</span> Multiplicative Property of Conditional Probability</h3>
+<section id="multiplicative-property-of-conditional-probability" class="level3" data-number="4.1.4">
+<h3 data-number="4.1.4" class="anchored" data-anchor-id="multiplicative-property-of-conditional-probability"><span class="header-section-number">4.1.4</span> Multiplicative Property of Conditional Probability</h3>
 <p>For any two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, the joint probability satisfies the identity: <span class="math display">\[P(A \cap B) = P(A)\times P(B \mid A) = P(B) \times P(A \mid B)\]</span></p>
 </section>
-<section id="chain-rule-for-conditional-probability" class="level3" data-number="3.1.5">
-<h3 data-number="3.1.5" class="anchored" data-anchor-id="chain-rule-for-conditional-probability"><span class="header-section-number">3.1.5</span> Chain Rule for Conditional Probability</h3>
+<section id="chain-rule-for-conditional-probability" class="level3" data-number="4.1.5">
+<h3 data-number="4.1.5" class="anchored" data-anchor-id="chain-rule-for-conditional-probability"><span class="header-section-number">4.1.5</span> Chain Rule for Conditional Probability</h3>
 <p>Given three events <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span>, the chain rule decomposes the joint probability as follows: <span class="math display">\[P(A \cap B \cap C) = P(A) \times P(B \mid A) \times P(C \mid A \cap B)\]</span></p>
 </section>
-<section id="bayes-formula" class="level3" data-number="3.1.6">
-<h3 data-number="3.1.6" class="anchored" data-anchor-id="bayes-formula"><span class="header-section-number">3.1.6</span> Bayes’ Formula</h3>
+<section id="bayes-formula" class="level3" data-number="4.1.6">
+<h3 data-number="4.1.6" class="anchored" data-anchor-id="bayes-formula"><span class="header-section-number">4.1.6</span> Bayes’ Formula</h3>
 <p>Bayes’ formula relates the conditional probabilities of two events, say <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, as follows: <span class="math display">\[P(A \mid B) = \frac{P(B \mid A) \times P(A)}{P(B)}\]</span></p>
 </section>
-<section id="independence-of-events" class="level3" data-number="3.1.7">
-<h3 data-number="3.1.7" class="anchored" data-anchor-id="independence-of-events"><span class="header-section-number">3.1.7</span> Independence of Events</h3>
+<section id="independence-of-events" class="level3" data-number="4.1.7">
+<h3 data-number="4.1.7" class="anchored" data-anchor-id="independence-of-events"><span class="header-section-number">4.1.7</span> Independence of Events</h3>
 <p>Two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent if and only if <span class="math display">\[P(A \cap B) = P(A) \times P(B)\]</span></p>
 <p>Independent events satisfy the following equality: <span class="math display">\[P(A \mid B) = P(A) \qquad \text{and} \qquad P(B \mid A) = P(B)\]</span></p>
 </section>
-<section id="partition-of-the-sample-space" class="level3" data-number="3.1.8">
-<h3 data-number="3.1.8" class="anchored" data-anchor-id="partition-of-the-sample-space"><span class="header-section-number">3.1.8</span> Partition of the Sample Space</h3>
+<section id="partition-of-the-sample-space" class="level3" data-number="4.1.8">
+<h3 data-number="4.1.8" class="anchored" data-anchor-id="partition-of-the-sample-space"><span class="header-section-number">4.1.8</span> Partition of the Sample Space</h3>
 <p>A finite set <span class="math inline">\(\{A_1, A_2, \dots , A_n\}\)</span> is a partition of the sample space if the following two conditions are satisfied:</p>
 <ol type="1">
 <li>The events in the set are mutually exclusive: <span class="math display">\[A_i \cap A_j = \emptyset \qquad \forall \; i \neq j\]</span></li>
 <li>The union of the events coincides with the whole sample space: <span class="math display">\[\bigcup_{i=1}^n A_i = \Omega\]</span></li>
 </ol>
 </section>
-<section id="total-probability-theorem" class="level3" data-number="3.1.9">
-<h3 data-number="3.1.9" class="anchored" data-anchor-id="total-probability-theorem"><span class="header-section-number">3.1.9</span> Total Probability Theorem</h3>
+<section id="total-probability-theorem" class="level3" data-number="4.1.9">
+<h3 data-number="4.1.9" class="anchored" data-anchor-id="total-probability-theorem"><span class="header-section-number">4.1.9</span> Total Probability Theorem</h3>
 <p>Consider a partition of the sample space <span class="math inline">\(\{A_1, A_2, \dots , A_n\}\)</span> and an arbitrary event <span class="math inline">\(B\)</span>. The total probability theorem states that: <span class="math display">\[P(B) = \sum_{i=1}^{n} P(B \cap A_i) = \sum_{i=1}^{n} P(B \mid A_i) \times P(A_i)\]</span></p>
 </section>
-<section id="bayes-theorem-extensions" class="level3" data-number="3.1.10">
-<h3 data-number="3.1.10" class="anchored" data-anchor-id="bayes-theorem-extensions"><span class="header-section-number">3.1.10</span> Bayes’ Theorem Extensions</h3>
+<section id="bayes-theorem-extensions" class="level3" data-number="4.1.10">
+<h3 data-number="4.1.10" class="anchored" data-anchor-id="bayes-theorem-extensions"><span class="header-section-number">4.1.10</span> Bayes’ Theorem Extensions</h3>
 <p>Generalizations of Bayes’ theorem arise from the total probability theorem. Given a partition of the sample space <span class="math inline">\(\{A_1, A_2, \dots , A_n\}\)</span> and an arbitrary event <span class="math inline">\(B\)</span>, the extended Bayes’ theorem reads: <span class="math display">\[P(A_i \mid B) = \frac{P(B \mid A_i) \times P(A_i)}{\sum_{j=1}^{n} P(B \mid A_j) \times P(A_j)}, \quad \forall\; i \in \{1, 2, \dots, n\}\]</span></p>
 <p>These concepts and relations form the backbone of probability theory, allowing us to perform calculations and make inferences based on the underlying structure of random phenomena. In the following sections, we explore more advanced tools and techniques, such as random variables, probability distributions, moments, and densities, which are essential for modeling financial and economic processes.</p>
 </section>
-<section id="example-fraction-of-domestic-production-exports" class="level3" data-number="3.1.11">
-<h3 data-number="3.1.11" class="anchored" data-anchor-id="example-fraction-of-domestic-production-exports"><span class="header-section-number">3.1.11</span> Example: Fraction of Domestic Production Exports</h3>
+<section id="example-fraction-of-domestic-production-exports" class="level3" data-number="4.1.11">
+<h3 data-number="4.1.11" class="anchored" data-anchor-id="example-fraction-of-domestic-production-exports"><span class="header-section-number">4.1.11</span> Example: Fraction of Domestic Production Exports</h3>
 <p>Assume the US produces 20 billion barrels of oil annually, exports 5 billion barrels, imports 2 billion barrels, and consumes the rest domestically. What percentage of domestic production does the US export?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>domestic_production <span class="ot">&lt;-</span> <span class="dv">20</span> <span class="sc">-</span> <span class="dv">2</span></span>
@@ -479,19 +479,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="independent-events" class="level3" data-number="3.1.12">
-<h3 data-number="3.1.12" class="anchored" data-anchor-id="independent-events"><span class="header-section-number">3.1.12</span> Independent Events</h3>
+<section id="independent-events" class="level3" data-number="4.1.12">
+<h3 data-number="4.1.12" class="anchored" data-anchor-id="independent-events"><span class="header-section-number">4.1.12</span> Independent Events</h3>
 <p>Two events are independent if the occurrence of one doesn’t affect the probability of the other. That is, P(A|B) = P(A) and P(B|A) = P(B). Equivalently, P(A ∩ B) = P(A) × P(B).</p>
 </section>
-<section id="random-variables" class="level3" data-number="3.1.13">
-<h3 data-number="3.1.13" class="anchored" data-anchor-id="random-variables"><span class="header-section-number">3.1.13</span> Random Variables</h3>
+<section id="random-variables" class="level3" data-number="4.1.13">
+<h3 data-number="4.1.13" class="anchored" data-anchor-id="random-variables"><span class="header-section-number">4.1.13</span> Random Variables</h3>
 <p>A random variable is a rule associating numerical values with outcomes in a sample space. There are two types of random variables: discrete and continuous.</p>
 </section>
-<section id="probability-mass-functions-discrete-random-variables" class="level3" data-number="3.1.14">
-<h3 data-number="3.1.14" class="anchored" data-anchor-id="probability-mass-functions-discrete-random-variables"><span class="header-section-number">3.1.14</span> Probability Mass Functions (Discrete Random Variables)</h3>
+<section id="probability-mass-functions-discrete-random-variables" class="level3" data-number="4.1.14">
+<h3 data-number="4.1.14" class="anchored" data-anchor-id="probability-mass-functions-discrete-random-variables"><span class="header-section-number">4.1.14</span> Probability Mass Functions (Discrete Random Variables)</h3>
 <p>For a discrete random variable, the PMF gives the probability of each value taken by the variable.</p>
-<section id="example-rolling-a-six-sided-die" class="level4" data-number="3.1.14.1">
-<h4 data-number="3.1.14.1" class="anchored" data-anchor-id="example-rolling-a-six-sided-die"><span class="header-section-number">3.1.14.1</span> Example: Rolling a Six-Sided Die</h4>
+<section id="example-rolling-a-six-sided-die" class="level4" data-number="4.1.14.1">
+<h4 data-number="4.1.14.1" class="anchored" data-anchor-id="example-rolling-a-six-sided-die"><span class="header-section-number">4.1.14.1</span> Example: Rolling a Six-Sided Die</h4>
 <p>What is the probability of rolling a six-sided die twice and getting a sum equal to 7?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>die_faces <span class="ot">&lt;-</span> <span class="dv">6</span></span>
@@ -505,11 +505,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="probability-density-functions-continuous-random-variables" class="level3" data-number="3.1.15">
-<h3 data-number="3.1.15" class="anchored" data-anchor-id="probability-density-functions-continuous-random-variables"><span class="header-section-number">3.1.15</span> Probability Density Functions (Continuous Random Variables)</h3>
+<section id="probability-density-functions-continuous-random-variables" class="level3" data-number="4.1.15">
+<h3 data-number="4.1.15" class="anchored" data-anchor-id="probability-density-functions-continuous-random-variables"><span class="header-section-number">4.1.15</span> Probability Density Functions (Continuous Random Variables)</h3>
 <p>For a continuous random variable, the PDF gives the relative likelihood of the variable taking on any specific value within a defined region.</p>
-<section id="example-generating-random-values" class="level4" data-number="3.1.15.1">
-<h4 data-number="3.1.15.1" class="anchored" data-anchor-id="example-generating-random-values"><span class="header-section-number">3.1.15.1</span> Example: Generating Random Values</h4>
+<section id="example-generating-random-values" class="level4" data-number="4.1.15.1">
+<h4 data-number="4.1.15.1" class="anchored" data-anchor-id="example-generating-random-values"><span class="header-section-number">4.1.15.1</span> Example: Generating Random Values</h4>
 <p>Generate 10 random values drawn from a uniform distribution between 0 and 1 and plot the PDF.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
@@ -529,16 +529,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 </section>
-<section id="proability-schools-of-thought" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Proability Schools of Thought</h1>
+<section id="proability-schools-of-thought" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Proability Schools of Thought</h1>
 <p>Probability theory offers a systematic approach to studying uncertain events and measuring uncertainty. Its foundational role in statistical analysis cannot be overstated, as it underpins the methods and techniques used to make sense of random phenomena and data. Understanding probability theory is essential not only for mastering statistical concepts but also for conducting robust and insightful data analysis in various fields.</p>
 <p>Unlike many other branches of mathematics, probability theory is characterized by its lack of a single, unifying theory. This unique aspect stems from its historical development and the diverse applications it has found across different domains. Probability has evolved through contributions from mathematicians, philosophers, statisticians, and scientists, each bringing their perspective and influencing its theoretical foundations. As a result, probability theory encompasses a rich tapestry of approaches and interpretations.</p>
 <p>There are two major schools of thought in probability theory: the frequentist and the Bayesian perspectives. The frequentist approach, which is the traditional form of probability, interprets probability as the long-run frequency of events occurring in repeated trials. It is grounded in the concept of an objective, empirical observation of frequencies. On the other hand, the Bayesian approach views probability as a measure of belief or certainty about the occurrence of an event, incorporating prior knowledge and subjective judgment into its framework.</p>
 <p>This divergence in foundational understanding reflects the versatile and adaptable nature of probability theory. It allows for a range of methodologies and approaches tailored to the specific needs and nature of the problem at hand. In practice, this means that probability theory can be applied flexibly across disciplines – from the natural sciences, where it helps model inherent randomness, to the social sciences, where it captures the uncertainty in human behavior, and in finance and economics, where it aids in risk assessment and decision-making under uncertainty.</p>
 <p>Moreover, the lack of a unifying theory in probability does not imply a weakness; rather, it highlights the field’s richness and its capacity to adapt and evolve. As we delve further into probability theory, we will explore these different interpretations and how they influence the application of statistical methods. We will examine how probability enables us to model complex, real-world situations with uncertainty and how it aids in the extraction of meaningful insights from data, despite and because of its diverse theoretical underpinnings.</p>
 <p>In summary, the study of probability theory is a journey through a landscape filled with varied interpretations and methodologies, each providing valuable insights into the nature of uncertainty and randomness. This chapter aims to navigate this landscape, shedding light on the multifaceted nature of probability and its crucial role in data analysis.</p>
-<section id="classical-probability" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="classical-probability"><span class="header-section-number">4.1</span> Classical Probability</h2>
+<section id="classical-probability" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="classical-probability"><span class="header-section-number">5.1</span> Classical Probability</h2>
 <p>Classical probability is built upon the assumption of equally likely outcomes in an experiment. The probability of an event reflects the relative frequency of the event in a long series of repeated trials. This paradigm focuses on estimating probabilities of hypotheses derived from a null hypothesis.</p>
 <p>In finance, the classical probability paradigm manifests in cases like determining the probability of a stock returning a positive value during a fixed period, assuming historical stock returns follow a symmetric distribution. Another example is estimating the probability of exceeding a given level of credit risk based on historical borrower profiles.</p>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -559,8 +559,8 @@ Important
 </div>
 </div>
 </section>
-<section id="frequentism" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="frequentism"><span class="header-section-number">4.2</span> Frequentism</h2>
+<section id="frequentism" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="frequentism"><span class="header-section-number">5.2</span> Frequentism</h2>
 <p>Frequentism posits that probabilities correspond to the long-run frequencies of events in repeated trials. It concentrates on estimating the parameters of probability distributions governing the generation of data, instead of considering alternative hypotheses. Many commonly used statistical tests, such as t-tests and chi-square tests, stem from the Frequentist perspective.</p>
 <p>In finance, Frequentist methods surface in areas like value-at-risk (VaR) estimation, where VaR represents the worst-case loss of a portfolio within a given confidence interval. Frequentist methods allow the construction of asymptotic confidence bands for the VaR estimates. Another instance is estimating Sharpe Ratios using t-tests to assess significance and distinguish superior investment strategies from inferior ones.</p>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -581,8 +581,8 @@ Important
 </div>
 </div>
 </section>
-<section id="bayesian-methods" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="bayesian-methods"><span class="header-section-number">4.3</span> Bayesian Methods</h2>
+<section id="bayesian-methods" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="bayesian-methods"><span class="header-section-number">5.3</span> Bayesian Methods</h2>
 <p>Bayesian methods treat probabilities as degrees of belief concerning the truthfulness of propositions, conditioned on prior evidence. Bayesian inference combines prior knowledge with current evidence to update beliefs. This paradigm excels at capturing uncertainty in model parameters and accounts for complex interactions between variables.</p>
 <p>In finance, Bayesian methods come in handy for numerous applications, such as estimating financial models with small datasets, incorporating expert judgment, and monitoring dynamic systems susceptible to sudden shifts. Examples include calibrating Black-Scholes option pricing models with Bayesian inference, detecting regime switching in Markov-Switching models, and assessing the impact of exogenous events on financial markets using Bayesian networks.</p>
 <div class="callout-importance">
@@ -593,8 +593,8 @@ Important
 </ul>
 </div>
 </section>
-<section id="classical-probability-1" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="classical-probability-1"><span class="header-section-number">4.4</span> Classical Probability</h2>
+<section id="classical-probability-1" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="classical-probability-1"><span class="header-section-number">5.4</span> Classical Probability</h2>
 <p>Classical probability is often considered a distinct paradigm within the broader context of probability theory, but it is also related to and distinct from both frequentist and Bayesian perspectives.</p>
 <p>The classical definition of probability, also known as the “a priori” or “theoretical” probability, dates back to the work of mathematicians like Pierre-Simon Laplace and Blaise Pascal. It is based on the principle of equally likely outcomes. In classical probability, the probability of an event is calculated by dividing the number of favorable outcomes by the total number of possible outcomes, assuming that all outcomes are equally likely. This approach is most applicable in well-defined and symmetrical situations, like the roll of a fair die or the flip of a fair coin, where it’s reasonable to assume that all outcomes have the same chance of occurring.</p>
 <p>On the other hand, the frequentist perspective, which developed later, is based on the idea of long-run frequencies. According to this view, the probability of an event is the limit of its relative frequency in a large number of trials. It’s an empirical approach, relying on actual experimentation or observed data.</p>
@@ -619,32 +619,32 @@ Important
 </ul>
 </div>
 </div>
-<section id="connection-between-classical-probability-and-bayesian-methods" class="level3" data-number="4.4.1">
-<h3 data-number="4.4.1" class="anchored" data-anchor-id="connection-between-classical-probability-and-bayesian-methods"><span class="header-section-number">4.4.1</span> Connection between Classical Probability and Bayesian Methods</h3>
+<section id="connection-between-classical-probability-and-bayesian-methods" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="connection-between-classical-probability-and-bayesian-methods"><span class="header-section-number">5.4.1</span> Connection between Classical Probability and Bayesian Methods</h3>
 <ul>
 <li><strong>Prior Distributions from Classical Principles</strong>: In Bayesian analysis, the choice of a prior distribution is crucial. Classical probability, with its focus on equally likely outcomes, can provide a natural starting point for these priors, especially in situations where little is known a priori (e.g., using a uniform distribution as a non-informative prior).</li>
 <li><strong>Incorporating Symmetry and Equilibrium</strong>: Classical principles often embody symmetry and equilibrium concepts, which can be useful in formulating prior beliefs in a Bayesian context, particularly in financial markets where assumptions of equilibrium are common.</li>
 <li><strong>Educational Foundation</strong>: Classical probability often serves as an introductory framework for students and practitioners, creating a foundational understanding that can be built upon with Bayesian methods, especially in understanding probabilistic models in finance.</li>
 </ul>
 </section>
-<section id="link-between-frequentism-and-bayesian-methods" class="level3" data-number="4.4.2">
-<h3 data-number="4.4.2" class="anchored" data-anchor-id="link-between-frequentism-and-bayesian-methods"><span class="header-section-number">4.4.2</span> Link Between Frequentism and Bayesian Methods</h3>
+<section id="link-between-frequentism-and-bayesian-methods" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="link-between-frequentism-and-bayesian-methods"><span class="header-section-number">5.4.2</span> Link Between Frequentism and Bayesian Methods</h3>
 <ul>
 <li><strong>Interpretation of Probability</strong>: While the philosophical foundations differ, both frequentist and Bayesian methods deal with assessing uncertainty. In financial analytics, this translates to quantifying risks and making predictions.</li>
 <li><strong>Updating Beliefs with Data</strong>: In practice, Bayesian methods often start with a ‘frequentist’ analysis to inform the initial model or prior. As new data becomes available, these priors are updated, showing a practical workflow that combines elements of both paradigms.</li>
 <li><strong>Model Evaluation and Comparison</strong>: Both approaches offer methods for model evaluation and comparison, such as p-values and Bayes factors, which are critical in financial model selection and validation.</li>
 </ul>
 </section>
-<section id="shared-tenets-across-paradigms" class="level3" data-number="4.4.3">
-<h3 data-number="4.4.3" class="anchored" data-anchor-id="shared-tenets-across-paradigms"><span class="header-section-number">4.4.3</span> Shared Tenets Across Paradigms</h3>
+<section id="shared-tenets-across-paradigms" class="level3" data-number="5.4.3">
+<h3 data-number="5.4.3" class="anchored" data-anchor-id="shared-tenets-across-paradigms"><span class="header-section-number">5.4.3</span> Shared Tenets Across Paradigms</h3>
 <ul>
 <li><strong>Common Statistical Ground</strong>: Despite philosophical differences, all paradigms use common statistical tools and concepts. For example, regression analysis can be approached from any of the three paradigms, with the underlying mathematics largely similar.</li>
 <li><strong>The Role of Large Sample Theory</strong>: In financial analytics, as sample sizes increase, the distinctions between Bayesian and frequentist estimates often diminish (e.g., Bayesian posterior distributions converging to frequentist confidence intervals), indicating a practical convergence of these approaches in large-data scenarios.</li>
 <li><strong>Ethos of Probability</strong>: The fundamental ethos that underlies all three paradigms is the use of probability to make sense of uncertainty, a core tenet in financial risk assessment and decision-making processes.</li>
 </ul>
 </section>
-<section id="impact-in-financial-analytics" class="level3" data-number="4.4.4">
-<h3 data-number="4.4.4" class="anchored" data-anchor-id="impact-in-financial-analytics"><span class="header-section-number">4.4.4</span> Impact in Financial Analytics</h3>
+<section id="impact-in-financial-analytics" class="level3" data-number="5.4.4">
+<h3 data-number="5.4.4" class="anchored" data-anchor-id="impact-in-financial-analytics"><span class="header-section-number">5.4.4</span> Impact in Financial Analytics</h3>
 <ul>
 <li><strong>Holistic Approach to Problem-Solving</strong>: The overlaps between these paradigms allow financial analysts to adopt a more holistic approach. Depending on the problem, data availability, and the nature of uncertainty, analysts can choose the most appropriate method or even blend methods for a more comprehensive analysis.</li>
 <li><strong>Innovation through Integration</strong>: The field of financial analytics benefits from the integration of these paradigms. For instance, Bayesian methods informed by frequentist insights can lead to more robust predictive models in financial markets.</li>
@@ -896,12 +896,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./time_series.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,6 +1,61 @@
 {
     "sources": [
         {
+            "DOI": "10.2139/ssrn.4520856",
+            "abstract": "We survey the nascent literature on machine learning in the study of financial markets. We highlight the best examples of what this line of research has to offer and recommend promising directions for future research. This survey is designed for both financial economists interested in grasping machine learning tools, as well as for statisticians and machine learners seeking interesting financial contexts where advanced methods may be deployed.",
+            "author": [
+                {
+                    "family": "Kelly",
+                    "given": "Bryan T."
+                },
+                {
+                    "family": "Xiu",
+                    "given": "Dacheng"
+                }
+            ],
+            "container-title": "SSRN Electronic Journal",
+            "id": "Kelly2023FML",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "keyword": "",
+            "title": "Financial Machine Learning",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.2139/ssrn.4171581",
+            "author": [
+                {
+                    "family": "Kelly",
+                    "given": "Bryan T"
+                },
+                {
+                    "family": "Malamud",
+                    "given": "Semyon"
+                },
+                {
+                    "family": "Zhou",
+                    "given": "Kangying"
+                }
+            ],
+            "container-title": "SSRN Electronic Journal",
+            "id": "Kelly2022complexity",
+            "issued": {
+                "date-parts": [
+                    [
+                        2022
+                    ]
+                ]
+            },
+            "keyword": "",
+            "title": "The Virtue of Complexity Everywhere",
+            "type": "article-journal"
+        },
+        {
             "DOI": "10.1093/he/9780198776697.001.0001",
             "author": [
                 {

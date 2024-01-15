@@ -1,12 +1,12 @@
 {
     "sortOrder": [
         {
-            "columnIndex": 4,
-            "ascending": false
-        },
-        {
             "columnIndex": 2,
             "ascending": true
+        },
+        {
+            "columnIndex": 4,
+            "ascending": false
         }
     ],
     "path": "~/Library/CloudStorage/Dropbox/Teaching/future/Advanced_Financial_Data_Analytics/mybook"

@@ -280,13 +280,13 @@ Git is a distributed version control system that helps track changes in source c
 
 ### Role in Financial Data Science
 
-- **Version Control**: Track and manage changes to code and data analysis scripts.
-- **Collaboration**: Share code with team members, review code, and merge changes.
+-   **Version Control**: Track and manage changes to code and data analysis scripts.
+-   **Collaboration**: Share code with team members, review code, and merge changes.
 
 ### Setting Up Git and GitHub
 
-- **Installation**: Install Git and set up a GitHub account.
-- **Repository Creation**: Create a new repository on GitHub for your project.
+-   **Installation**: Install Git and set up a GitHub account.
+-   **Repository Creation**: Create a new repository on GitHub for your project.
 
 ### Command line code example: Initializing a Git Repository
 
@@ -309,9 +309,9 @@ Versioning is crucial in tracking the evolution of a project and facilitates rev
 
 ### Basic Git Commands
 
-- `git add`: Stage changes for commit.
-- `git commit`: Commit staged changes with a descriptive message.
-- `git push`: Push committed changes to a remote repository.
+-   `git add`: Stage changes for commit.
+-   `git commit`: Commit staged changes with a descriptive message.
+-   `git push`: Push committed changes to a remote repository.
 
 ### Command line code example: Committing Changes
 
@@ -332,14 +332,14 @@ GitHub provides a platform for hosting repositories and enables collaborative wo
 
 ### Features for Collaboration
 
-- **Issue Tracking**: Report and track bugs, features, and tasks.
-- **Pull Requests**: Review, discuss, and merge code changes.
+-   **Issue Tracking**: Report and track bugs, features, and tasks.
+-   **Pull Requests**: Review, discuss, and merge code changes.
 
 ### R Code Example: Cloning a Repository
 
 To collaborate on an existing project, you would first clone the repository.
 
-```
+```         
 # Clone a repository
 git clone https://github.com/yourusername/your-repository.git
 ```

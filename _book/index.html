@@ -21,7 +21,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -62,7 +81,10 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<link rel="stylesheet" href="mycss.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -74,7 +96,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -102,13 +124,13 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Welcome</span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Core</span></a>
+ <span class="menu-text">Core Concepts</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -117,25 +139,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./primer.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Statistics Primer</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistics and Probability Primer</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./time_series.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bayesian_methods.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ml.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span></a>
   </div>
 </li>
       </ul>
@@ -143,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Advanced</span></a>
+ <span class="menu-text">Advanced Material</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -152,7 +174,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./multilevel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./causal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Causal inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./colliderbias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Causal Salad, Endogeneity and collider bias</span></span></a>
   </div>
 </li>
       </ul>
@@ -196,12 +230,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a>
+  <li><a href="#embracing-complexity" id="toc-embracing-complexity" class="nav-link active" data-scroll-target="#embracing-complexity">Embracing Complexity</a>
   <ul class="collapse">
-  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
-  <li><a href="#importance-of-integrating-economics-statistics-and-machine-learning" id="toc-importance-of-integrating-economics-statistics-and-machine-learning" class="nav-link" data-scroll-target="#importance-of-integrating-economics-statistics-and-machine-learning">Importance of Integrating Economics, Statistics, and machine learning</a></li>
-  <li><a href="#course-objectives" id="toc-course-objectives" class="nav-link" data-scroll-target="#course-objectives">Course Objectives</a></li>
-  <li><a href="#organization" id="toc-organization" class="nav-link" data-scroll-target="#organization">Organization</a></li>
+  <li><a href="#financial-markets-a-complex-predictive-system" id="toc-financial-markets-a-complex-predictive-system" class="nav-link" data-scroll-target="#financial-markets-a-complex-predictive-system">Financial Markets: A Complex Predictive System</a>
+  <ul class="collapse">
+  <li><a href="#the-predictive-nature-of-market-prices" id="toc-the-predictive-nature-of-market-prices" class="nav-link" data-scroll-target="#the-predictive-nature-of-market-prices">The Predictive Nature of Market Prices</a></li>
+  </ul></li>
+  <li><a href="#the-role-of-bayesian-methods-and-machine-learning" id="toc-the-role-of-bayesian-methods-and-machine-learning" class="nav-link" data-scroll-target="#the-role-of-bayesian-methods-and-machine-learning">The Role of Bayesian Methods and Machine Learning</a></li>
+  <li><a href="#unifying-theoretical-foundations" id="toc-unifying-theoretical-foundations" class="nav-link" data-scroll-target="#unifying-theoretical-foundations">Unifying Theoretical Foundations</a></li>
+  <li><a href="#synergizing-econometrics-bayesian-methods-and-machine-learning" id="toc-synergizing-econometrics-bayesian-methods-and-machine-learning" class="nav-link" data-scroll-target="#synergizing-econometrics-bayesian-methods-and-machine-learning">Synergizing Econometrics, Bayesian Methods, and Machine Learning</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul></li>
   </ul>
@@ -212,7 +249,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Advanced Financial Data Analytics</h1>
+<h1 class="title">Preface</h1>
 <p class="subtitle lead">Time series econometrics, Bayesian methods, and machine learning</p>
 </div>
 
@@ -230,7 +267,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">Invalid Date</p>
+      <p class="date">today</p>
     </div>
   </div>
   
@@ -241,39 +278,53 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="welcome" class="level1 unnumbered">
-<h1 class="unnumbered">Welcome</h1><p><img src="IMG_2706.JPG" title="Advanced Financial Data Analytics" class="quarto-cover-image img-fluid"></p>
-<p>Welcome to Advanced Financial Analytics, designed for aspiring financial professionals seeking to master cutting-edge quantitative methods and technologies for navigating complex financial landscapes. Today’s volatile and uncertain financial climate demands proficiency in sophisticated analytical techniques, fueling the necessity for this comprehensive course covering time series econometrics, Bayesian methods, and machine learning. This chapter introduces essential terminology, provides a historical perspective on financial analytics, describes the importance of integrating economics, statistics, and machine learning, and outlines the course objectives.</p>
-<section id="background" class="level2">
-<h2 class="anchored" data-anchor-id="background">Background</h2>
-<p>Historically, financial analytics primarily focused on static methods, such as ratios, yield calculations, and cash flow analysis. However, mounting pressure to remain competitive in a technologically advancing world led to the gradual evolution of financial analytics, giving rise to the current era dominated by quantitative and qualitative techniques. Modern financial analytics caters to diverse stakeholders, including investors, regulators, rating agencies, and corporations. Increasingly stringent regulations coupled with intensified competition compelled financial institutions to adopt more rigorous analytical approaches, culminating in widespread utilization of time series econometrics, Bayesian methods, and machine learning.</p>
+<section id="embracing-complexity" class="level1 unnumbered">
+<h1 class="unnumbered">Embracing Complexity</h1><p><img src="IMG_2706.JPG" title="Advanced Financial Data Analytics" class="quarto-cover-image img-fluid"></p>
+<p>In the ever-evolving landscape of financial analytics, a paradigm shift has occurred with the integration of machine learning, classical financial time series econometrics, and Bayesian methods. These methodologies together provide a multifaceted approach to tackling the <a href="https://q-rap.connect.qub.ac.uk/FAB/about.html">wicked problems</a> in finance, characterized by complexity, uncertainty, and conflicting objectives. Drawing inspiration from seminal works, including <span class="citation" data-cites="Kelly2022complexity Kelly2023FML">(<a href="references.html#ref-Kelly2022complexity" role="doc-biblioref">Bryan T. Kelly, Malamud, and Zhou 2022</a>; <a href="references.html#ref-Kelly2023FML" role="doc-biblioref">Bryan T. Kelly and Xiu 2023</a>)</span>, this book explores the intricate role these methodologies play in deciphering and predicting the behaviors of financial markets.</p>
+<section id="financial-markets-a-complex-predictive-system" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="financial-markets-a-complex-predictive-system">Financial Markets: A Complex Predictive System</h2>
+<p>At the core of financial analytics is the understanding that market prices are not just numbers but predictions, reflecting investors’ expectations about future asset payoffs and risks. Classical financial time series econometrics, with its robust models like ARIMA and GARCH, offers valuable insights into market dynamics through historical data analysis. However, when faced with the vast and complex datasets of modern finance, these traditional approaches can be limited by their rigidity and assumptions.</p>
+<section id="the-predictive-nature-of-market-prices" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="the-predictive-nature-of-market-prices">The Predictive Nature of Market Prices</h3>
+<p>In financial economics, the price of an asset is modeled as the expected discounted future payoff, formalized as:</p>
+<p><span class="math display">\[P_{it} = E[M_{t+1} X_{it+1} | I_t ]\]</span></p>
+<p>Where:</p>
+<ul>
+<li><span class="math inline">\(P_{it}\)</span> represents the price of asset <span class="math inline">\(i\)</span> at time <span class="math inline">\(t\)</span>.</li>
+<li><span class="math inline">\(E[\cdot]\)</span> is the expectation operator.</li>
+<li><span class="math inline">\(M_{t+1}\)</span> denotes the stochastic discount factor, accounting for investors’ time preference and risk aversion.</li>
+<li><span class="math inline">\(X_{it+1}\)</span> is the future payoff of the asset.</li>
+<li><span class="math inline">\(I_t\)</span> encapsulates all available information at time <span class="math inline">\(t\)</span>.</li>
+</ul>
+<p>This equation underscores that current market prices are essentially the aggregated predictions of investors about future payoffs, adjusted for risk and time preferences.</p>
 </section>
-<section id="importance-of-integrating-economics-statistics-and-machine-learning" class="level2">
-<h2 class="anchored" data-anchor-id="importance-of-integrating-economics-statistics-and-machine-learning">Importance of Integrating Economics, Statistics, and machine learning</h2>
-<p>Finance comprises three primary pillars: economics, statistics, and AI. Economic principles serve as the cornerstone of sound financial practice, forming the bedrock upon which successful financial endeavors rely. Statistical thinking reinforces economic intuition, enabling financial professionals to ascertain cause-and-effect relationships among pertinent variables and measure uncertainty. Finally, AI augments human cognitive capacities, transcending conventional analytical limits imposed by laborious and time-consuming manual techniques. Employing AI in financial analytics affords several advantages, namely enhanced predictive capabilities, automatic feature identification, and adaptive learning.</p>
 </section>
-<section id="course-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="course-objectives">Course Objectives</h2>
-<p>Upon completing this course, participants should expect to acquire the necessary skills to:</p>
-<ol type="1">
-<li>Interpret and critically evaluate prevailing quantitative techniques in finance.</li>
-<li>Demonstrate comprehension of time series econometric models, including ARCH, GARCH, VAR, and VECM.</li>
-<li>Display aptitude in applying Bayesian methods to financial data.</li>
-<li>Construct and defend defensible financial forecasts using alternative model specifications.</li>
-<li>Utilize machine learning tools to enhance financial analytics and risk assessment.</li>
-<li>Comprehend the intricacies surrounding data privacy, ethics, and transparency in financial analytics.</li>
-<li>Communicate sophisticated financial concepts succinctly and persuasively.</li>
-</ol>
+<section id="the-role-of-bayesian-methods-and-machine-learning" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="the-role-of-bayesian-methods-and-machine-learning">The Role of Bayesian Methods and Machine Learning</h2>
+<p>Bayesian methods bring a probabilistic dimension, enabling the incorporation of prior knowledge and continuous updating with new data. This flexibility is crucial in adapting to the uncertain and dynamic nature of financial markets.</p>
+<p>Machine learning, with its capacity to process large datasets and adapt to various functional forms, complements traditional econometrics and Bayesian approaches. Its utility lies in its ability to model the complexities of financial markets with a higher degree of accuracy.</p>
 </section>
-<section id="organization" class="level2">
-<h2 class="anchored" data-anchor-id="organization">Organization</h2>
-<p>Chapter 1 begins with a concise introduction, establishing the foundation for the remainder of the course. Following chapters delve deeply into time series econometrics, Bayesian methods, and AI. Upon completion of didactic instruction, readers encounter hands-on exercises, assignments, and capstone projects intended to cement acquired knowledge and foster practical skills applicable to real-world financial scenarios.</p>
+<section id="unifying-theoretical-foundations" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="unifying-theoretical-foundations">Unifying Theoretical Foundations</h2>
+<p>The strengths of these methodologies are encapsulated in their foundational principles. Machine learning’s overparameterization and regularization techniques handle high-dimensional data and mitigate overfitting. Bayesian methods, on the other hand, offer a dynamic and adaptive framework for probabilistic modeling and inference.</p>
 </section>
-<section id="conclusion" class="level2">
-<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Advanced Financial Analytics heralds an age of unprecedented opportunity for financial professionals equipped with the requisite skills to wield sophisticated quantitative methods and AI technologies. This course stands poised to equip learners with the conceptual acumen and technical prowess demanded by contemporary financial markets. Through immersion in time series econometrics, Bayesian methods, and AI, students emerge conversant in advanced financial analytics, primed to navigate turbulent waters and seize lucrative opportunities afforded by burgeoning technological advancements. Emboldened by this comprehensive curriculum, aspiring financial professionals venture boldly into the brave new world of quantitative finance, secure in their newly minted expertise.</p>
+<section id="synergizing-econometrics-bayesian-methods-and-machine-learning" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="synergizing-econometrics-bayesian-methods-and-machine-learning">Synergizing Econometrics, Bayesian Methods, and Machine Learning</h2>
+<p>The convergence of classical financial time series econometrics, Bayesian methods, and machine learning forms a comprehensive toolkit for addressing the intricacies of financial markets. Econometrics lays the groundwork with established models, Bayesian methods add adaptability in the face of uncertainty, and machine learning brings advanced predictive power, especially for large and complex datasets.</p>
+</section>
+<section id="conclusion" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This book embarks on a detailed exploration of how these three pivotal methodologies revolutionize financial data analytics. By embracing the complexity of financial markets and harnessing the collective strengths of econometrics, Bayesian methods, and machine learning, we aim to deepen our understanding of financial predictions and enhance decision-making in finance. Through this journey, readers will gain the necessary insights and tools to navigate the sophisticated realm of financial analytics in today’s world.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-Kelly2022complexity" class="csl-entry" role="listitem">
+Kelly, Bryan T, Semyon Malamud, and Kangying Zhou. 2022. <span>“<span class="nocase">The Virtue of Complexity Everywhere</span>.”</span> <em>SSRN Electronic Journal</em>. <a href="https://doi.org/10.2139/ssrn.4171581">https://doi.org/10.2139/ssrn.4171581</a>.
+</div>
+<div id="ref-Kelly2023FML" class="csl-entry" role="listitem">
+Kelly, Bryan T., and Dacheng Xiu. 2023. <span>“<span>Financial Machine Learning</span>.”</span> <em>SSRN Electronic Journal</em>. <a href="https://doi.org/10.2139/ssrn.4520856">https://doi.org/10.2139/ssrn.4520856</a>.
+</div>
+</div>
 </section>
 </section>
 
@@ -516,7 +567,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./primer.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Statistics Primer</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistics and Probability Primer</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
