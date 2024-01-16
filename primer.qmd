@@ -24,6 +24,7 @@ In summary, statistics and probability theory are not just academic disciplines;
 ![](images/Iterative problem solving seen as a feedback loop in financial analysis.png)
 
 ## Statistics as an iterative process.
+
 “Statisticians, like artists, have the bad habit of falling in love with their models.” George Box emphasized the importance of viewing statistical modeling as an iterative process, where models are continually improved, scrutinized, and reassessed against new data to reach increasingly reliable inferences and decisions. This chapter delves into the iterative nature of statistics, inspired by George Box’s visionary perspective, and its relevance to financial modeling and decision-making.
 
 At the heart of Box’s philosophy lies the acknowledgment that any statistical model is an approximation of reality. Due to measurement errors, sampling biases, misspecifications, or mere random fluctuations, even seemingly adequate models can fail. Accepting this imperfection calls for humility and constant vigilance, pushing statisticians to question their models and strive for improvement.
