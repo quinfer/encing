@@ -5,12 +5,12 @@ book:
   title: "Advanced Financial Data Analytics"
   subtitle: "Time series econometrics, Bayesian methods, and machine learning"
   author: "Barry Quinn"
-  cover-image: "IMG_2706.JPG"
+  cover-image: "images/DALL·E 2024-01-16 16.45.31 - A symbolic representation of embracing complexity in financial markets. The image shows a person in the center, surrounded by a whirl of abstract symb.png"
   date: '`r Sys.Date()`'
   chapters:
     - index.qmd
     - part: "Core Concepts"
-      chapters: 
+      chapters:
         - primer.qmd
         - time_series.qmd
         - bayesian_methods.qmd
@@ -24,6 +24,7 @@ book:
   appendices: 
     - tools.qmd
     - resources.qmd
+    - solutions.qmd
 
 bibliography: references.bib
 

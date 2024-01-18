@@ -1,4 +1,6 @@
-# References {.unnumbered}
+---
+title: References
+bibliography: references.bib
+nocite: '@*'
+---
 
-::: {#refs}
-:::

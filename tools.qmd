@@ -1,5 +1,5 @@
 ---
-title: "Toolkit for advanced financial data analytics"
+title: "Toolkit"
 author: "Barry Quinn"
 editor: visual
 ---
@@ -8,7 +8,7 @@ editor: visual
 
 Financial data science involves the application of statistical and machine learning techniques to financial data, aiming to extract insights, make predictions, and guide decision-making. This chapter focuses on the programming aspects of financial data science, primarily using R in the Posit IDE.
 
-![](IMG_2706.JPG)
+![](images/IMG_2707.JPG)
 
 ## Introduction to R
 
@@ -35,9 +35,21 @@ data <- data %>%
   mutate(price_change = stock_price - lag(stock_price))
 ```
 
-## Posit IDE
+## Leveraging the cloud for advanced analytics
 
-Posit IDE, formerly known as RStudio IDE, is an integrated development environment for R. It facilitates coding, debugging, and project management.
+Posit Cloud, formerly known as RStudio Cloud, offers a comprehensive platform for learning advanced financial data analytics. This platform is an integral part of the modern toolkit for financial analysis, leveraging cloud computing to enhance and streamline the analytical workflow. With Posit Cloud, you can access a robust set of data science tools directly in your browser, eliminating the need for complex installation or configuration.
+
+Key aspects of Posit Cloud include its wide range of resources for data analysis, communication, integration, and modeling. These encompass various tools and packages such as tidyverse for data manipulation, ggplot2 for data visualization, dplyr for data transformation, Shiny for interactive web apps, and TensorFlow for machine learning, among others. These tools are essential for performing sophisticated financial data analysis in a cloud environment.
+
+Teaching data science in the cloud with Posit involves a focus on innovative pedagogy in statistics and data science, emphasizing computing, reproducible research, student-centered learning, and open-source education. This approach is particularly beneficial in financial data analytics, where cloud-based solutions offer scalable, efficient, and collaborative environments for both teaching and practical application.
+
+Posit Cloud also facilitates a transition to cloud-based data science, addressing common challenges and offering best practices for migrating data science infrastructure to the cloud. The benefits of working in such an environment include secure data storage and access, scalable analysis capabilities, and efficient sharing of results.
+
+For more detailed information and resources, you can explore the Posit website and community pages. Also, you can access Posit Cloud for your institution through the provided link: [SSO for Posit Cloud](https://sso.rstudio.cloud/q-rap).
+
+::: callout-importance
+[Posit Community](https://community.rstudio.com/) and the [Posit Blog](https://posit.co/blog/) are valuable resources for students to learn more about Posit Cloud and how it can be used for learning advanced financial data analytics.
+:::
 
 ### Why Posit IDE?
 
@@ -82,7 +94,7 @@ A typical financial data analysis workflow in R involves data collection, proces
 
 ### Reporting and Communication
 
--   **R Markdown**: Create dynamic reports combining code, output, and narrative.
+-   **Quarto**: Create dynamic reports combining code, output, and narrative.
 -   **Interactive Dashboards**: Develop dashboards using packages like `shiny`.
 
 ### R Code Example: Linear Regression
