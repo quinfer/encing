@@ -423,33 +423,34 @@ In conclusion, the interplay and overlaps between Classical Probability, Frequen
 
 ### Easier
 
-1. **Definition of Probability:** What is probability in the context of financial analysis, and why is it important?
+1.  **Definition of Probability:** What is probability in the context of financial analysis, and why is it important?
 
-2. **Basic Statistical Measures:** Describe mean, median, and mode. How are they used in financial data analysis?
+2.  **Basic Statistical Measures:** Describe mean, median, and mode. How are they used in financial data analysis?
 
-3. **Understanding Risk:** What is the role of standard deviation in measuring risk in financial portfolios?
+3.  **Understanding Risk:** What is the role of standard deviation in measuring risk in financial portfolios?
 
-4. **Simple Probability Models:** How would you use a simple probability model to estimate the likelihood of a stock’s price increase?
+4.  **Simple Probability Models:** How would you use a simple probability model to estimate the likelihood of a stock’s price increase?
 
-5. **Frequentist Approach Basics:** What is the frequentist approach to probability, and how is it applied in finance?
+5.  **Frequentist Approach Basics:** What is the frequentist approach to probability, and how is it applied in finance?
 
 ### Advanced
 
-6. **Comparative Analysis of Probability Approaches:** Compare and contrast the Bayesian and frequentist approaches in the context of predicting stock market trends.
+6.  **Comparative Analysis of Probability Approaches:** Compare and contrast the Bayesian and frequentist approaches in the context of predicting stock market trends.
 
-7. **Bayesian Inference in Market Analysis:** How does Bayesian inference aid in updating market forecasts with new information?
+7.  **Bayesian Inference in Market Analysis:** How does Bayesian inference aid in updating market forecasts with new information?
 
-8. **Significance Testing in Finance:** Discuss the importance and limitations of p-values in financial hypothesis testing.
+8.  **Significance Testing in Finance:** Discuss the importance and limitations of p-values in financial hypothesis testing.
 
-9. **Box’s Iterative Model:** Explain George Box’s iterative approach to modeling in financial econometrics with examples.
+9.  **Box’s Iterative Model:** Explain George Box’s iterative approach to modeling in financial econometrics with examples.
 
 10. **Predictive Modeling in Finance:** Discuss the role of predictive modeling in finance and the statistical techniques commonly used.
 
-## Practical Questions with Starter Code:**
+## Practical Questions with Starter Code:\*\*
 
 ### Easier
 
-1. **Calculating Stock Returns:**
+1.  **Calculating Stock Returns:**
+
 ```{R}
    # Calculate the annualized return of a stock
    initial_price <- 100
@@ -457,65 +458,74 @@ In conclusion, the interplay and overlaps between Classical Probability, Frequen
    years <- 3
    annualized_return <- (final_price / initial_price)^(1/years) - 1
 ```
-   Calculate and interpret the annualized return of a stock over a three-year period.
 
-2. **Descriptive Statistics of Financial Data:**
+Calculate and interpret the annualized return of a stock over a three-year period.
+
+2.  **Descriptive Statistics of Financial Data:**
+
 ```{R}
    # Summarize a dataset of stock prices
    stock_prices <- c(120, 125, 130, 128, 135)
    summary(stock_prices)
 ```
-   Summarize and interpret the descriptive statistics of a stock price dataset.
 
-3. **Basic Risk Assessment:**
+Summarize and interpret the descriptive statistics of a stock price dataset.
+
+3.  **Basic Risk Assessment:**
+
 ```{R}
    # Calculate standard deviation of stock returns
    stock_returns <- c(0.05, 0.02, -0.03, 0.04, 0.01)
    sd(stock_returns)
-   ```
-   Calculate and interpret the standard deviation of stock returns.
 ```
 
-4. **Simple Probability Calculation:**
+Calculate and interpret the standard deviation of stock returns.
+
+4.  **Simple Probability Calculation:**
+
 ```{R}
    # Calculate the probability of a fair coin landing heads
    probability_heads <- 1 / 2
-   ```
-   Calculate and interpret the probability of an event in a financial context.
 ```
 
-5. **Basic Time Series Forecasting:**
+Calculate and interpret the probability of an event in a financial context.
+
+5.  **Basic Time Series Forecasting:**
+
 ```{R}
    # Using a simple moving average for forecasting
    stock_prices <- c(120, 122, 121, 123, 125)
    forecast <- mean(tail(stock_prices, n=3))
-   ```
-   Use a simple moving average to forecast the next data point in a financial time series.
 ```
 
+Use a simple moving average to forecast the next data point in a financial time series.
 
 ### Advanced:
 
-6. **Advanced Risk Modeling (VaR):**
+6.  **Advanced Risk Modeling (VaR):**
+
 ```{R}
    # Calculate Value at Risk (VaR) for a stock portfolio
-   portfolio_returns <- c(-0.05, 0.1, 0.03, -0.02, 0.04)
-   alpha <- 0.05
-   VaR <- quantile(portfolio_returns, alpha)
+portfolio_returns <- c(-0.05, 0.1, 0.03, -0.02, 0.04)
+alpha <- 0.05
+VaR <- quantile(portfolio_returns, alpha)
 ```
-   Calculate and interpret Value at Risk for a portfolio.
 
-7. **Bayesian Update in Stock Forecasting:**
+Calculate and interpret Value at Risk for a portfolio.
+
+7.  **Bayesian Update in Stock Forecasting:**
+
 ```{R}
    # Perform a Bayesian update for stock price prediction
-   prior <- dbeta(1, 1) # Uniform prior
-   likelihood <- dbinom(6, size=10, prob=0.5)
-   posterior <- prior * likelihood
+prior <- dbeta(1,1,1) # Uniform prior
+likelihood <- dbinom(6, size=10, prob=0.5)
+posterior <- prior * likelihood
 ```
 
 Update the probability of a stock’s price increase using Bayesian inference.
 
-8. **Hypothesis Testing in Financial Returns:**
+8.  **Hypothesis Testing in Financial Returns:**
+
 ```{R}
    # Test if a new strategy outperforms the market
    strategy_returns <- c(0.07, 0.08, 0.09, 0.06, 0.1)
@@ -525,10 +535,10 @@ Update the probability of a stock’s price increase using Bayesian inference.
 
 Conduct and interpret a hypothesis test comparing a new investment strategy to market returns.
 
-9. **Complex Time Series Analysis:**
+9.  **Complex Time Series Analysis:**
+
 ```{R}
    # Fit an ARIMA model to financial time series data
-   install.packages("forecast")
    library(forecast)
    arima_model <- auto.arima(stock_prices)
    forecast(arima_model, h=1)
@@ -537,9 +547,9 @@ Conduct and interpret a hypothesis test comparing a new investment strategy to m
 Fit an ARIMA model to a financial time series and forecast future values.
 
 10. **Portfolio Optimization:**
+
 ```{R}
    # Optimize a portfolio using Markowitz model
-   install.packages("PortfolioAnalytics")
    library(PortfolioAnalytics)
    # Define assets and their returns
    portfolio_returns <- matrix(c(0.12, 0.1, 0.15, 0.09), ncol=4)
@@ -548,4 +558,8 @@ Fit an ARIMA model to a financial time series and forecast future values.
 
 Optimize a financial portfolio using the Markowitz model and interpret the results.
 
+::: callout-important
 These questions aim to test both theoretical understanding and practical skills, covering a range of complexities suitable for learners at different levels.
+:::
+
+# References

@@ -1,1 +1,0 @@
-{"frames":[{"func":"kmeans(returns[, -1], centers = 3, nstart = 25)","file":"","line_number":0,"end_line_number":0,"character_number":0,"end_character_number":0},{"func":"do_one(nmeth)","file":"","line_number":0,"end_line_number":0,"character_number":0,"end_character_number":0}],"message":"Error in do_one(nmeth) : NA/NaN/Inf in foreign function call (arg 1)\n"}
