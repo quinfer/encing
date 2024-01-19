@@ -5,7 +5,7 @@ book:
   title: "Advanced Financial Data Analytics"
   subtitle: "Time series econometrics, Bayesian methods, and machine learning"
   author: "Barry Quinn"
-  cover-image: "images/DALL·E 2024-01-16 16.45.31 - A symbolic representation of embracing complexity in financial markets. The image shows a person in the center, surrounded by a whirl of abstract symb.png"
+  cover-image: "images/DALL·E 2024-01-18 16.32.37 - Create a professional logo for an advanced financial data analytics course. The design should be vibrant, with a medium level of detail, balancing com.png"
   date: '`r Sys.Date()`'
   chapters:
     - index.qmd

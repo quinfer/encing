@@ -7,7 +7,8 @@ execute:
   message: false
   echo: fenced
 ---
-![](images/IMG_2707.JPG){width="50%" style="float: left; margin-right: 10px;"}
+
+![](images/logos/DALL·E 2024-01-18 16.45.28 - Design a revised logo for an advanced financial data analytics course, ensuring no pie charts are included. The logo should be vibrant, with a medium .png){style="float: left; margin-right: 10px;"}
 
 Financial data analytics involves the application of statistical and machine learning techniques to financial data, aiming to extract insights, make predictions, and guide decision-making. This chapter introduces a set of tools and processes that are grounded in professional standards in Statistics and data science.
 
@@ -50,7 +51,11 @@ For more detailed information and resources, you can explore the Posit website a
 [Posit Community](https://community.rstudio.com/) and the [Posit Blog](https://posit.co/blog/) are valuable resources for students to learn more about Posit Cloud and how it can be used for learning advanced financial data analytics.
 :::
 
-<div style="position: relative; padding-bottom: 178.26086956521738%; height: 0;"><iframe src="https://www.loom.com/embed/b454d9f6df234fe0a4c8b31d45aec9e3?sid=6782c010-abec-44ac-9fbf-5ae59ec65fa9" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+::: {style="position: relative; padding-bottom: 178.26086956521738%; height: 0;"}
+<iframe src="https://www.loom.com/embed/b454d9f6df234fe0a4c8b31d45aec9e3?sid=6782c010-abec-44ac-9fbf-5ae59ec65fa9" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+
+</iframe>
+:::
 
 ## R Code Example: Creating a Plot
 
@@ -97,7 +102,8 @@ summary(model)
 ```
 
 ::: callout-tip
-### Wrap-up
+### TL;DR
+
 Programming in R within the Posit IDE provides a robust framework for financial data science. The combination of R's statistical capabilities and Posit's integrated environment enables efficient data analysis and insightful reporting in the financial domain.
 
 This chapter provides a foundational overview of using R for financial data science in the Posit IDE. The code examples are basic and intended to illustrate the concepts discussed. Depending on the audience's proficiency and the book's scope, you may include more complex examples and in-depth explanations of financial modeling and data analysis techniques.
@@ -105,7 +111,7 @@ This chapter provides a foundational overview of using R for financial data scie
 
 ## Reproducible Data Analysis in Financial data analytics
 
-Reproducibility is a cornerstone of scientific research, ensuring that results can be independently verified and trusted. In Financial data analytics, reproducibility is critical for validating results and maintaining integrity in analysis and decision-making processes.  Reproducibility in data science means that others can use the same data and methods to achieve the same results. It involves a combination of well-documented code, data, and methodologies.
+Reproducibility is a cornerstone of scientific research, ensuring that results can be independently verified and trusted. In Financial data analytics, reproducibility is critical for validating results and maintaining integrity in analysis and decision-making processes. Reproducibility in data science means that others can use the same data and methods to achieve the same results. It involves a combination of well-documented code, data, and methodologies.
 
 ### Importance in Financial Analysis
 
@@ -182,7 +188,8 @@ Considering the future usability of the analysis is vital:
 -   **Extensibility**: Designing analysis workflows that can be easily extended or modified.
 
 ::: callout-tip
-### Wrap-up
+### TL;DR
+
 In Financial data analytics, reproducibility is not just a good practice but a necessity. It ensures that analyses are trustworthy and verifiable, which is paramount in a field where decisions can have significant financial implications. By adhering to best practices in data management, coding, and documentation, financial data analysts can achieve a high standard of reproducibility in their work.
 :::
 
@@ -258,11 +265,10 @@ long_data <- wide_data %>%
 ```
 
 ::: callout-tip
-### Wrap-Up
-The Tidyverse offers a coherent, fluent, and expressive syntax for data analysis in R, making it an indispensable part of the financial data scientist's toolkit. Its components work seamlessly together, enabling efficient and elegant data analysis workflows, crucial for insightful financial analysis.
-This section provides an overview of the Tidyverse and its application in Financial data analytics, including key packages and their functionalities. The R code examples illustrate how these packages can be used in practical financial data analysis scenarios. This content can be further elaborated upon or tailored to suit specific use cases or audience needs.
-:::
+### TL;DR
 
+The Tidyverse offers a coherent, fluent, and expressive syntax for data analysis in R, making it an indispensable part of the financial data scientist's toolkit. Its components work seamlessly together, enabling efficient and elegant data analysis workflows, crucial for insightful financial analysis. This section provides an overview of the Tidyverse and its application in Financial data analytics, including key packages and their functionalities. The R code examples illustrate how these packages can be used in practical financial data analysis scenarios. This content can be further elaborated upon or tailored to suit specific use cases or audience needs.
+:::
 
 ## Git and GitHub for Collaborative Coding
 
@@ -286,7 +292,7 @@ Git is a distributed version control system that helps track changes in source c
 
 Note: These commands are run in a terminal or command line interface, not in the R console.
 
-```shell
+``` shell
 # Navigate to your project directory
 cd path/to/your/project
 
@@ -378,6 +384,7 @@ A growth mindset contrasts with a fixed mindset, where individuals believe their
 
 ::: callout-tip
 ### Summing Up
+
 In the dynamic field of financial data analytics, a growth mindset is not just beneficial; it's essential. By embracing challenges, learning from criticism, and persisting through setbacks, finance professionals can continually advance their skills and stay ahead in their field.
 :::
 
@@ -445,5 +452,5 @@ In the dynamic field of financial data analytics, a growth mindset is not just b
     -   Describe how these manipulations aid in uncovering financial insights.
 10. **Collaborative Financial Project using GitHub:**
 
-  -   Simulate a collaborative project workflow for a financial analysis using GitHub.
-  -   Discuss the challenges and benefits of collaborative coding in Financial data analytics.
+-   Simulate a collaborative project workflow for a financial analysis using GitHub.
+-   Discuss the challenges and benefits of collaborative coding in Financial data analytics.
