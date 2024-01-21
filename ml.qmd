@@ -281,20 +281,19 @@ First, we generate synthetic financial data following a lognormal distribution. 
 
 Implementing Q-learning with a state space of lagged prices in Python involves a few key steps. Here's a basic outline:
 
-1. **Data Preparation**: Prepare your price data, creating lagged features to represent different states.
+1.  **Data Preparation**: Prepare your price data, creating lagged features to represent different states.
 
-2. **Initialize Q-Table**: Create a Q-table with dimensions corresponding to the number of states and actions.
+2.  **Initialize Q-Table**: Create a Q-table with dimensions corresponding to the number of states and actions.
 
-3. **Define the Bellman Equation**: This will be used to update the Q-values. The equation is: 
-   \[ Q(state, action) = Q(state, action) + \alpha * (reward + \gamma * \max_{a} Q(next\_state, a) - Q(state, action)) \]
-   where \(\alpha\) is the learning rate and \(\gamma\) is the discount factor.
+3.  **Define the Bellman Equation**: This will be used to update the Q-values. The equation is: \[ Q(state, action) = Q(state, action) + \alpha * (reward + \gamma * \max\_{a} Q(next_state, a) - Q(state, action)) \] where (\alpha) is the learning rate and (\gamma) is the discount factor.
 
-4. **Q-Learning Loop**: Iterate over your episodes:
-   - Select an action (based on the current state) using a policy derived from the Q-table (e.g., epsilon-greedy).
-   - Implement the action to get the next state and reward.
-   - Update the Q-table using the Bellman equation.
+4.  **Q-Learning Loop**: Iterate over your episodes:
 
-5. **Policy Extraction**: After training, extract the optimal policy from the Q-table.
+    -   Select an action (based on the current state) using a policy derived from the Q-table (e.g., epsilon-greedy).
+    -   Implement the action to get the next state and reward.
+    -   Update the Q-table using the Bellman equation.
+
+5.  **Policy Extraction**: After training, extract the optimal policy from the Q-table.
 
 Here's an example in Python:
 
@@ -340,22 +339,19 @@ for i in range(period_length, len(price_data)):
 print(price_data)
 ```
 
-
 This script uses NumPy for data generation and pandas for data handling. The `define_action` function sets the rules for the action space based on the conditions you provided. The `rolling().apply()` method in pandas is used to apply these rules over a 5-day window.
 
 This script uses NumPy for data generation and pandas for data handling. The `define_action` function sets the rules for the action space based on the conditions you provided. The `rolling().apply()` method in pandas is used to apply these rules over a 5-day window.
 
 To implement Q-learning with your financial data, let's fill in the blanks from the previous example. We'll discretize the states and define how actions are executed and the Q-table updated. Since our state space is complex, we'll simplify it by categorizing the rolling return into a few discrete states.
 
-
-
 Assuming the `price_data` DataFrame has the rolling return and action columns:
 
-1. **Discretize States**: For simplicity, let's categorize states based on return quantiles.
+1.  **Discretize States**: For simplicity, let's categorize states based on return quantiles.
 
-2. **Execute Actions and Observe Reward**: The reward can be the change in price following an action.
+2.  **Execute Actions and Observe Reward**: The reward can be the change in price following an action.
 
-3. **Update Q-Table**: Use the Bellman equation to update the Q-values.
+3.  **Update Q-Table**: Use the Bellman equation to update the Q-values.
 
 Here's the Python code with these components:
 
@@ -407,12 +403,11 @@ This code provides a basic framework for applying Q-learning to financial data. 
 
 ### Interpretation of policy
 
-The `policy` object in the context of the Q-learning example represents the optimal actions to take for each state after the learning process. Each entry in the `policy` array corresponds to a state, and the value at each entry represents the best action to take when in that state, as determined by the Q-learning algorithm. 
+The `policy` object in the context of the Q-learning example represents the optimal actions to take for each state after the learning process. Each entry in the `policy` array corresponds to a state, and the value at each entry represents the best action to take when in that state, as determined by the Q-learning algorithm.
 
-This array is derived from the Q-table, where each state's optimal action is the one with the highest Q-value. The actions are typically encoded as integers (e.g., 0 for 'Buy', 1 for 'Hold', 2 for 'Sell'). So, interpreting the `policy` array involves mapping these integers back to their corresponding actions. 
+This array is derived from the Q-table, where each state's optimal action is the one with the highest Q-value. The actions are typically encoded as integers (e.g., 0 for 'Buy', 1 for 'Hold', 2 for 'Sell'). So, interpreting the `policy` array involves mapping these integers back to their corresponding actions.
 
 For example, if `policy[0]` is `2`, it means that for the first state, the optimal action as per the learned policy is 'Sell'. The interpretation of the `policy` array provides a guideline on what action to take in each state based on past learning, aiming to maximize the expected reward.
-
 
 # Latest Advances and Future Directions in Machine Learning for Finance
 
