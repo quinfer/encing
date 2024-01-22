@@ -1,2 +1,6 @@
 /.quarto/
+<<<<<<< Updated upstream
 .*
+=======
+.Rproj.user
+>>>>>>> Stashed changes

@@ -1,6 +1,0 @@
-"0","# Plot the forecast
-plot(forecast_values, which=""all"")
-"
-"2","Error in h(simpleError(msg, call)) : 
-  error in evaluating the argument 'x' in selecting a method for function 'plot': object 'forecast_values' not found
-"
