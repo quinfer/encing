@@ -3,8 +3,10 @@ title: "Machine Learning in Finance"
 author: "Barry Quinn"
 editor: visual
 ---
-
+![](images/logos/DALL·E 2024-01-22 10.21.45 - Create the third logo design for an advanced financial data analytics course. The design should be vibrant and of medium detail, utilizing Pantone 185.png){width="30%" style="float: left; margin-right: 10px;"}
+<span class="hand">
 Welcome to the Machine Learning in Finance section of your course! Machine learning (ML) is increasingly becoming integral to modern financial decision-making, enabling professionals to harness massive data streams and derive powerful insights. ML models offer flexible and sophisticated ways to tackle diverse challenges, from pattern recognition and forecasting to recommendation systems and stress tests. In this introductory segment, we will highlight fundamental ML techniques, outline their primary applications in finance, and clarify the subtle yet vital distinctions between supervised, unsupervised, and reinforcement learning.
+</span>
 
 # Overview of Machine Learning Techniques in Finance
 

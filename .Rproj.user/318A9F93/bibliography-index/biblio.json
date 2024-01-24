@@ -1,6 +1,29 @@
 {
     "sources": [
         {
+            "author": [
+                {
+                    "family": "Lo",
+                    "given": "Andrew W."
+                },
+                {
+                    "family": "MacKinlay",
+                    "given": "A. Craig"
+                }
+            ],
+            "id": "lo1997econometrics",
+            "issued": {
+                "date-parts": [
+                    [
+                        1997
+                    ]
+                ]
+            },
+            "publisher": "Princeton University Press",
+            "title": "The econometrics of financial markets",
+            "type": "book"
+        },
+        {
             "DOI": "10.1017/9781139161879",
             "author": [
                 {
