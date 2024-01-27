@@ -3,6 +3,29 @@
         {
             "author": [
                 {
+                    "family": "Vilhuber",
+                    "given": "Lars"
+                }
+            ],
+            "container-title": "Annual Review of Economics",
+            "id": "Vilhuber2021",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "page": "45-70",
+            "publisher": "Annual Reviews",
+            "title": "Reproducibility and replicability in economics",
+            "type": "article-journal",
+            "volume": "13"
+        },
+        {
+            "author": [
+                {
                     "family": "Lo",
                     "given": "Andrew W."
                 },

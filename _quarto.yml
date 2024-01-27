@@ -3,7 +3,7 @@ project:
 
 book:
   title: "Advanced Financial Data Analytics"
-  subtitle: "Time series econometrics, Bayesian methods, and machine learning"
+  subtitle: "A Modern Approach to Financial Research and Analytics"
   author: "Barry Quinn"
   cover-image: "images/DALL·E 2024-01-18 16.32.37 - Create a professional logo for an advanced financial data analytics course. The design should be vibrant, with a medium level of detail, balancing com.png"
   date: '`r Sys.Date()`'
