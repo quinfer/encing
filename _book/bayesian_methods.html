@@ -8,7 +8,7 @@
 
 <meta name="author" content="Barry Quinn">
 
-<title>Advanced Financial Data Analytics - 5&nbsp; Bayesian Methods</title>
+<title>Advanced Financial Data Analytics - 6&nbsp; Bayesian Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -131,7 +131,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./primer.html">Core Concepts</a></li><li class="breadcrumb-item"><a href="./bayesian_methods.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./primer.html">Core Concepts</a></li><li class="breadcrumb-item"><a href="./bayesian_methods.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -185,20 +185,26 @@ div.csl-indent {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Understanding Financial Data and Asset Returns</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./time_series.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bayesian_methods.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ml.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span></a>
   </div>
 </li>
       </ul>
@@ -215,19 +221,19 @@ div.csl-indent {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./multilevel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./causal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Causal inference</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Causal inference</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./colliderbias.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Causal Salad, Endogeneity and collider bias</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Causal Salad, Endogeneity and collider bias</span></span></a>
   </div>
 </li>
       </ul>
@@ -235,7 +241,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">References</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">References</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -271,45 +277,45 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#bayesian-thinking-for-finance" id="toc-bayesian-thinking-for-finance" class="nav-link active" data-scroll-target="#bayesian-thinking-for-finance"><span class="header-section-number">5.1</span> Bayesian thinking for finance</a>
+  <li><a href="#bayesian-thinking-for-finance" id="toc-bayesian-thinking-for-finance" class="nav-link active" data-scroll-target="#bayesian-thinking-for-finance"><span class="header-section-number">6.1</span> Bayesian thinking for finance</a>
   <ul class="collapse">
-  <li><a href="#the-essence-of-bayesian-thinking" id="toc-the-essence-of-bayesian-thinking" class="nav-link" data-scroll-target="#the-essence-of-bayesian-thinking"><span class="header-section-number">5.1.1</span> The Essence of Bayesian Thinking</a></li>
-  <li><a href="#practical-implications-in-finance" id="toc-practical-implications-in-finance" class="nav-link" data-scroll-target="#practical-implications-in-finance"><span class="header-section-number">5.1.2</span> Practical Implications in Finance</a></li>
+  <li><a href="#the-essence-of-bayesian-thinking" id="toc-the-essence-of-bayesian-thinking" class="nav-link" data-scroll-target="#the-essence-of-bayesian-thinking"><span class="header-section-number">6.1.1</span> The Essence of Bayesian Thinking</a></li>
+  <li><a href="#practical-implications-in-finance" id="toc-practical-implications-in-finance" class="nav-link" data-scroll-target="#practical-implications-in-finance"><span class="header-section-number">6.1.2</span> Practical Implications in Finance</a></li>
   </ul></li>
-  <li><a href="#basics-of-bayesian-statistics" id="toc-basics-of-bayesian-statistics" class="nav-link" data-scroll-target="#basics-of-bayesian-statistics"><span class="header-section-number">5.2</span> Basics of Bayesian Statistics</a>
+  <li><a href="#basics-of-bayesian-statistics" id="toc-basics-of-bayesian-statistics" class="nav-link" data-scroll-target="#basics-of-bayesian-statistics"><span class="header-section-number">6.2</span> Basics of Bayesian Statistics</a>
   <ul class="collapse">
-  <li><a href="#introduction-to-bayesian-statistics" id="toc-introduction-to-bayesian-statistics" class="nav-link" data-scroll-target="#introduction-to-bayesian-statistics"><span class="header-section-number">5.2.1</span> Introduction to Bayesian Statistics</a></li>
-  <li><a href="#example-bayesian-inference-in-investment-decision-making" id="toc-example-bayesian-inference-in-investment-decision-making" class="nav-link" data-scroll-target="#example-bayesian-inference-in-investment-decision-making"><span class="header-section-number">5.2.2</span> Example: Bayesian Inference in Investment Decision-Making</a></li>
+  <li><a href="#introduction-to-bayesian-statistics" id="toc-introduction-to-bayesian-statistics" class="nav-link" data-scroll-target="#introduction-to-bayesian-statistics"><span class="header-section-number">6.2.1</span> Introduction to Bayesian Statistics</a></li>
+  <li><a href="#example-bayesian-inference-in-investment-decision-making" id="toc-example-bayesian-inference-in-investment-decision-making" class="nav-link" data-scroll-target="#example-bayesian-inference-in-investment-decision-making"><span class="header-section-number">6.2.2</span> Example: Bayesian Inference in Investment Decision-Making</a></li>
   </ul></li>
-  <li><a href="#bayesian-inference-for-univariate-normal-models-expanded" id="toc-bayesian-inference-for-univariate-normal-models-expanded" class="nav-link" data-scroll-target="#bayesian-inference-for-univariate-normal-models-expanded"><span class="header-section-number">5.3</span> Bayesian Inference for Univariate Normal Models (Expanded)</a>
+  <li><a href="#bayesian-inference-for-univariate-normal-models-expanded" id="toc-bayesian-inference-for-univariate-normal-models-expanded" class="nav-link" data-scroll-target="#bayesian-inference-for-univariate-normal-models-expanded"><span class="header-section-number">6.3</span> Bayesian Inference for Univariate Normal Models (Expanded)</a>
   <ul class="collapse">
-  <li><a href="#deriving-the-posterior-density-analytically" id="toc-deriving-the-posterior-density-analytically" class="nav-link" data-scroll-target="#deriving-the-posterior-density-analytically"><span class="header-section-number">5.3.1</span> Deriving the Posterior Density Analytically</a></li>
-  <li><a href="#expressions-for-the-normal-and-inverse-gamma-distributions" id="toc-expressions-for-the-normal-and-inverse-gamma-distributions" class="nav-link" data-scroll-target="#expressions-for-the-normal-and-inverse-gamma-distributions"><span class="header-section-number">5.3.2</span> Expressions for the Normal and Inverse-Gamma Distributions</a></li>
-  <li><a href="#graphical-representation-of-densities" id="toc-graphical-representation-of-densities" class="nav-link" data-scroll-target="#graphical-representation-of-densities"><span class="header-section-number">5.3.3</span> Graphical Representation of Densities</a></li>
-  <li><a href="#calculating-moments" id="toc-calculating-moments" class="nav-link" data-scroll-target="#calculating-moments"><span class="header-section-number">5.3.4</span> Calculating Moments</a></li>
-  <li><a href="#sampling-from-the-joint-posterior-distribution" id="toc-sampling-from-the-joint-posterior-distribution" class="nav-link" data-scroll-target="#sampling-from-the-joint-posterior-distribution"><span class="header-section-number">5.3.5</span> Sampling from the Joint Posterior Distribution</a></li>
-  <li><a href="#bayesian-credible-intervals" id="toc-bayesian-credible-intervals" class="nav-link" data-scroll-target="#bayesian-credible-intervals"><span class="header-section-number">5.3.6</span> Bayesian Credible Intervals</a></li>
+  <li><a href="#deriving-the-posterior-density-analytically" id="toc-deriving-the-posterior-density-analytically" class="nav-link" data-scroll-target="#deriving-the-posterior-density-analytically"><span class="header-section-number">6.3.1</span> Deriving the Posterior Density Analytically</a></li>
+  <li><a href="#expressions-for-the-normal-and-inverse-gamma-distributions" id="toc-expressions-for-the-normal-and-inverse-gamma-distributions" class="nav-link" data-scroll-target="#expressions-for-the-normal-and-inverse-gamma-distributions"><span class="header-section-number">6.3.2</span> Expressions for the Normal and Inverse-Gamma Distributions</a></li>
+  <li><a href="#graphical-representation-of-densities" id="toc-graphical-representation-of-densities" class="nav-link" data-scroll-target="#graphical-representation-of-densities"><span class="header-section-number">6.3.3</span> Graphical Representation of Densities</a></li>
+  <li><a href="#calculating-moments" id="toc-calculating-moments" class="nav-link" data-scroll-target="#calculating-moments"><span class="header-section-number">6.3.4</span> Calculating Moments</a></li>
+  <li><a href="#sampling-from-the-joint-posterior-distribution" id="toc-sampling-from-the-joint-posterior-distribution" class="nav-link" data-scroll-target="#sampling-from-the-joint-posterior-distribution"><span class="header-section-number">6.3.5</span> Sampling from the Joint Posterior Distribution</a></li>
+  <li><a href="#bayesian-credible-intervals" id="toc-bayesian-credible-intervals" class="nav-link" data-scroll-target="#bayesian-credible-intervals"><span class="header-section-number">6.3.6</span> Bayesian Credible Intervals</a></li>
   </ul></li>
-  <li><a href="#motivation-for-hierarchical-models" id="toc-motivation-for-hierarchical-models" class="nav-link" data-scroll-target="#motivation-for-hierarchical-models"><span class="header-section-number">5.4</span> Motivation for Hierarchical Models</a>
+  <li><a href="#motivation-for-hierarchical-models" id="toc-motivation-for-hierarchical-models" class="nav-link" data-scroll-target="#motivation-for-hierarchical-models"><span class="header-section-number">6.4</span> Motivation for Hierarchical Models</a>
   <ul class="collapse">
-  <li><a href="#examples-in-r" id="toc-examples-in-r" class="nav-link" data-scroll-target="#examples-in-r"><span class="header-section-number">5.4.1</span> Examples in R</a></li>
-  <li><a href="#traditional-econometrics-versus-bayesian-hierarchical-models" id="toc-traditional-econometrics-versus-bayesian-hierarchical-models" class="nav-link" data-scroll-target="#traditional-econometrics-versus-bayesian-hierarchical-models"><span class="header-section-number">5.4.2</span> Traditional econometrics versus Bayesian hierarchical models</a></li>
-  <li><a href="#r-example-frequentist-versus-bayesian-approach" id="toc-r-example-frequentist-versus-bayesian-approach" class="nav-link" data-scroll-target="#r-example-frequentist-versus-bayesian-approach"><span class="header-section-number">5.4.3</span> R Example: Frequentist Versus Bayesian Approach</a></li>
+  <li><a href="#examples-in-r" id="toc-examples-in-r" class="nav-link" data-scroll-target="#examples-in-r"><span class="header-section-number">6.4.1</span> Examples in R</a></li>
+  <li><a href="#traditional-econometrics-versus-bayesian-hierarchical-models" id="toc-traditional-econometrics-versus-bayesian-hierarchical-models" class="nav-link" data-scroll-target="#traditional-econometrics-versus-bayesian-hierarchical-models"><span class="header-section-number">6.4.2</span> Traditional econometrics versus Bayesian hierarchical models</a></li>
+  <li><a href="#r-example-frequentist-versus-bayesian-approach" id="toc-r-example-frequentist-versus-bayesian-approach" class="nav-link" data-scroll-target="#r-example-frequentist-versus-bayesian-approach"><span class="header-section-number">6.4.3</span> R Example: Frequentist Versus Bayesian Approach</a></li>
   </ul></li>
-  <li><a href="#mcmc-methods" id="toc-mcmc-methods" class="nav-link" data-scroll-target="#mcmc-methods"><span class="header-section-number">5.5</span> MCMC Methods</a>
+  <li><a href="#mcmc-methods" id="toc-mcmc-methods" class="nav-link" data-scroll-target="#mcmc-methods"><span class="header-section-number">6.5</span> MCMC Methods</a>
   <ul class="collapse">
-  <li><a href="#example-in-r-simple-random-walk-metropolis-hastings-sampler" id="toc-example-in-r-simple-random-walk-metropolis-hastings-sampler" class="nav-link" data-scroll-target="#example-in-r-simple-random-walk-metropolis-hastings-sampler"><span class="header-section-number">5.5.1</span> Example in R: Simple random walk Metropolis-Hastings sampler</a></li>
+  <li><a href="#example-in-r-simple-random-walk-metropolis-hastings-sampler" id="toc-example-in-r-simple-random-walk-metropolis-hastings-sampler" class="nav-link" data-scroll-target="#example-in-r-simple-random-walk-metropolis-hastings-sampler"><span class="header-section-number">6.5.1</span> Example in R: Simple random walk Metropolis-Hastings sampler</a></li>
   </ul></li>
-  <li><a href="#bayesian-approaches-to-model-financial-data" id="toc-bayesian-approaches-to-model-financial-data" class="nav-link" data-scroll-target="#bayesian-approaches-to-model-financial-data"><span class="header-section-number">5.6</span> Bayesian Approaches to Model Financial Data</a>
+  <li><a href="#bayesian-approaches-to-model-financial-data" id="toc-bayesian-approaches-to-model-financial-data" class="nav-link" data-scroll-target="#bayesian-approaches-to-model-financial-data"><span class="header-section-number">6.6</span> Bayesian Approaches to Model Financial Data</a>
   <ul class="collapse">
-  <li><a href="#ar1-example-in-r" id="toc-ar1-example-in-r" class="nav-link" data-scroll-target="#ar1-example-in-r"><span class="header-section-number">5.6.1</span> AR(1) Example in R</a></li>
-  <li><a href="#arma11-example-in-r" id="toc-arma11-example-in-r" class="nav-link" data-scroll-target="#arma11-example-in-r"><span class="header-section-number">5.6.2</span> ARMA(1,1) Example in R</a></li>
-  <li><a href="#volatility-models" id="toc-volatility-models" class="nav-link" data-scroll-target="#volatility-models"><span class="header-section-number">5.6.3</span> Volatility Models</a></li>
-  <li><a href="#key-concepts-of-stochastic-volatility" id="toc-key-concepts-of-stochastic-volatility" class="nav-link" data-scroll-target="#key-concepts-of-stochastic-volatility"><span class="header-section-number">5.6.4</span> Key Concepts of Stochastic Volatility:</a></li>
-  <li><a href="#examples-of-stochastic-volatility-models" id="toc-examples-of-stochastic-volatility-models" class="nav-link" data-scroll-target="#examples-of-stochastic-volatility-models"><span class="header-section-number">5.6.5</span> Examples of Stochastic Volatility Models:</a></li>
-  <li><a href="#mathematical-representation" id="toc-mathematical-representation" class="nav-link" data-scroll-target="#mathematical-representation"><span class="header-section-number">5.6.6</span> Mathematical Representation:</a></li>
+  <li><a href="#ar1-example-in-r" id="toc-ar1-example-in-r" class="nav-link" data-scroll-target="#ar1-example-in-r"><span class="header-section-number">6.6.1</span> AR(1) Example in R</a></li>
+  <li><a href="#arma11-example-in-r" id="toc-arma11-example-in-r" class="nav-link" data-scroll-target="#arma11-example-in-r"><span class="header-section-number">6.6.2</span> ARMA(1,1) Example in R</a></li>
+  <li><a href="#volatility-models" id="toc-volatility-models" class="nav-link" data-scroll-target="#volatility-models"><span class="header-section-number">6.6.3</span> Volatility Models</a></li>
+  <li><a href="#key-concepts-of-stochastic-volatility" id="toc-key-concepts-of-stochastic-volatility" class="nav-link" data-scroll-target="#key-concepts-of-stochastic-volatility"><span class="header-section-number">6.6.4</span> Key Concepts of Stochastic Volatility:</a></li>
+  <li><a href="#examples-of-stochastic-volatility-models" id="toc-examples-of-stochastic-volatility-models" class="nav-link" data-scroll-target="#examples-of-stochastic-volatility-models"><span class="header-section-number">6.6.5</span> Examples of Stochastic Volatility Models:</a></li>
+  <li><a href="#mathematical-representation" id="toc-mathematical-representation" class="nav-link" data-scroll-target="#mathematical-representation"><span class="header-section-number">6.6.6</span> Mathematical Representation:</a></li>
   </ul></li>
-  <li><a href="#common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians" id="toc-common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians" class="nav-link" data-scroll-target="#common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians"><span class="header-section-number">5.7</span> Common Misconceptions of Bayesian Econometrics by Traditional Frequentist Econometricians</a></li>
+  <li><a href="#common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians" id="toc-common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians" class="nav-link" data-scroll-target="#common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians"><span class="header-section-number">6.7</span> Common Misconceptions of Bayesian Econometrics by Traditional Frequentist Econometricians</a></li>
   </ul>
 </nav>
     </div>
@@ -318,7 +324,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></h1>
 </div>
 
 
@@ -339,44 +345,44 @@ div.csl-indent {
 
 </header>
 
-<p><img src="images/logos/DALL·E 2024-01-18 16.32.37 - Create a professional logo for an advanced financial data analytics course. The design should be vibrant, with a medium level of detail, balancing com.png" class="img-fluid" style="float: left; margin-right: 10px;;width:70.0%"> <span class="hand"> Bayesian methods offer some theoretical advantages over traditional statistical techniques in finance. Central to these advantages is the incorporation of prior knowledge or beliefs into the analysis. Unlike frequentist statistics, which rely solely on data from current experiments or studies, Bayesian methods allow for the integration of past data, expert opinions, or established theories. This approach results in a more comprehensive analytical framework, as it continuously updates and refines these beliefs with new data. Additionally, Bayesian statistics provide a probabilistic interpretation of results, offering a more nuanced understanding of uncertainty and risk. This flexibility in accommodating varying degrees of prior knowledge and the ability to update beliefs dynamically make Bayesian methods particularly powerful in theoretical terms. In practical financial applications, these theoretical advantages translate into enhanced capabilities for solving complex problems. For instance, in risk assessment and portfolio management, Bayesian methods can assimilate historical market data with current trends, allowing for more accurate predictions and robust investment strategies. They are also invaluable in predictive modelling, where they help in forecasting market movements under uncertainty, a common scenario in financial markets. Furthermore, Bayesian techniques aid in the development of more sophisticated pricing models for financial instruments, taking into account a wider range of factors and scenarios. Overall, the ability of Bayesian methods to integrate prior knowledge with new information and their probabilistic nature make them versatile tools in navigating the complexities and uncertainties inherent in financial analysis </span></p>
-<section id="bayesian-thinking-for-finance" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="bayesian-thinking-for-finance"><span class="header-section-number">5.1</span> Bayesian thinking for finance</h2>
+<p><img src="images/logos/DALL·E 2024-01-18 16.32.37 - Create a professional logo for an advanced financial data analytics course. The design should be vibrant, with a medium level of detail, balancing com.png" class="img-fluid" style="float: left; margin-right: 10px;;width:30.0%"> <span class="hand"> Bayesian methods offer some theoretical advantages over traditional statistical techniques in finance. Central to these advantages is the incorporation of prior knowledge or beliefs into the analysis. Unlike frequentist statistics, which rely solely on data from current experiments or studies, Bayesian methods allow for the integration of past data, expert opinions, or established theories. This approach results in a more comprehensive analytical framework, as it continuously updates and refines these beliefs with new data. Additionally, Bayesian statistics provide a probabilistic interpretation of results, offering a more nuanced understanding of uncertainty and risk. This flexibility in accommodating varying degrees of prior knowledge and the ability to update beliefs dynamically make Bayesian methods particularly powerful in theoretical terms. In practical financial applications, these theoretical advantages translate into enhanced capabilities for solving complex problems. For instance, in risk assessment and portfolio management, Bayesian methods can assimilate historical market data with current trends, allowing for more accurate predictions and robust investment strategies. They are also invaluable in predictive modelling, where they help in forecasting market movements under uncertainty, a common scenario in financial markets. Furthermore, Bayesian techniques aid in the development of more sophisticated pricing models for financial instruments, taking into account a wider range of factors and scenarios. Overall, the ability of Bayesian methods to integrate prior knowledge with new information and their probabilistic nature make them versatile tools in navigating the complexities and uncertainties inherent in financial analysis </span></p>
+<section id="bayesian-thinking-for-finance" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="bayesian-thinking-for-finance"><span class="header-section-number">6.1</span> Bayesian thinking for finance</h2>
 <p>Bayesian methods in finance represent a paradigm shift from traditional statistical methodologies, offering a unique approach to the interpretation of financial data. These methods, grounded in Bayesian thinking, integrate prior knowledge with observed data, providing a dynamic framework for financial analysis and decision-making.</p>
-<section id="the-essence-of-bayesian-thinking" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="the-essence-of-bayesian-thinking"><span class="header-section-number">5.1.1</span> The Essence of Bayesian Thinking</h3>
+<section id="the-essence-of-bayesian-thinking" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="the-essence-of-bayesian-thinking"><span class="header-section-number">6.1.1</span> The Essence of Bayesian Thinking</h3>
 <p>Bayesian thinking is characterised by its foundational belief in the integration of prior information with observed data. This approach contrasts with traditional frequentist methods, which solely rely on data without incorporating prior beliefs or information. The Bayesian perspective is rooted in the application of Bayes’ theorem, a fundamental principle that updates the probability estimate for a hypothesis as new evidence is presented.</p>
-<section id="unconventional-yet-provocative" class="level4" data-number="5.1.1.1">
-<h4 data-number="5.1.1.1" class="anchored" data-anchor-id="unconventional-yet-provocative"><span class="header-section-number">5.1.1.1</span> Unconventional Yet Provocative</h4>
+<section id="unconventional-yet-provocative" class="level4" data-number="6.1.1.1">
+<h4 data-number="6.1.1.1" class="anchored" data-anchor-id="unconventional-yet-provocative"><span class="header-section-number">6.1.1.1</span> Unconventional Yet Provocative</h4>
 <p>While Bayesian methods are not entirely new, they often present unconventional viewpoints that challenge the norms of traditional econometrics. These methods have been perceived as both thought-provoking and, occasionally, controversial among econometricians. Despite this, the role of Bayesian thinking in finance is increasingly recognized for its practicality and relevance, particularly in areas where frequentist methods have dominated.</p>
 </section>
-<section id="bridging-the-gap" class="level4" data-number="5.1.1.2">
-<h4 data-number="5.1.1.2" class="anchored" data-anchor-id="bridging-the-gap"><span class="header-section-number">5.1.1.2</span> Bridging the Gap</h4>
+<section id="bridging-the-gap" class="level4" data-number="6.1.1.2">
+<h4 data-number="6.1.1.2" class="anchored" data-anchor-id="bridging-the-gap"><span class="header-section-number">6.1.1.2</span> Bridging the Gap</h4>
 <p>One of the key discussions in the application of Bayesian methods in finance revolves around areas where frequentist asymptotics have been dominant. Bayesian approaches offer an alternative that can be more practical and prevalent, especially in complex financial models where integrating prior knowledge and uncertainty can significantly enhance model robustness and inference quality.</p>
 </section>
 </section>
-<section id="practical-implications-in-finance" class="level3" data-number="5.1.2">
-<h3 data-number="5.1.2" class="anchored" data-anchor-id="practical-implications-in-finance"><span class="header-section-number">5.1.2</span> Practical Implications in Finance</h3>
+<section id="practical-implications-in-finance" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="practical-implications-in-finance"><span class="header-section-number">6.1.2</span> Practical Implications in Finance</h3>
 <p>The implementation of Bayesian methods in financial econometrics has significant implications. These include more nuanced risk assessment, enhanced portfolio optimization strategies, and improved forecasting models that take into account both historical data and expert knowledge. Bayesian methods’ flexibility and adaptability make them particularly suitable for financial markets, which are often influenced by a myriad of known and unknown factors.</p>
-<section id="towards-a-more-practical-approach" class="level4" data-number="5.1.2.1">
-<h4 data-number="5.1.2.1" class="anchored" data-anchor-id="towards-a-more-practical-approach"><span class="header-section-number">5.1.2.1</span> Towards a More Practical Approach</h4>
+<section id="towards-a-more-practical-approach" class="level4" data-number="6.1.2.1">
+<h4 data-number="6.1.2.1" class="anchored" data-anchor-id="towards-a-more-practical-approach"><span class="header-section-number">6.1.2.1</span> Towards a More Practical Approach</h4>
 <p>The shift towards Bayesian methods in finance is driven by the need for more practical and comprehensive tools in decision-making processes. The Bayesian framework’s ability to incorporate prior beliefs and continuously update these beliefs as new data becomes available aligns well with the dynamic nature of financial markets.</p>
 <p>In summary, Bayesian methods bring a distinct and valuable perspective to financial data analysis. Their emphasis on integrating prior information with empirical data offers a more holistic approach to understanding and predicting financial market behaviors.</p>
 </section>
 </section>
 </section>
-<section id="basics-of-bayesian-statistics" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="basics-of-bayesian-statistics"><span class="header-section-number">5.2</span> Basics of Bayesian Statistics</h2>
+<section id="basics-of-bayesian-statistics" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="basics-of-bayesian-statistics"><span class="header-section-number">6.2</span> Basics of Bayesian Statistics</h2>
 <ul>
 <li><strong>Overview</strong>: Bayesian statistics involves updating the probability for a hypothesis as more evidence or information becomes available. It contrasts with the frequentist approach by incorporating prior beliefs.</li>
 <li><strong>Bayesian Inference</strong>: The process of deducing properties about a population or probability distribution from data using Bayes’ theorem.</li>
 <li><strong>Prior, Likelihood, and Posterior</strong>: Key concepts in Bayesian analysis where the prior represents initial beliefs, the likelihood is the probability of the data under the model, and the posterior is the updated belief after considering the data.</li>
 </ul>
-<section id="introduction-to-bayesian-statistics" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="introduction-to-bayesian-statistics"><span class="header-section-number">5.2.1</span> Introduction to Bayesian Statistics</h3>
+<section id="introduction-to-bayesian-statistics" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="introduction-to-bayesian-statistics"><span class="header-section-number">6.2.1</span> Introduction to Bayesian Statistics</h3>
 <p>In this section, we delve deeper into the fundamental concepts of Bayesian statistics, building on top of the brief introduction given earlier. We explain the main terminologies involved, along with graphical representations and calculations associated with them. This helps establish a strong foundation for further study of Bayesian methods in finance.</p>
-<section id="terminologies-and-definitions" class="level4" data-number="5.2.1.1">
-<h4 data-number="5.2.1.1" class="anchored" data-anchor-id="terminologies-and-definitions"><span class="header-section-number">5.2.1.1</span> Terminologies and Definitions</h4>
+<section id="terminologies-and-definitions" class="level4" data-number="6.2.1.1">
+<h4 data-number="6.2.1.1" class="anchored" data-anchor-id="terminologies-and-definitions"><span class="header-section-number">6.2.1.1</span> Terminologies and Definitions</h4>
 <ol type="1">
 <li><p><strong>Probability</strong>: Probability is a numerical measure representing the chance or likelihood that a particular event occurs. Its value ranges from 0 (impossible) to 1 (certainty). Mathematically, it satisfies certain rules called Kolmogorov’s axioms. For discrete variables, <span class="math inline">\(p(X)\)</span> represents the summed probabilities over all possible outcomes of <span class="math inline">\(X\)</span>. Similarly, for continuous variables, <span class="math inline">\(p(X)\)</span> denotes the integral evaluated over all possible outcomes of <span class="math inline">\(X\)</span>, often expressed as a probability density function (PDF).</p></li>
 <li><p><strong>Parameter</strong>: In statistics, parameters refer to unknown quantities characterizing a population. These could include population means, variances, proportions, correlation coefficients, and others. Our goal typically involves making informed statements about these parameters based on observed data from a sample drawn from the larger population.</p></li>
@@ -391,8 +397,8 @@ div.csl-indent {
 </ol>
 <p>Next, we discuss several aspects of prior distributions, explaining various ways to specify them and understand their impact on posterior inferences.</p>
 </section>
-<section id="specifying-prior-distributions" class="level4" data-number="5.2.1.2">
-<h4 data-number="5.2.1.2" class="anchored" data-anchor-id="specifying-prior-distributions"><span class="header-section-number">5.2.1.2</span> Specifying Prior Distributions</h4>
+<section id="specifying-prior-distributions" class="level4" data-number="6.2.1.2">
+<h4 data-number="6.2.1.2" class="anchored" data-anchor-id="specifying-prior-distributions"><span class="header-section-number">6.2.1.2</span> Specifying Prior Distributions</h4>
 <p>When choosing a prior distribution, multiple options exist depending on whether we possess substantive domain knowledge or merely vague hunches concerning the likely range of plausible values for the parameters. Accordingly, we categorize prior distributions into broad classes—informative and uninformative priors.</p>
 <ol type="1">
 <li><p><strong>Uninformative Priors</strong>: Often chosen when lacking sufficient prior knowledge about the parameters, uninformative priors aim to minimize influence on posterior inferences by assigning equal weight across wide swaths of potential parameter values. Some commonly employed choices include uniform distributions spanning large domains, Jeffreys priors, reference priors, or improper flat priors. However, extreme care must be taken while selecting uninformatively because seemingly innocuous decisions can still exert disproportional impacts on subsequent analyses. Moreover, misuse or misunderstanding of such priors may lead to flawed conclusions and biased inferences.</p></li>
@@ -400,8 +406,8 @@ div.csl-indent {
 <li><p><strong>Informative Priors</strong>: Based on ample prior information stemming from domain experts, historical records, previous studies, meta-analytic reviews, or elicitations, informative priors assume central roles in guiding posterior inferences towards desirable regions reflecting genuine underlying phenomena rather than mere artifacts resulting from poorly chosen priors. Ideally, such priors convey accurate representations of reality anchored firmly in reliable foundations backed by sound scientific reasoning and rigorous documentation. Popular choices include Gaussian distributions centered around sensible locations endowed with appropriate precisions, Bernoulli distributions manifesting believable success probabilities, Poisson distributions embodying realistic rate parameters, or Dirichlet distributions exemplified by meaningful mixture weights. Nevertheless, caution ought to be exercised when invoking strongly informative priors since excessive reliance on untested premises can potentially obscure valuable signals hidden within the data itself.</p></li>
 </ol>
 </section>
-<section id="impact-of-prior-distributions" class="level4" data-number="5.2.1.3">
-<h4 data-number="5.2.1.3" class="anchored" data-anchor-id="impact-of-prior-distributions"><span class="header-section-number">5.2.1.3</span> Impact of Prior Distributions</h4>
+<section id="impact-of-prior-distributions" class="level4" data-number="6.2.1.3">
+<h4 data-number="6.2.1.3" class="anchored" data-anchor-id="impact-of-prior-distributions"><span class="header-section-number">6.2.1.3</span> Impact of Prior Distributions</h4>
 <p>As previously mentioned, the choice of prior distribution heavily influences subsequent inferences derived from posteriors. To gain intuition behind this phenomenon, consider the following aspects affecting prior sensitivity:</p>
 <ol type="1">
 <li><p><strong>Data Volume</strong>: As the volume of available data increases, the contribution of the prior diminishes considerably owing to overwhelming empirical evidence overshadowing initially espoused convictions embodied within the prior. Essentially, as more data become accessible, the posterior converges toward the maximum likelihood estimator, irrespective of the adopted prior. At extremes, this situation translates into asymptotic insensitivity wherein the ultimate choice of prior becomes inconsequential.</p></li>
@@ -434,8 +440,8 @@ TL;DR
 </div>
 </section>
 </section>
-<section id="example-bayesian-inference-in-investment-decision-making" class="level3" data-number="5.2.2">
-<h3 data-number="5.2.2" class="anchored" data-anchor-id="example-bayesian-inference-in-investment-decision-making"><span class="header-section-number">5.2.2</span> Example: Bayesian Inference in Investment Decision-Making</h3>
+<section id="example-bayesian-inference-in-investment-decision-making" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="example-bayesian-inference-in-investment-decision-making"><span class="header-section-number">6.2.2</span> Example: Bayesian Inference in Investment Decision-Making</h3>
 <p>Imagine a scenario in the financial world where an investment firm is analysing the performance of a new financial product, which can either be profitable (“success”) or not. The firm has limited performance data: the product has been tested in five different market conditions, yielding four profitable outcomes. To evaluate the product’s future profitability, we employ Bayesian inference, starting with a beta prior to represent our initial uncertainty about the product’s performance.</p>
 <p><strong>Binomial Likelihood: Investment Performance</strong></p>
 <p>Consider the test of the financial product under five different market conditions, with each condition independently yielding profit with an unknown true probability ( ). Let’s say the product was profitable in four out of these five tests. The likelihood of observing this outcome, assuming a binomial process, is represented as:</p>
@@ -501,8 +507,8 @@ TL;DR
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Conclusion: The summary statistics provide an updated belief about the product's profitability.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="explanation" class="level4" data-number="5.2.2.1">
-<h4 data-number="5.2.2.1" class="anchored" data-anchor-id="explanation"><span class="header-section-number">5.2.2.1</span> Explanation:</h4>
+<section id="explanation" class="level4" data-number="6.2.2.1">
+<h4 data-number="6.2.2.1" class="anchored" data-anchor-id="explanation"><span class="header-section-number">6.2.2.1</span> Explanation:</h4>
 <ol type="1">
 <li><strong>Load Library</strong>: We use <code>ggplot2</code> for plotting. If not installed, it gets installed first.</li>
 <li><strong>Define the Prior</strong>: A beta distribution with parameters alpha and beta, both set to 3, representing our initial neutral belief about the product’s performance.</li>
@@ -517,11 +523,11 @@ TL;DR
 </section>
 </section>
 </section>
-<section id="bayesian-inference-for-univariate-normal-models-expanded" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="bayesian-inference-for-univariate-normal-models-expanded"><span class="header-section-number">5.3</span> Bayesian Inference for Univariate Normal Models (Expanded)</h2>
+<section id="bayesian-inference-for-univariate-normal-models-expanded" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="bayesian-inference-for-univariate-normal-models-expanded"><span class="header-section-number">6.3</span> Bayesian Inference for Univariate Normal Models (Expanded)</h2>
 <p>In this section we delve deeper into Bayesian inference for univariate normal models, covering analytical derivations, graphical representations, moment calculations, and sampling techniques for approximating the posterior. We also touch upon Bayesian credible intervals, with a special focus on Highest Posterior Density (HPD) intervals. Throughout this section, we sprinkle in some <code>R</code> examples relevant to the finance context.</p>
-<section id="deriving-the-posterior-density-analytically" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="deriving-the-posterior-density-analytically"><span class="header-section-number">5.3.1</span> Deriving the Posterior Density Analytically</h3>
+<section id="deriving-the-posterior-density-analytically" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="deriving-the-posterior-density-analytically"><span class="header-section-number">6.3.1</span> Deriving the Posterior Density Analytically</h3>
 <p>Assume we want to estimate the expected return of a company, denoted by <span class="math inline">\(\mu\)</span>. We collect monthly returns, <span class="math inline">\(X=(x\_1,...,x\_n)\)</span>, assumed to follow a normal distribution with unknown mean <span class="math inline">\(\mu\)</span> and known precision <span class="math inline">\(\tau\)</span>. We adopt a normal prior for <span class="math inline">\(\mu\)</span>, denoted as <span class="math inline">\(\mu\_0 \sim \mathcal{N}(\mu\_p, \tau\_p^{-1})\)</span>, where <span class="math inline">\(\mu\_p\)</span> is the prior mean and <span class="math inline">\(\tau\_p\)</span> is the prior precision. Invoking Bayes’ Rule, we derive the posterior distribution:</p>
 <p><span class="math display">\[
 \mu \mid X \sim \mathcal{N}\left( \frac{\tau\_p \mu\_p + n\bar{x}\,\tau}{\tau\_p + n\tau},\; (\tau\_p + n\tau)^{-1} \right)
@@ -549,8 +555,8 @@ TL;DR
 <span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Updated precision:"</span>, <span class="fu">round</span>(updated_precision, <span class="dv">5</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="expressions-for-the-normal-and-inverse-gamma-distributions" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="expressions-for-the-normal-and-inverse-gamma-distributions"><span class="header-section-number">5.3.2</span> Expressions for the Normal and Inverse-Gamma Distributions</h3>
+<section id="expressions-for-the-normal-and-inverse-gamma-distributions" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="expressions-for-the-normal-and-inverse-gamma-distributions"><span class="header-section-number">6.3.2</span> Expressions for the Normal and Inverse-Gamma Distributions</h3>
 <p>Two important distributions play a crucial role in Bayesian inference:</p>
 <ul>
 <li><p><strong>Normal distribution</strong>, denoted as <span class="math inline">\(\mathcal{N}(\mu, \tau^{-1})\)</span>: <span class="math display">\[
@@ -562,8 +568,8 @@ f(x;\alpha, \beta) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{-\alpha-1} \exp \lef
 </ul>
 <p>These distributions enable us to handle numerous Bayesian problems elegantly.</p>
 </section>
-<section id="graphical-representation-of-densities" class="level3" data-number="5.3.3">
-<h3 data-number="5.3.3" class="anchored" data-anchor-id="graphical-representation-of-densities"><span class="header-section-number">5.3.3</span> Graphical Representation of Densities</h3>
+<section id="graphical-representation-of-densities" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="graphical-representation-of-densities"><span class="header-section-number">6.3.3</span> Graphical Representation of Densities</h3>
 <p>Visuals aid our understanding of probability distributions. We can easily generate graphical representations of normal and inverse-gamma distributions using <code>R</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for normal density</span></span>
@@ -588,12 +594,12 @@ f(x;\alpha, \beta) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{-\alpha-1} \exp \lef
 <span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side=</span><span class="dv">2</span>, <span class="at">labels =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="calculating-moments" class="level3" data-number="5.3.4">
-<h3 data-number="5.3.4" class="anchored" data-anchor-id="calculating-moments"><span class="header-section-number">5.3.4</span> Calculating Moments</h3>
+<section id="calculating-moments" class="level3" data-number="6.3.4">
+<h3 data-number="6.3.4" class="anchored" data-anchor-id="calculating-moments"><span class="header-section-number">6.3.4</span> Calculating Moments</h3>
 <p>Computing moments like mean, variance, skewness, and kurtosis provides valuable insights into the distribution’s properties. Though analytical expressions exist for many distributions, numerical methods serve as alternatives for complex distributions.</p>
 </section>
-<section id="sampling-from-the-joint-posterior-distribution" class="level3" data-number="5.3.5">
-<h3 data-number="5.3.5" class="anchored" data-anchor-id="sampling-from-the-joint-posterior-distribution"><span class="header-section-number">5.3.5</span> Sampling from the Joint Posterior Distribution</h3>
+<section id="sampling-from-the-joint-posterior-distribution" class="level3" data-number="6.3.5">
+<h3 data-number="6.3.5" class="anchored" data-anchor-id="sampling-from-the-joint-posterior-distribution"><span class="header-section-number">6.3.5</span> Sampling from the Joint Posterior Distribution</h3>
 <p>Three widely-used methods allow us to approximate the posterior distribution:</p>
 <ol type="1">
 <li><strong><em>Grid approximation</em></strong> partitions the parameter space into a fine grid, determining the posterior density at each grid point. Despite ease of understanding and implementation, grid approximation faces issues with low accuracy and poor scalability.</li>
@@ -625,11 +631,11 @@ f(x;\alpha, \beta) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{-\alpha-1} \exp \lef
 <li><p><strong><em>Importance sampling</em></strong> proposes a distribution targeting regions with considerable posterior mass. Drawing samples from this distribution, importance sampling wisely allocates computational resources, particularly helpful for challenging posteriors.</p></li>
 </ol>
 </section>
-<section id="bayesian-credible-intervals" class="level3" data-number="5.3.6">
-<h3 data-number="5.3.6" class="anchored" data-anchor-id="bayesian-credible-intervals"><span class="header-section-number">5.3.6</span> Bayesian Credible Intervals</h3>
+<section id="bayesian-credible-intervals" class="level3" data-number="6.3.6">
+<h3 data-number="6.3.6" class="anchored" data-anchor-id="bayesian-credible-intervals"><span class="header-section-number">6.3.6</span> Bayesian Credible Intervals</h3>
 <p>Similar to classical confidence intervals, Bayesian credible intervals bound the uncertain parameter within a plausible range. Among them, Highest Posterior Density (HPD) intervals stand out.</p>
-<section id="highest-posterior-density-hpd-interval-calculation" class="level4" data-number="5.3.6.1">
-<h4 data-number="5.3.6.1" class="anchored" data-anchor-id="highest-posterior-density-hpd-interval-calculation"><span class="header-section-number">5.3.6.1</span> Highest Posterior Density (HPD) Interval Calculation</h4>
+<section id="highest-posterior-density-hpd-interval-calculation" class="level4" data-number="6.3.6.1">
+<h4 data-number="6.3.6.1" class="anchored" data-anchor-id="highest-posterior-density-hpd-interval-calculation"><span class="header-section-number">6.3.6.1</span> Highest Posterior Density (HPD) Interval Calculation</h4>
 <p>An HPD interval surrounds the most probable parameter values with the least width necessary for a given credibility level. No other interval holds a higher concentration of probability mass.</p>
 <p>Consider a univariate normal model with an unknown mean, <span class="math inline">\(\mu\)</span>, and known precision, <span class="math inline">\(\tau\)</span>. Given the posterior distribution, <span class="math inline">\(\mu \mid X \sim \mathcal{N}(\hat{\mu}, \hat{\sigma}^2)\)</span>, finding the HPD interval involves solving the following inequality:</p>
 <p><span class="math display">\[
@@ -637,15 +643,15 @@ f(x;\alpha, \beta) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{-\alpha-1} \exp \lef
 \]</span></p>
 <p>where <span class="math inline">\(\Phi(\cdot)\)</span> denotes the standard normal cumulative distribution function, <span class="math inline">\(\hat{\mu}_u\)</span> and <span class="math inline">\(\hat{\mu}_l\)</span> denote the upper and lower limits of the interval, and <span class="math inline">\(\gamma\)</span> is the credibility level.</p>
 </section>
-<section id="hpd-properties-compared-to-classical-confidence-intervals" class="level4" data-number="5.3.6.2">
-<h4 data-number="5.3.6.2" class="anchored" data-anchor-id="hpd-properties-compared-to-classical-confidence-intervals"><span class="header-section-number">5.3.6.2</span> HPD Properties Compared to Classical Confidence Intervals</h4>
+<section id="hpd-properties-compared-to-classical-confidence-intervals" class="level4" data-number="6.3.6.2">
+<h4 data-number="6.3.6.2" class="anchored" data-anchor-id="hpd-properties-compared-to-classical-confidence-intervals"><span class="header-section-number">6.3.6.2</span> HPD Properties Compared to Classical Confidence Intervals</h4>
 <p>Key differences separate HPD intervals from classical confidence intervals. Mainly, HPD intervals utilize the whole posterior distribution, granting direct probabilistic interpretation. Meanwhile, classical confidence intervals solely deal with sampling-induced variation, neglecting prior information.</p>
 <p>Stay tuned for tomorrow’s continuation, where we explore hierarchical modeling in depth. Until then!</p>
 </section>
 </section>
 </section>
-<section id="motivation-for-hierarchical-models" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="motivation-for-hierarchical-models"><span class="header-section-number">5.4</span> Motivation for Hierarchical Models</h2>
+<section id="motivation-for-hierarchical-models" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="motivation-for-hierarchical-models"><span class="header-section-number">6.4</span> Motivation for Hierarchical Models</h2>
 <p>Hierarchical models, sometimes referred to as multilevel models, recognize that data is often organized in distinct groups or clusters, and observations within those groups tend to be more alike compared to observations outside of the groups. Ignoring the hierarchical structure can lead to incorrect inferences, loss of efficiency, and inflated Type I error rates.</p>
 <p><strong>Pooling Information Across Groups</strong></p>
 <p>One major advantage of hierarchical models is the ability to pool information across groups, borrowing strength from neighboring groups. This technique prevents overfitting, improves parameter estimates, and reduces the chances of getting implausibly large or small coefficient estimates.</p>
@@ -677,8 +683,8 @@ y_{ij} = \beta_{0j} + \beta_{1j}x_{ij} + \varepsilon_{ij}
 <p>where <span class="math inline">\(\gamma_{00}\)</span> and <span class="math inline">\(\gamma_{10}\)</span> are the overall intercept and slope, while <span class="math inline">\(U_{0j}\)</span> and <span class="math inline">\(U_{1j}\)</span> are random effects shared by members of the same cluster j.</p>
 <p><strong>Three-Level Hierarchies</strong></p>
 <p>Three-level hierarchies extend the idea of nesting to a third layer, adding another level of complexity. For example, you might have students (first level) nested within classrooms (second level), which are themselves nested within schools (third level).</p>
-<section id="examples-in-r" class="level3" data-number="5.4.1">
-<h3 data-number="5.4.1" class="anchored" data-anchor-id="examples-in-r"><span class="header-section-number">5.4.1</span> Examples in R</h3>
+<section id="examples-in-r" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="examples-in-r"><span class="header-section-number">6.4.1</span> Examples in R</h3>
 <p>Implementing hierarchical models in R can be done using various packages, such as <code>nlme</code>, <code>lme4</code>, and <code>rstanarm</code>. Below is an example of a two-level hierarchical model using <code>lme4</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
@@ -694,16 +700,16 @@ y_{ij} = \beta_{0j} + \beta_{1j}x_{ij} + \varepsilon_{ij}
 </div>
 <p>In this example, the response variable <code>y</code> depends on the predictor <code>x</code>, and the intercept varies randomly at the <code>group</code> level. The <code>(1 | group)</code> syntax specifies that the intercept is modeled as a random effect.</p>
 </section>
-<section id="traditional-econometrics-versus-bayesian-hierarchical-models" class="level3" data-number="5.4.2">
-<h3 data-number="5.4.2" class="anchored" data-anchor-id="traditional-econometrics-versus-bayesian-hierarchical-models"><span class="header-section-number">5.4.2</span> Traditional econometrics versus Bayesian hierarchical models</h3>
+<section id="traditional-econometrics-versus-bayesian-hierarchical-models" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="traditional-econometrics-versus-bayesian-hierarchical-models"><span class="header-section-number">6.4.2</span> Traditional econometrics versus Bayesian hierarchical models</h3>
 <p>Absolutely, I’ll delve into hierarchical modeling and connect it to the frequentist approach using fixed and random effect estimators. We will go through the motivation, followed by an example implemented in <code>R</code> to demonstrate the efficiency and consistency of hierarchical models.</p>
-<section id="context-and-motivation" class="level6" data-number="5.4.2.0.0.1">
-<h6 data-number="5.4.2.0.0.1" class="anchored" data-anchor-id="context-and-motivation"><span class="header-section-number">5.4.2.0.0.1</span> Context and Motivation</h6>
+<section id="context-and-motivation" class="level6" data-number="6.4.2.0.0.1">
+<h6 data-number="6.4.2.0.0.1" class="anchored" data-anchor-id="context-and-motivation"><span class="header-section-number">6.4.2.0.0.1</span> Context and Motivation</h6>
 <p>Traditionally, the distinction between fixed and random effects revolves around the assumption of homogeneity versus heterogeneity in the population. In a frequentist framework, fixed effects imply that every level within the population shares the same effect, whereas random effects involve variations across the levels.</p>
 <p>However, in practice, this dichotomy isn’t always ideal due to overlapping situations and inconsistent interpretations. Enter hierarchical models, also known as multilevel models, which provide a more holistic perspective by explicitly considering the dependency among units. Instead of forcing a hard separation, hierarchical models blend the ideas of fixed and random effects smoothly, offering improved flexibility and consistency.</p>
 </section>
-<section id="example-academic-performance-across-schools" class="level6" data-number="5.4.2.0.0.2">
-<h6 data-number="5.4.2.0.0.2" class="anchored" data-anchor-id="example-academic-performance-across-schools"><span class="header-section-number">5.4.2.0.0.2</span> Example: Academic Performance Across Schools</h6>
+<section id="example-academic-performance-across-schools" class="level6" data-number="6.4.2.0.0.2">
+<h6 data-number="6.4.2.0.0.2" class="anchored" data-anchor-id="example-academic-performance-across-schools"><span class="header-section-number">6.4.2.0.0.2</span> Example: Academic Performance Across Schools</h6>
 <p>Imagine measuring academic achievement in mathematics assessments across multiple schools. Both frequentist and Bayesian approaches agree that individual students’ scores depend on their innate abilities (fixed effect) and measurement errors. However, the disagreement comes when attributing the variation in math scores across schools. Is it simply random noise, or do schools genuinely vary in their effectiveness, perhaps influenced by resource allocation, teacher quality, curricula, or policies?</p>
 <p>Hierarchical models answer this question naturally, capturing the dual nature of both fixed and random effects simultaneously. In the education example, we can describe the achievement of student <span class="math inline">\(i\)</span> in school <span class="math inline">\(j\)</span> as:</p>
 <p><span class="math display">\[
@@ -713,8 +719,8 @@ y_{ij} = \beta_0 + u_j + \epsilon_{ij}
 <p>Our goals consist of estimating the global mean and quantifying the amount of variation explained by schools, captured by the variance of <span class="math inline">\(u_j\)</span>. This way, we maintain the benefits of both fixed and random effects, achieving a more complete and consistent picture.</p>
 </section>
 </section>
-<section id="r-example-frequentist-versus-bayesian-approach" class="level3" data-number="5.4.3">
-<h3 data-number="5.4.3" class="anchored" data-anchor-id="r-example-frequentist-versus-bayesian-approach"><span class="header-section-number">5.4.3</span> R Example: Frequentist Versus Bayesian Approach</h3>
+<section id="r-example-frequentist-versus-bayesian-approach" class="level3" data-number="6.4.3">
+<h3 data-number="6.4.3" class="anchored" data-anchor-id="r-example-frequentist-versus-bayesian-approach"><span class="header-section-number">6.4.3</span> R Example: Frequentist Versus Bayesian Approach</h3>
 <p>We’ll first look at a frequentist approach using the <code>lme4</code> package, followed by a Bayesian version using <code>rstanarm</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
@@ -747,8 +753,8 @@ y_{ij} = \beta_0 + u_j + \epsilon_{ij}
 <p>So far, we’ve covered a lot of ground, gradually unfolding the mysteries of hierarchical models, their connection to fixed and random effects, and their advantages in the context of frequentist and Bayesian approaches. Don’t forget to tune in tomorrow as we embark on another thrilling adventure in the realm of Bayesian modeling!</p>
 </section>
 </section>
-<section id="mcmc-methods" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="mcmc-methods"><span class="header-section-number">5.5</span> MCMC Methods</h2>
+<section id="mcmc-methods" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="mcmc-methods"><span class="header-section-number">6.5</span> MCMC Methods</h2>
 <p>Markov Chain Monte Carlo (MCMC) methods are a collection of algorithms for sampling from complex probability distributions. These methods are extensively used in Bayesian inference to generate draws from the posterior distribution, especially in high-dimensional settings where analytical solutions aren’t feasible.</p>
 <p><strong>What is MCMC?</strong></p>
 <p>At its core, MCMC leverages the Markov property, stating that the probability of transitioning to the next state depends only on the current state and not on the history of previous states. Starting from an initial guess, MCMC builds a chain of samples that ultimately converge to the target distribution.</p>
@@ -776,8 +782,8 @@ y_{ij} = \beta_0 + u_j + \epsilon_{ij}
 <p>Despite their strengths, MCMC methods produce correlated samples, meaning that adjacent samples carry redundant information. This drawback necessitates thinning the chain, removing intermediate samples to reduce serial correlation.</p>
 <p><strong>Tuning parameters</strong></p>
 <p>Some MCMC methods require manual tuning of parameters, like proposal distribution scales or leap sizes. Improper tuning can negatively affect the mixing and convergence of the chain, demanding user intervention and judgment calls.</p>
-<section id="example-in-r-simple-random-walk-metropolis-hastings-sampler" class="level3" data-number="5.5.1">
-<h3 data-number="5.5.1" class="anchored" data-anchor-id="example-in-r-simple-random-walk-metropolis-hastings-sampler"><span class="header-section-number">5.5.1</span> Example in R: Simple random walk Metropolis-Hastings sampler</h3>
+<section id="example-in-r-simple-random-walk-metropolis-hastings-sampler" class="level3" data-number="6.5.1">
+<h3 data-number="6.5.1" class="anchored" data-anchor-id="example-in-r-simple-random-walk-metropolis-hastings-sampler"><span class="header-section-number">6.5.1</span> Example in R: Simple random walk Metropolis-Hastings sampler</h3>
 <p>Here’s an example of a simple Metropolis-Hastings algorithm in R, implementing a random walk proposal for a univariate distribution:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple Metropolis-Hastings sampler with random walk proposal</span></span>
@@ -815,8 +821,8 @@ y_{ij} = \beta_0 + u_j + \epsilon_{ij}
 <p>Replace <code>target_fun</code> with your desired target distribution. This example implements a simple Metropolis-Hastings sampler using a random walk proposal. Users can adjust the proposal scale and initial state. Remember to properly tune the proposal scale for effective mixing and convergence.</p>
 </section>
 </section>
-<section id="bayesian-approaches-to-model-financial-data" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="bayesian-approaches-to-model-financial-data"><span class="header-section-number">5.6</span> Bayesian Approaches to Model Financial Data</h2>
+<section id="bayesian-approaches-to-model-financial-data" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="bayesian-approaches-to-model-financial-data"><span class="header-section-number">6.6</span> Bayesian Approaches to Model Financial Data</h2>
 <p>In this lecture, we delve into various Bayesian time series models and volatility models that are widely used in finance for modeling financial data. We’ll discuss the basic concepts of these models and how they differ from their frequentist counterparts.</p>
 <p><strong>Bayesian Time Series Models</strong></p>
 <ul>
@@ -855,8 +861,8 @@ y_{ij} = \beta_0 + u_j + \epsilon_{ij}
 <p><span class="math display">\[y_t = \exp\{\frac{h_t}{2}\} z_t\]</span></p>
 <p><span class="math display">\[h_t = \mu + \phi (h_{t-1}-\mu) + \eta_t\]</span></p>
 <p>where <span class="math inline">\(h_t\)</span> is the log-variance, <span class="math inline">\(z_t\)</span> is a standard normal variable, and <span class="math inline">\(\eta_t\)</span> is another disturbance term.</p>
-<section id="ar1-example-in-r" class="level3" data-number="5.6.1">
-<h3 data-number="5.6.1" class="anchored" data-anchor-id="ar1-example-in-r"><span class="header-section-number">5.6.1</span> AR(1) Example in R</h3>
+<section id="ar1-example-in-r" class="level3" data-number="6.6.1">
+<h3 data-number="6.6.1" class="anchored" data-anchor-id="ar1-example-in-r"><span class="header-section-number">6.6.1</span> AR(1) Example in R</h3>
 <p>Sure, I will provide detailed explanations for the code used to simulate the AR(1) data and fit the Bayesian AR(1) model using both the <code>brms</code> and <code>rstanarm</code> packages.</p>
 <ul>
 <li>Step 1: Simulate AR(1) Process</li>
@@ -928,8 +934,8 @@ y_{ij} = \beta_0 + u_j + \epsilon_{ij}
 <li><code>plot(fit_rstanarm)</code>: Plots the posterior distributions of the parameters.</li>
 </ol>
 </section>
-<section id="arma11-example-in-r" class="level3" data-number="5.6.2">
-<h3 data-number="5.6.2" class="anchored" data-anchor-id="arma11-example-in-r"><span class="header-section-number">5.6.2</span> ARMA(1,1) Example in R</h3>
+<section id="arma11-example-in-r" class="level3" data-number="6.6.2">
+<h3 data-number="6.6.2" class="anchored" data-anchor-id="arma11-example-in-r"><span class="header-section-number">6.6.2</span> ARMA(1,1) Example in R</h3>
 <ul>
 <li>Step 1: Simulate ARMA(1, 1) Process</li>
 </ul>
@@ -1005,11 +1011,11 @@ y_{ij} = \beta_0 + u_j + \epsilon_{ij}
 <li><code>plot(fit_rstanarm)</code>: Plots the posterior distributions of the parameters.</li>
 </ol>
 </section>
-<section id="volatility-models" class="level3" data-number="5.6.3">
-<h3 data-number="5.6.3" class="anchored" data-anchor-id="volatility-models"><span class="header-section-number">5.6.3</span> Volatility Models</h3>
+<section id="volatility-models" class="level3" data-number="6.6.3">
+<h3 data-number="6.6.3" class="anchored" data-anchor-id="volatility-models"><span class="header-section-number">6.6.3</span> Volatility Models</h3>
 <p>For volatility models, we cannot directly apply the BRMS or rstanarm packages, so I will present an example of GARCH(1,1) in pure STAN language, which can be executed using the command line interface or RStan package.</p>
-<section id="step-1-define-the-dataset" class="level4" data-number="5.6.3.1">
-<h4 data-number="5.6.3.1" class="anchored" data-anchor-id="step-1-define-the-dataset"><span class="header-section-number">5.6.3.1</span> Step 1: Define the dataset</h4>
+<section id="step-1-define-the-dataset" class="level4" data-number="6.6.3.1">
+<h4 data-number="6.6.3.1" class="anchored" data-anchor-id="step-1-define-the-dataset"><span class="header-section-number">6.6.3.1</span> Step 1: Define the dataset</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rugarch)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sp500ret)</span>
@@ -1023,8 +1029,8 @@ y_{ij} = \beta_0 + u_j + \epsilon_{ij}
 <li><code>n &lt;- length(sp500ret)</code>: Gets the length of the time series.</li>
 </ol>
 </section>
-<section id="step-2-write-the-stan-code-for-garch11" class="level4" data-number="5.6.3.2">
-<h4 data-number="5.6.3.2" class="anchored" data-anchor-id="step-2-write-the-stan-code-for-garch11"><span class="header-section-number">5.6.3.2</span> Step 2: Write the STAN code for GARCH(1,1)</h4>
+<section id="step-2-write-the-stan-code-for-garch11" class="level4" data-number="6.6.3.2">
+<h4 data-number="6.6.3.2" class="anchored" data-anchor-id="step-2-write-the-stan-code-for-garch11"><span class="header-section-number">6.6.3.2</span> Step 2: Write the STAN code for GARCH(1,1)</h4>
 <p>Create a file named <code>garch11.stan</code> and paste the following code inside:</p>
 <pre><code>data {
   int&lt;lower=0&gt; n; // number of observations
@@ -1056,8 +1062,8 @@ model {
 }</code></pre>
 <p>This STAN code defines a GARCH(1,1) model with three parameters: <code>omega</code>, <code>alpha1</code>, and <code>beta1</code>. It calculates the likelihood of the observed time series under the proposed GARCH(1,1) model.</p>
 </section>
-<section id="step-3-fit-the-garch11-model-using-stan" class="level4" data-number="5.6.3.3">
-<h4 data-number="5.6.3.3" class="anchored" data-anchor-id="step-3-fit-the-garch11-model-using-stan"><span class="header-section-number">5.6.3.3</span> Step 3: Fit the GARCH(1,1) model using STAN</h4>
+<section id="step-3-fit-the-garch11-model-using-stan" class="level4" data-number="6.6.3.3">
+<h4 data-number="6.6.3.3" class="anchored" data-anchor-id="step-3-fit-the-garch11-model-using-stan"><span class="header-section-number">6.6.3.3</span> Step 3: Fit the GARCH(1,1) model using STAN</h4>
 <p>First, install and load the RStan package:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages('rstan')</span></span>
@@ -1069,8 +1075,8 @@ model {
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>fit_garch <span class="ot">&lt;-</span> <span class="fu">sampling</span>(stan_model, <span class="at">data =</span> <span class="fu">list</span>(<span class="at">n =</span> n, <span class="at">y =</span> sp500ret));</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="step-4-diagnose-and-evaluate-the-model" class="level4" data-number="5.6.3.4">
-<h4 data-number="5.6.3.4" class="anchored" data-anchor-id="step-4-diagnose-and-evaluate-the-model"><span class="header-section-number">5.6.3.4</span> Step 4: Diagnose and evaluate the model</h4>
+<section id="step-4-diagnose-and-evaluate-the-model" class="level4" data-number="6.6.3.4">
+<h4 data-number="6.6.3.4" class="anchored" data-anchor-id="step-4-diagnose-and-evaluate-the-model"><span class="header-section-number">6.6.3.4</span> Step 4: Diagnose and evaluate the model</h4>
 <p>Diagnose the model fit using diagnostic plots:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stan_diagnostic_plots</span>(fit_garch);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1082,29 +1088,29 @@ model {
 </div>
 <p>These explanations accompany the provided codes to help you understand the process of simulating an ARMA(1, 1) process and performing Bayesian estimation using STAN. You can experiment with changing the model parameters and analysing different datasets to deepen your understanding and skills.</p>
 </section>
-<section id="stochastic-volatility" class="level4" data-number="5.6.3.5">
-<h4 data-number="5.6.3.5" class="anchored" data-anchor-id="stochastic-volatility"><span class="header-section-number">5.6.3.5</span> Stochastic Volatility</h4>
+<section id="stochastic-volatility" class="level4" data-number="6.6.3.5">
+<h4 data-number="6.6.3.5" class="anchored" data-anchor-id="stochastic-volatility"><span class="header-section-number">6.6.3.5</span> Stochastic Volatility</h4>
 <p>Stochastic volatility is a concept in financial mathematics that describes the phenomenon where the volatility of an asset price is itself randomly changing over time. This is in contrast to the constant volatility assumption in the Black-Scholes model, which was the standard model for option pricing before the development of stochastic volatility models.</p>
 </section>
 </section>
-<section id="key-concepts-of-stochastic-volatility" class="level3" data-number="5.6.4">
-<h3 data-number="5.6.4" class="anchored" data-anchor-id="key-concepts-of-stochastic-volatility"><span class="header-section-number">5.6.4</span> Key Concepts of Stochastic Volatility:</h3>
+<section id="key-concepts-of-stochastic-volatility" class="level3" data-number="6.6.4">
+<h3 data-number="6.6.4" class="anchored" data-anchor-id="key-concepts-of-stochastic-volatility"><span class="header-section-number">6.6.4</span> Key Concepts of Stochastic Volatility:</h3>
 <ol type="1">
 <li><p><strong>Volatility</strong>: In finance, volatility refers to the degree of variation of a trading price series over time. It is often measured by the standard deviation of returns.</p></li>
 <li><p><strong>Stochastic Process</strong>: A stochastic process is a random process, meaning it is a process that produces a sequence of outcomes where the outcome at any point in time is at least partially random.</p></li>
 <li><p><strong>Stochastic Volatility Models</strong>: These models assume that the volatility of the asset is not constant but varies with time and market conditions. This is more realistic as it reflects the observed market behaviour where volatility is not stable.</p></li>
 </ol>
 </section>
-<section id="examples-of-stochastic-volatility-models" class="level3" data-number="5.6.5">
-<h3 data-number="5.6.5" class="anchored" data-anchor-id="examples-of-stochastic-volatility-models"><span class="header-section-number">5.6.5</span> Examples of Stochastic Volatility Models:</h3>
+<section id="examples-of-stochastic-volatility-models" class="level3" data-number="6.6.5">
+<h3 data-number="6.6.5" class="anchored" data-anchor-id="examples-of-stochastic-volatility-models"><span class="header-section-number">6.6.5</span> Examples of Stochastic Volatility Models:</h3>
 <ol type="1">
 <li><p><strong>Heston Model</strong>: Proposed by Steven Heston in 1993, the Heston model is a popular stochastic volatility model for derivative pricing. It characterises the volatility of the asset as a mean-reverting stochastic process.</p></li>
 <li><p><strong>SABR Model</strong>: The SABR model (Stochastic Alpha, Beta, Rho) is a dynamic model that captures the stochastic volatility and the correlation between the asset price and its volatility.</p></li>
 <li><p><strong>GARCH Model</strong>: Generalized Autoregressive Conditional Heteroskedasticity (GARCH) models are used in econometrics for time series data to describe volatility clustering, a phenomenon where large changes in prices are followed by large changes and small changes by small changes.</p></li>
 </ol>
 </section>
-<section id="mathematical-representation" class="level3" data-number="5.6.6">
-<h3 data-number="5.6.6" class="anchored" data-anchor-id="mathematical-representation"><span class="header-section-number">5.6.6</span> Mathematical Representation:</h3>
+<section id="mathematical-representation" class="level3" data-number="6.6.6">
+<h3 data-number="6.6.6" class="anchored" data-anchor-id="mathematical-representation"><span class="header-section-number">6.6.6</span> Mathematical Representation:</h3>
 <p>In mathematical terms, stochastic volatility models often involve differential equations. For example, in the Heston model, the asset price ( S_t ) and its variance ( v_t ) are described by the following stochastic differential equations:</p>
 <p>[ dS_t = S_t dt + S_t dW_t^S ] [ dv_t = (- v_t) dt + dW_t^v ]</p>
 <p>where ( ) is the rate of return, ( ) is the rate of mean reversion, ( ) is the long-term variance, ( ) is the volatility of the volatility, and ( W_t^S ) and ( W_t^v ) are Wiener processes.</p>
@@ -1145,8 +1151,8 @@ Academic Callout: The Evolution of Stochastic Volatility in Financial Models
 <p>The history of stochastic volatility in financial models is a testament to the evolving understanding of market dynamics. From the foundational Black-Scholes model to the sophisticated stochastic volatility models of today, this journey reflects the continuous quest for more accurate and realistic financial modeling techniques. These developments have not only enhanced theoretical understanding but also significantly improved practical applications in risk management and derivative pricing.</p>
 </div>
 </div>
-<section id="implementing-the-stochastic-volatility-model-in-brms" class="level4" data-number="5.6.6.1">
-<h4 data-number="5.6.6.1" class="anchored" data-anchor-id="implementing-the-stochastic-volatility-model-in-brms"><span class="header-section-number">5.6.6.1</span> Implementing the Stochastic Volatility Model in brms</h4>
+<section id="implementing-the-stochastic-volatility-model-in-brms" class="level4" data-number="6.6.6.1">
+<h4 data-number="6.6.6.1" class="anchored" data-anchor-id="implementing-the-stochastic-volatility-model-in-brms"><span class="header-section-number">6.6.6.1</span> Implementing the Stochastic Volatility Model in brms</h4>
 <p>Instead of working directly with the original data, create a transformed dataset with logarithmic volatilities:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>volatilities <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">abs</span>(<span class="fu">diff</span>(sp500ret)))</span>
@@ -1169,8 +1175,8 @@ Academic Callout: The Evolution of Stochastic Volatility in Financial Models
 </ol>
 <p>Other arguments configure the MCMC settings.</p>
 </section>
-<section id="results-analysis" class="level4" data-number="5.6.6.2">
-<h4 data-number="5.6.6.2" class="anchored" data-anchor-id="results-analysis"><span class="header-section-number">5.6.6.2</span> Results Analysis</h4>
+<section id="results-analysis" class="level4" data-number="6.6.6.2">
+<h4 data-number="6.6.6.2" class="anchored" data-anchor-id="results-analysis"><span class="header-section-number">6.6.6.2</span> Results Analysis</h4>
 <p>analyse the results similarly to the GARCH example:</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stan_diagnostic_plots</span>(fit_sv)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_sv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1178,8 +1184,8 @@ Academic Callout: The Evolution of Stochastic Volatility in Financial Models
 </section>
 </section>
 </section>
-<section id="common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians" class="level2" data-number="5.7">
-<h2 data-number="5.7" class="anchored" data-anchor-id="common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians"><span class="header-section-number">5.7</span> Common Misconceptions of Bayesian Econometrics by Traditional Frequentist Econometricians</h2>
+<section id="common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians"><span class="header-section-number">6.7</span> Common Misconceptions of Bayesian Econometrics by Traditional Frequentist Econometricians</h2>
 <p>The evolution of statistical methods in econometrics has seen the Bayesian approach increasingly gaining acceptance alongside the classical frequentist methods. Historically, there were significant debates between these two schools of thought, each with its own advocates and critics. While these approaches are now both widely accepted, some common misconceptions about Bayesian econometrics persist among traditional frequentist econometricians:</p>
 <ol type="1">
 <li><p><strong>Prior Beliefs Over Emphasis</strong>: A common misconception is that Bayesian analysis overly relies on subjective prior beliefs, potentially skewing the results. However, Bayesian methods systematically update these beliefs with objective data, balancing prior knowledge with empirical evidence.</p></li>
@@ -1252,6 +1258,9 @@ Kelly, Bryan T., and Dacheng Xiu. 2023. <span>“<span>Financial Machine Learnin
 </div>
 <div id="ref-Hui2009" class="csl-entry" role="listitem">
 Li, Hui, C. Wei;Xue. 2009. <span>“A Bayesian’s Bubble.”</span> <em>Journal of Finance</em> 64: 2665–2701. <a href="https://doi.org/10.1111/j.1540-6261.2009.01514.x">https://doi.org/10.1111/j.1540-6261.2009.01514.x</a>.
+</div>
+<div id="ref-lo1997econometrics" class="csl-entry" role="listitem">
+Lo, Andrew W., and A. Craig MacKinlay. 1997. <em>The Econometrics of Financial Markets</em>. Princeton University Press.
 </div>
 <div id="ref-Ang2002" class="csl-entry" role="listitem">
 Lo, Andrew, and Craig MacKinlay. 2002. <em>Analysis of Financial Time Series</em>. Oxford University Press. <a href="https://doi.org/10.1093/he/9780198776697.001.0001">https://doi.org/10.1093/he/9780198776697.001.0001</a>.
@@ -1523,12 +1532,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./time_series.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./ml.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

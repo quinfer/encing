@@ -63,29 +63,24 @@ For more detailed information and resources, you can explore the Posit website a
 </iframe>
 :::
 
-## R Code Example: Creating a Plot
 
-```{r}
-# Install and load the ggplot2 package
-library(ggplot2)
+## Data Collection
 
-# Example: Creating a basic plot
-ggplot(data, aes(x = stock_id, y = stock_price)) + 
-  geom_line() +
-  ggtitle("Stock Price Trend")
+1.  **Reading Data**: Importing a CSV file containing daily asset pricing global factors.
+
+To download the daily frequency World factors from the JKP Factors website, you need to follow these steps:
+
+1. Visit [JKP Factors](https://www.jkpfactors.com/).
+2. Select the desired options for your data download, such as the region/country (e.g., World), theme/factor, data frequency (daily), and weighting method.
+3. Click the 'Download' button to download the data in CSV format.
+
+Once you have downloaded the CSV file, you can load it into R using the following R code:
+
+```R
+data <- read.csv("path_to_your_downloaded_file.csv")
 ```
 
-Certainly! Let's go through each step of the data analysis workflow in R with a financial context, providing coded examples for each stage.
-
-### Data Collection
-
-1.  **Reading Data**: Importing a CSV file containing stock prices.
-
-```{r}
-
-# Reading a CSV file from the directory assuming it is name "stock_prices.csv"
-global_factor_data <- read.csv(file = "[world]_[all_themes]_[daily]_[vw_cap].csv")
-```
+Replace `"path_to_your_downloaded_file.csv"` with the actual path to the CSV file you downloaded. This will load the data into a dataframe in R for further analysis.
 
 2.  **APIs and Databases**: Connecting to a financial API to fetch real-time stock data. (Note: This is a hypothetical example, as the actual connection will depend on the specific API's requirements.)
 
@@ -107,19 +102,121 @@ aapl_df <- fortify.zoo(aapl_xts)
 
 ```
 
-### Data Processing
+## Data Processing for Financial Data Analytics
 
-1.  **Data Cleaning**: Handling missing values in the dataset.
+Data cleaning, the process of detecting and correcting (or removing) corrupt or inaccurate records from a dataset, is a critical step in financial data analytics. Financial datasets often contain inconsistencies, missing values, or outliers that can significantly affect analyses. This section provides practical approaches to cleaning financial data using R.
 
-```{r}
-# Handling missing values
-stock_prices <- (aapl_df) |> drop_na()
+### Handling Missing Data
+Missing data can skew analyses and lead to inaccurate conclusions. 
+Use the `is.na()` function to identify missing data.
+
+**R Example:**
+
+```{R}
+#| eval: false 
+# Assuming 'financial_data' is a DataFrame
+missing_data <- is.na(financial_data)
 ```
 
+### Handling Missing Data
+Options include imputation or removal of missing data points.
 
- Of course! Here's the updated Markdown-formatted text block with `{R}` instead of plain `R`:
+#### Imputation Example:
+```{R}
+#| eval: false 
+# Replacing missing values with the mean
+financial_data$column[is.na(financial_data$column)] <- mean(financial_data$column, na.rm = TRUE)
+```
 
----
+#### Removal Example:
+```{R}
+#| eval: false 
+# Removing rows with missing values
+clean_data <- na.omit(financial_data)
+```
+
+### Detecting and Removing Outliers
+Outliers can distort statistical analyses and models.
+A common method is to use Z-scores or interquartile range (IQR).
+
+#### Z-score Example:
+```{R}
+#| eval: false 
+z_scores <- scale(financial_data$column)
+outliers <- which(abs(z_scores) > 3)
+```
+
+#### IQR Example:
+```{R}
+#| eval: false 
+IQR_values <- IQR(financial_data$column)
+Q1 <- quantile(financial_data$column, 0.25)
+Q3 <- quantile(financial_data$column, 0.75)
+outliers <- which(financial_data$column < Q1 - 1.5 * IQR_values | financial_data$column > Q3 + 1.5 * IQR_values)
+```
+
+### Removing Outliers
+Outliers can be removed based on the identified indices.
+
+```{R}
+#| eval: false 
+financial_data <- financial_data[-outliers, ]
+```
+
+### Normalizing and Scaling Data
+Normalization ensures that different scales do not distort analyses, especially important in financial datasets with diverse units and scales.
+
+### Min-Max Normalization
+Rescales the feature to a fixed range [0, 1].
+```{R}
+#| eval: false 
+min_max_normalize <- function(x) {
+  (x - min(x)) / (max(x) - min(x))
+}
+financial_data$normalized_column <- min_max_normalize(financial_data$column)
+```
+
+### Standardization (Z-score Normalization)
+Rescales data to have a mean of 0 and a standard deviation of 1.
+
+```{R}
+#| eval: false 
+financial_data$standardized_column <- scale(financial_data$column)
+```
+
+### Converting Data Types
+Financial datasets often require converting data types, such as transforming strings to dates or categorical variables to numeric.
+
+### Converting Strings to Dates
+Use the `as.Date()` or `lubridate` package for complex date formats.
+
+```{R}
+#| eval: false 
+financial_data$date_column <- as.Date(financial_data$date_column, format="%Y-%m-%d")
+# Or using lubridate for more complex formats
+library(lubridate)
+financial_data$date_column <- ymd(financial_data$date_column)
+```
+
+### Converting Factors to Numeric
+Transform categorical variables into numeric format.
+
+```{R}
+#| eval: false 
+financial_data$factor_column <- as.numeric(as.factor(financial_data$factor_column))
+```
+
+Effective data cleaning is essential for accurate financial data analysis. These methods in R provide a foundation for preparing financial datasets for analysis.
+
+:::callout-tip
+### Theoretical Importance of Statistical Reasoning in Handling Missing and Outlying Data
+
+Statistical reasoning plays a pivotal role in addressing missing and outlying variables in financial datasets. The nature of missing data can significantly influence the approach for handling it. Understanding the mechanism behind missing data is crucial: data can be 'Missing Completely at Random' (MCAR), where the likelihood of missingness is unrelated to the data itself; 'Missing at Random' (MAR), where missingness is related to observed data but not the missing data; and 'Missing Not at Random' (MNAR), where missingness is related to the unobserved data. Each category requires different techniques and assumptions for valid analysis. For instance, MCAR allows for simple imputation methods without biasing the results, whereas MAR and MNAR often require more sophisticated approaches, such as multiple imputation or model-based methods, to avoid skewed conclusions.
+
+Similarly, the treatment of outliers requires careful statistical consideration. Outliers can either represent genuine anomalies or data entry errors, and distinguishing between these is vital for accurate analysis. In financial data, genuine outliers could indicate significant market events worth investigating, while erroneous outliers need to be corrected or removed to prevent distortion in statistical inference.
+
+In essence, statistical reasoning ensures that the handling of missing and outlying data is not just a mechanical task, but a thoughtful process that considers the underlying data generation process. This approach is crucial in financial data analytics, where the accuracy and reliability of the analysis can have significant implications.
+:::
 
 ## Data Transformations in Financial Analytics {#data-transformations}
 
@@ -127,7 +224,7 @@ Data transformations play a crucial role in preparing raw financial data for ana
 
 ### Scaling Numerical Variables
 
-Scaling numerical variables involves normalizing the range of variables to facilitate comparisons across disparate measures. Two widely used scaling methods include standardization and normalization. Standardization converts variables to zero-centered distributions with unit variance, whereas normalization scales features between defined intervals (e.g., 0 to 1). Implement scaling using functions found in the `scale()` and `rescale()` functions, both part of the built-in `base` package.
+Scaling numerical variables involves normalizing the range of variables to facilitate comparisons across disparate measures. Two widely used scaling methods include standardization and normalization. Standardization converts variables to zero-centered distributions with unit variance, whereas normalization scales features between defined intervals (e.g., 0 to 1). Implement scaling using functions found in the `scale()` and `tsfe::rescale()` functions, both part of the built-in `base` package.
 
 Example:
 
@@ -135,7 +232,6 @@ Example:
 set.seed(42)
 x <- rnorm(100, mean = 10, sd = 2)
 std_x <- scale(x)
-normalized_x <- rescale(x, to = c(0, 1))
 ```
 
 ### Logarithmic Transformation
@@ -159,7 +255,7 @@ Example:
 ```{R}
 set.seed(42)
 closing_prices <- cumprod(rnorm(100, mean = 0.01, sd = 0.01))
-returns <- diff(closing_prices) / lag(closing_prices, k = 1)
+returns <- diff(closing_prices) / lag(closing_prices)
 ```
 
 ### Binning Continuous Variables
@@ -185,30 +281,10 @@ set.seed(42)
 dataset1 <- data.frame(id = sample(1:5, size = 5, replace = TRUE), x = runif(5))
 dataset2 <- data.frame(id = sample(1:5, size = 5, replace = TRUE), y = runif(5))
 merged_dataset <- merge(dataset1, dataset2, by = "id")
-stacked_dataset <- data.frame(rbindlist(list(dataset1, dataset2)))
+stacked_dataset <- data.frame(bind_rows(list(dataset1, dataset2)))
 ```
 
 These examples demonstrate fundamental data transformations commonly encountered during financial analytics projects using R. Familiarity with these concepts equips practitioners to wrangle complex datasets efficiently, ultimately leading to improved analytical outcomes.
-
----
-
-I hope this meets your needs! Don't hesitate to reach out if you require any further assistance.
-
-2.  **Data Transformation**: Filtering and aggregating data for a specific stock.
-
-```{r}
-# Data transformation with dplyr
-
-aapl_monthly <- aapl_df |>
-  mutate(date = ymd(Index)) |>
-  group_by(year = floor_date(date, unit = "year"), month = ceiling_date(date, unit = "month") - days(1)) |>
-  summarize(mean_price = mean(AAPL.Adjusted)) |>
-  ungroup() |>
-  arrange(year, month)
-
-print(head(aapl_monthly))
-
-```
 
 ## Changing the Shape of DataFrames: Long to Wide Using R {#long-to-wide}
 
@@ -216,74 +292,44 @@ When working with financial data, sometimes it becomes necessary to change the s
 
 First, ensure you have installed and loaded the necessary packages:
 
-```R
-install.packages(c("tidyquant", "tidyr", "janitor"))
+``` {r}
 library(tidyquant)
 library(tidyr)
 library(janitor)
 ```
+
 Next, retrieve the historical stock data using the tidyquant API:
 
-```R
+``` {r}
 tickers <- c("AAPL", "MSFT")
 start_date <- as.Date("2020-01-01")
 end_date <- Sys.Date()
 financial_data <- tq_get(tickers, from = start_date, to = end_date)
 ```
+
 Initially, our dataset has a long structure with one observation per day and separate columns for ticker symbols:
 
-```R
+``` {r}
 print(head(financial_data))
 ```
+
 To convert the data to a wide structure where each feature (column) represents a unique combination of ticker symbol and indicator name, employ the `pivot_wider()` function:
 
 ```{R}
 financial_data_wide <- financial_data |>
   mutate(date = ymd(date)) |>
-  pivot_wider(names_from = c(symbol, indicator), values_from = price) |>
+  select(date,symbol,adjusted) |>
+  pivot_wider(names_from =symbol, values_from = adjusted) |>
   clean_names() |>
-  remove_empty(which = "rows", is.logical = TRUE) |>
+  remove_empty(which = "rows") |>
   relocate(date, .before = everything())
 
 print(head(financial_data_wide))
 ```
+
 By doing so, you create a new dataset with a single line per reporting period and individual columns representing specific combinations of tickers and indicators. Additionally, notice the usage of helper functions from the `janitor` package to improve readability further.
 
-
-4. **Merging Data** : 
-
-
-
-### Financial Data Analysis
-
-1.  **Statistical Modeling**: Performing a simple linear regression on stock prices.
-
-```{r}
-    # Linear time trend regression on stock prices
-model <- lm(AAPL.Close ~ Index, data = aapl_df)
-summary(model)
-```
-
-2.  **Machine Learning**: Applying a basic machine learning model for stock price prediction. (Note: This is a simplified example. In practice, financial prediction models can be very complex and should be based on strong theoretical foundations (which the below is NOT)
-
-```{r}
-# Machine learning with the caret package
-library(caret)
-
-# Preparing data (assuming 'stock_prices' has relevant features)
-set.seed(123)
-training_index <- createDataPartition(aapl_df$AAPL.Close, p = 0.8, list = FALSE)
-training_data <- stock_prices[training_index, ]
-testing_data <- stock_prices[-training_index, ]
-    
-# Train a linear regression model
-model <- train(AAPL.close ~ AAPL.Volume  ., data = training_data, method = "lm")
-    
-# Predicting on test data
-predictions <- predict(model, testing_data)
-```
-
-### Reporting and Communication
+## Reporting and Communication
 
 1.  **Quarto**: Creating a dynamic report with Quarto is beyond the scope of this platform, but typically involves creating a `.qmd` file with embedded R code and narrative.
 
@@ -299,7 +345,7 @@ predictions <- predict(model, testing_data)
       sidebarLayout(
         sidebarPanel(
           selectInput("stock", "Choose a Stock:", 
-                      choices = colnames(apple_stock))
+                      choices = colnames(financial_data_wide))
         ),
         mainPanel(
           plotOutput("stockPlot")
@@ -310,7 +356,7 @@ predictions <- predict(model, testing_data)
     # Server logic
     server <- function(input, output) {
       output$stockPlot <- renderPlot({
-        plot(apple_stock[[input$stock]], type = 'l', 
+        plot(financial_data_wide[[input$stock]], type = 'l', 
              main = paste("Stock", input$stock))
       })
     }
@@ -321,15 +367,6 @@ predictions <- predict(model, testing_data)
 
 These examples demonstrate a basic workflow in R for financial data analysis, from data collection to interactive reporting. Remember, for complex financial analyses, more sophisticated techniques and careful consideration of financial theories and market behaviors are necessary.
 
-For further analysis, would you like to: - Explore more advanced statistical modeling techniques in R? - Discuss specific machine learning algorithms for financial predictions? - Learn how to optimize Shiny dashboards for financial data visualization? - Delve into creating detailed reports with Quarto in R?
-
-### R Code Example: Linear Regression
-
-```{r}
-# Example: Simple linear regression
-model <- lm(stock_price ~ stock_id, data = data)
-summary(model)
-```
 
 ::: callout-tip
 ### TL;DR

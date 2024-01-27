@@ -65,7 +65,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./time_series.html" rel="next">
+<link href="./returns.html" rel="next">
 <link href="./primer.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -163,20 +163,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Understanding Financial Data and Asset Returns</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./time_series.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bayesian_methods.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ml.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span></a>
   </div>
 </li>
       </ul>
@@ -193,19 +199,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./multilevel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./causal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Causal inference</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Causal inference</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./colliderbias.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Causal Salad, Endogeneity and collider bias</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Causal Salad, Endogeneity and collider bias</span></span></a>
   </div>
 </li>
       </ul>
@@ -213,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">References</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">References</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -253,55 +259,73 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#r-code-example-basic-data-manipulation" id="toc-r-code-example-basic-data-manipulation" class="nav-link" data-scroll-target="#r-code-example-basic-data-manipulation"><span class="header-section-number">3.1.1</span> R Code Example: Basic Data Manipulation</a></li>
   </ul></li>
-  <li><a href="#q-rap-leveraging-the-cloud-for-advanced-analytics" id="toc-q-rap-leveraging-the-cloud-for-advanced-analytics" class="nav-link" data-scroll-target="#q-rap-leveraging-the-cloud-for-advanced-analytics"><span class="header-section-number">3.2</span> Q-RaP: Leveraging the cloud for advanced analytics</a></li>
-  <li><a href="#r-code-example-creating-a-plot" id="toc-r-code-example-creating-a-plot" class="nav-link" data-scroll-target="#r-code-example-creating-a-plot"><span class="header-section-number">3.3</span> R Code Example: Creating a Plot</a></li>
-  <li><a href="#data-analysis-workflow-in-r" id="toc-data-analysis-workflow-in-r" class="nav-link" data-scroll-target="#data-analysis-workflow-in-r"><span class="header-section-number">3.4</span> Data Analysis Workflow in R</a>
+  <li><a href="#embracing-the-future-with-q-rap" id="toc-embracing-the-future-with-q-rap" class="nav-link" data-scroll-target="#embracing-the-future-with-q-rap"><span class="header-section-number">3.2</span> Embracing the Future with Q-RaP</a>
   <ul class="collapse">
-  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection"><span class="header-section-number">3.4.1</span> Data Collection</a></li>
-  <li><a href="#data-processing" id="toc-data-processing" class="nav-link" data-scroll-target="#data-processing"><span class="header-section-number">3.4.2</span> Data Processing</a></li>
-  <li><a href="#financial-data-analysis" id="toc-financial-data-analysis" class="nav-link" data-scroll-target="#financial-data-analysis"><span class="header-section-number">3.4.3</span> Financial Data Analysis</a></li>
-  <li><a href="#reporting-and-communication" id="toc-reporting-and-communication" class="nav-link" data-scroll-target="#reporting-and-communication"><span class="header-section-number">3.4.4</span> Reporting and Communication</a></li>
-  <li><a href="#r-code-example-linear-regression" id="toc-r-code-example-linear-regression" class="nav-link" data-scroll-target="#r-code-example-linear-regression"><span class="header-section-number">3.4.5</span> R Code Example: Linear Regression</a></li>
+  <li><a href="#q-rap-student-experience" id="toc-q-rap-student-experience" class="nav-link" data-scroll-target="#q-rap-student-experience"><span class="header-section-number">3.2.1</span> Q-RaP Student Experience</a></li>
   </ul></li>
-  <li><a href="#reproducible-data-analysis-in-financial-data-analytics" id="toc-reproducible-data-analysis-in-financial-data-analytics" class="nav-link" data-scroll-target="#reproducible-data-analysis-in-financial-data-analytics"><span class="header-section-number">3.5</span> Reproducible Data Analysis in Financial data analytics</a>
+  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection"><span class="header-section-number">3.3</span> Data Collection</a></li>
+  <li><a href="#data-processing-for-financial-data-analytics" id="toc-data-processing-for-financial-data-analytics" class="nav-link" data-scroll-target="#data-processing-for-financial-data-analytics"><span class="header-section-number">3.4</span> Data Processing for Financial Data Analytics</a>
   <ul class="collapse">
-  <li><a href="#importance-in-financial-analysis" id="toc-importance-in-financial-analysis" class="nav-link" data-scroll-target="#importance-in-financial-analysis"><span class="header-section-number">3.5.1</span> Importance in Financial Analysis</a></li>
-  <li><a href="#achieving-reproducibility" id="toc-achieving-reproducibility" class="nav-link" data-scroll-target="#achieving-reproducibility"><span class="header-section-number">3.5.2</span> Achieving Reproducibility</a></li>
-  <li><a href="#tools-for-reproducibility" id="toc-tools-for-reproducibility" class="nav-link" data-scroll-target="#tools-for-reproducibility"><span class="header-section-number">3.5.3</span> Tools for Reproducibility</a></li>
+  <li><a href="#handling-missing-data" id="toc-handling-missing-data" class="nav-link" data-scroll-target="#handling-missing-data"><span class="header-section-number">3.4.1</span> Handling Missing Data</a></li>
+  <li><a href="#handling-missing-data-1" id="toc-handling-missing-data-1" class="nav-link" data-scroll-target="#handling-missing-data-1"><span class="header-section-number">3.4.2</span> Handling Missing Data</a></li>
+  <li><a href="#detecting-and-removing-outliers" id="toc-detecting-and-removing-outliers" class="nav-link" data-scroll-target="#detecting-and-removing-outliers"><span class="header-section-number">3.4.3</span> Detecting and Removing Outliers</a></li>
+  <li><a href="#removing-outliers" id="toc-removing-outliers" class="nav-link" data-scroll-target="#removing-outliers"><span class="header-section-number">3.4.4</span> Removing Outliers</a></li>
+  <li><a href="#normalizing-and-scaling-data" id="toc-normalizing-and-scaling-data" class="nav-link" data-scroll-target="#normalizing-and-scaling-data"><span class="header-section-number">3.4.5</span> Normalizing and Scaling Data</a></li>
+  <li><a href="#min-max-normalization" id="toc-min-max-normalization" class="nav-link" data-scroll-target="#min-max-normalization"><span class="header-section-number">3.4.6</span> Min-Max Normalization</a></li>
+  <li><a href="#standardization-z-score-normalization" id="toc-standardization-z-score-normalization" class="nav-link" data-scroll-target="#standardization-z-score-normalization"><span class="header-section-number">3.4.7</span> Standardization (Z-score Normalization)</a></li>
+  <li><a href="#converting-data-types" id="toc-converting-data-types" class="nav-link" data-scroll-target="#converting-data-types"><span class="header-section-number">3.4.8</span> Converting Data Types</a></li>
+  <li><a href="#converting-strings-to-dates" id="toc-converting-strings-to-dates" class="nav-link" data-scroll-target="#converting-strings-to-dates"><span class="header-section-number">3.4.9</span> Converting Strings to Dates</a></li>
+  <li><a href="#converting-factors-to-numeric" id="toc-converting-factors-to-numeric" class="nav-link" data-scroll-target="#converting-factors-to-numeric"><span class="header-section-number">3.4.10</span> Converting Factors to Numeric</a></li>
   </ul></li>
-  <li><a href="#reproducibility-checklist" id="toc-reproducibility-checklist" class="nav-link" data-scroll-target="#reproducibility-checklist"><span class="header-section-number">3.6</span> Reproducibility Checklist</a></li>
-  <li><a href="#long-term-reproducibility" id="toc-long-term-reproducibility" class="nav-link" data-scroll-target="#long-term-reproducibility"><span class="header-section-number">3.7</span> Long-term Reproducibility</a></li>
-  <li><a href="#the-tidyverse-an-ecosystem-for-data-science" id="toc-the-tidyverse-an-ecosystem-for-data-science" class="nav-link" data-scroll-target="#the-tidyverse-an-ecosystem-for-data-science"><span class="header-section-number">3.8</span> The Tidyverse: An Ecosystem for Data Science</a>
+  <li><a href="#data-transformations" id="toc-data-transformations" class="nav-link" data-scroll-target="#data-transformations"><span class="header-section-number">3.5</span> Data Transformations in Financial Analytics</a>
   <ul class="collapse">
-  <li><a href="#core-components" id="toc-core-components" class="nav-link" data-scroll-target="#core-components"><span class="header-section-number">3.8.1</span> Core Components</a></li>
-  <li><a href="#r-code-example-data-manipulation-with-dplyr" id="toc-r-code-example-data-manipulation-with-dplyr" class="nav-link" data-scroll-target="#r-code-example-data-manipulation-with-dplyr"><span class="header-section-number">3.8.2</span> R Code Example: Data Manipulation with dplyr</a></li>
-  <li><a href="#data-visualization-with-ggplot2" id="toc-data-visualization-with-ggplot2" class="nav-link" data-scroll-target="#data-visualization-with-ggplot2"><span class="header-section-number">3.8.3</span> Data Visualization with ggplot2</a></li>
-  <li><a href="#data-wrangling-with-tidyr" id="toc-data-wrangling-with-tidyr" class="nav-link" data-scroll-target="#data-wrangling-with-tidyr"><span class="header-section-number">3.8.4</span> Data Wrangling with tidyr</a></li>
+  <li><a href="#scaling-numerical-variables" id="toc-scaling-numerical-variables" class="nav-link" data-scroll-target="#scaling-numerical-variables"><span class="header-section-number">3.5.1</span> Scaling Numerical Variables</a></li>
+  <li><a href="#logarithmic-transformation" id="toc-logarithmic-transformation" class="nav-link" data-scroll-target="#logarithmic-transformation"><span class="header-section-number">3.5.2</span> Logarithmic Transformation</a></li>
+  <li><a href="#differencing-time-series-data" id="toc-differencing-time-series-data" class="nav-link" data-scroll-target="#differencing-time-series-data"><span class="header-section-number">3.5.3</span> Differencing Time Series Data</a></li>
+  <li><a href="#binning-continuous-variables" id="toc-binning-continuous-variables" class="nav-link" data-scroll-target="#binning-continuous-variables"><span class="header-section-number">3.5.4</span> Binning Continuous Variables</a></li>
+  <li><a href="#merging-multiple-datasets" id="toc-merging-multiple-datasets" class="nav-link" data-scroll-target="#merging-multiple-datasets"><span class="header-section-number">3.5.5</span> Merging Multiple Datasets</a></li>
   </ul></li>
-  <li><a href="#git-and-github-for-collaborative-coding" id="toc-git-and-github-for-collaborative-coding" class="nav-link" data-scroll-target="#git-and-github-for-collaborative-coding"><span class="header-section-number">3.9</span> Git and GitHub for Collaborative Coding</a></li>
-  <li><a href="#introduction-to-git-and-github" id="toc-introduction-to-git-and-github" class="nav-link" data-scroll-target="#introduction-to-git-and-github"><span class="header-section-number">3.10</span> Introduction to Git and GitHub</a>
+  <li><a href="#long-to-wide" id="toc-long-to-wide" class="nav-link" data-scroll-target="#long-to-wide"><span class="header-section-number">3.6</span> Changing the Shape of DataFrames: Long to Wide Using R</a></li>
+  <li><a href="#reporting-and-communication" id="toc-reporting-and-communication" class="nav-link" data-scroll-target="#reporting-and-communication"><span class="header-section-number">3.7</span> Reporting and Communication</a></li>
+  <li><a href="#reproducible-data-analysis-in-financial-data-analytics" id="toc-reproducible-data-analysis-in-financial-data-analytics" class="nav-link" data-scroll-target="#reproducible-data-analysis-in-financial-data-analytics"><span class="header-section-number">3.8</span> Reproducible Data Analysis in Financial data analytics</a>
   <ul class="collapse">
-  <li><a href="#role-in-financial-data-analytics" id="toc-role-in-financial-data-analytics" class="nav-link" data-scroll-target="#role-in-financial-data-analytics"><span class="header-section-number">3.10.1</span> Role in Financial data analytics</a></li>
-  <li><a href="#setting-up-git-and-github" id="toc-setting-up-git-and-github" class="nav-link" data-scroll-target="#setting-up-git-and-github"><span class="header-section-number">3.10.2</span> Setting Up Git and GitHub</a></li>
-  <li><a href="#command-line-code-example-initializing-a-git-repository" id="toc-command-line-code-example-initializing-a-git-repository" class="nav-link" data-scroll-target="#command-line-code-example-initializing-a-git-repository"><span class="header-section-number">3.10.3</span> Command line code example: Initializing a Git Repository</a></li>
+  <li><a href="#importance-in-financial-analysis" id="toc-importance-in-financial-analysis" class="nav-link" data-scroll-target="#importance-in-financial-analysis"><span class="header-section-number">3.8.1</span> Importance in Financial Analysis</a></li>
+  <li><a href="#achieving-reproducibility" id="toc-achieving-reproducibility" class="nav-link" data-scroll-target="#achieving-reproducibility"><span class="header-section-number">3.8.2</span> Achieving Reproducibility</a></li>
+  <li><a href="#tools-for-reproducibility" id="toc-tools-for-reproducibility" class="nav-link" data-scroll-target="#tools-for-reproducibility"><span class="header-section-number">3.8.3</span> Tools for Reproducibility</a></li>
   </ul></li>
-  <li><a href="#versioning-with-git" id="toc-versioning-with-git" class="nav-link" data-scroll-target="#versioning-with-git"><span class="header-section-number">3.11</span> Versioning with Git</a>
+  <li><a href="#reproducibility-checklist" id="toc-reproducibility-checklist" class="nav-link" data-scroll-target="#reproducibility-checklist"><span class="header-section-number">3.9</span> Reproducibility Checklist</a></li>
+  <li><a href="#long-term-reproducibility" id="toc-long-term-reproducibility" class="nav-link" data-scroll-target="#long-term-reproducibility"><span class="header-section-number">3.10</span> Long-term Reproducibility</a></li>
+  <li><a href="#the-tidyverse-an-ecosystem-for-data-science" id="toc-the-tidyverse-an-ecosystem-for-data-science" class="nav-link" data-scroll-target="#the-tidyverse-an-ecosystem-for-data-science"><span class="header-section-number">3.11</span> The Tidyverse: An Ecosystem for Data Science</a>
   <ul class="collapse">
-  <li><a href="#basic-git-commands" id="toc-basic-git-commands" class="nav-link" data-scroll-target="#basic-git-commands"><span class="header-section-number">3.11.1</span> Basic Git Commands</a></li>
-  <li><a href="#command-line-code-example-committing-changes" id="toc-command-line-code-example-committing-changes" class="nav-link" data-scroll-target="#command-line-code-example-committing-changes"><span class="header-section-number">3.11.2</span> Command line code example: Committing Changes</a></li>
+  <li><a href="#core-components" id="toc-core-components" class="nav-link" data-scroll-target="#core-components"><span class="header-section-number">3.11.1</span> Core Components</a></li>
+  <li><a href="#r-code-example-data-manipulation-with-dplyr" id="toc-r-code-example-data-manipulation-with-dplyr" class="nav-link" data-scroll-target="#r-code-example-data-manipulation-with-dplyr"><span class="header-section-number">3.11.2</span> R Code Example: Data Manipulation with dplyr</a></li>
+  <li><a href="#data-visualization-with-ggplot2" id="toc-data-visualization-with-ggplot2" class="nav-link" data-scroll-target="#data-visualization-with-ggplot2"><span class="header-section-number">3.11.3</span> Data Visualization with ggplot2</a></li>
+  <li><a href="#data-wrangling-with-tidyr" id="toc-data-wrangling-with-tidyr" class="nav-link" data-scroll-target="#data-wrangling-with-tidyr"><span class="header-section-number">3.11.4</span> Data Wrangling with tidyr</a></li>
   </ul></li>
-  <li><a href="#collaborative-workflows-on-github" id="toc-collaborative-workflows-on-github" class="nav-link" data-scroll-target="#collaborative-workflows-on-github"><span class="header-section-number">3.12</span> Collaborative Workflows on GitHub</a>
+  <li><a href="#git-and-github-for-collaborative-coding" id="toc-git-and-github-for-collaborative-coding" class="nav-link" data-scroll-target="#git-and-github-for-collaborative-coding"><span class="header-section-number">3.12</span> Git and GitHub for Collaborative Coding</a></li>
+  <li><a href="#introduction-to-git-and-github" id="toc-introduction-to-git-and-github" class="nav-link" data-scroll-target="#introduction-to-git-and-github"><span class="header-section-number">3.13</span> Introduction to Git and GitHub</a>
   <ul class="collapse">
-  <li><a href="#features-for-collaboration" id="toc-features-for-collaboration" class="nav-link" data-scroll-target="#features-for-collaboration"><span class="header-section-number">3.12.1</span> Features for Collaboration</a></li>
-  <li><a href="#r-code-example-cloning-a-repository" id="toc-r-code-example-cloning-a-repository" class="nav-link" data-scroll-target="#r-code-example-cloning-a-repository"><span class="header-section-number">3.12.2</span> R Code Example: Cloning a Repository</a></li>
+  <li><a href="#role-in-financial-data-analytics" id="toc-role-in-financial-data-analytics" class="nav-link" data-scroll-target="#role-in-financial-data-analytics"><span class="header-section-number">3.13.1</span> Role in Financial data analytics</a></li>
+  <li><a href="#setting-up-git-and-github" id="toc-setting-up-git-and-github" class="nav-link" data-scroll-target="#setting-up-git-and-github"><span class="header-section-number">3.13.2</span> Setting Up Git and GitHub</a></li>
+  <li><a href="#command-line-code-example-initializing-a-git-repository" id="toc-command-line-code-example-initializing-a-git-repository" class="nav-link" data-scroll-target="#command-line-code-example-initializing-a-git-repository"><span class="header-section-number">3.13.3</span> Command line code example: Initializing a Git Repository</a></li>
   </ul></li>
-  <li><a href="#embracing-challenges-in-financial-data-analytics" id="toc-embracing-challenges-in-financial-data-analytics" class="nav-link" data-scroll-target="#embracing-challenges-in-financial-data-analytics"><span class="header-section-number">3.13</span> Embracing Challenges in Financial Data Analytics</a>
+  <li><a href="#versioning-with-git" id="toc-versioning-with-git" class="nav-link" data-scroll-target="#versioning-with-git"><span class="header-section-number">3.14</span> Versioning with Git</a>
   <ul class="collapse">
-  <li><a href="#understanding-the-growth-mindset" id="toc-understanding-the-growth-mindset" class="nav-link" data-scroll-target="#understanding-the-growth-mindset"><span class="header-section-number">3.13.1</span> Understanding the Growth Mindset</a></li>
-  <li><a href="#practical-steps-for-developing-a-growth-mindset" id="toc-practical-steps-for-developing-a-growth-mindset" class="nav-link" data-scroll-target="#practical-steps-for-developing-a-growth-mindset"><span class="header-section-number">3.13.2</span> Practical Steps for Developing a Growth Mindset</a></li>
+  <li><a href="#basic-git-commands" id="toc-basic-git-commands" class="nav-link" data-scroll-target="#basic-git-commands"><span class="header-section-number">3.14.1</span> Basic Git Commands</a></li>
+  <li><a href="#command-line-code-example-committing-changes" id="toc-command-line-code-example-committing-changes" class="nav-link" data-scroll-target="#command-line-code-example-committing-changes"><span class="header-section-number">3.14.2</span> Command line code example: Committing Changes</a></li>
   </ul></li>
-  <li><a href="#case-studies-growth-mindset-in-action" id="toc-case-studies-growth-mindset-in-action" class="nav-link" data-scroll-target="#case-studies-growth-mindset-in-action"><span class="header-section-number">3.14</span> Case Studies: Growth Mindset in Action</a></li>
-  <li><a href="#excercises" id="toc-excercises" class="nav-link" data-scroll-target="#excercises"><span class="header-section-number">3.15</span> Excercises</a></li>
+  <li><a href="#collaborative-workflows-on-github" id="toc-collaborative-workflows-on-github" class="nav-link" data-scroll-target="#collaborative-workflows-on-github"><span class="header-section-number">3.15</span> Collaborative Workflows on GitHub</a>
+  <ul class="collapse">
+  <li><a href="#features-for-collaboration" id="toc-features-for-collaboration" class="nav-link" data-scroll-target="#features-for-collaboration"><span class="header-section-number">3.15.1</span> Features for Collaboration</a></li>
+  <li><a href="#r-code-example-cloning-a-repository" id="toc-r-code-example-cloning-a-repository" class="nav-link" data-scroll-target="#r-code-example-cloning-a-repository"><span class="header-section-number">3.15.2</span> R Code Example: Cloning a Repository</a></li>
+  </ul></li>
+  <li><a href="#embracing-challenges-in-financial-data-analytics" id="toc-embracing-challenges-in-financial-data-analytics" class="nav-link" data-scroll-target="#embracing-challenges-in-financial-data-analytics"><span class="header-section-number">3.16</span> Embracing Challenges in Financial Data Analytics</a>
+  <ul class="collapse">
+  <li><a href="#understanding-the-growth-mindset" id="toc-understanding-the-growth-mindset" class="nav-link" data-scroll-target="#understanding-the-growth-mindset"><span class="header-section-number">3.16.1</span> Understanding the Growth Mindset</a></li>
+  <li><a href="#practical-steps-for-developing-a-growth-mindset" id="toc-practical-steps-for-developing-a-growth-mindset" class="nav-link" data-scroll-target="#practical-steps-for-developing-a-growth-mindset"><span class="header-section-number">3.16.2</span> Practical Steps for Developing a Growth Mindset</a></li>
+  </ul></li>
+  <li><a href="#case-studies-growth-mindset-in-action" id="toc-case-studies-growth-mindset-in-action" class="nav-link" data-scroll-target="#case-studies-growth-mindset-in-action"><span class="header-section-number">3.17</span> Case Studies: Growth Mindset in Action</a></li>
+  <li><a href="#excercises" id="toc-excercises" class="nav-link" data-scroll-target="#excercises"><span class="header-section-number">3.18</span> Excercises</a></li>
   </ul>
 </nav>
     </div>
@@ -335,12 +359,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Financial data analytics involves the application of statistical and machine learning techniques to financial data, aiming to extract insights, make predictions, and guide decision-making. This chapter introduces a set of tools and processes that are grounded in professional standards in Statistics and data science.</p>
 <section id="introduction-to-r" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="introduction-to-r"><span class="header-section-number">3.1</span> Introduction to R</h2>
-<p>R is a powerful language for statistical computing and graphics, widely used in financial data analysis for its robust package ecosystem and flexibility. R have a number of key features which are useful for financial data analytics:</p>
-<ul>
-<li><strong>Statistical Analysis</strong>: R provides extensive statistical modeling capabilities.</li>
-<li><strong>Data Handling</strong>: R excels in handling and manipulating financial datasets.</li>
-<li><strong>Graphical Capabilities</strong>: It offers strong tools for data visualization.</li>
-</ul>
+<p>R, with its exceptional array of packages and community support, stands at the forefront of financial data analytics. This language isn’t just about executing tasks; it’s about opening doors to a more profound understanding of financial markets and trends through data.</p>
+<p>Why R?</p>
+<p>Statistical Analysis: R is renowned for its comprehensive statistical analysis capabilities. It’s not just about running models; it’s about understanding the nuances of financial data and interpreting them in meaningful ways.</p>
+<p>Data Handling: Financial data can be unwieldy and complex. R simplifies this with tools that allow for efficient manipulation and transformation of data, enabling analysts to focus more on insights and less on data wrangling.</p>
+<p>Graphical Capabilities: In finance, a picture is worth more than a thousand numbers. R’s advanced graphical capabilities allow for the creation of insightful, compelling visualizations, turning complex data into understandable stories.</p>
 <section id="r-code-example-basic-data-manipulation" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="r-code-example-basic-data-manipulation"><span class="header-section-number">3.1.1</span> R Code Example: Basic Data Manipulation</h3>
 <div class="cell">
@@ -359,98 +382,379 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="q-rap-leveraging-the-cloud-for-advanced-analytics" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="q-rap-leveraging-the-cloud-for-advanced-analytics"><span class="header-section-number">3.2</span> Q-RaP: Leveraging the cloud for advanced analytics</h2>
-<p><strong>Q</strong>ueen’s Business School <strong>R</strong>emote <strong>a</strong>nalytics <strong>P</strong>latform is a dedicated cloud computing architecture for teaching analytics to QBS students. It is set up using <a href="https://posit.cloud/learn/guide">Posit Cloud</a> formerly known as RStudio Cloud, offers a comprehensive platform for learning advanced financial data analytics. This platform is an integral part of the modern toolkit for financial analysis, leveraging cloud computing to enhance and streamline the analytical workflow. With Posit Cloud, you can access a robust set of data science tools directly in your browser, eliminating the need for complex installation or configuration.</p>
-<p>Key aspects of Posit Cloud include its wide range of resources for data analysis, communication, integration, and modeling. These encompass various tools and packages such as tidyverse for data manipulation, ggplot2 for data visualization, dplyr for data transformation, Shiny for interactive web apps, and TensorFlow for machine learning, among others. These tools are essential for performing sophisticated financial data analysis in a cloud environment.</p>
-<p>Teaching data science in the cloud with Posit involves a focus on innovative pedagogy in statistics and data science, emphasizing computing, reproducible research, student-centered learning, and open-source education. This approach is particularly beneficial in financial data analytics, where cloud-based solutions offer scalable, efficient, and collaborative environments for both teaching and practical application.</p>
-<p>Posit Cloud also facilitates a transition to cloud-based data science, addressing common challenges and offering best practices for migrating data science infrastructure to the cloud. The benefits of working in such an environment include secure data storage and access, scalable analysis capabilities, and efficient sharing of results.</p>
+<section id="embracing-the-future-with-q-rap" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="embracing-the-future-with-q-rap"><span class="header-section-number">3.2</span> Embracing the Future with Q-RaP</h2>
+<p>Q-RaP<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> is not just a platform; it’s a commitment to the future of financial data analytics. Hosted on <a href="https://posit.cloud/learn/guide">Posit Cloud</a>, this cloud-based architecture is our bridge to advanced, accessible analytics.</p>
+<p><strong>Posit Cloud: A New Era of Data Science</strong></p>
+<p>With Posit Cloud, the complexities of setting up a data science environment are things of the past. It’s a playground for financial data scientists, offering tools and resources that are pivotal for modern financial analysis.</p>
+<p>Teaching data science using Q-RaP involves a focus on innovative pedagogy in statistics and data science, emphasizing computing, reproducible research, student-centered learning, and open-source education. This approach is particularly beneficial in financial data analytics, where cloud-based solutions offer scalable, efficient, and collaborative environments for both teaching and practical application.</p>
+<p>Q-RaP also facilitates a transition to cloud-based data science, addressing common challenges and offering best practices for migrating data science infrastructure to the cloud. The benefits of working in such an environment include secure data storage and access, scalable analysis capabilities, and efficient sharing of results.</p>
 <p>For more detailed information and resources, you can explore the Posit website and community pages. Also, you can access Posit Cloud for your institution through the provided link: <a href="https://sso.rstudio.cloud/q-rap">SSO for Posit Cloud</a>.</p>
-<div class="callout-importance">
-<p><a href="https://community.rstudio.com/">Posit Community</a> and the <a href="https://posit.co/blog/">Posit Blog</a> are valuable resources for students to learn more about Posit Cloud and how it can be used for learning advanced financial data analytics.</p>
-</div>
+<section id="q-rap-student-experience" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="q-rap-student-experience"><span class="header-section-number">3.2.1</span> Q-RaP Student Experience</h3>
 <div style="position: relative; padding-bottom: 178.26086956521738%; height: 0;">
 <iframe src="https://www.loom.com/embed/b454d9f6df234fe0a4c8b31d45aec9e3?sid=6782c010-abec-44ac-9fbf-5ae59ec65fa9" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
 </iframe>
 </div>
 </section>
-<section id="r-code-example-creating-a-plot" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="r-code-example-creating-a-plot"><span class="header-section-number">3.3</span> R Code Example: Creating a Plot</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load the ggplot2 package</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Creating a basic plot</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x =</span> stock_id, <span class="at">y =</span> stock_price)) <span class="sc">+</span> </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Stock Price Trend"</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="tools_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
 </section>
-<section id="data-analysis-workflow-in-r" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="data-analysis-workflow-in-r"><span class="header-section-number">3.4</span> Data Analysis Workflow in R</h2>
-<p>A typical financial data analysis workflow in R involves data collection, processing, analysis, and reporting.</p>
-<section id="data-collection" class="level3" data-number="3.4.1">
-<h3 data-number="3.4.1" class="anchored" data-anchor-id="data-collection"><span class="header-section-number">3.4.1</span> Data Collection</h3>
-<ul>
-<li><strong>Reading Data</strong>: Use <code>read.csv()</code> for CSV files, <code>readRDS()</code> for RDS files.</li>
-<li><strong>APIs and Databases</strong>: Connect to financial databases or APIs for real-time data.</li>
-</ul>
-</section>
-<section id="data-processing" class="level3" data-number="3.4.2">
-<h3 data-number="3.4.2" class="anchored" data-anchor-id="data-processing"><span class="header-section-number">3.4.2</span> Data Processing</h3>
-<ul>
-<li><strong>Data Cleaning</strong>: Identify and handle missing values, outliers.</li>
-<li><strong>Data Transformation</strong>: Reshape, filter, and aggregate data.</li>
-</ul>
-</section>
-<section id="financial-data-analysis" class="level3" data-number="3.4.3">
-<h3 data-number="3.4.3" class="anchored" data-anchor-id="financial-data-analysis"><span class="header-section-number">3.4.3</span> Financial Data Analysis</h3>
-<ul>
-<li><strong>Statistical Modeling</strong>: Perform regression, time-series analysis.</li>
-<li><strong>Machine Learning</strong>: Apply machine learning techniques for prediction.</li>
-</ul>
-</section>
-<section id="reporting-and-communication" class="level3" data-number="3.4.4">
-<h3 data-number="3.4.4" class="anchored" data-anchor-id="reporting-and-communication"><span class="header-section-number">3.4.4</span> Reporting and Communication</h3>
-<ul>
-<li><strong>Quarto</strong>: Create dynamic reports combining code, output, and narrative.</li>
-<li><strong>Interactive Dashboards</strong>: Develop dashboards using packages like <code>shiny</code>.</li>
-</ul>
-</section>
-<section id="r-code-example-linear-regression" class="level3" data-number="3.4.5">
-<h3 data-number="3.4.5" class="anchored" data-anchor-id="r-code-example-linear-regression"><span class="header-section-number">3.4.5</span> R Code Example: Linear Regression</h3>
+<section id="data-collection" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="data-collection"><span class="header-section-number">3.3</span> Data Collection</h2>
+<ol type="1">
+<li><strong>Reading Data</strong>: Importing a CSV file containing daily asset pricing global factors.</li>
+</ol>
+<p>To download the daily frequency World factors from the JKP Factors website, you need to follow these steps:</p>
+<ol type="1">
+<li>Visit <a href="https://www.jkpfactors.com/">JKP Factors</a>.</li>
+<li>Select the desired options for your data download, such as the region/country (e.g., World), theme/factor, data frequency (daily), and weighting method.</li>
+<li>Click the ‘Download’ button to download the data in CSV format.</li>
+</ol>
+<p>Once you have downloaded the CSV file, you can load it into R using the following R code:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"path_to_your_downloaded_file.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Replace <code>"path_to_your_downloaded_file.csv"</code> with the actual path to the CSV file you downloaded. This will load the data into a dataframe in R for further analysis.</p>
+<ol start="2" type="1">
+<li><strong>APIs and Databases</strong>: Connecting to a financial API to fetch real-time stock data. (Note: This is a hypothetical example, as the actual connection will depend on the specific API’s requirements.)</li>
+</ol>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Simple linear regression</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(stock_price <span class="sc">~</span> stock_id, <span class="at">data =</span> data)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming a package like quantmod is installed</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quantmod)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(timetk)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>symbol <span class="ot">&lt;-</span> <span class="st">"AAPL"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>start_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2020-01-01"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>end_date <span class="ot">&lt;-</span> <span class="fu">Sys.Date</span>()</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Get stock data</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">getSymbols</span>(symbol, <span class="at">src =</span> <span class="st">"yahoo"</span>, <span class="at">from =</span> start_date, <span class="at">to =</span> end_date)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>aapl_xts <span class="ot">&lt;-</span> AAPL[<span class="st">'2020-01-01/'</span>]</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>aapl_df <span class="ot">&lt;-</span> <span class="fu">fortify.zoo</span>(aapl_xts)</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = stock_price ~ stock_id, data = data)
-
-Residuals:
-  1   2   3   4 
--16  28  -8  -4 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)  
-(Intercept)   110.00      28.98   3.795   0.0629 .
-stock_id        6.00      10.58   0.567   0.6279  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 23.66 on 2 degrees of freedom
-Multiple R-squared:  0.1385,    Adjusted R-squared:  -0.2923 
-F-statistic: 0.3214 on 1 and 2 DF,  p-value: 0.6279</code></pre>
+<pre><code>[1] "AAPL"</code></pre>
 </div>
 </div>
+</section>
+<section id="data-processing-for-financial-data-analytics" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="data-processing-for-financial-data-analytics"><span class="header-section-number">3.4</span> Data Processing for Financial Data Analytics</h2>
+<p>Data cleaning, the process of detecting and correcting (or removing) corrupt or inaccurate records from a dataset, is a critical step in financial data analytics. Financial datasets often contain inconsistencies, missing values, or outliers that can significantly affect analyses. This section provides practical approaches to cleaning financial data using R.</p>
+<section id="handling-missing-data" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="handling-missing-data"><span class="header-section-number">3.4.1</span> Handling Missing Data</h3>
+<p>Missing data can skew analyses and lead to inaccurate conclusions. Use the <code>is.na()</code> function to identify missing data.</p>
+<p><strong>R Example:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{R}</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming 'financial_data' is a DataFrame</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>missing_data <span class="ot">&lt;-</span> <span class="fu">is.na</span>(financial_data)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="handling-missing-data-1" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="handling-missing-data-1"><span class="header-section-number">3.4.2</span> Handling Missing Data</h3>
+<p>Options include imputation or removal of missing data points.</p>
+<section id="imputation-example" class="level4" data-number="3.4.2.1">
+<h4 data-number="3.4.2.1" class="anchored" data-anchor-id="imputation-example"><span class="header-section-number">3.4.2.1</span> Imputation Example:</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{R}</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Replacing missing values with the mean</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>financial_data<span class="sc">$</span>column[<span class="fu">is.na</span>(financial_data<span class="sc">$</span>column)] <span class="ot">&lt;-</span> <span class="fu">mean</span>(financial_data<span class="sc">$</span>column, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="removal-example" class="level4" data-number="3.4.2.2">
+<h4 data-number="3.4.2.2" class="anchored" data-anchor-id="removal-example"><span class="header-section-number">3.4.2.2</span> Removal Example:</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{R}</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Removing rows with missing values</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>clean_data <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(financial_data)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="detecting-and-removing-outliers" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="detecting-and-removing-outliers"><span class="header-section-number">3.4.3</span> Detecting and Removing Outliers</h3>
+<p>Outliers can distort statistical analyses and models. A common method is to use Z-scores or interquartile range (IQR).</p>
+<section id="z-score-example" class="level4" data-number="3.4.3.1">
+<h4 data-number="3.4.3.1" class="anchored" data-anchor-id="z-score-example"><span class="header-section-number">3.4.3.1</span> Z-score Example:</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{R}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>z_scores <span class="ot">&lt;-</span> <span class="fu">scale</span>(financial_data<span class="sc">$</span>column)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">abs</span>(z_scores) <span class="sc">&gt;</span> <span class="dv">3</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="iqr-example" class="level4" data-number="3.4.3.2">
+<h4 data-number="3.4.3.2" class="anchored" data-anchor-id="iqr-example"><span class="header-section-number">3.4.3.2</span> IQR Example:</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{R}</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>IQR_values <span class="ot">&lt;-</span> <span class="fu">IQR</span>(financial_data<span class="sc">$</span>column)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>Q1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(financial_data<span class="sc">$</span>column, <span class="fl">0.25</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>Q3 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(financial_data<span class="sc">$</span>column, <span class="fl">0.75</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">which</span>(financial_data<span class="sc">$</span>column <span class="sc">&lt;</span> Q1 <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR_values <span class="sc">|</span> financial_data<span class="sc">$</span>column <span class="sc">&gt;</span> Q3 <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR_values)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="removing-outliers" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="removing-outliers"><span class="header-section-number">3.4.4</span> Removing Outliers</h3>
+<p>Outliers can be removed based on the identified indices.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{R}</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>financial_data <span class="ot">&lt;-</span> financial_data[<span class="sc">-</span>outliers, ]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="normalizing-and-scaling-data" class="level3" data-number="3.4.5">
+<h3 data-number="3.4.5" class="anchored" data-anchor-id="normalizing-and-scaling-data"><span class="header-section-number">3.4.5</span> Normalizing and Scaling Data</h3>
+<p>Normalization ensures that different scales do not distort analyses, especially important in financial datasets with diverse units and scales.</p>
+</section>
+<section id="min-max-normalization" class="level3" data-number="3.4.6">
+<h3 data-number="3.4.6" class="anchored" data-anchor-id="min-max-normalization"><span class="header-section-number">3.4.6</span> Min-Max Normalization</h3>
+<p>Rescales the feature to a fixed range [0, 1].</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{R}</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>min_max_normalize <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  (x <span class="sc">-</span> <span class="fu">min</span>(x)) <span class="sc">/</span> (<span class="fu">max</span>(x) <span class="sc">-</span> <span class="fu">min</span>(x))</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>financial_data<span class="sc">$</span>normalized_column <span class="ot">&lt;-</span> <span class="fu">min_max_normalize</span>(financial_data<span class="sc">$</span>column)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="standardization-z-score-normalization" class="level3" data-number="3.4.7">
+<h3 data-number="3.4.7" class="anchored" data-anchor-id="standardization-z-score-normalization"><span class="header-section-number">3.4.7</span> Standardization (Z-score Normalization)</h3>
+<p>Rescales data to have a mean of 0 and a standard deviation of 1.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{R}</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>financial_data<span class="sc">$</span>standardized_column <span class="ot">&lt;-</span> <span class="fu">scale</span>(financial_data<span class="sc">$</span>column)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="converting-data-types" class="level3" data-number="3.4.8">
+<h3 data-number="3.4.8" class="anchored" data-anchor-id="converting-data-types"><span class="header-section-number">3.4.8</span> Converting Data Types</h3>
+<p>Financial datasets often require converting data types, such as transforming strings to dates or categorical variables to numeric.</p>
+</section>
+<section id="converting-strings-to-dates" class="level3" data-number="3.4.9">
+<h3 data-number="3.4.9" class="anchored" data-anchor-id="converting-strings-to-dates"><span class="header-section-number">3.4.9</span> Converting Strings to Dates</h3>
+<p>Use the <code>as.Date()</code> or <code>lubridate</code> package for complex date formats.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{R}</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>financial_data<span class="sc">$</span>date_column <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(financial_data<span class="sc">$</span>date_column, <span class="at">format=</span><span class="st">"%Y-%m-%d"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or using lubridate for more complex formats</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>financial_data<span class="sc">$</span>date_column <span class="ot">&lt;-</span> <span class="fu">ymd</span>(financial_data<span class="sc">$</span>date_column)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="converting-factors-to-numeric" class="level3" data-number="3.4.10">
+<h3 data-number="3.4.10" class="anchored" data-anchor-id="converting-factors-to-numeric"><span class="header-section-number">3.4.10</span> Converting Factors to Numeric</h3>
+<p>Transform categorical variables into numeric format.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{R}</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#| eval: false</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>financial_data<span class="sc">$</span>factor_column <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.factor</span>(financial_data<span class="sc">$</span>factor_column))</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Effective data cleaning is essential for accurate financial data analysis. These methods in R provide a foundation for preparing financial datasets for analysis.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Theoretical Importance of Statistical Reasoning in Handling Missing and Outlying Data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Statistical reasoning plays a pivotal role in addressing missing and outlying variables in financial datasets. The nature of missing data can significantly influence the approach for handling it. Understanding the mechanism behind missing data is crucial: data can be ‘Missing Completely at Random’ (MCAR), where the likelihood of missingness is unrelated to the data itself; ‘Missing at Random’ (MAR), where missingness is related to observed data but not the missing data; and ‘Missing Not at Random’ (MNAR), where missingness is related to the unobserved data. Each category requires different techniques and assumptions for valid analysis. For instance, MCAR allows for simple imputation methods without biasing the results, whereas MAR and MNAR often require more sophisticated approaches, such as multiple imputation or model-based methods, to avoid skewed conclusions.</p>
+<p>Similarly, the treatment of outliers requires careful statistical consideration. Outliers can either represent genuine anomalies or data entry errors, and distinguishing between these is vital for accurate analysis. In financial data, genuine outliers could indicate significant market events worth investigating, while erroneous outliers need to be corrected or removed to prevent distortion in statistical inference.</p>
+<p>In essence, statistical reasoning ensures that the handling of missing and outlying data is not just a mechanical task, but a thoughtful process that considers the underlying data generation process. This approach is crucial in financial data analytics, where the accuracy and reliability of the analysis can have significant implications.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="data-transformations" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="data-transformations"><span class="header-section-number">3.5</span> Data Transformations in Financial Analytics</h2>
+<p>Data transformations play a crucial role in preparing raw financial data for analysis, modeling, visualization, and presentation purposes. By applying different techniques, analysts can manipulate datasets to derive meaningful insights more effectively. This section introduces essential data transformations frequently employed in financial analytics using R.</p>
+<section id="scaling-numerical-variables" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="scaling-numerical-variables"><span class="header-section-number">3.5.1</span> Scaling Numerical Variables</h3>
+<p>Scaling numerical variables involves normalizing the range of variables to facilitate comparisons across disparate measures. Two widely used scaling methods include standardization and normalization. Standardization converts variables to zero-centered distributions with unit variance, whereas normalization scales features between defined intervals (e.g., 0 to 1). Implement scaling using functions found in the <code>scale()</code> and <code>tsfe::rescale()</code> functions, both part of the built-in <code>base</code> package.</p>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{R}</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>std_x <span class="ot">&lt;-</span> <span class="fu">scale</span>(x)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="logarithmic-transformation" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="logarithmic-transformation"><span class="header-section-number">3.5.2</span> Logarithmic Transformation</h3>
+<p>Applying logarithmic transformations helps mitigate skewness issues prevalent in certain types of financial data (i.e., exponential growth patterns). Commonly applied logarithms (with a natural base e or base 10) can stabilize variances and linearize relationships among variables. Utilize the <code>log()</code> function to implement logarithmic transformations.</p>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{R}</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">exp</span>((<span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">1</span>, <span class="at">sd =</span> <span class="dv">1</span>)))</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>log_y <span class="ot">&lt;-</span> <span class="fu">log</span>(y <span class="sc">+</span> <span class="dv">1</span>)  <span class="co"># Adding a constant prevents taking logs of negative numbers</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="differencing-time-series-data" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="differencing-time-series-data"><span class="header-section-number">3.5.3</span> Differencing Time Series Data</h3>
+<p>Differencing is a technique often applied to stationarize nonstationary time series data. Stationarity implies consistent statistical properties throughout the entire dataset—namely, constant means, variances, and autocorrelations. Subtract consecutive observations to compute returns, thereby reducing potential trends or seasonality present in the original data. Leverage the <code>lag()</code> and <code>diff()</code> functions to execute differencing.</p>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{R}</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>closing_prices <span class="ot">&lt;-</span> <span class="fu">cumprod</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="fl">0.01</span>, <span class="at">sd =</span> <span class="fl">0.01</span>))</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> <span class="fu">diff</span>(closing_prices) <span class="sc">/</span> <span class="fu">lag</span>(closing_prices)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="binning-continuous-variables" class="level3" data-number="3.5.4">
+<h3 data-number="3.5.4" class="anchored" data-anchor-id="binning-continuous-variables"><span class="header-section-number">3.5.4</span> Binning Continuous Variables</h3>
+<p>Binning continuous variables categorizes quantitative values into distinct intervals or bins, allowing discretization for easier interpretation and visualizations. Various binning strategies exist, including equal width, equal frequency, and clustering algorithms. Employ the <code>cut()</code> and <code>findInterval()</code> functions to implement basic forms of binning.</p>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{R}</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>, <span class="at">min =</span> <span class="dv">0</span>, <span class="at">max =</span> <span class="dv">100</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>age_binned <span class="ot">&lt;-</span> <span class="fu">cut</span>(age, <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">10</span>), <span class="at">labels =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="merging-multiple-datasets" class="level3" data-number="3.5.5">
+<h3 data-number="3.5.5" class="anchored" data-anchor-id="merging-multiple-datasets"><span class="header-section-number">3.5.5</span> Merging Multiple Datasets</h3>
+<p>Merging multiple datasets enables integration of complementary pieces of information scattered across various sources. Combining databases requires matching keys shared among records of interest. Apply the <code>merge()</code> function to merge datasets horizontally, while vertical merges require appending rows from one database onto another via concatenation (<code>cbind()</code> or <code>rbind()</code>) or stacking (<code>rbindlist()</code> from the <code>data.table</code> package).</p>
+<p>Example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{R}</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>dataset1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">x =</span> <span class="fu">runif</span>(<span class="dv">5</span>))</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>dataset2 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">id =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">size =</span> <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">y =</span> <span class="fu">runif</span>(<span class="dv">5</span>))</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>merged_dataset <span class="ot">&lt;-</span> <span class="fu">merge</span>(dataset1, dataset2, <span class="at">by =</span> <span class="st">"id"</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>stacked_dataset <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">bind_rows</span>(<span class="fu">list</span>(dataset1, dataset2)))</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>These examples demonstrate fundamental data transformations commonly encountered during financial analytics projects using R. Familiarity with these concepts equips practitioners to wrangle complex datasets efficiently, ultimately leading to improved analytical outcomes.</p>
+</section>
+</section>
+<section id="long-to-wide" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="long-to-wide"><span class="header-section-number">3.6</span> Changing the Shape of DataFrames: Long to Wide Using R</h2>
+<p>When working with financial data, sometimes it becomes necessary to change the shape of a dataset from <em>long</em> to <em>wide</em>. For instance, say you want to convert daily stock data into monthly aggregates while retaining information about multiple features (columns) in the initial dataset. To accomplish this task, you can rely on various tools available in R, particularly the <code>tidyr</code> package. Below, we outline an example utilizing the <code>tidyr</code> package alongside <code>tidyquant</code> and <code>janitor</code> for cleaning and preprocessing data.</p>
+<p>First, ensure you have installed and loaded the necessary packages:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyquant)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, retrieve the historical stock data using the tidyquant API:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>tickers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"AAPL"</span>, <span class="st">"MSFT"</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>start_date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(<span class="st">"2020-01-01"</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>end_date <span class="ot">&lt;-</span> <span class="fu">Sys.Date</span>()</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>financial_data <span class="ot">&lt;-</span> <span class="fu">tq_get</span>(tickers, <span class="at">from =</span> start_date, <span class="at">to =</span> end_date)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Initially, our dataset has a long structure with one observation per day and separate columns for ticker symbols:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(financial_data))</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  symbol date        open  high   low close    volume adjusted
+  &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+1 AAPL   2020-01-02  74.1  75.2  73.8  75.1 135480400     73.2
+2 AAPL   2020-01-03  74.3  75.1  74.1  74.4 146322800     72.4
+3 AAPL   2020-01-06  73.4  75.0  73.2  74.9 118387200     73.0
+4 AAPL   2020-01-07  75.0  75.2  74.4  74.6 108872000     72.7
+5 AAPL   2020-01-08  74.3  76.1  74.3  75.8 132079200     73.8
+6 AAPL   2020-01-09  76.8  77.6  76.6  77.4 170108400     75.4</code></pre>
+</div>
+</div>
+<p>To convert the data to a wide structure where each feature (column) represents a unique combination of ticker symbol and indicator name, employ the <code>pivot_wider()</code> function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{R}</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>financial_data_wide <span class="ot">&lt;-</span> financial_data <span class="sc">|&gt;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">ymd</span>(date)) <span class="sc">|&gt;</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(date,symbol,adjusted) <span class="sc">|&gt;</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span>symbol, <span class="at">values_from =</span> adjusted) <span class="sc">|&gt;</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">remove_empty</span>(<span class="at">which =</span> <span class="st">"rows"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(date, <span class="at">.before =</span> <span class="fu">everything</span>())</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(financial_data_wide))</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  date        aapl  msft
+  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt;
+1 2020-01-02  73.2  155.
+2 2020-01-03  72.4  153.
+3 2020-01-06  73.0  153.
+4 2020-01-07  72.7  152.
+5 2020-01-08  73.8  154.
+6 2020-01-09  75.4  156.</code></pre>
+</div>
+</div>
+<p>By doing so, you create a new dataset with a single line per reporting period and individual columns representing specific combinations of tickers and indicators. Additionally, notice the usage of helper functions from the <code>janitor</code> package to improve readability further.</p>
+</section>
+<section id="reporting-and-communication" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="reporting-and-communication"><span class="header-section-number">3.7</span> Reporting and Communication</h2>
+<ol type="1">
+<li><p><strong>Quarto</strong>: Creating a dynamic report with Quarto is beyond the scope of this platform, but typically involves creating a <code>.qmd</code> file with embedded R code and narrative.</p></li>
+<li><p><strong>Interactive Dashboards</strong>: Building a simple Shiny dashboard to display stock data.</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple Shiny dashboard</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(shiny)</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># UI layout</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">titlePanel</span>(<span class="st">"Stock Price Dashboard"</span>),</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sidebarLayout</span>(</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sidebarPanel</span>(</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>          <span class="fu">selectInput</span>(<span class="st">"stock"</span>, <span class="st">"Choose a Stock:"</span>, </span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>                      <span class="at">choices =</span> <span class="fu">colnames</span>(financial_data_wide))</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mainPanel</span>(</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>          <span class="fu">plotOutput</span>(<span class="st">"stockPlot"</span>)</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Server logic</span></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a>    server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a>      output<span class="sc">$</span>stockPlot <span class="ot">&lt;-</span> <span class="fu">renderPlot</span>({</span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a>        <span class="fu">plot</span>(financial_data_wide[[input<span class="sc">$</span>stock]], <span class="at">type =</span> <span class="st">'l'</span>, </span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a>             <span class="at">main =</span> <span class="fu">paste</span>(<span class="st">"Stock"</span>, input<span class="sc">$</span>stock))</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a>      })</span>
+<span id="cb26-25"><a href="#cb26-25" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb26-26"><a href="#cb26-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-27"><a href="#cb26-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Run the app</span></span>
+<span id="cb26-28"><a href="#cb26-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span>
+<span id="cb26-29"><a href="#cb26-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="tools_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>These examples demonstrate a basic workflow in R for financial data analysis, from data collection to interactive reporting. Remember, for complex financial analyses, more sophisticated techniques and careful consideration of financial theories and market behaviors are necessary.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -466,59 +770,58 @@ TL;DR
 </div>
 </div>
 </section>
-</section>
-<section id="reproducible-data-analysis-in-financial-data-analytics" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="reproducible-data-analysis-in-financial-data-analytics"><span class="header-section-number">3.5</span> Reproducible Data Analysis in Financial data analytics</h2>
+<section id="reproducible-data-analysis-in-financial-data-analytics" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="reproducible-data-analysis-in-financial-data-analytics"><span class="header-section-number">3.8</span> Reproducible Data Analysis in Financial data analytics</h2>
 <p>Reproducibility is a cornerstone of scientific research, ensuring that results can be independently verified and trusted. In Financial data analytics, reproducibility is critical for validating results and maintaining integrity in analysis and decision-making processes. Reproducibility in data science means that others can use the same data and methods to achieve the same results. It involves a combination of well-documented code, data, and methodologies.</p>
-<section id="importance-in-financial-analysis" class="level3" data-number="3.5.1">
-<h3 data-number="3.5.1" class="anchored" data-anchor-id="importance-in-financial-analysis"><span class="header-section-number">3.5.1</span> Importance in Financial Analysis</h3>
+<section id="importance-in-financial-analysis" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="importance-in-financial-analysis"><span class="header-section-number">3.8.1</span> Importance in Financial Analysis</h3>
 <ul>
 <li><strong>Trustworthiness</strong>: Reproducible analysis builds confidence in the findings.</li>
 <li><strong>Verification</strong>: Allows for independent verification of results.</li>
 <li><strong>Collaboration</strong>: Facilitates sharing and collaboration among teams.</li>
 </ul>
 </section>
-<section id="achieving-reproducibility" class="level3" data-number="3.5.2">
-<h3 data-number="3.5.2" class="anchored" data-anchor-id="achieving-reproducibility"><span class="header-section-number">3.5.2</span> Achieving Reproducibility</h3>
+<section id="achieving-reproducibility" class="level3" data-number="3.8.2">
+<h3 data-number="3.8.2" class="anchored" data-anchor-id="achieving-reproducibility"><span class="header-section-number">3.8.2</span> Achieving Reproducibility</h3>
 <p>Achieving reproducibility requires careful planning and execution throughout the data analysis process.</p>
-<section id="data-management" class="level4" data-number="3.5.2.1">
-<h4 data-number="3.5.2.1" class="anchored" data-anchor-id="data-management"><span class="header-section-number">3.5.2.1</span> Data Management</h4>
+<section id="data-management" class="level4" data-number="3.8.2.1">
+<h4 data-number="3.8.2.1" class="anchored" data-anchor-id="data-management"><span class="header-section-number">3.8.2.1</span> Data Management</h4>
 <ul>
 <li><strong>Accessible Data</strong>: Ensure data used for analysis is accessible and properly documented.</li>
 <li><strong>Data Versioning</strong>: Track changes in data, especially in dynamic datasets.</li>
 </ul>
 </section>
-<section id="code-documentation-and-management" class="level4" data-number="3.5.2.2">
-<h4 data-number="3.5.2.2" class="anchored" data-anchor-id="code-documentation-and-management"><span class="header-section-number">3.5.2.2</span> Code Documentation and Management</h4>
+<section id="code-documentation-and-management" class="level4" data-number="3.8.2.2">
+<h4 data-number="3.8.2.2" class="anchored" data-anchor-id="code-documentation-and-management"><span class="header-section-number">3.8.2.2</span> Code Documentation and Management</h4>
 <ul>
 <li><strong>Commenting Code</strong>: Write clear comments explaining the purpose and functionality of code segments.</li>
 <li><strong>Modular Coding</strong>: Break code into reusable functions and modules for better clarity and reusability.</li>
 </ul>
 </section>
-<section id="r-code-example-commenting-and-modular-coding" class="level4" data-number="3.5.2.3">
-<h4 data-number="3.5.2.3" class="anchored" data-anchor-id="r-code-example-commenting-and-modular-coding"><span class="header-section-number">3.5.2.3</span> R Code Example: Commenting and Modular Coding</h4>
+<section id="r-code-example-commenting-and-modular-coding" class="level4" data-number="3.8.2.3">
+<h4 data-number="3.8.2.3" class="anchored" data-anchor-id="r-code-example-commenting-and-modular-coding"><span class="header-section-number">3.8.2.3</span> R Code Example: Commenting and Modular Coding</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to calculate the average stock price</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>calculate_average_price <span class="ot">&lt;-</span> <span class="cf">function</span>(prices) {</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># prices: Vector of stock prices</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">mean</span>(prices, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>average_price <span class="ot">&lt;-</span> <span class="fu">calculate_average_price</span>(data<span class="sc">$</span>stock_price)</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to calculate the average stock price</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>calculate_average_price <span class="ot">&lt;-</span> <span class="cf">function</span>(prices) {</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># prices: Vector of stock prices</span></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">mean</span>(prices, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>average_price <span class="ot">&lt;-</span> <span class="fu">calculate_average_price</span>(data<span class="sc">$</span>stock_price)</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="tools-for-reproducibility" class="level3" data-number="3.5.3">
-<h3 data-number="3.5.3" class="anchored" data-anchor-id="tools-for-reproducibility"><span class="header-section-number">3.5.3</span> Tools for Reproducibility</h3>
+<section id="tools-for-reproducibility" class="level3" data-number="3.8.3">
+<h3 data-number="3.8.3" class="anchored" data-anchor-id="tools-for-reproducibility"><span class="header-section-number">3.8.3</span> Tools for Reproducibility</h3>
 <ul>
 <li><strong>Quarto (Formerly R Markdown)</strong>: Combines code, output, and narrative in a single document.</li>
 <li><strong>Version Control (Git/GitHub)</strong>: Track changes in code and collaborate effectively.</li>
 </ul>
-<section id="quarto-example-documenting-analysis" class="level4" data-number="3.5.3.1">
-<h4 data-number="3.5.3.1" class="anchored" data-anchor-id="quarto-example-documenting-analysis"><span class="header-section-number">3.5.3.1</span> Quarto Example: Documenting Analysis</h4>
+<section id="quarto-example-documenting-analysis" class="level4" data-number="3.8.3.1">
+<h4 data-number="3.8.3.1" class="anchored" data-anchor-id="quarto-example-documenting-analysis"><span class="header-section-number">3.8.3.1</span> Quarto Example: Documenting Analysis</h4>
 <p>Create a Quarto document (<code>.qmd</code> file) documenting an analysis. The document includes narrative, code, and outputs together.</p>
 <pre><code>---
 title: "Financial Data Analysis"
@@ -536,8 +839,8 @@ ggplot(data, aes(x = stock_id, y = stock_price)) +
 </section>
 </section>
 </section>
-<section id="reproducibility-checklist" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="reproducibility-checklist"><span class="header-section-number">3.6</span> Reproducibility Checklist</h2>
+<section id="reproducibility-checklist" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="reproducibility-checklist"><span class="header-section-number">3.9</span> Reproducibility Checklist</h2>
 <p>A reproducibility checklist can help ensure that all critical aspects of reproducible research are covered:</p>
 <ul>
 <li><strong>Code Execution</strong>: Can the code run from start to finish without errors?</li>
@@ -546,8 +849,8 @@ ggplot(data, aes(x = stock_id, y = stock_price)) +
 <li><strong>Dependencies</strong>: Are all software dependencies and packages listed and versioned?</li>
 </ul>
 </section>
-<section id="long-term-reproducibility" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="long-term-reproducibility"><span class="header-section-number">3.7</span> Long-term Reproducibility</h2>
+<section id="long-term-reproducibility" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="long-term-reproducibility"><span class="header-section-number">3.10</span> Long-term Reproducibility</h2>
 <p>Considering the future usability of the analysis is vital:</p>
 <ul>
 <li><strong>Code Maintenance</strong>: Regular updates and maintenance of the codebase.</li>
@@ -567,12 +870,12 @@ TL;DR
 </div>
 </div>
 </section>
-<section id="the-tidyverse-an-ecosystem-for-data-science" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="the-tidyverse-an-ecosystem-for-data-science"><span class="header-section-number">3.8</span> The Tidyverse: An Ecosystem for Data Science</h2>
+<section id="the-tidyverse-an-ecosystem-for-data-science" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="the-tidyverse-an-ecosystem-for-data-science"><span class="header-section-number">3.11</span> The Tidyverse: An Ecosystem for Data Science</h2>
 <p>The Tidyverse is a collection of R packages designed for data science that share an underlying design philosophy, focusing on usability and ease of comprehension. It is particularly effective in the context of financial data analytics for its coherent syntax and powerful data manipulation capabilities.</p>
 <p>The Tidyverse packages offer a wide range of functionalities that streamline data import, cleaning, manipulation, visualization, and modeling.</p>
-<section id="core-components" class="level3" data-number="3.8.1">
-<h3 data-number="3.8.1" class="anchored" data-anchor-id="core-components"><span class="header-section-number">3.8.1</span> Core Components</h3>
+<section id="core-components" class="level3" data-number="3.11.1">
+<h3 data-number="3.11.1" class="anchored" data-anchor-id="core-components"><span class="header-section-number">3.11.1</span> Core Components</h3>
 <ul>
 <li><strong>ggplot2</strong>: For data visualization.</li>
 <li><strong>dplyr</strong>: For data manipulation.</li>
@@ -580,70 +883,70 @@ TL;DR
 <li><strong>readr</strong>: For reading in data.</li>
 </ul>
 </section>
-<section id="r-code-example-data-manipulation-with-dplyr" class="level3" data-number="3.8.2">
-<h3 data-number="3.8.2" class="anchored" data-anchor-id="r-code-example-data-manipulation-with-dplyr"><span class="header-section-number">3.8.2</span> R Code Example: Data Manipulation with dplyr</h3>
+<section id="r-code-example-data-manipulation-with-dplyr" class="level3" data-number="3.11.2">
+<h3 data-number="3.11.2" class="anchored" data-anchor-id="r-code-example-data-manipulation-with-dplyr"><span class="header-section-number">3.11.2</span> R Code Example: Data Manipulation with dplyr</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dplyr package</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Filtering and summarizing stock data</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>stock_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">'2021-01-01'</span>, <span class="st">'2021-01-02'</span>, <span class="st">'2021-01-03'</span>, <span class="st">'2021-01-04'</span>)),</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">stock_id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>),</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">price =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">102</span>, <span class="dv">110</span>, <span class="dv">108</span>)</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Using dplyr to filter and summarize</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> stock_data <span class="sc">%&gt;%</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(stock_id <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average_price =</span> <span class="fu">mean</span>(price))</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the dplyr package</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Filtering and summarizing stock data</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>stock_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="fu">as.Date</span>(<span class="fu">c</span>(<span class="st">'2021-01-01'</span>, <span class="st">'2021-01-02'</span>, <span class="st">'2021-01-03'</span>, <span class="st">'2021-01-04'</span>)),</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">stock_id =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>),</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">price =</span> <span class="fu">c</span>(<span class="dv">100</span>, <span class="dv">102</span>, <span class="dv">110</span>, <span class="dv">108</span>)</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Using dplyr to filter and summarize</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>filtered_data <span class="ot">&lt;-</span> stock_data <span class="sc">%&gt;%</span></span>
+<span id="cb29-14"><a href="#cb29-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(stock_id <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-15"><a href="#cb29-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average_price =</span> <span class="fu">mean</span>(price))</span>
+<span id="cb29-16"><a href="#cb29-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="data-visualization-with-ggplot2" class="level3" data-number="3.8.3">
-<h3 data-number="3.8.3" class="anchored" data-anchor-id="data-visualization-with-ggplot2"><span class="header-section-number">3.8.3</span> Data Visualization with ggplot2</h3>
+<section id="data-visualization-with-ggplot2" class="level3" data-number="3.11.3">
+<h3 data-number="3.11.3" class="anchored" data-anchor-id="data-visualization-with-ggplot2"><span class="header-section-number">3.11.3</span> Data Visualization with ggplot2</h3>
 <p>Visualization is a key aspect of financial data analysis. ggplot2 provides a powerful system for declaratively creating graphics based on The Grammar of Graphics.</p>
-<section id="r-code-example-creating-a-plot-with-ggplot2" class="level4" data-number="3.8.3.1">
-<h4 data-number="3.8.3.1" class="anchored" data-anchor-id="r-code-example-creating-a-plot-with-ggplot2"><span class="header-section-number">3.8.3.1</span> R Code Example: Creating a Plot with ggplot2</h4>
+<section id="r-code-example-creating-a-plot-with-ggplot2" class="level4" data-number="3.11.3.1">
+<h4 data-number="3.11.3.1" class="anchored" data-anchor-id="r-code-example-creating-a-plot-with-ggplot2"><span class="header-section-number">3.11.3.1</span> R Code Example: Creating a Plot with ggplot2</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the ggplot2 package</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Plotting stock price trends</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(stock_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> price, <span class="at">color =</span> <span class="fu">as.factor</span>(stock_id))) <span class="sc">+</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Stock Price Trends"</span>, <span class="at">x =</span> <span class="st">"Date"</span>, <span class="at">y =</span> <span class="st">"Price"</span>)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the ggplot2 package</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Plotting stock price trends</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(stock_data, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> price, <span class="at">color =</span> <span class="fu">as.factor</span>(stock_id))) <span class="sc">+</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Stock Price Trends"</span>, <span class="at">x =</span> <span class="st">"Date"</span>, <span class="at">y =</span> <span class="st">"Price"</span>)</span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="tools_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
+<p><img src="tools_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
 </section>
-<section id="data-wrangling-with-tidyr" class="level3" data-number="3.8.4">
-<h3 data-number="3.8.4" class="anchored" data-anchor-id="data-wrangling-with-tidyr"><span class="header-section-number">3.8.4</span> Data Wrangling with tidyr</h3>
+<section id="data-wrangling-with-tidyr" class="level3" data-number="3.11.4">
+<h3 data-number="3.11.4" class="anchored" data-anchor-id="data-wrangling-with-tidyr"><span class="header-section-number">3.11.4</span> Data Wrangling with tidyr</h3>
 <p>In financial datasets, data often comes in formats that are not suitable for direct analysis. tidyr provides tools for reshaping and tidying data into a more analyzable form.</p>
-<section id="r-code-example-tidying-data-with-tidyr" class="level4" data-number="3.8.4.1">
-<h4 data-number="3.8.4.1" class="anchored" data-anchor-id="r-code-example-tidying-data-with-tidyr"><span class="header-section-number">3.8.4.1</span> R Code Example: Tidying Data with tidyr</h4>
+<section id="r-code-example-tidying-data-with-tidyr" class="level4" data-number="3.11.4.1">
+<h4 data-number="3.11.4.1" class="anchored" data-anchor-id="r-code-example-tidying-data-with-tidyr"><span class="header-section-number">3.11.4.1</span> R Code Example: Tidying Data with tidyr</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the tidyr package</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Converting wide format to long format</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>wide_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="fu">as.Date</span>(<span class="st">'2021-01-01'</span>),</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">stock_1_price =</span> <span class="dv">100</span>,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">stock_2_price =</span> <span class="dv">110</span></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>long_data <span class="ot">&lt;-</span> wide_data <span class="sc">%&gt;%</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"stock"</span>), </span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"stock_id"</span>, </span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"price"</span>)</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the tidyr package</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Converting wide format to long format</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>wide_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="fu">as.Date</span>(<span class="st">'2021-01-01'</span>),</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">stock_1_price =</span> <span class="dv">100</span>,</span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">stock_2_price =</span> <span class="dv">110</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>long_data <span class="ot">&lt;-</span> wide_data <span class="sc">%&gt;%</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">starts_with</span>(<span class="st">"stock"</span>), </span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="st">"stock_id"</span>, </span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">"price"</span>)</span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -661,29 +964,29 @@ TL;DR
 </section>
 </section>
 </section>
-<section id="git-and-github-for-collaborative-coding" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="git-and-github-for-collaborative-coding"><span class="header-section-number">3.9</span> Git and GitHub for Collaborative Coding</h2>
+<section id="git-and-github-for-collaborative-coding" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="git-and-github-for-collaborative-coding"><span class="header-section-number">3.12</span> Git and GitHub for Collaborative Coding</h2>
 <p>In the field of Financial data analytics, collaboration and version control are essential for managing complex data analysis projects. Git and GitHub are central tools in this process, enabling teams to work together effectively and maintain a history of changes.</p>
 </section>
-<section id="introduction-to-git-and-github" class="level2" data-number="3.10">
-<h2 data-number="3.10" class="anchored" data-anchor-id="introduction-to-git-and-github"><span class="header-section-number">3.10</span> Introduction to Git and GitHub</h2>
+<section id="introduction-to-git-and-github" class="level2" data-number="3.13">
+<h2 data-number="3.13" class="anchored" data-anchor-id="introduction-to-git-and-github"><span class="header-section-number">3.13</span> Introduction to Git and GitHub</h2>
 <p>Git is a distributed version control system that helps track changes in source code during software development. GitHub, a web-based platform, hosts Git repositories and provides tools for collaboration.</p>
-<section id="role-in-financial-data-analytics" class="level3" data-number="3.10.1">
-<h3 data-number="3.10.1" class="anchored" data-anchor-id="role-in-financial-data-analytics"><span class="header-section-number">3.10.1</span> Role in Financial data analytics</h3>
+<section id="role-in-financial-data-analytics" class="level3" data-number="3.13.1">
+<h3 data-number="3.13.1" class="anchored" data-anchor-id="role-in-financial-data-analytics"><span class="header-section-number">3.13.1</span> Role in Financial data analytics</h3>
 <ul>
 <li><strong>Version Control</strong>: Track and manage changes to code and data analysis scripts.</li>
 <li><strong>Collaboration</strong>: Share code with team members, review code, and merge changes.</li>
 </ul>
 </section>
-<section id="setting-up-git-and-github" class="level3" data-number="3.10.2">
-<h3 data-number="3.10.2" class="anchored" data-anchor-id="setting-up-git-and-github"><span class="header-section-number">3.10.2</span> Setting Up Git and GitHub</h3>
+<section id="setting-up-git-and-github" class="level3" data-number="3.13.2">
+<h3 data-number="3.13.2" class="anchored" data-anchor-id="setting-up-git-and-github"><span class="header-section-number">3.13.2</span> Setting Up Git and GitHub</h3>
 <ul>
 <li><strong>Installation</strong>: Install Git and set up a GitHub account.</li>
 <li><strong>Repository Creation</strong>: Create a new repository on GitHub for your project.</li>
 </ul>
 </section>
-<section id="command-line-code-example-initializing-a-git-repository" class="level3" data-number="3.10.3">
-<h3 data-number="3.10.3" class="anchored" data-anchor-id="command-line-code-example-initializing-a-git-repository"><span class="header-section-number">3.10.3</span> Command line code example: Initializing a Git Repository</h3>
+<section id="command-line-code-example-initializing-a-git-repository" class="level3" data-number="3.13.3">
+<h3 data-number="3.13.3" class="anchored" data-anchor-id="command-line-code-example-initializing-a-git-repository"><span class="header-section-number">3.13.3</span> Command line code example: Initializing a Git Repository</h3>
 <p>Note: These commands are run in a terminal or command line interface, not in the R console.</p>
 <pre class="shell"><code># Navigate to your project directory
 cd path/to/your/project
@@ -695,45 +998,45 @@ git init
 git remote add origin https://github.com/yourusername/your-repository.git</code></pre>
 </section>
 </section>
-<section id="versioning-with-git" class="level2" data-number="3.11">
-<h2 data-number="3.11" class="anchored" data-anchor-id="versioning-with-git"><span class="header-section-number">3.11</span> Versioning with Git</h2>
+<section id="versioning-with-git" class="level2" data-number="3.14">
+<h2 data-number="3.14" class="anchored" data-anchor-id="versioning-with-git"><span class="header-section-number">3.14</span> Versioning with Git</h2>
 <p>Versioning is crucial in tracking the evolution of a project and facilitates reverting to previous states if needed.</p>
-<section id="basic-git-commands" class="level3" data-number="3.11.1">
-<h3 data-number="3.11.1" class="anchored" data-anchor-id="basic-git-commands"><span class="header-section-number">3.11.1</span> Basic Git Commands</h3>
+<section id="basic-git-commands" class="level3" data-number="3.14.1">
+<h3 data-number="3.14.1" class="anchored" data-anchor-id="basic-git-commands"><span class="header-section-number">3.14.1</span> Basic Git Commands</h3>
 <ul>
 <li><code>git add</code>: Stage changes for commit.</li>
 <li><code>git commit</code>: Commit staged changes with a descriptive message.</li>
 <li><code>git push</code>: Push committed changes to a remote repository.</li>
 </ul>
 </section>
-<section id="command-line-code-example-committing-changes" class="level3" data-number="3.11.2">
-<h3 data-number="3.11.2" class="anchored" data-anchor-id="command-line-code-example-committing-changes"><span class="header-section-number">3.11.2</span> Command line code example: Committing Changes</h3>
+<section id="command-line-code-example-committing-changes" class="level3" data-number="3.14.2">
+<h3 data-number="3.14.2" class="anchored" data-anchor-id="command-line-code-example-committing-changes"><span class="header-section-number">3.14.2</span> Command line code example: Committing Changes</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{shell}</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage all changes for commit</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Commit the changes with a message</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initial commit with financial analysis scripts"</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Push the changes to GitHub</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin master</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{shell}</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Stage all changes for commit</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Commit the changes with a message</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Initial commit with financial analysis scripts"</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Push the changes to GitHub</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin master</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
-<section id="collaborative-workflows-on-github" class="level2" data-number="3.12">
-<h2 data-number="3.12" class="anchored" data-anchor-id="collaborative-workflows-on-github"><span class="header-section-number">3.12</span> Collaborative Workflows on GitHub</h2>
+<section id="collaborative-workflows-on-github" class="level2" data-number="3.15">
+<h2 data-number="3.15" class="anchored" data-anchor-id="collaborative-workflows-on-github"><span class="header-section-number">3.15</span> Collaborative Workflows on GitHub</h2>
 <p>GitHub provides a platform for hosting repositories and enables collaborative workflows like pull requests and code reviews.</p>
-<section id="features-for-collaboration" class="level3" data-number="3.12.1">
-<h3 data-number="3.12.1" class="anchored" data-anchor-id="features-for-collaboration"><span class="header-section-number">3.12.1</span> Features for Collaboration</h3>
+<section id="features-for-collaboration" class="level3" data-number="3.15.1">
+<h3 data-number="3.15.1" class="anchored" data-anchor-id="features-for-collaboration"><span class="header-section-number">3.15.1</span> Features for Collaboration</h3>
 <ul>
 <li><strong>Issue Tracking</strong>: Report and track bugs, features, and tasks.</li>
 <li><strong>Pull Requests</strong>: Review, discuss, and merge code changes.</li>
 </ul>
 </section>
-<section id="r-code-example-cloning-a-repository" class="level3" data-number="3.12.2">
-<h3 data-number="3.12.2" class="anchored" data-anchor-id="r-code-example-cloning-a-repository"><span class="header-section-number">3.12.2</span> R Code Example: Cloning a Repository</h3>
+<section id="r-code-example-cloning-a-repository" class="level3" data-number="3.15.2">
+<h3 data-number="3.15.2" class="anchored" data-anchor-id="r-code-example-cloning-a-repository"><span class="header-section-number">3.15.2</span> R Code Example: Cloning a Repository</h3>
 <p>To collaborate on an existing project, you would first clone the repository.</p>
 <pre><code># Clone a repository
 git clone https://github.com/yourusername/your-repository.git</code></pre>
@@ -753,8 +1056,8 @@ Summing Up
 </div>
 </section>
 </section>
-<section id="embracing-challenges-in-financial-data-analytics" class="level2" data-number="3.13">
-<h2 data-number="3.13" class="anchored" data-anchor-id="embracing-challenges-in-financial-data-analytics"><span class="header-section-number">3.13</span> Embracing Challenges in Financial Data Analytics</h2>
+<section id="embracing-challenges-in-financial-data-analytics" class="level2" data-number="3.16">
+<h2 data-number="3.16" class="anchored" data-anchor-id="embracing-challenges-in-financial-data-analytics"><span class="header-section-number">3.16</span> Embracing Challenges in Financial Data Analytics</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/DALL·E 2024-01-18 11.37.08 - An illustration symbolizing a growth mindset in financial data analytics. The image shows a brain made of gears and digital circuits, representing the.png" class="img-fluid figure-img"></p>
@@ -762,8 +1065,8 @@ Summing Up
 </figure>
 </div>
 <p>In the rapidly evolving field of financial data analytics, adopting a growth mindset is crucial for continual learning and development. A growth mindset, a term coined by psychologist Carol Dweck, refers to the belief that one’s abilities and intelligence can be developed through dedication, hard work, and perseverance. This mindset is particularly vital in areas like finance and data science, where new technologies and methodologies are constantly emerging.</p>
-<section id="understanding-the-growth-mindset" class="level3" data-number="3.13.1">
-<h3 data-number="3.13.1" class="anchored" data-anchor-id="understanding-the-growth-mindset"><span class="header-section-number">3.13.1</span> Understanding the Growth Mindset</h3>
+<section id="understanding-the-growth-mindset" class="level3" data-number="3.16.1">
+<h3 data-number="3.16.1" class="anchored" data-anchor-id="understanding-the-growth-mindset"><span class="header-section-number">3.16.1</span> Understanding the Growth Mindset</h3>
 <p>A growth mindset contrasts with a fixed mindset, where individuals believe their abilities are static and unchangeable. In the context of financial data analytics, a growth mindset empowers professionals to:</p>
 <ul>
 <li><strong>Embrace New Challenges:</strong> View complex data problems as opportunities to learn rather than insurmountable obstacles.</li>
@@ -771,8 +1074,8 @@ Summing Up
 <li><strong>Persist in the Face of Setbacks:</strong> See failures not as a reflection of their abilities but as a natural part of the learning process.</li>
 </ul>
 </section>
-<section id="practical-steps-for-developing-a-growth-mindset" class="level3" data-number="3.13.2">
-<h3 data-number="3.13.2" class="anchored" data-anchor-id="practical-steps-for-developing-a-growth-mindset"><span class="header-section-number">3.13.2</span> Practical Steps for Developing a Growth Mindset</h3>
+<section id="practical-steps-for-developing-a-growth-mindset" class="level3" data-number="3.16.2">
+<h3 data-number="3.16.2" class="anchored" data-anchor-id="practical-steps-for-developing-a-growth-mindset"><span class="header-section-number">3.16.2</span> Practical Steps for Developing a Growth Mindset</h3>
 <ol type="1">
 <li><p><strong>Continuous Learning:</strong> Stay updated with the latest financial models, data analysis tools, and technologies. Engaging in regular training sessions, online courses, and attending webinars can be extremely beneficial.</p></li>
 <li><p><strong>Collaborative Learning:</strong> Leverage the knowledge and experience of peers. Collaborative projects and discussions can provide new perspectives and insights.</p></li>
@@ -781,8 +1084,8 @@ Summing Up
 </ol>
 </section>
 </section>
-<section id="case-studies-growth-mindset-in-action" class="level2" data-number="3.14">
-<h2 data-number="3.14" class="anchored" data-anchor-id="case-studies-growth-mindset-in-action"><span class="header-section-number">3.14</span> Case Studies: Growth Mindset in Action</h2>
+<section id="case-studies-growth-mindset-in-action" class="level2" data-number="3.17">
+<h2 data-number="3.17" class="anchored" data-anchor-id="case-studies-growth-mindset-in-action"><span class="header-section-number">3.17</span> Case Studies: Growth Mindset in Action</h2>
 <ul>
 <li><p><strong>Learning from Failure:</strong> A financial analyst at a major bank used a failed predictive model as a learning opportunity. By analyzing the model’s shortcomings, they improved their understanding of risk assessment, leading to the development of a more robust model.</p></li>
 <li><p><strong>Collaborative Learning:</strong> A team of data scientists at a tech firm regularly holds brainstorming sessions, where they discuss new data analysis tools and techniques. This collaborative environment fosters a culture of continuous learning.</p></li>
@@ -801,8 +1104,8 @@ Summing Up
 </div>
 </div>
 </section>
-<section id="excercises" class="level2" data-number="3.15">
-<h2 data-number="3.15" class="anchored" data-anchor-id="excercises"><span class="header-section-number">3.15</span> Excercises</h2>
+<section id="excercises" class="level2" data-number="3.18">
+<h2 data-number="3.18" class="anchored" data-anchor-id="excercises"><span class="header-section-number">3.18</span> Excercises</h2>
 <p><strong>Theoretical Questions:</strong></p>
 <p><em>Easier:</em></p>
 <ol type="1">
@@ -879,6 +1182,12 @@ Summing Up
 </ul>
 
 
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><strong>Q</strong>ueen’s Business School <strong>R</strong>emote <strong>a</strong>nalytics <strong>P</strong>latform is a dedicated cloud computing architecture for teaching analytics to QBS students.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -1122,8 +1431,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./time_series.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./returns.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Understanding Financial Data and Asset Returns</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

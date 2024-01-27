@@ -8,7 +8,7 @@
 
 <meta name="author" content="Barry Quinn">
 
-<title>Advanced Financial Data Analytics - 5&nbsp; Machine Learning in Finance</title>
+<title>Advanced Financial Data Analytics - 7&nbsp; Machine Learning in Finance</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -109,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./primer.html">Core Concepts</a></li><li class="breadcrumb-item"><a href="./ml.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./primer.html">Core Concepts</a></li><li class="breadcrumb-item"><a href="./ml.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -157,20 +157,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Toolkit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Understanding Financial Data and Asset Returns</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./time_series.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bayesian_methods.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ml.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span></a>
   </div>
 </li>
       </ul>
@@ -187,19 +199,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./multilevel.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./causal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Causal inference</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Causal inference</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./colliderbias.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Causal Salad, Endogeneity and collider bias</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Causal Salad, Endogeneity and collider bias</span></span></a>
   </div>
 </li>
       </ul>
@@ -207,7 +219,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">References</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">References</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -221,20 +233,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tools.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Toolkit</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">resources</span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">resources</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./solutions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Chapter solutions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Chapter solutions</span></span></a>
   </div>
 </li>
       </ul>
@@ -249,32 +255,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview-of-machine-learning-techniques-in-finance" id="toc-overview-of-machine-learning-techniques-in-finance" class="nav-link active" data-scroll-target="#overview-of-machine-learning-techniques-in-finance"><span class="header-section-number">6</span> Overview of Machine Learning Techniques in Finance</a>
+  <li><a href="#overview-of-machine-learning-techniques-in-finance" id="toc-overview-of-machine-learning-techniques-in-finance" class="nav-link active" data-scroll-target="#overview-of-machine-learning-techniques-in-finance"><span class="header-section-number">8</span> Overview of Machine Learning Techniques in Finance</a>
   <ul class="collapse">
-  <li><a href="#supervised-learning" id="toc-supervised-learning" class="nav-link" data-scroll-target="#supervised-learning"><span class="header-section-number">6.1</span> Supervised Learning</a></li>
-  <li><a href="#unsupervised-learning" id="toc-unsupervised-learning" class="nav-link" data-scroll-target="#unsupervised-learning"><span class="header-section-number">6.2</span> Unsupervised Learning</a></li>
-  <li><a href="#reinforcement-learning" id="toc-reinforcement-learning" class="nav-link" data-scroll-target="#reinforcement-learning"><span class="header-section-number">6.3</span> Reinforcement Learning</a>
+  <li><a href="#supervised-learning" id="toc-supervised-learning" class="nav-link" data-scroll-target="#supervised-learning"><span class="header-section-number">8.1</span> Supervised Learning</a></li>
+  <li><a href="#unsupervised-learning" id="toc-unsupervised-learning" class="nav-link" data-scroll-target="#unsupervised-learning"><span class="header-section-number">8.2</span> Unsupervised Learning</a></li>
+  <li><a href="#reinforcement-learning" id="toc-reinforcement-learning" class="nav-link" data-scroll-target="#reinforcement-learning"><span class="header-section-number">8.3</span> Reinforcement Learning</a>
   <ul class="collapse">
-  <li><a href="#misconceptions-surrounding-reinforcement-learning" id="toc-misconceptions-surrounding-reinforcement-learning" class="nav-link" data-scroll-target="#misconceptions-surrounding-reinforcement-learning"><span class="header-section-number">6.3.1</span> Misconceptions Surrounding Reinforcement Learning</a></li>
+  <li><a href="#misconceptions-surrounding-reinforcement-learning" id="toc-misconceptions-surrounding-reinforcement-learning" class="nav-link" data-scroll-target="#misconceptions-surrounding-reinforcement-learning"><span class="header-section-number">8.3.1</span> Misconceptions Surrounding Reinforcement Learning</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#applications-to-financial-data" id="toc-applications-to-financial-data" class="nav-link" data-scroll-target="#applications-to-financial-data"><span class="header-section-number">7</span> Applications to Financial Data</a>
+  <li><a href="#applications-to-financial-data" id="toc-applications-to-financial-data" class="nav-link" data-scroll-target="#applications-to-financial-data"><span class="header-section-number">9</span> Applications to Financial Data</a>
   <ul class="collapse">
-  <li><a href="#supervised-vs.-unsupervised-learning" id="toc-supervised-vs.-unsupervised-learning" class="nav-link" data-scroll-target="#supervised-vs.-unsupervised-learning"><span class="header-section-number">7.1</span> Supervised vs.&nbsp;Unsupervised Learning</a></li>
-  <li><a href="#reinforcement-learning-1" id="toc-reinforcement-learning-1" class="nav-link" data-scroll-target="#reinforcement-learning-1"><span class="header-section-number">7.2</span> Reinforcement learning</a></li>
-  <li><a href="#industry-applications" id="toc-industry-applications" class="nav-link" data-scroll-target="#industry-applications"><span class="header-section-number">7.3</span> Industry applications</a>
+  <li><a href="#supervised-vs.-unsupervised-learning" id="toc-supervised-vs.-unsupervised-learning" class="nav-link" data-scroll-target="#supervised-vs.-unsupervised-learning"><span class="header-section-number">9.1</span> Supervised vs.&nbsp;Unsupervised Learning</a></li>
+  <li><a href="#reinforcement-learning-1" id="toc-reinforcement-learning-1" class="nav-link" data-scroll-target="#reinforcement-learning-1"><span class="header-section-number">9.2</span> Reinforcement learning</a></li>
+  <li><a href="#industry-applications" id="toc-industry-applications" class="nav-link" data-scroll-target="#industry-applications"><span class="header-section-number">9.3</span> Industry applications</a>
   <ul class="collapse">
-  <li><a href="#supervised-learning-in-finance" id="toc-supervised-learning-in-finance" class="nav-link" data-scroll-target="#supervised-learning-in-finance"><span class="header-section-number">7.3.1</span> Supervised Learning in Finance</a></li>
+  <li><a href="#supervised-learning-in-finance" id="toc-supervised-learning-in-finance" class="nav-link" data-scroll-target="#supervised-learning-in-finance"><span class="header-section-number">9.3.1</span> Supervised Learning in Finance</a></li>
   </ul></li>
-  <li><a href="#unsupervised-learning-in-finance" id="toc-unsupervised-learning-in-finance" class="nav-link" data-scroll-target="#unsupervised-learning-in-finance"><span class="header-section-number">7.4</span> Unsupervised Learning in Finance:</a></li>
-  <li><a href="#supervised-learning-example-stock-price-prediction" id="toc-supervised-learning-example-stock-price-prediction" class="nav-link" data-scroll-target="#supervised-learning-example-stock-price-prediction"><span class="header-section-number">7.5</span> Supervised Learning Example: Stock Price Prediction</a></li>
-  <li><a href="#unsupervised-learning-example-portfolio-management" id="toc-unsupervised-learning-example-portfolio-management" class="nav-link" data-scroll-target="#unsupervised-learning-example-portfolio-management"><span class="header-section-number">7.6</span> Unsupervised Learning Example: Portfolio Management</a></li>
-  <li><a href="#reinforcement-learning-2" id="toc-reinforcement-learning-2" class="nav-link" data-scroll-target="#reinforcement-learning-2"><span class="header-section-number">7.7</span> Reinforcement learning</a>
+  <li><a href="#unsupervised-learning-in-finance" id="toc-unsupervised-learning-in-finance" class="nav-link" data-scroll-target="#unsupervised-learning-in-finance"><span class="header-section-number">9.4</span> Unsupervised Learning in Finance:</a></li>
+  <li><a href="#supervised-learning-example-stock-price-prediction" id="toc-supervised-learning-example-stock-price-prediction" class="nav-link" data-scroll-target="#supervised-learning-example-stock-price-prediction"><span class="header-section-number">9.5</span> Supervised Learning Example: Stock Price Prediction</a></li>
+  <li><a href="#unsupervised-learning-example-portfolio-management" id="toc-unsupervised-learning-example-portfolio-management" class="nav-link" data-scroll-target="#unsupervised-learning-example-portfolio-management"><span class="header-section-number">9.6</span> Unsupervised Learning Example: Portfolio Management</a></li>
+  <li><a href="#reinforcement-learning-2" id="toc-reinforcement-learning-2" class="nav-link" data-scroll-target="#reinforcement-learning-2"><span class="header-section-number">9.7</span> Reinforcement learning</a>
   <ul class="collapse">
-  <li><a href="#interpretation-of-policy" id="toc-interpretation-of-policy" class="nav-link" data-scroll-target="#interpretation-of-policy"><span class="header-section-number">7.7.1</span> Interpretation of policy</a></li>
+  <li><a href="#interpretation-of-policy" id="toc-interpretation-of-policy" class="nav-link" data-scroll-target="#interpretation-of-policy"><span class="header-section-number">9.7.1</span> Interpretation of policy</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#latest-advances-and-future-directions-in-machine-learning-for-finance" id="toc-latest-advances-and-future-directions-in-machine-learning-for-finance" class="nav-link" data-scroll-target="#latest-advances-and-future-directions-in-machine-learning-for-finance"><span class="header-section-number">8</span> Latest Advances and Future Directions in Machine Learning for Finance</a></li>
+  <li><a href="#latest-advances-and-future-directions-in-machine-learning-for-finance" id="toc-latest-advances-and-future-directions-in-machine-learning-for-finance" class="nav-link" data-scroll-target="#latest-advances-and-future-directions-in-machine-learning-for-finance"><span class="header-section-number">10</span> Latest Advances and Future Directions in Machine Learning for Finance</a></li>
   </ul>
 </nav>
     </div>
@@ -283,7 +289,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></h1>
 </div>
 
 
@@ -304,12 +310,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Welcome to the Machine Learning in Finance section of your course! Machine learning (ML) is increasingly becoming integral to modern financial decision-making, enabling professionals to harness massive data streams and derive powerful insights. ML models offer flexible and sophisticated ways to tackle diverse challenges, from pattern recognition and forecasting to recommendation systems and stress tests. In this introductory segment, we will highlight fundamental ML techniques, outline their primary applications in finance, and clarify the subtle yet vital distinctions between supervised, unsupervised, and reinforcement learning.</p>
-<section id="overview-of-machine-learning-techniques-in-finance" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Overview of Machine Learning Techniques in Finance</h1>
+<p><img src="images/logos/DALL·E 2024-01-22 10.21.45 - Create the third logo design for an advanced financial data analytics course. The design should be vibrant and of medium detail, utilizing Pantone 185.png" class="img-fluid" style="float: left; margin-right: 10px;;width:30.0%"> <span class="hand"> Welcome to the Machine Learning in Finance section of your course! Machine learning (ML) is increasingly becoming integral to modern financial decision-making, enabling professionals to harness massive data streams and derive powerful insights. ML models offer flexible and sophisticated ways to tackle diverse challenges, from pattern recognition and forecasting to recommendation systems and stress tests. In this introductory segment, we will highlight fundamental ML techniques, outline their primary applications in finance, and clarify the subtle yet vital distinctions between supervised, unsupervised, and reinforcement learning. </span></p>
+<section id="overview-of-machine-learning-techniques-in-finance" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Overview of Machine Learning Techniques in Finance</h1>
 <p>Broadly speaking, ML techniques can be categorized into three main families: supervised learning, unsupervised learning, and reinforcement learning. Although there exists some overlap in their scope, each family addresses distinct aspects of financial data analysis.</p>
-<section id="supervised-learning" class="level2" data-number="6.1">
-<h2 data-number="6.1" class="anchored" data-anchor-id="supervised-learning"><span class="header-section-number">6.1</span> Supervised Learning</h2>
+<section id="supervised-learning" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="supervised-learning"><span class="header-section-number">8.1</span> Supervised Learning</h2>
 <p>Supervised learning concerns itself with developing models capable of discerning underlying patterns in labeled data—that is, data accompanied by a known outcome or target attribute. Typical supervised learning tasks include regression, classification, and dimensionality reduction. In finance, supervised learning can prove instrumental in addressing various challenges, such as:</p>
 <ul>
 <li>Estimating volatility and risk</li>
@@ -320,8 +326,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Popular supervised learning algorithms span from relatively simple ones like linear regression and logistic regression to more complex methods such as random forest and support vector machines (SVM).</p>
 </section>
-<section id="unsupervised-learning" class="level2" data-number="6.2">
-<h2 data-number="6.2" class="anchored" data-anchor-id="unsupervised-learning"><span class="header-section-number">6.2</span> Unsupervised Learning</h2>
+<section id="unsupervised-learning" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="unsupervised-learning"><span class="header-section-number">8.2</span> Unsupervised Learning</h2>
 <p>Unsupervised learning operates on unlabeled data, focusing on the discovery of hidden structures and patterns therein. Primary unsupervised learning tasks encompass clustering, dimensionality reduction, and anomaly detection. In finance, unsupervised learning can be employed to achieve several objectives, including:</p>
 <ul>
 <li>Segmenting customers or investors</li>
@@ -332,8 +338,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Prominent unsupervised learning algorithms embrace k-means clustering, hierarchical clustering, and principal component analysis (PCA).</p>
 </section>
-<section id="reinforcement-learning" class="level2" data-number="6.3">
-<h2 data-number="6.3" class="anchored" data-anchor-id="reinforcement-learning"><span class="header-section-number">6.3</span> Reinforcement Learning</h2>
+<section id="reinforcement-learning" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="reinforcement-learning"><span class="header-section-number">8.3</span> Reinforcement Learning</h2>
 <p>Reinforcement learning (RL) lies somewhere at the intersection of supervised and unsupervised learning, drawing inspiration from trial-and-error processes and decision theory. Rather than merely receiving labeled data, RL agents engage with their surroundings, gathering experiences, and modifying their behaviors to attain maximal utility or reward. Within finance, RL can be successfully applied to tackle intricate problems such as:</p>
 <ul>
 <li>Algorithmic trading</li>
@@ -342,8 +348,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Robo-advisory</li>
 </ul>
 <p>Among notable RL algorithms, Q-learning, Deep Q Network (DQN), actor-critic methods, and temporal difference (TD) algorithms deserve mention.</p>
-<section id="misconceptions-surrounding-reinforcement-learning" class="level3" data-number="6.3.1">
-<h3 data-number="6.3.1" class="anchored" data-anchor-id="misconceptions-surrounding-reinforcement-learning"><span class="header-section-number">6.3.1</span> Misconceptions Surrounding Reinforcement Learning</h3>
+<section id="misconceptions-surrounding-reinforcement-learning" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="misconceptions-surrounding-reinforcement-learning"><span class="header-section-number">8.3.1</span> Misconceptions Surrounding Reinforcement Learning</h3>
 <p>Although reinforcement learning bears striking similarities to supervised learning, it would be erroneous to equate them entirely. Indeed, RL possesses distinctive attributes rendering it uniquely qualified to address specific challenges encountered throughout financial decision-making. Several distinguishing traits include:</p>
 <ul>
 <li>Online learning: RL generally proceeds incrementally, assimilating novel experiences alongside existing knowledge.</li>
@@ -355,16 +361,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 </section>
-<section id="applications-to-financial-data" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Applications to Financial Data</h1>
+<section id="applications-to-financial-data" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Applications to Financial Data</h1>
 <p>Machine learning techniques are essential for making accurate predictions and identifying underlying patterns in financial data. They can significantly impact investment strategies, risk management, fraud detection, and portfolio optimization.</p>
-<section id="supervised-vs.-unsupervised-learning" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="supervised-vs.-unsupervised-learning"><span class="header-section-number">7.1</span> Supervised vs.&nbsp;Unsupervised Learning</h2>
+<section id="supervised-vs.-unsupervised-learning" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="supervised-vs.-unsupervised-learning"><span class="header-section-number">9.1</span> Supervised vs.&nbsp;Unsupervised Learning</h2>
 <p>Supervised learning aims to train machine learning models on labeled data to predict future targets based on existing features. Regression and classification tasks fall into this category.</p>
 <p>Unsupervised learning deals with unlabeled data and seeks to discover hidden patterns or dimensions without a priori knowledge. Clustering and dimension reduction belong to this category.</p>
 </section>
-<section id="reinforcement-learning-1" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="reinforcement-learning-1"><span class="header-section-number">7.2</span> Reinforcement learning</h2>
+<section id="reinforcement-learning-1" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="reinforcement-learning-1"><span class="header-section-number">9.2</span> Reinforcement learning</h2>
 <p>financial decision making under uncertainty is a good use case for reinforcement learning (RL). RL is a type of machine learning that focuses on maximizing rewards in sequential decision-making environments. In finance, RL algorithms can be employed to optimize investment strategies based on uncertain future states and rewards. Some instances where RL can be beneficial include:</p>
 <ol type="1">
 <li>Automated trading systems: RL can learn to make rapid, profitable trading decisions based on market conditions.</li>
@@ -373,8 +379,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Portfolio optimization: RL can optimize the risk-reward tradeoff in selecting investment combinations by learning from market trends and historical data.</li>
 </ol>
 <p>Reinforcement learning enables agents to adapt to changing market conditions and make decisions that minimize risks while maximizing returns. However, implementing RL models requires significant computational power and expertise, so careful consideration must be given to the choice of algorithm, hyperparameter tuning, and model validation.</p>
-<section id="key-topics-covered" class="level4" data-number="7.2.0.1">
-<h4 data-number="7.2.0.1" class="anchored" data-anchor-id="key-topics-covered"><span class="header-section-number">7.2.0.1</span> Key Topics Covered</h4>
+<section id="key-topics-covered" class="level4" data-number="9.2.0.1">
+<h4 data-number="9.2.0.1" class="anchored" data-anchor-id="key-topics-covered"><span class="header-section-number">9.2.0.1</span> Key Topics Covered</h4>
 <p><strong>Feature Selection:</strong> Identify essential features for building robust and parsimonious models. Filter, wrapper, and embedded feature selection techniques are typically used.</p>
 <p><strong>Regularization:</strong> Reduce overfitting by shrinking coefficients toward zero. Ridge, Lasso, and Elastic Net regressions are common types of regularization techniques.</p>
 <p><strong>Cross-Validation:</strong> Estimate performance measures for supervised learning models by splitting the data into training and validation sets repeatedly. K-fold cross-validation is one of the most popular methods.</p>
@@ -385,8 +391,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Clustering:</strong> Group similar observations into clusters. K-Means, DBSCAN, Hierarchical Clustering, Gaussian Mixture Models, etc., are typical techniques.</p></li>
 </ul>
 </section>
-<section id="real-world-application-of-ml-in-finance" class="level4" data-number="7.2.0.2">
-<h4 data-number="7.2.0.2" class="anchored" data-anchor-id="real-world-application-of-ml-in-finance"><span class="header-section-number">7.2.0.2</span> Real-World Application of ML in Finance</h4>
+<section id="real-world-application-of-ml-in-finance" class="level4" data-number="9.2.0.2">
+<h4 data-number="9.2.0.2" class="anchored" data-anchor-id="real-world-application-of-ml-in-finance"><span class="header-section-number">9.2.0.2</span> Real-World Application of ML in Finance</h4>
 <ul>
 <li><p>Portfolio Optimization: Construct optimal portfolios using machine learning algorithms to maximize returns and minimize risk.</p></li>
 <li><p>Algorithmic Trading: Automate trading strategies based on market indicators, sentiment analysis, news feeds, and technical analysis.</p></li>
@@ -396,11 +402,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="industry-applications" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="industry-applications"><span class="header-section-number">7.3</span> Industry applications</h2>
+<section id="industry-applications" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="industry-applications"><span class="header-section-number">9.3</span> Industry applications</h2>
 <p>Supervised and unsupervised learning techniques hold great potential in the world of finance. They can assist investors, researchers, and practitioners in making informed decisions, deriving insights from vast amounts of data, and automating repetitive processes. In the subsequent paragraphs, I elaborate on why supervised and unsupervised learning are essential in finance.</p>
-<section id="supervised-learning-in-finance" class="level3" data-number="7.3.1">
-<h3 data-number="7.3.1" class="anchored" data-anchor-id="supervised-learning-in-finance"><span class="header-section-number">7.3.1</span> Supervised Learning in Finance</h3>
+<section id="supervised-learning-in-finance" class="level3" data-number="9.3.1">
+<h3 data-number="9.3.1" class="anchored" data-anchor-id="supervised-learning-in-finance"><span class="header-section-number">9.3.1</span> Supervised Learning in Finance</h3>
 <p>Financial markets constantly evolve, driven by factors such as news events, investor sentiment, and shifting monetary policy. Consequently, accurate forecasting remains a challenge, despite decades of advancement in mathematical modeling and computer algorithms. Nevertheless, supervised learning plays a crucial role in finance because of its ability to establish links between variables and extrapolate patterns found in historical data. Some areas where supervised learning thrives in finance include:</p>
 <ol type="1">
 <li><strong>Price and Volume Forecasting:</strong> Leveraging historical asset prices and volumes, supervised learning models anticipate future security movements. Accurate predictions can inform investment strategies, minimize risks, and optimize portfolios.</li>
@@ -411,8 +417,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 </section>
 </section>
-<section id="unsupervised-learning-in-finance" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="unsupervised-learning-in-finance"><span class="header-section-number">7.4</span> Unsupervised Learning in Finance:</h2>
+<section id="unsupervised-learning-in-finance" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="unsupervised-learning-in-finance"><span class="header-section-number">9.4</span> Unsupervised Learning in Finance:</h2>
 <p>Financial institutions house enormous quantities of structured and semi-structured data waiting to unlock secrets. Unsupervised learning techniques expose hidden structures, associations, and aberrations inherent in financial datasets, complementing conventional supervised learning approaches. Areas where unsupervised learning contributes significantly in finance include:</p>
 <ol type="1">
 <li><strong>Portfolio Optimization:</strong> Clustering techniques partition securities into homogeneous groups, facilitating diversification and risk management. Investors can allocate assets intelligently, balancing exposure to various sectors or industries, hedging bets, and amplifying rewards.</li>
@@ -423,8 +429,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>By exploring the theories and practical applications outlined above, you gain a comprehensive overview of supervised and unsupervised learning techniques in finance. Armed with this background, you can appreciate the R-coded examples presented earlier and build upon them to craft customized solutions suited to your needs.</p>
 </section>
-<section id="supervised-learning-example-stock-price-prediction" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="supervised-learning-example-stock-price-prediction"><span class="header-section-number">7.5</span> Supervised Learning Example: Stock Price Prediction</h2>
+<section id="supervised-learning-example-stock-price-prediction" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="supervised-learning-example-stock-price-prediction"><span class="header-section-number">9.5</span> Supervised Learning Example: Stock Price Prediction</h2>
 <ol type="1">
 <li>Generate random stock price data:</li>
 </ol>
@@ -498,8 +504,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>This code plots the actual test set prices in blue and the predicted prices in red. Additionally, it adds a legend to differentiate between the two curves.</p>
 </section>
-<section id="unsupervised-learning-example-portfolio-management" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="unsupervised-learning-example-portfolio-management"><span class="header-section-number">7.6</span> Unsupervised Learning Example: Portfolio Management</h2>
+<section id="unsupervised-learning-example-portfolio-management" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="unsupervised-learning-example-portfolio-management"><span class="header-section-number">9.6</span> Unsupervised Learning Example: Portfolio Management</h2>
 <ol type="1">
 <li>Generate random financial data representing stocks:</li>
 </ol>
@@ -581,8 +587,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>This code employs ggplot2 to visualize the weekly returns for each stock divided into boxes corresponding to each cluster. It first prepares the data by calculating weekly average returns for each stock and cluster. Then, it generates boxplots for each stock and week, stratified by cluster membership.</p>
 <p>These examples illustrate supervised and unsupervised learning techniques using synthetic financial data. With proper modifications, you can adapt these examples to suit real-world financial datasets.</p>
 </section>
-<section id="reinforcement-learning-2" class="level2" data-number="7.7">
-<h2 data-number="7.7" class="anchored" data-anchor-id="reinforcement-learning-2"><span class="header-section-number">7.7</span> Reinforcement learning</h2>
+<section id="reinforcement-learning-2" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="reinforcement-learning-2"><span class="header-section-number">9.7</span> Reinforcement learning</h2>
 <p>Reinforcement learning (RL) is distinct from both supervised and unsupervised learning. While supervised learning involves learning a mapping from inputs to outputs based on labeled training data, and unsupervised learning deals with discovering hidden patterns or structures from unlabeled data, RL focuses on learning optimal actions or policies to maximize rewards or minimize costs in a given environment.</p>
 <p>In RL, agents interact with an environment and learn from the consequences of their actions rather than being explicitly provided with input-output pairs. This makes RL particularly useful in situations where obtaining labeled data is difficult, costly, or impractical. For instance, in finance, RL has been applied to various domains such as option pricing, risk management, and automated trading systems, where the objective is to make decisions based on historical data and current market conditions to optimize returns while minimizing risks.</p>
 <p>To illustrate RL concepts, let us consider a simple Q-learning example involving a binary classification problem. We will build upon our earlier discussion on Bayesian modeling and extend it to include RL elements.</p>
@@ -717,41 +723,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>This code provides a basic framework for applying Q-learning to financial data. The states are discretized for simplicity, and the reward is assumed to be the next day’s return, which can be adjusted based on specific investment strategies or risk assessments. The Q-table is updated using the Bellman equation, and the final policy is extracted from the Q-table.</p>
-<section id="interpretation-of-policy" class="level3" data-number="7.7.1">
-<h3 data-number="7.7.1" class="anchored" data-anchor-id="interpretation-of-policy"><span class="header-section-number">7.7.1</span> Interpretation of policy</h3>
+<section id="interpretation-of-policy" class="level3" data-number="9.7.1">
+<h3 data-number="9.7.1" class="anchored" data-anchor-id="interpretation-of-policy"><span class="header-section-number">9.7.1</span> Interpretation of policy</h3>
 <p>The <code>policy</code> object in the context of the Q-learning example represents the optimal actions to take for each state after the learning process. Each entry in the <code>policy</code> array corresponds to a state, and the value at each entry represents the best action to take when in that state, as determined by the Q-learning algorithm.</p>
 <p>This array is derived from the Q-table, where each state’s optimal action is the one with the highest Q-value. The actions are typically encoded as integers (e.g., 0 for ‘Buy’, 1 for ‘Hold’, 2 for ‘Sell’). So, interpreting the <code>policy</code> array involves mapping these integers back to their corresponding actions.</p>
 <p>For example, if <code>policy[0]</code> is <code>2</code>, it means that for the first state, the optimal action as per the learned policy is ‘Sell’. The interpretation of the <code>policy</code> array provides a guideline on what action to take in each state based on past learning, aiming to maximize the expected reward.</p>
 </section>
 </section>
 </section>
-<section id="latest-advances-and-future-directions-in-machine-learning-for-finance" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Latest Advances and Future Directions in Machine Learning for Finance</h1>
+<section id="latest-advances-and-future-directions-in-machine-learning-for-finance" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Latest Advances and Future Directions in Machine Learning for Finance</h1>
 <p>Machine learning has experienced remarkable progress and growing adoption in the financial sector, revolutionizing business operations and decision-making processes. Here, I recount the foremost recent developments and lay out prospective paths for research and innovation.</p>
-<section id="deep-learning" class="level4" data-number="8.0.0.1">
-<h4 data-number="8.0.0.1" class="anchored" data-anchor-id="deep-learning"><span class="header-section-number">8.0.0.1</span> 1. Deep Learning</h4>
+<section id="deep-learning" class="level4" data-number="10.0.0.1">
+<h4 data-number="10.0.0.1" class="anchored" data-anchor-id="deep-learning"><span class="header-section-number">10.0.0.1</span> 1. Deep Learning</h4>
 <p>Deep neural networks, specifically recurrent neural networks (RNNs) and convolutional neural networks (CNNs), have delivered exceptional outcomes in financial applications. Their ability to autonomously learn features from raw data promises novel insights and heightened accuracy. Ongoing research involves scaling up these models for bigger datasets, inventing more efficient architectures, and refining transfer learning techniques. Furthermore, elucidating opaque deep learning models remains an active research pursuit, attracting attention toward interpretation tools and methodologies.</p>
 </section>
-<section id="transfer-learning" class="level4" data-number="8.0.0.2">
-<h4 data-number="8.0.0.2" class="anchored" data-anchor-id="transfer-learning"><span class="header-section-number">8.0.0.2</span> 2. Transfer Learning</h4>
+<section id="transfer-learning" class="level4" data-number="10.0.0.2">
+<h4 data-number="10.0.0.2" class="anchored" data-anchor-id="transfer-learning"><span class="header-section-number">10.0.0.2</span> 2. Transfer Learning</h4>
 <p>Applying pretrained models to fresh domains has gained traction, notably in Natural Language Processing (NLP). Fintech enterprises can profit from established models like BERT or RoBERTa in sentiment analysis and news article categorization. Research continues to investigate broadening transfer learning to wider domains, pioneering domain adaptation strategies, and examining the influence of varying dataset dimensions on transfer learning effectiveness.</p>
 </section>
-<section id="ensemble-methods" class="level4" data-number="8.0.0.3">
-<h4 data-number="8.0.0.3" class="anchored" data-anchor-id="ensemble-methods"><span class="header-section-number">8.0.0.3</span> 3. Ensemble Methods</h4>
+<section id="ensemble-methods" class="level4" data-number="10.0.0.3">
+<h4 data-number="10.0.0.3" class="anchored" data-anchor-id="ensemble-methods"><span class="header-section-number">10.0.0.3</span> 3. Ensemble Methods</h4>
 <p>Integrating multiple machine learning models leads to augmented performance, reduced overfitting, and increased robustness. Leading ensemble techniques encompass Random Forests, Gradient Boosting Machines (GBM), and Stacked Generalized Regressors (SGR). Upcoming research may center on perfecting weight allocation protocols, optimizing ensemble compositions, and comparing blended homogenous versus heterogeneous models.</p>
 </section>
-<section id="real-time-processing" class="level4" data-number="8.0.0.4">
-<h4 data-number="8.0.0.4" class="anchored" data-anchor-id="real-time-processing"><span class="header-section-number">8.0.0.4</span> 4. Real-time Processing</h4>
+<section id="real-time-processing" class="level4" data-number="10.0.0.4">
+<h4 data-number="10.0.0.4" class="anchored" data-anchor-id="real-time-processing"><span class="header-section-number">10.0.0.4</span> 4. Real-time Processing</h4>
 <p>Real-time data processing emerges as indispensable amid surging high-frequency and streaming data sources. Streaming machine learning algorithms and distributed computing paradigms enable efficient handling, permitting financial specialists to make prompt decisions. Potential breakthroughs might concern harmonious integration of real-time and batch processing, resource-efficient big data architectures, and low-latency arrangements for mission-critical deployments.</p>
 </section>
-<section id="integration-with-traditional-econometric-models" class="level4" data-number="8.0.0.5">
-<h4 data-number="8.0.0.5" class="anchored" data-anchor-id="integration-with-traditional-econometric-models"><span class="header-section-number">8.0.0.5</span> 5. Integration with Traditional Econometric Models</h4>
+<section id="integration-with-traditional-econometric-models" class="level4" data-number="10.0.0.5">
+<h4 data-number="10.0.0.5" class="anchored" data-anchor-id="integration-with-traditional-econometric-models"><span class="header-section-number">10.0.0.5</span> 5. Integration with Traditional Econometric Models</h4>
 <p>Marrying machine learning and econometric models presents exciting prospects for expansive and precise financial analyses. Hybrid models and combined estimation techniques reconcile these two spheres, furnishing rich opportunities for productive symbiosis. Prospective advancements may comprise automated model selection procedures, advanced feature engineering approaches, and creative methods for injecting subject matter expertise into machine learning pipelines.</p>
 <p>All things considered, machine learning has left a lasting impression on the financial industry, elevating prognostic precision, fortifying risk management, and bolstering decision-making. Current achievements foreshadow swelling collaboration between machine learning and finance, opening countless possibilities for investigation and invention.</p>
 <p>Remain competitive in this quickly morphing milieu by adopting avant-garde techniques, investing in continual education, and cultivating an atmosphere of inquisitiveness and ingenuity. Collaboratively, we can stretch the horizons of machine learning and finance, equipping professionals to make savvier, quicker, and more astute decisions in contemporary digital economies.</p>
 </section>
-<section id="list-of-references" class="level4" data-number="8.0.0.6">
-<h4 data-number="8.0.0.6" class="anchored" data-anchor-id="list-of-references"><span class="header-section-number">8.0.0.6</span> List of References</h4>
+<section id="list-of-references" class="level4" data-number="10.0.0.6">
+<h4 data-number="10.0.0.6" class="anchored" data-anchor-id="list-of-references"><span class="header-section-number">10.0.0.6</span> List of References</h4>
 <p>Arriaga, R. I., &amp; Bailey, J. V. (2020). Text mining meets sentiment analysis in finance. Journal of Accounting Literature, 39, 1-32. https://doi.org/10.1111/acfi.12224</p>
 <p>Charoenwattanakitti, K., Lwin, M. O., &amp; Zhang, Y. (2021). A review of recent advancements in intelligent finance and banking. International Journal of Systems Science, 52(2), 323-338. https://doi.org/10.1080/00207721.2020.1809897</p>
 <p>Gupta, S., &amp; Gupta, M. (2021). Artificial intelligence and machine learning in finance and accountancy. European Journal of Operational Research, 293(1), 20-35. https://doi.org/10.1016/j.ejor.2021.03.011</p>
@@ -999,12 +1005,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./bayesian_methods.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./multilevel.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
