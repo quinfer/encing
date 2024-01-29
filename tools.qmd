@@ -2,7 +2,6 @@
 title: "Toolkit"
 author: "Barry Quinn"
 editor: visual
-css: mycssblend.css
 execute: 
   warning: false
   message: false
@@ -11,11 +10,11 @@ execute:
 
 ![](images/logos/DALL·E%202024-01-18%2016.45.28%20-%20Design%20a%20revised%20logo%20for%20an%20advanced%20financial%20data%20analytics%20course,%20ensuring%20no%20pie%20charts%20are%20included.%20The%20logo%20should%20be%20vibrant,%20with%20a%20medium%20.png){width="30%" style="float: left; margin-right: 10px;"}
 
-[Financial data analytics involves the application of statistical and machine learning techniques to financial data, aiming to extract insights, make predictions, and guide decision-making under uncertainty. This chapter introduces a set of cognitive and practical tools and processes that are grounded in standards of the [Alliance of Data Standard Professionals](https://rss.org.uk/membership/professional-development/advanced-data-science-professional/data-science-standards/)]{.hand}
+Financial data analytics involves the application of statistical and machine learning techniques to financial data, aiming to extract insights, make predictions, and guide decision-making under uncertainty. This chapter introduces a set of cognitive and practical tools and processes that are grounded in standards of the [Alliance of Data Standard Professionals](https://rss.org.uk/membership/professional-development/advanced-data-science-professional/data-science-standards/)
 
 ## Introduction to R
 
-R, with its exceptional array of packages and community support, stands at the forefront of financial data analytics. This language isn't just about executing tasks; it’s about opening doors to a more profound understanding of financial markets and trends through data.
+R, with its exceptional array of packages and community support, stands at the forefront of financial data analytics. This language isn't just about executing tasks; it's about opening doors to a more profound understanding of financial markets and trends through data.
 
 ::: callout-tip
 ### Why Choose R for Advanced Financial Analytics?
@@ -51,7 +50,7 @@ Q-RaP[^tools-1] is not just a platform; it's a commitment to the future of finan
 
 **Posit Cloud: A New Era of Data Science**
 
-With Posit Cloud, the complexities of setting up a data science environment are things of the past. It’s a playground for financial data scientists, offering tools and resources that are pivotal for modern financial analysis.
+With Posit Cloud, the complexities of setting up a data science environment are things of the past. It's a playground for financial data scientists, offering tools and resources that are pivotal for modern financial analysis.
 
 Teaching data science using Q-RaP involves a focus on innovative pedagogy in statistics and data science, emphasizing computing, reproducible research, student-centered learning, and open-source education. This approach is particularly beneficial in financial data analytics, where cloud-based solutions offer scalable, efficient, and collaborative environments for both teaching and practical application.
 
@@ -207,13 +206,13 @@ In subfields such as corporate finance, converting categorical variables into nu
 
 #### Theoretical Justification
 
-1. **Enhanced Model Functionality**: Financial models often require numerical input. Encoding facilitates the use of categorical data in these models, enhancing their functionality and applicability.
+1.  **Enhanced Model Functionality**: Financial models often require numerical input. Encoding facilitates the use of categorical data in these models, enhancing their functionality and applicability.
 
-2. **Quantitative Analysis**: Numerical representation enables quantitative analysis of categories, which is crucial in financial decision-making.
+2.  **Quantitative Analysis**: Numerical representation enables quantitative analysis of categories, which is crucial in financial decision-making.
 
-3. **Computational Efficiency**: Numerical data is typically more efficient to process and store, which is vital in handling large financial datasets.
+3.  **Computational Efficiency**: Numerical data is typically more efficient to process and store, which is vital in handling large financial datasets.
 
-4. **Pattern Recognition**: Converting to numeric values can reveal underlying patterns and relationships in financial data that might not be evident with categorical labels.
+4.  **Pattern Recognition**: Converting to numeric values can reveal underlying patterns and relationships in financial data that might not be evident with categorical labels.
 
 #### Practical Application in Corporate Finance
 
@@ -221,24 +220,25 @@ Consider a corporate finance dataset which encodes financial statement informati
 
 ```{R}
 # Convert the 'Sector' categorical variable to a numeric format
-corporate_data$Sector <- as.numeric(as.factor(corporate_data$Sector))
+corporate_data <- readRDS("lspd2022.rds")
+corporate_data$Sector <- as.numeric(as.factor(corporate_data$DSSector))
 ```
 
 Here's what happens:
 
-1. **Factor Conversion**: `as.factor(corporate_data$Sector)` converts the `Sector` column into a factor, grouping the data into distinct categories based on industry sector.
+1.  **Factor Conversion**: `as.factor(corporate_data$DSSector)` converts the `DSSector` column into a factor, grouping the data into distinct categories based on industry sector.
 
-2. **Numeric Conversion**: `as.numeric(...)` then assigns a unique numeric value to each sector.
+2.  **Numeric Conversion**: `as.numeric(...)` then assigns a unique numeric value to each sector.
 
 #### Best Practices
 
-- **Data Understanding**: Ascertain whether the data is ordinal or nominal. The `Sector` column is typically nominal.
+-   **Data Understanding**: Ascertain whether the data is ordinal or nominal. The `Sector` column is typically nominal.
 
-- **Appropriate Encoding Method**: Numeric encoding is used here for simplicity, but one-hot encoding might be more appropriate for nominal data like sectors to avoid implying any ordinal relationship.
+-   **Appropriate Encoding Method**: Numeric encoding is used here for simplicity, but one-hot encoding might be more appropriate for nominal data like sectors to avoid implying any ordinal relationship.
 
-- **Avoiding Multicollinearity**: If using dummy variables, remember to drop one level to prevent multicollinearity in regression models.
+-   **Avoiding Multicollinearity**: If using dummy variables, remember to drop one level to prevent multicollinearity in regression models.
 
-- **Consistent Encoding**: Ensure consistent encoding across the dataset, especially when combining data from different sources.
+-   **Consistent Encoding**: Ensure consistent encoding across the dataset, especially when combining data from different sources.
 
 Encoding categorical variables in corporate finance datasets paves the way for more sophisticated and insightful financial analysis, leveraging statistical and machine learning techniques.
 
@@ -282,7 +282,7 @@ log_y <- log(y + 1)  # Adding a constant prevents taking logs of negative number
 
 ### Differencing Time Series Data
 
-Differencing is a technique often applied to stationarize nonstationary time series data. Stationarity implies consistent statistical properties throughout the entire dataset—namely, constant means, variances, and autocorrelations. Subtract consecutive observations to compute returns, thereby reducing potential trends or seasonality present in the original data. Leverage the `lag()` and `diff()` functions to execute differencing.
+Differencing is a technique often applied to stationarize nonstationary time series data. Stationarity implies consistent statistical properties throughout the entire dataset---namely, constant means, variances, and autocorrelations. Subtract consecutive observations to compute returns, thereby reducing potential trends or seasonality present in the original data. Leverage the `lag()` and `diff()` functions to execute differencing.
 
 Example:
 
@@ -722,7 +722,7 @@ A growth mindset contrasts with a fixed mindset, where individuals believe their
 
 ## Case Studies: Growth Mindset in Action
 
--   **Learning from Failure:** A financial analyst at a major bank used a failed predictive model as a learning opportunity. By analyzing the model’s shortcomings, they improved their understanding of risk assessment, leading to the development of a more robust model.
+-   **Learning from Failure:** A financial analyst at a major bank used a failed predictive model as a learning opportunity. By analyzing the model's shortcomings, they improved their understanding of risk assessment, leading to the development of a more robust model.
 
 -   **Collaborative Learning:** A team of data scientists at a tech firm regularly holds brainstorming sessions, where they discuss new data analysis tools and techniques. This collaborative environment fosters a culture of continuous learning.
 
