@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Barry Quinn">
 
-<title>Advanced Financial Data Analytics - 6&nbsp; Modeling Multilevel Data</title>
+<title>Advanced Financial Data Analytics - 8&nbsp; Modeling Multilevel Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -82,7 +82,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -91,6 +97,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -106,12 +113,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./multilevel.html">Advanced Material</a></li><li class="breadcrumb-item"><a href="./multilevel.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./multilevel.html">Advanced Material</a></li><li class="breadcrumb-item"><a href="./multilevel.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -121,7 +128,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Advanced Financial Data Analytics</a> 
@@ -157,20 +164,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Toolkit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Understanding Financial Data and Asset Returns</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./time_series.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./bayesian_methods.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./ml.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span></a>
   </div>
 </li>
       </ul>
@@ -187,19 +206,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./multilevel.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./causal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Causal inference</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Causal inference</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./colliderbias.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Causal Salad, Endogeneity and collider bias</span></span></a>
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Causal Salad, Endogeneity and collider bias</span></span></a>
   </div>
 </li>
       </ul>
@@ -207,7 +226,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">References</span></span></a>
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">References</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -221,20 +240,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./tools.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Toolkit</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./resources.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">resources</span></span></a>
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">resources</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./solutions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Chapter solutions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Chapter solutions</span></span></a>
   </div>
 </li>
       </ul>
@@ -242,37 +255,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">7</span> Introduction</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">9</span> Introduction</a>
   <ul class="collapse">
-  <li><a href="#group-level-data-models" id="toc-group-level-data-models" class="nav-link" data-scroll-target="#group-level-data-models"><span class="header-section-number">7.1</span> Group-Level Data Models</a></li>
-  <li><a href="#hierarchical-linear-models-hlms" id="toc-hierarchical-linear-models-hlms" class="nav-link" data-scroll-target="#hierarchical-linear-models-hlms"><span class="header-section-number">7.2</span> Hierarchical Linear Models (HLMs)</a></li>
-  <li><a href="#panel-econometric-methods" id="toc-panel-econometric-methods" class="nav-link" data-scroll-target="#panel-econometric-methods"><span class="header-section-number">7.3</span> Panel Econometric Methods</a></li>
-  <li><a href="#bayesian-vs-frequentist-perspective" id="toc-bayesian-vs-frequentist-perspective" class="nav-link" data-scroll-target="#bayesian-vs-frequentist-perspective"><span class="header-section-number">7.4</span> Bayesian vs Frequentist Perspective</a></li>
-  <li><a href="#financial-applications" id="toc-financial-applications" class="nav-link" data-scroll-target="#financial-applications"><span class="header-section-number">7.5</span> Financial Applications</a></li>
-  <li><a href="#discussion-and-future-directions" id="toc-discussion-and-future-directions" class="nav-link" data-scroll-target="#discussion-and-future-directions"><span class="header-section-number">7.6</span> Discussion and Future Directions</a></li>
-  <li><a href="#critiquing-the-models" id="toc-critiquing-the-models" class="nav-link" data-scroll-target="#critiquing-the-models"><span class="header-section-number">7.7</span> Critiquing the models</a>
+  <li><a href="#group-level-data-models" id="toc-group-level-data-models" class="nav-link" data-scroll-target="#group-level-data-models"><span class="header-section-number">9.1</span> Group-Level Data Models</a></li>
+  <li><a href="#hierarchical-linear-models-hlms" id="toc-hierarchical-linear-models-hlms" class="nav-link" data-scroll-target="#hierarchical-linear-models-hlms"><span class="header-section-number">9.2</span> Hierarchical Linear Models (HLMs)</a></li>
+  <li><a href="#panel-econometric-methods" id="toc-panel-econometric-methods" class="nav-link" data-scroll-target="#panel-econometric-methods"><span class="header-section-number">9.3</span> Panel Econometric Methods</a></li>
+  <li><a href="#bayesian-vs-frequentist-perspective" id="toc-bayesian-vs-frequentist-perspective" class="nav-link" data-scroll-target="#bayesian-vs-frequentist-perspective"><span class="header-section-number">9.4</span> Bayesian vs Frequentist Perspective</a></li>
+  <li><a href="#financial-applications" id="toc-financial-applications" class="nav-link" data-scroll-target="#financial-applications"><span class="header-section-number">9.5</span> Financial Applications</a></li>
+  <li><a href="#discussion-and-future-directions" id="toc-discussion-and-future-directions" class="nav-link" data-scroll-target="#discussion-and-future-directions"><span class="header-section-number">9.6</span> Discussion and Future Directions</a></li>
+  <li><a href="#critiquing-the-models" id="toc-critiquing-the-models" class="nav-link" data-scroll-target="#critiquing-the-models"><span class="header-section-number">9.7</span> Critiquing the models</a>
   <ul class="collapse">
-  <li><a href="#fixed-effect-models" id="toc-fixed-effect-models" class="nav-link" data-scroll-target="#fixed-effect-models"><span class="header-section-number">7.7.1</span> Fixed Effect Models</a></li>
-  <li><a href="#random-effect-models" id="toc-random-effect-models" class="nav-link" data-scroll-target="#random-effect-models"><span class="header-section-number">7.7.2</span> Random Effect Models</a></li>
-  <li><a href="#hierarchical-models" id="toc-hierarchical-models" class="nav-link" data-scroll-target="#hierarchical-models"><span class="header-section-number">7.7.3</span> Hierarchical Models</a></li>
+  <li><a href="#fixed-effect-models" id="toc-fixed-effect-models" class="nav-link" data-scroll-target="#fixed-effect-models"><span class="header-section-number">9.7.1</span> Fixed Effect Models</a></li>
+  <li><a href="#random-effect-models" id="toc-random-effect-models" class="nav-link" data-scroll-target="#random-effect-models"><span class="header-section-number">9.7.2</span> Random Effect Models</a></li>
+  <li><a href="#hierarchical-models" id="toc-hierarchical-models" class="nav-link" data-scroll-target="#hierarchical-models"><span class="header-section-number">9.7.3</span> Hierarchical Models</a></li>
   </ul></li>
-  <li><a href="#verdict" id="toc-verdict" class="nav-link" data-scroll-target="#verdict"><span class="header-section-number">7.8</span> Verdict</a></li>
-  <li><a href="#excercise" id="toc-excercise" class="nav-link" data-scroll-target="#excercise"><span class="header-section-number">7.9</span> Excercise</a></li>
-  <li><a href="#another-excersise" id="toc-another-excersise" class="nav-link" data-scroll-target="#another-excersise"><span class="header-section-number">7.10</span> Another excersise</a>
+  <li><a href="#verdict" id="toc-verdict" class="nav-link" data-scroll-target="#verdict"><span class="header-section-number">9.8</span> Verdict</a></li>
+  <li><a href="#excercise" id="toc-excercise" class="nav-link" data-scroll-target="#excercise"><span class="header-section-number">9.9</span> Excercise</a></li>
+  <li><a href="#another-excersise" id="toc-another-excersise" class="nav-link" data-scroll-target="#another-excersise"><span class="header-section-number">9.10</span> Another excersise</a>
   <ul class="collapse">
-  <li><a href="#scenario" id="toc-scenario" class="nav-link" data-scroll-target="#scenario"><span class="header-section-number">7.10.1</span> Scenario:</a></li>
-  <li><a href="#r-code-implementation" id="toc-r-code-implementation" class="nav-link" data-scroll-target="#r-code-implementation"><span class="header-section-number">7.10.2</span> R Code Implementation:</a></li>
-  <li><a href="#step-1-data-simulation" id="toc-step-1-data-simulation" class="nav-link" data-scroll-target="#step-1-data-simulation"><span class="header-section-number">7.10.3</span> Step 1: Data Simulation</a></li>
-  <li><a href="#step-2-model-fitting" id="toc-step-2-model-fitting" class="nav-link" data-scroll-target="#step-2-model-fitting"><span class="header-section-number">7.10.4</span> Step 2: Model Fitting</a></li>
-  <li><a href="#step-3-model-comparison-and-interpretation" id="toc-step-3-model-comparison-and-interpretation" class="nav-link" data-scroll-target="#step-3-model-comparison-and-interpretation"><span class="header-section-number">7.10.5</span> Step 3: Model Comparison and Interpretation</a></li>
-  <li><a href="#execution-and-analysis" id="toc-execution-and-analysis" class="nav-link" data-scroll-target="#execution-and-analysis"><span class="header-section-number">7.10.6</span> Execution and Analysis</a></li>
+  <li><a href="#scenario" id="toc-scenario" class="nav-link" data-scroll-target="#scenario"><span class="header-section-number">9.10.1</span> Scenario:</a></li>
+  <li><a href="#r-code-implementation" id="toc-r-code-implementation" class="nav-link" data-scroll-target="#r-code-implementation"><span class="header-section-number">9.10.2</span> R Code Implementation:</a></li>
+  <li><a href="#step-1-data-simulation" id="toc-step-1-data-simulation" class="nav-link" data-scroll-target="#step-1-data-simulation"><span class="header-section-number">9.10.3</span> Step 1: Data Simulation</a></li>
+  <li><a href="#step-2-model-fitting" id="toc-step-2-model-fitting" class="nav-link" data-scroll-target="#step-2-model-fitting"><span class="header-section-number">9.10.4</span> Step 2: Model Fitting</a></li>
+  <li><a href="#step-3-model-comparison-and-interpretation" id="toc-step-3-model-comparison-and-interpretation" class="nav-link" data-scroll-target="#step-3-model-comparison-and-interpretation"><span class="header-section-number">9.10.5</span> Step 3: Model Comparison and Interpretation</a></li>
+  <li><a href="#execution-and-analysis" id="toc-execution-and-analysis" class="nav-link" data-scroll-target="#execution-and-analysis"><span class="header-section-number">9.10.6</span> Execution and Analysis</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -281,9 +294,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./multilevel.html">Advanced Material</a></li><li class="breadcrumb-item"><a href="./multilevel.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></h1>
 <p class="subtitle lead">A Comparative Analysis of Hierarchical and Panel Econometric Approaches with Bayesian and Frequentist Perspectives in Financial Applications</p>
 </div>
 
@@ -303,18 +316,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
+
 </header>
 
+
 <p>This chapter delves into the intricacies of modeling multilevel data, specifically focusing on comparing hierarchical models and panel econometrics within both Bayesian and frequentist perspectives. We will discuss each approach’s underlying assumptions, strengths, weaknesses, and their application in finance. By understanding these methods, researchers and practitioners alike can make more informed decisions when selecting appropriate techniques for analyzing complex financial datasets.</p>
-<section id="introduction" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Introduction</h1>
+<section id="introduction" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Introduction</h1>
 <p>Financial research often involves handling multilevel data structures where observations are nested or cross-classified across different levels (e.g., firms, industries, time periods). The choice of an adequate statistical methodology is crucial as it impacts estimation accuracy and subsequent policy recommendations. This chapter explores two prominent approaches – hierarchical modeling and panel econometrics – along with Bayesian and frequentist viewpoints.</p>
-<section id="group-level-data-models" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="group-level-data-models"><span class="header-section-number">7.1</span> Group-Level Data Models</h2>
+<section id="group-level-data-models" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="group-level-data-models"><span class="header-section-number">9.1</span> Group-Level Data Models</h2>
 <p>Before diving into specific modeling techniques, we introduce basic concepts related to group-level data. Let yij denote the observation i from level j, where i = 1, …, ni and j = 1, …, J. In this setup, traditional single-level regression models assume that all observations come from one homogeneous population. However, this assumption may not hold true in many cases, leading us to consider alternative frameworks capable of accounting for heterogeneity across groups.</p>
 </section>
-<section id="hierarchical-linear-models-hlms" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="hierarchical-linear-models-hlms"><span class="header-section-number">7.2</span> Hierarchical Linear Models (HLMs)</h2>
+<section id="hierarchical-linear-models-hlms" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="hierarchical-linear-models-hlms"><span class="header-section-number">9.2</span> Hierarchical Linear Models (HLMs)</h2>
 <p>Hierarchical linear models, also known as mixed effects models or multi-level models, explicitly account for the variation between higher-level units by incorporating random components at multiple levels. HLMs have several advantages over classical regression techniques:</p>
 <ul>
 <li>They allow for explicit modeling of correlations among lower-level units within groups;</li>
@@ -323,8 +338,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>They accommodate unbalanced designs with varying numbers of lower-level units per group.</li>
 </ul>
 </section>
-<section id="panel-econometric-methods" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="panel-econometric-methods"><span class="header-section-number">7.3</span> Panel Econometric Methods</h2>
+<section id="panel-econometric-methods" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="panel-econometric-methods"><span class="header-section-number">9.3</span> Panel Econometric Methods</h2>
 <p>Panel econometrics focuses on longitudinal data analysis using fixed effect and random effect models. These methods address potential endogeneity issues arising due to omitted variable bias and dynamic panels. Key features include:</p>
 <ul>
 <li>Accounting for individual-specific unobserved heterogeneity through either fixed or random effects;</li>
@@ -332,12 +347,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Allowing for robust inference using clustered standard errors.</li>
 </ul>
 </section>
-<section id="bayesian-vs-frequentist-perspective" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="bayesian-vs-frequentist-perspective"><span class="header-section-number">7.4</span> Bayesian vs Frequentist Perspective</h2>
+<section id="bayesian-vs-frequentist-perspective" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="bayesian-vs-frequentist-perspective"><span class="header-section-number">9.4</span> Bayesian vs Frequentist Perspective</h2>
 <p>From a philosophical standpoint, Bayesian and frequentist statisticians differ in their interpretation of probability. While frequentists view probability as long-run relative frequency, Bayesians interpret it as degree of belief based on prior knowledge. Consequently, these contrasting views lead to disparities in how parameters are estimated and interpreted.</p>
 </section>
-<section id="financial-applications" class="level2" data-number="7.5">
-<h2 data-number="7.5" class="anchored" data-anchor-id="financial-applications"><span class="header-section-number">7.5</span> Financial Applications</h2>
+<section id="financial-applications" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="financial-applications"><span class="header-section-number">9.5</span> Financial Applications</h2>
 <p>Multilevel modeling has found extensive use in financial research, particularly in corporate finance, asset pricing, and risk management. Some examples include:</p>
 <ul>
 <li>Analyzing firm-level data to estimate industry-specific cost functions while controlling for firm characteristics;</li>
@@ -345,14 +360,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Investigating credit rating agencies’ consistency in assigning ratings across countries and time periods.</li>
 </ul>
 </section>
-<section id="discussion-and-future-directions" class="level2" data-number="7.6">
-<h2 data-number="7.6" class="anchored" data-anchor-id="discussion-and-future-directions"><span class="header-section-number">7.6</span> Discussion and Future Directions</h2>
+<section id="discussion-and-future-directions" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="discussion-and-future-directions"><span class="header-section-number">9.6</span> Discussion and Future Directions</h2>
 <p>While both hierarchical modeling and panel econometrics offer valuable insights into multilevel data analysis, they exhibit distinct characteristics requiring careful consideration before implementation. Moreover, recent advancements in computational algorithms facilitate seamless integration of Bayesian and frequentist paradigms, opening up new possibilities for sophisticated financial modeling. As such, further exploration of these topics promises exciting developments in our quest to better understand complex financial phenomena.</p>
 </section>
-<section id="critiquing-the-models" class="level2" data-number="7.7">
-<h2 data-number="7.7" class="anchored" data-anchor-id="critiquing-the-models"><span class="header-section-number">7.7</span> Critiquing the models</h2>
-<section id="fixed-effect-models" class="level3" data-number="7.7.1">
-<h3 data-number="7.7.1" class="anchored" data-anchor-id="fixed-effect-models"><span class="header-section-number">7.7.1</span> Fixed Effect Models</h3>
+<section id="critiquing-the-models" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="critiquing-the-models"><span class="header-section-number">9.7</span> Critiquing the models</h2>
+<section id="fixed-effect-models" class="level3" data-number="9.7.1">
+<h3 data-number="9.7.1" class="anchored" data-anchor-id="fixed-effect-models"><span class="header-section-number">9.7.1</span> Fixed Effect Models</h3>
 <p>Fixed effect models (FEM) are widely used for addressing unobserved heterogeneity at the unit level. They capture nuisance parameters by including dummy variables for each entity. Advantages of FEM include:</p>
 <ul>
 <li>Consistent parameter estimates even if the unobserved effects are correlated with covariates;</li>
@@ -366,8 +381,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Cannot directly incorporate time-invariant predictors without resorting to first difference transformation or other approximations.</li>
 </ul>
 </section>
-<section id="random-effect-models" class="level3" data-number="7.7.2">
-<h3 data-number="7.7.2" class="anchored" data-anchor-id="random-effect-models"><span class="header-section-number">7.7.2</span> Random Effect Models</h3>
+<section id="random-effect-models" class="level3" data-number="9.7.2">
+<h3 data-number="9.7.2" class="anchored" data-anchor-id="random-effect-models"><span class="header-section-number">9.7.2</span> Random Effect Models</h3>
 <p>Random effect models (REM), alternatively referred to as mixed effects models, treat unobserved heterogeneity as stochastic rather than deterministic entities. REM provides benefits such as:</p>
 <ul>
 <li>Efficient estimation since only deviations from the overall mean need to be estimated for each unit;</li>
@@ -381,8 +396,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Potential inconsistency if unobserved effects are correlated with covariates (violation of “random effects” assumption).</li>
 </ul>
 </section>
-<section id="hierarchical-models" class="level3" data-number="7.7.3">
-<h3 data-number="7.7.3" class="anchored" data-anchor-id="hierarchical-models"><span class="header-section-number">7.7.3</span> Hierarchical Models</h3>
+<section id="hierarchical-models" class="level3" data-number="9.7.3">
+<h3 data-number="9.7.3" class="anchored" data-anchor-id="hierarchical-models"><span class="header-section-number">9.7.3</span> Hierarchical Models</h3>
 <p>Hierarchical linear models (HLMs), as previously discussed, allow for multiple levels of nesting and cross-classification. Compared to FEM and REM, HLM offers unique advantages:</p>
 <ul>
 <li>Capability to handle complex data structures involving three or more levels;</li>
@@ -398,12 +413,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </section>
 </section>
-<section id="verdict" class="level2" data-number="7.8">
-<h2 data-number="7.8" class="anchored" data-anchor-id="verdict"><span class="header-section-number">7.8</span> Verdict</h2>
+<section id="verdict" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="verdict"><span class="header-section-number">9.8</span> Verdict</h2>
 <p>In conclusion, no single model outperforms others universally. Researchers must carefully evaluate their dataset’s structure, research questions, and theoretical background to determine whether FEM, REM, or HLM is most suitable for their purposes. Additionally, sensitivity analyses should be conducted to ensure results’ robustness across different modeling choices.</p>
 </section>
-<section id="excercise" class="level2" data-number="7.9">
-<h2 data-number="7.9" class="anchored" data-anchor-id="excercise"><span class="header-section-number">7.9</span> Excercise</h2>
+<section id="excercise" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="excercise"><span class="header-section-number">9.9</span> Excercise</h2>
 <p>Sure, let’s generate simulated data representing annual sales growth rates for subsidiaries belonging to different parent companies operating in various sectors. Our goal is to compare the performance of fixed effect models (FEM), random effect models (REM), and hierarchical linear models (HLM) in estimating sector-specific intercepts while controlling for parent company effects.</p>
 <p>First, load necessary libraries and set seed for reproducibility:</p>
 <div class="cell">
@@ -515,11 +530,11 @@ Hierarchical Linear Model Estimates:</code></pre>
 <p>You should observe that although all three models produce comparable estimates, the standard errors vary due to their differing assumptions about the nature of unobserved heterogeneity. Perform additional diagnostic checks and choose the best fitting model according to your problem requirements.</p>
 <p>Keep in mind that this example represents a simplified scenario with only one explanatory variable. Real-world situations typically involve multiple predictors and require rigorous preprocessing steps, hypothesis testing, and validation procedures. Nevertheless, this exercise serves as a starting point towards grasping fundamental distinctions amongst FEM, REM, and HLM.</p>
 </section>
-<section id="another-excersise" class="level2" data-number="7.10">
-<h2 data-number="7.10" class="anchored" data-anchor-id="another-excersise"><span class="header-section-number">7.10</span> Another excersise</h2>
+<section id="another-excersise" class="level2" data-number="9.10">
+<h2 data-number="9.10" class="anchored" data-anchor-id="another-excersise"><span class="header-section-number">9.10</span> Another excersise</h2>
 <p>Certainly! Let’s adapt the exercise to a corporate finance context and implement it using R with a Bayesian approach. We’ll simulate data reflecting a scenario often encountered in corporate finance, such as the effect of investment in research and development (R&amp;D) on the financial performance of companies across different industries.</p>
-<section id="scenario" class="level3" data-number="7.10.1">
-<h3 data-number="7.10.1" class="anchored" data-anchor-id="scenario"><span class="header-section-number">7.10.1</span> Scenario:</h3>
+<section id="scenario" class="level3" data-number="9.10.1">
+<h3 data-number="9.10.1" class="anchored" data-anchor-id="scenario"><span class="header-section-number">9.10.1</span> Scenario:</h3>
 <ul>
 <li><strong>Dependent Variable</strong>: Financial performance of companies (e.g., return on assets).</li>
 <li><strong>Independent Variable</strong>: Investment in R&amp;D.</li>
@@ -527,8 +542,8 @@ Hierarchical Linear Model Estimates:</code></pre>
 </ul>
 <p>We will fit three models using R’s <code>brms</code> package, which allows for Bayesian modeling: 1. <strong>Fixed Effects Model</strong>: Treat industry effects as fixed. 2. <strong>Random Effects Model</strong>: Treat industry effects as random. 3. <strong>Multilevel Model</strong>: Industry-specific random intercepts and possibly random slopes for R&amp;D investment.</p>
 </section>
-<section id="r-code-implementation" class="level3" data-number="7.10.2">
-<h3 data-number="7.10.2" class="anchored" data-anchor-id="r-code-implementation"><span class="header-section-number">7.10.2</span> R Code Implementation:</h3>
+<section id="r-code-implementation" class="level3" data-number="9.10.2">
+<h3 data-number="9.10.2" class="anchored" data-anchor-id="r-code-implementation"><span class="header-section-number">9.10.2</span> R Code Implementation:</h3>
 <p>First, install and load the necessary package:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("brms")</span></span>
@@ -557,8 +572,8 @@ Attaching package: 'brms'</code></pre>
 </div>
 </div>
 </section>
-<section id="step-1-data-simulation" class="level3" data-number="7.10.3">
-<h3 data-number="7.10.3" class="anchored" data-anchor-id="step-1-data-simulation"><span class="header-section-number">7.10.3</span> Step 1: Data Simulation</h3>
+<section id="step-1-data-simulation" class="level3" data-number="9.10.3">
+<h3 data-number="9.10.3" class="anchored" data-anchor-id="step-1-data-simulation"><span class="header-section-number">9.10.3</span> Step 1: Data Simulation</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>n_companies <span class="ot">&lt;-</span> <span class="dv">300</span></span>
@@ -578,8 +593,8 @@ Attaching package: 'brms'</code></pre>
 <span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Industry =</span> industries, <span class="at">RDInvestment =</span> rd_investment, <span class="at">Performance =</span> performance)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="step-2-model-fitting" class="level3" data-number="7.10.4">
-<h3 data-number="7.10.4" class="anchored" data-anchor-id="step-2-model-fitting"><span class="header-section-number">7.10.4</span> Step 2: Model Fitting</h3>
+<section id="step-2-model-fitting" class="level3" data-number="9.10.4">
+<h3 data-number="9.10.4" class="anchored" data-anchor-id="step-2-model-fitting"><span class="header-section-number">9.10.4</span> Step 2: Model Fitting</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bayesian Fixed Effects Model</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>model_fe <span class="ot">&lt;-</span> <span class="fu">brm</span>(Performance <span class="sc">~</span> RDInvestment <span class="sc">+</span> <span class="fu">factor</span>(Industry), <span class="at">data =</span> data, <span class="at">family =</span> <span class="fu">gaussian</span>(), <span class="at">prior =</span> <span class="fu">c</span>(<span class="fu">set_prior</span>(<span class="st">"normal(0,10)"</span>, <span class="at">class =</span> <span class="st">"b"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -593,8 +608,8 @@ Attaching package: 'brms'</code></pre>
 <pre><code>
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 1).
 Chain 1: 
-Chain 1: Gradient evaluation took 2.1e-05 seconds
-Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.21 seconds.
+Chain 1: Gradient evaluation took 4.6e-05 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.46 seconds.
 Chain 1: Adjust your expectations accordingly!
 Chain 1: 
 Chain 1: 
@@ -611,15 +626,15 @@ Chain 1: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 1: 
-Chain 1:  Elapsed Time: 0.127 seconds (Warm-up)
-Chain 1:                0.032 seconds (Sampling)
-Chain 1:                0.159 seconds (Total)
+Chain 1:  Elapsed Time: 0.17 seconds (Warm-up)
+Chain 1:                0.037 seconds (Sampling)
+Chain 1:                0.207 seconds (Total)
 Chain 1: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 2).
 Chain 2: 
-Chain 2: Gradient evaluation took 4e-06 seconds
-Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.04 seconds.
+Chain 2: Gradient evaluation took 7e-06 seconds
+Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.07 seconds.
 Chain 2: Adjust your expectations accordingly!
 Chain 2: 
 Chain 2: 
@@ -636,15 +651,15 @@ Chain 2: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 2: 
-Chain 2:  Elapsed Time: 0.13 seconds (Warm-up)
-Chain 2:                0.033 seconds (Sampling)
-Chain 2:                0.163 seconds (Total)
+Chain 2:  Elapsed Time: 0.165 seconds (Warm-up)
+Chain 2:                0.04 seconds (Sampling)
+Chain 2:                0.205 seconds (Total)
 Chain 2: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 3).
 Chain 3: 
-Chain 3: Gradient evaluation took 4e-06 seconds
-Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.04 seconds.
+Chain 3: Gradient evaluation took 7e-06 seconds
+Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.07 seconds.
 Chain 3: Adjust your expectations accordingly!
 Chain 3: 
 Chain 3: 
@@ -661,15 +676,15 @@ Chain 3: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 3: 
-Chain 3:  Elapsed Time: 0.112 seconds (Warm-up)
-Chain 3:                0.033 seconds (Sampling)
-Chain 3:                0.145 seconds (Total)
+Chain 3:  Elapsed Time: 0.14 seconds (Warm-up)
+Chain 3:                0.04 seconds (Sampling)
+Chain 3:                0.18 seconds (Total)
 Chain 3: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 4).
 Chain 4: 
-Chain 4: Gradient evaluation took 3e-06 seconds
-Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.03 seconds.
+Chain 4: Gradient evaluation took 6e-06 seconds
+Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.06 seconds.
 Chain 4: Adjust your expectations accordingly!
 Chain 4: 
 Chain 4: 
@@ -686,9 +701,9 @@ Chain 4: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 4: 
-Chain 4:  Elapsed Time: 0.127 seconds (Warm-up)
-Chain 4:                0.032 seconds (Sampling)
-Chain 4:                0.159 seconds (Total)
+Chain 4:  Elapsed Time: 0.149 seconds (Warm-up)
+Chain 4:                0.036 seconds (Sampling)
+Chain 4:                0.185 seconds (Total)
 Chain 4: </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bayesian Random Effects Model</span></span>
@@ -701,8 +716,8 @@ Start sampling</code></pre>
 <pre><code>
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 1).
 Chain 1: 
-Chain 1: Gradient evaluation took 5.8e-05 seconds
-Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.58 seconds.
+Chain 1: Gradient evaluation took 6.1e-05 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.61 seconds.
 Chain 1: Adjust your expectations accordingly!
 Chain 1: 
 Chain 1: 
@@ -719,15 +734,15 @@ Chain 1: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 1: 
-Chain 1:  Elapsed Time: 0.331 seconds (Warm-up)
-Chain 1:                0.195 seconds (Sampling)
-Chain 1:                0.526 seconds (Total)
+Chain 1:  Elapsed Time: 0.508 seconds (Warm-up)
+Chain 1:                0.283 seconds (Sampling)
+Chain 1:                0.791 seconds (Total)
 Chain 1: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 2).
 Chain 2: 
-Chain 2: Gradient evaluation took 1.3e-05 seconds
-Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.13 seconds.
+Chain 2: Gradient evaluation took 4.4e-05 seconds
+Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.44 seconds.
 Chain 2: Adjust your expectations accordingly!
 Chain 2: 
 Chain 2: 
@@ -744,15 +759,15 @@ Chain 2: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 2: 
-Chain 2:  Elapsed Time: 0.355 seconds (Warm-up)
-Chain 2:                0.175 seconds (Sampling)
-Chain 2:                0.53 seconds (Total)
+Chain 2:  Elapsed Time: 0.663 seconds (Warm-up)
+Chain 2:                0.259 seconds (Sampling)
+Chain 2:                0.922 seconds (Total)
 Chain 2: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 3).
 Chain 3: 
-Chain 3: Gradient evaluation took 1.1e-05 seconds
-Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.11 seconds.
+Chain 3: Gradient evaluation took 2.5e-05 seconds
+Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.25 seconds.
 Chain 3: Adjust your expectations accordingly!
 Chain 3: 
 Chain 3: 
@@ -769,15 +784,15 @@ Chain 3: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 3: 
-Chain 3:  Elapsed Time: 0.272 seconds (Warm-up)
-Chain 3:                0.191 seconds (Sampling)
-Chain 3:                0.463 seconds (Total)
+Chain 3:  Elapsed Time: 0.538 seconds (Warm-up)
+Chain 3:                0.239 seconds (Sampling)
+Chain 3:                0.777 seconds (Total)
 Chain 3: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 4).
 Chain 4: 
-Chain 4: Gradient evaluation took 1.2e-05 seconds
-Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.12 seconds.
+Chain 4: Gradient evaluation took 1.8e-05 seconds
+Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.18 seconds.
 Chain 4: Adjust your expectations accordingly!
 Chain 4: 
 Chain 4: 
@@ -794,9 +809,9 @@ Chain 4: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 4: 
-Chain 4:  Elapsed Time: 0.322 seconds (Warm-up)
-Chain 4:                0.201 seconds (Sampling)
-Chain 4:                0.523 seconds (Total)
+Chain 4:  Elapsed Time: 0.528 seconds (Warm-up)
+Chain 4:                0.269 seconds (Sampling)
+Chain 4:                0.797 seconds (Total)
 Chain 4: </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bayesian Multilevel Model</span></span>
@@ -809,8 +824,8 @@ Start sampling</code></pre>
 <pre><code>
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 1).
 Chain 1: 
-Chain 1: Gradient evaluation took 9.4e-05 seconds
-Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.94 seconds.
+Chain 1: Gradient evaluation took 7.5e-05 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 0.75 seconds.
 Chain 1: Adjust your expectations accordingly!
 Chain 1: 
 Chain 1: 
@@ -827,15 +842,15 @@ Chain 1: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 1: 
-Chain 1:  Elapsed Time: 2.201 seconds (Warm-up)
-Chain 1:                1.084 seconds (Sampling)
-Chain 1:                3.285 seconds (Total)
+Chain 1:  Elapsed Time: 2.753 seconds (Warm-up)
+Chain 1:                1.318 seconds (Sampling)
+Chain 1:                4.071 seconds (Total)
 Chain 1: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 2).
 Chain 2: 
-Chain 2: Gradient evaluation took 2e-05 seconds
-Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.2 seconds.
+Chain 2: Gradient evaluation took 2.9e-05 seconds
+Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 0.29 seconds.
 Chain 2: Adjust your expectations accordingly!
 Chain 2: 
 Chain 2: 
@@ -852,15 +867,15 @@ Chain 2: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 2: 
-Chain 2:  Elapsed Time: 1.97 seconds (Warm-up)
-Chain 2:                1.124 seconds (Sampling)
-Chain 2:                3.094 seconds (Total)
+Chain 2:  Elapsed Time: 2.594 seconds (Warm-up)
+Chain 2:                1.587 seconds (Sampling)
+Chain 2:                4.181 seconds (Total)
 Chain 2: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 3).
 Chain 3: 
-Chain 3: Gradient evaluation took 2.1e-05 seconds
-Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.21 seconds.
+Chain 3: Gradient evaluation took 5e-05 seconds
+Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0.5 seconds.
 Chain 3: Adjust your expectations accordingly!
 Chain 3: 
 Chain 3: 
@@ -877,15 +892,15 @@ Chain 3: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 3: 
-Chain 3:  Elapsed Time: 1.712 seconds (Warm-up)
-Chain 3:                0.969 seconds (Sampling)
-Chain 3:                2.681 seconds (Total)
+Chain 3:  Elapsed Time: 2.934 seconds (Warm-up)
+Chain 3:                1.545 seconds (Sampling)
+Chain 3:                4.479 seconds (Total)
 Chain 3: 
 
 SAMPLING FOR MODEL 'anon_model' NOW (CHAIN 4).
 Chain 4: 
-Chain 4: Gradient evaluation took 2e-05 seconds
-Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.2 seconds.
+Chain 4: Gradient evaluation took 4.2e-05 seconds
+Chain 4: 1000 transitions using 10 leapfrog steps per transition would take 0.42 seconds.
 Chain 4: Adjust your expectations accordingly!
 Chain 4: 
 Chain 4: 
@@ -902,13 +917,13 @@ Chain 4: Iteration: 1600 / 2000 [ 80%]  (Sampling)
 Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
 Chain 4: 
-Chain 4:  Elapsed Time: 1.85 seconds (Warm-up)
-Chain 4:                1.04 seconds (Sampling)
-Chain 4:                2.89 seconds (Total)
+Chain 4:  Elapsed Time: 2.293 seconds (Warm-up)
+Chain 4:                1.648 seconds (Sampling)
+Chain 4:                3.941 seconds (Total)
 Chain 4: </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: There were 4 divergent transitions after warmup. See
+<pre><code>Warning: There were 12 divergent transitions after warmup. See
 https://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup
 to find out why this is a problem and how to eliminate them.</code></pre>
 </div>
@@ -917,8 +932,8 @@ to find out why this is a problem and how to eliminate them.</code></pre>
 </div>
 </div>
 </section>
-<section id="step-3-model-comparison-and-interpretation" class="level3" data-number="7.10.5">
-<h3 data-number="7.10.5" class="anchored" data-anchor-id="step-3-model-comparison-and-interpretation"><span class="header-section-number">7.10.5</span> Step 3: Model Comparison and Interpretation</h3>
+<section id="step-3-model-comparison-and-interpretation" class="level3" data-number="9.10.5">
+<h3 data-number="9.10.5" class="anchored" data-anchor-id="step-3-model-comparison-and-interpretation"><span class="header-section-number">9.10.5</span> Step 3: Model Comparison and Interpretation</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_fe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -931,21 +946,21 @@ Formula: Performance ~ RDInvestment + factor(Industry)
 
 Population-Level Effects: 
                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept           56.31      3.27    49.87    62.76 1.00     5059     2892
-RDInvestment         0.48      0.03     0.42     0.54 1.00     6195     2707
-factorIndustry2     -9.70      2.44   -14.39    -4.87 1.00     2485     2694
-factorIndustry3     -3.82      2.76    -9.27     1.51 1.00     3021     3353
-factorIndustry4     -7.52      2.51   -12.42    -2.46 1.00     2613     3059
-factorIndustry5     -5.44      2.40   -10.26    -0.64 1.00     2463     2742
-factorIndustry6    -12.23      2.38   -16.80    -7.65 1.00     2403     3031
-factorIndustry7      3.83      2.82    -1.64     9.45 1.00     3029     2777
-factorIndustry8      2.00      2.68    -3.29     7.24 1.00     2742     2661
-factorIndustry9    -12.41      2.38   -16.98    -7.70 1.00     2679     2959
-factorIndustry10    -9.77      2.32   -14.29    -5.10 1.00     2182     2861
+Intercept           56.36      3.18    50.06    62.43 1.00     4551     3079
+RDInvestment         0.48      0.03     0.42     0.54 1.00     6471     2899
+factorIndustry2     -9.67      2.52   -14.57    -4.72 1.00     2349     3019
+factorIndustry3     -3.76      2.83    -9.38     1.84 1.00     2793     2972
+factorIndustry4     -7.50      2.53   -12.27    -2.47 1.00     2739     3076
+factorIndustry5     -5.44      2.45   -10.27    -0.72 1.00     2410     2661
+factorIndustry6    -12.23      2.36   -16.86    -7.64 1.00     2097     2677
+factorIndustry7      3.89      2.76    -1.58     9.18 1.00     2881     2500
+factorIndustry8      2.03      2.76    -3.57     7.48 1.00     2660     2838
+factorIndustry9    -12.32      2.44   -17.07    -7.47 1.00     2424     2844
+factorIndustry10    -9.76      2.38   -14.35    -4.97 1.00     2176     2897
 
 Family Specific Parameters: 
       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sigma    10.93      0.46    10.07    11.90 1.00     6677     2883
+sigma    10.94      0.45    10.14    11.88 1.00     7184     2981
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -963,16 +978,16 @@ Formula: Performance ~ RDInvestment + (1 | Industry)
 Group-Level Effects: 
 ~Industry (Number of levels: 10) 
               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sd(Intercept)     6.79      1.95     3.89    11.60 1.00      984     1389
+sd(Intercept)     6.77      2.08     3.95    11.84 1.00      830     1450
 
 Population-Level Effects: 
              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept       50.52      3.80    43.10    58.10 1.00     1927     2305
-RDInvestment     0.48      0.03     0.43     0.55 1.00     4195     3172
+Intercept       50.62      3.92    42.81    58.38 1.00     1760     2192
+RDInvestment     0.48      0.03     0.42     0.55 1.00     3744     2445
 
 Family Specific Parameters: 
       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sigma    10.93      0.47    10.04    11.90 1.00     3875     2207
+sigma    10.95      0.46    10.06    11.90 1.00     3396     2443
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -980,7 +995,7 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_ml)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: There were 4 divergent transitions after warmup. Increasing
+<pre><code>Warning: There were 12 divergent transitions after warmup. Increasing
 adapt_delta above 0.8 may help. See
 http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
 </div>
@@ -995,22 +1010,22 @@ Formula: Performance ~ RDInvestment + (1 + RDInvestment | Industry)
 Group-Level Effects: 
 ~Industry (Number of levels: 10) 
                             Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-sd(Intercept)                   5.37      3.14     0.31    12.32 1.00     1105
-sd(RDInvestment)                0.04      0.03     0.00     0.11 1.00      684
-cor(Intercept,RDInvestment)    -0.02      0.55    -0.93     0.94 1.00     1969
+sd(Intercept)                   5.51      3.22     0.35    12.50 1.00      882
+sd(RDInvestment)                0.04      0.03     0.00     0.11 1.00      762
+cor(Intercept,RDInvestment)     0.01      0.55    -0.91     0.94 1.00     2377
                             Tail_ESS
-sd(Intercept)                   1107
-sd(RDInvestment)                1264
-cor(Intercept,RDInvestment)     1942
+sd(Intercept)                   1066
+sd(RDInvestment)                1474
+cor(Intercept,RDInvestment)     2312
 
 Population-Level Effects: 
              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept       50.46      3.66    43.33    57.52 1.00     3838     3057
-RDInvestment     0.48      0.04     0.42     0.55 1.00     4467     2623
+Intercept       50.43      3.69    43.19    57.73 1.00     3119     2269
+RDInvestment     0.49      0.04     0.42     0.55 1.00     2549     1495
 
 Family Specific Parameters: 
       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sigma    10.95      0.47    10.08    11.93 1.00     6049     2665
+sigma    10.94      0.45    10.09    11.86 1.00     4839     2540
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -1018,8 +1033,8 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
 </section>
-<section id="execution-and-analysis" class="level3" data-number="7.10.6">
-<h3 data-number="7.10.6" class="anchored" data-anchor-id="execution-and-analysis"><span class="header-section-number">7.10.6</span> Execution and Analysis</h3>
+<section id="execution-and-analysis" class="level3" data-number="9.10.6">
+<h3 data-number="9.10.6" class="anchored" data-anchor-id="execution-and-analysis"><span class="header-section-number">9.10.6</span> Execution and Analysis</h3>
 <ul>
 <li>Execute the R code in an environment with <code>brms</code> installed.</li>
 <li>Examine the summaries of each model.</li>
@@ -1112,10 +1127,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn) {
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1125,8 +1139,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1139,6 +1162,125 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1182,6 +1324,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1207,6 +1350,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1268,17 +1437,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./ml.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span>
+      <a href="./ml.html" class="pagination-link  aria-label=" &lt;span="" learning="" in="" finance&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./causal.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Causal inference</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./causal.html" class="pagination-link" aria-label="<span class='chapter-number'>9</span>&nbsp; <span class='chapter-title'>Causal inference</span>">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Causal inference</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

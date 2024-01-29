@@ -1,6 +1,179 @@
 {
     "sources": [
         {
+            "author": [
+                {
+                    "family": "Vilhuber",
+                    "given": "Lars"
+                }
+            ],
+            "container-title": "Annual Review of Economics",
+            "id": "Vilhuber2021",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "page": "45-70",
+            "publisher": "Annual Reviews",
+            "title": "Reproducibility and replicability in economics",
+            "type": "article-journal",
+            "volume": "13"
+        },
+        {
+            "author": [
+                {
+                    "family": "Lo",
+                    "given": "Andrew W."
+                },
+                {
+                    "family": "MacKinlay",
+                    "given": "A. Craig"
+                }
+            ],
+            "id": "lo1997econometrics",
+            "issued": {
+                "date-parts": [
+                    [
+                        1997
+                    ]
+                ]
+            },
+            "publisher": "Princeton University Press",
+            "title": "The econometrics of financial markets",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1017/9781139161879",
+            "author": [
+                {
+                    "family": "Gelman",
+                    "given": "Andrew"
+                },
+                {
+                    "family": "Hill",
+                    "given": "Jennifer"
+                },
+                {
+                    "family": "Vehtari",
+                    "given": "Aki"
+                }
+            ],
+            "id": "Gelman2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "keyword": "",
+            "title": "Regression and Other Stories",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.1111/rssa.12378",
+            "ISSN": "0964-1998",
+            "URL": "https://rss.onlinelibrary.wiley.com/doi/full/10.1111/rssa.12378",
+            "abstract": "Abstract Bayesian data analysis is about more than just computing a posterior distribution, and Bayesian visualization is about more than trace plots of Markov chains. Practical Bayesian data analysis, like all data analysis, is an iterative process of model building, inference, model checking and evaluation, and model expansion. Visualization is helpful in each of these stages of the Bayesian workflow and it is indispensable when drawing inferences from the types of modern, high dimensional models that are used by applied researchers.",
+            "author": [
+                {
+                    "family": "Jonah",
+                    "suffix": "Gabry"
+                },
+                {
+                    "family": "Daniel",
+                    "suffix": "Simpson"
+                },
+                {
+                    "family": "Aki",
+                    "suffix": "Vehtari"
+                },
+                {
+                    "family": "Michael",
+                    "suffix": "Betancourt"
+                },
+                {
+                    "family": "Andrew",
+                    "suffix": "Gelman"
+                }
+            ],
+            "container-title": "J. R. Stat. Soc. Ser. A Stat. Soc.",
+            "id": "Jonah2019",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        2
+                    ]
+                ]
+            },
+            "keyword": "",
+            "page": "389-402",
+            "title": "Visualization in Bayesian workflow",
+            "type": "article-journal",
+            "volume": "182"
+        },
+        {
+            "DOI": "10.2139/ssrn.4520856",
+            "abstract": "We survey the nascent literature on machine learning in the study of financial markets. We highlight the best examples of what this line of research has to offer and recommend promising directions for future research. This survey is designed for both financial economists interested in grasping machine learning tools, as well as for statisticians and machine learners seeking interesting financial contexts where advanced methods may be deployed.",
+            "author": [
+                {
+                    "family": "Kelly",
+                    "given": "Bryan T."
+                },
+                {
+                    "family": "Xiu",
+                    "given": "Dacheng"
+                }
+            ],
+            "container-title": "SSRN Electronic Journal",
+            "id": "Kelly2023FML",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "keyword": "",
+            "title": "Financial Machine Learning",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.2139/ssrn.4171581",
+            "author": [
+                {
+                    "family": "Kelly",
+                    "given": "Bryan T"
+                },
+                {
+                    "family": "Malamud",
+                    "given": "Semyon"
+                },
+                {
+                    "family": "Zhou",
+                    "given": "Kangying"
+                }
+            ],
+            "container-title": "SSRN Electronic Journal",
+            "id": "Kelly2022complexity",
+            "issued": {
+                "date-parts": [
+                    [
+                        2022
+                    ]
+                ]
+            },
+            "keyword": "",
+            "title": "The Virtue of Complexity Everywhere",
+            "type": "article-journal"
+        },
+        {
             "DOI": "10.1093/he/9780198776697.001.0001",
             "author": [
                 {
