@@ -1,11 +1,4 @@
 /.quarto/
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-.*
-=======
+.scopus_api_key
 .Rproj.user
->>>>>>> Stashed changes
-=======
-.Rproj.user
-.*
->>>>>>> fc0dc417c22416b34ecabf6934816b8bb7701582
+.Rhistory
