@@ -2,7 +2,6 @@
 title: "Toolkit"
 author: "Barry Quinn"
 editor: visual
-css: mycssblend.css
 execute: 
   warning: false
   message: false
@@ -207,13 +206,13 @@ In subfields such as corporate finance, converting categorical variables into nu
 
 #### Theoretical Justification
 
-1. **Enhanced Model Functionality**: Financial models often require numerical input. Encoding facilitates the use of categorical data in these models, enhancing their functionality and applicability.
+1.  **Enhanced Model Functionality**: Financial models often require numerical input. Encoding facilitates the use of categorical data in these models, enhancing their functionality and applicability.
 
-2. **Quantitative Analysis**: Numerical representation enables quantitative analysis of categories, which is crucial in financial decision-making.
+2.  **Quantitative Analysis**: Numerical representation enables quantitative analysis of categories, which is crucial in financial decision-making.
 
-3. **Computational Efficiency**: Numerical data is typically more efficient to process and store, which is vital in handling large financial datasets.
+3.  **Computational Efficiency**: Numerical data is typically more efficient to process and store, which is vital in handling large financial datasets.
 
-4. **Pattern Recognition**: Converting to numeric values can reveal underlying patterns and relationships in financial data that might not be evident with categorical labels.
+4.  **Pattern Recognition**: Converting to numeric values can reveal underlying patterns and relationships in financial data that might not be evident with categorical labels.
 
 #### Practical Application in Corporate Finance
 
@@ -226,19 +225,19 @@ corporate_data$Sector <- as.numeric(as.factor(corporate_data$Sector))
 
 Here's what happens:
 
-1. **Factor Conversion**: `as.factor(corporate_data$Sector)` converts the `Sector` column into a factor, grouping the data into distinct categories based on industry sector.
+1.  **Factor Conversion**: `as.factor(corporate_data$Sector)` converts the `Sector` column into a factor, grouping the data into distinct categories based on industry sector.
 
-2. **Numeric Conversion**: `as.numeric(...)` then assigns a unique numeric value to each sector.
+2.  **Numeric Conversion**: `as.numeric(...)` then assigns a unique numeric value to each sector.
 
 #### Best Practices
 
-- **Data Understanding**: Ascertain whether the data is ordinal or nominal. The `Sector` column is typically nominal.
+-   **Data Understanding**: Ascertain whether the data is ordinal or nominal. The `Sector` column is typically nominal.
 
-- **Appropriate Encoding Method**: Numeric encoding is used here for simplicity, but one-hot encoding might be more appropriate for nominal data like sectors to avoid implying any ordinal relationship.
+-   **Appropriate Encoding Method**: Numeric encoding is used here for simplicity, but one-hot encoding might be more appropriate for nominal data like sectors to avoid implying any ordinal relationship.
 
-- **Avoiding Multicollinearity**: If using dummy variables, remember to drop one level to prevent multicollinearity in regression models.
+-   **Avoiding Multicollinearity**: If using dummy variables, remember to drop one level to prevent multicollinearity in regression models.
 
-- **Consistent Encoding**: Ensure consistent encoding across the dataset, especially when combining data from different sources.
+-   **Consistent Encoding**: Ensure consistent encoding across the dataset, especially when combining data from different sources.
 
 Encoding categorical variables in corporate finance datasets paves the way for more sophisticated and insightful financial analysis, leveraging statistical and machine learning techniques.
 
