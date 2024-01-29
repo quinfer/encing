@@ -9,7 +9,7 @@ This chapter delves into the intricacies of modeling multilevel data, specifical
 
 # Introduction
 
-Financial research often involves handling multilevel data structures where observations are nested or cross-classified across different levels (e.g., firms, industries, time periods). The choice of an adequate statistical methodology is crucial as it impacts estimation accuracy and subsequent policy recommendations. This chapter explores two prominent approaches – hierarchical modeling and panel econometrics – along with Bayesian and frequentist viewpoints.
+Financial research often involves handling multilevel data structures where observations are nested or cross-classified across different levels (e.g., firms, industries, time periods). The choice of an adequate statistical methodology is crucial as it impacts estimation accuracy and subsequent policy recommendations. This chapter explores two prominent approaches -- hierarchical modeling and panel econometrics -- along with Bayesian and frequentist viewpoints.
 
 ## Group-Level Data Models
 
@@ -191,14 +191,14 @@ We will fit three models using R's `brms` package, which allows for Bayesian mod
 
 First, install and load the necessary package:
 
-``` {r}
+```{r}
 #install.packages("brms")
 library(brms)
 ```
 
 ### Step 1: Data Simulation
 
-``` {r}
+```{r}
 set.seed(42)
 n_companies <- 300
 n_industries <- 10
@@ -219,7 +219,7 @@ data <- data.frame(Industry = industries, RDInvestment = rd_investment, Performa
 
 ### Step 2: Model Fitting
 
-``` {r}
+```{r}
 # Bayesian Fixed Effects Model
 model_fe <- brm(Performance ~ RDInvestment + factor(Industry), data = data, family = gaussian(), prior = c(set_prior("normal(0,10)", class = "b")))
 
@@ -232,7 +232,7 @@ model_ml <- brm(Performance ~ RDInvestment + (1 + RDInvestment | Industry), data
 
 ### Step 3: Model Comparison and Interpretation
 
-``` {r}
+```{r}
 summary(model_fe)
 summary(model_re)
 summary(model_ml)
