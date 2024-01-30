@@ -4,17 +4,16 @@ author: "Barry Quinn"
 bibliography: references.bib
 nocite: '@*'
 editor: visual
-css: mycssblend.css
 toc: true
 execute: 
   eval: false
 ---
 
-![](images/logos/DALL·E%202024-01-18%2016.32.37%20-%20Create%20a%20professional%20logo%20for%20an%20advanced%20financial%20data%20analytics%20course.%20The%20design%20should%20be%20vibrant,%20with%20a%20medium%20level%20of%20detail,%20balancing%20com.png){width="30%" style="float: left; margin-right: 10px;"}
-<span class="hand">
-Bayesian methods offer some theoretical advantages over traditional statistical techniques in finance. Central to these advantages is the incorporation of prior knowledge or beliefs into the analysis. Unlike frequentist statistics, which rely solely on data from current experiments or studies, Bayesian methods allow for the integration of past data, expert opinions, or established theories. This approach results in a more comprehensive analytical framework, as it continuously updates and refines these beliefs with new data. Additionally, Bayesian statistics provide a probabilistic interpretation of results, offering a more nuanced understanding of uncertainty and risk. This flexibility in accommodating varying degrees of prior knowledge and the ability to update beliefs dynamically make Bayesian methods particularly powerful in theoretical terms.  In practical financial applications, these theoretical advantages translate into enhanced capabilities for solving complex problems. For instance, in risk assessment and portfolio management, Bayesian methods can assimilate historical market data with current trends, allowing for more accurate predictions and robust investment strategies. They are also invaluable in predictive modelling, where they help in forecasting market movements under uncertainty, a common scenario in financial markets. Furthermore, Bayesian techniques aid in the development of more sophisticated pricing models for financial instruments, taking into account a wider range of factors and scenarios. Overall, the ability of Bayesian methods to integrate prior knowledge with new information and their probabilistic nature make them versatile tools in navigating the complexities and uncertainties inherent in financial analysis
-</span>
+![](images/logos/DALL·E%202024-01-18%2016.32.37%20-%20Create%20a%20professional%20logo%20for%20an%20advanced%20financial%20data%20analytics%20course.%20The%20design%20should%20be%20vibrant,%20with%20a%20medium%20level%20of%20detail,%20balancing%20com.png){width="50%" style="float: left; margin-right: 10px;"}
 
+#### Bayesian methods offer a powerful alternative to traditional statistical analysis in the world of finance. These methods incorporate prior knowledge and update beliefs based on new data, providing a dynamic approach to financial analysis. Weeks 3 and 4 of the course will delve into these methods and their practical applications.{.unnumbered}
+
+<br>
 
 ## Bayesian thinking for finance
 
@@ -113,8 +112,6 @@ As previously mentioned, the choice of prior distribution heavily influences sub
 
 In summary, prior distributions are a cornerstone in Bayesian inference, influencing the robustness, interpretability, and convergence of statistical models, especially when faced with complex models or limited data. Their thoughtful selection is vital for making sound inferences.
 :::
-
-
 
 ### Example: Bayesian Inference in Investment Decision-Making
 
@@ -756,7 +753,7 @@ plot(fit_rstanarm)
 7.  `plot(fit_rstanarm)`: Plots the posterior distributions of the parameters.
 
 
-### Volatility Models 
+### Volatility Models EX
 
 For volatility models, we cannot directly apply the BRMS or rstanarm packages, so I will present an example of GARCH(1,1) in pure STAN language, which can be executed using the command line interface or RStan package.
 
@@ -844,65 +841,20 @@ summary(fit_garch_draws);
 
 These explanations accompany the provided codes to help you understand the process of simulating an ARMA(1, 1) process and performing Bayesian estimation using STAN. You can experiment with changing the model parameters and analysing different datasets to deepen your understanding and skills.
 
-#### Stochastic Volatility
-Stochastic volatility is a concept in financial mathematics that describes the phenomenon where the volatility of an asset price is itself randomly changing over time. This is in contrast to the constant volatility assumption in the Black-Scholes model, which was the standard model for option pricing before the development of stochastic volatility models.
+Stochastic Volatility (SV) is another popular volatility model in finance. Similar to GARCH, it models the variance of a time series as a latent process affected by shocks. Unlike GARCH, SV treats the variance as a random variable following a continuous-time diffusion process.
 
-### Key Concepts of Stochastic Volatility:
+In this example, I will show you how to implement a Stochastic Volatility model using the brms package.
 
-1. **Volatility**: In finance, volatility refers to the degree of variation of a trading price series over time. It is often measured by the standard deviation of returns.
+#### Dataset Preparation
 
-2. **Stochastic Process**: A stochastic process is a random process, meaning it is a process that produces a sequence of outcomes where the outcome at any point in time is at least partially random.
+Use the same SP500 dataset as before:
 
-3. **Stochastic Volatility Models**: These models assume that the volatility of the asset is not constant but varies with time and market conditions. This is more realistic as it reflects the observed market behaviour where volatility is not stable.
-
-### Examples of Stochastic Volatility Models:
-
-1. **Heston Model**: Proposed by Steven Heston in 1993, the Heston model is a popular stochastic volatility model for derivative pricing. It characterises the volatility of the asset as a mean-reverting stochastic process.
-
-2. **SABR Model**: The SABR model (Stochastic Alpha, Beta, Rho) is a dynamic model that captures the stochastic volatility and the correlation between the asset price and its volatility.
-
-3. **GARCH Model**: Generalized Autoregressive Conditional Heteroskedasticity (GARCH) models are used in econometrics for time series data to describe volatility clustering, a phenomenon where large changes in prices are followed by large changes and small changes by small changes.
-
-### Mathematical Representation:
-
-In mathematical terms, stochastic volatility models often involve differential equations. For example, in the Heston model, the asset price \( S_t \) and its variance \( v_t \) are described by the following stochastic differential equations:
-
-\[ dS_t = \mu S_t dt + \sqrt{v_t} S_t dW_t^S \]
-\[ dv_t = \kappa (\theta - v_t) dt + \sigma \sqrt{v_t} dW_t^v \]
-
-where \( \mu \) is the rate of return, \( \kappa \) is the rate of mean reversion, \( \theta \) is the long-term variance, \( \sigma \) is the volatility of the volatility, and \( W_t^S \) and \( W_t^v \) are Wiener processes.
-
-Stochastic volatility models are widely used in:
-
-- **Option Pricing**: They provide more accurate pricing, especially for long-dated options and options with a large strike price.
-- **Risk Management**: Understanding the stochastic nature of volatility helps in better risk assessment and management.
-- **Financial Econometrics**: These models are used for empirical analysis of financial time series data.
-
-:::callout-tip
-### Academic Callout: The Evolution of Stochastic Volatility in Financial Models
-
-The concept of stochastic volatility has significantly evolved in the field of financial mathematics, particularly in the context of option pricing and risk management. This evolution reflects a shift from the simplistic assumptions of constant volatility to more complex models that capture the dynamic nature of financial markets.
-
-The journey begins with the Black-Scholes model, which revolutionized option pricing. However, it assumed constant volatility, a limitation that became apparent as markets evolved.
-
-**Introduction of Stochastic Volatility**
-
-- **Hull and White (1987)**: Hull and White's seminal paper "The Pricing of Options on Assets with Stochastic Volatilities" ([@hull1987pricing](#)) marked a significant shift. They introduced a model where volatility itself is a stochastic process, acknowledging that volatility is not constant but varies unpredictably over time.
-
-**Refinement and Expansion**
-
-- **Heston Model (1993)**: Steven Heston further advanced stochastic volatility modeling with his paper "A Closed-Form Solution for Options with Stochastic Volatility with Applications to Bond and Currency Options" ([@heston1993closed](#)). The Heston model provided a closed-form solution for options pricing under stochastic volatility, making it a cornerstone in this field.
-
-**Econometric Perspective**
-
-- **GARCH Models (Bollerslev, 1986)**: While not a stochastic volatility model in the strict sense, Tim Bollerslev's Generalized Autoregressive Conditional Heteroskedasticity (GARCH) model ([@bollerslev1986generalized](#)) is crucial in understanding volatility dynamics. GARCH models, evolving from ARCH models introduced by Engle, treat volatility as a deterministic function of past returns and variances, capturing the phenomenon of volatility clustering in time series data.
-
-**Modern Applications and Developments**
-
-- **SABR Model and Beyond**: Post-Heston, models like the SABR model further refined the understanding of stochastic volatility, especially in the context of interest rate derivatives. Today, stochastic volatility models continue to evolve, incorporating jumps and other complex features to better mirror market behaviors.
-
-The history of stochastic volatility in financial models is a testament to the evolving understanding of market dynamics. From the foundational Black-Scholes model to the sophisticated stochastic volatility models of today, this journey reflects the continuous quest for more accurate and realistic financial modeling techniques. These developments have not only enhanced theoretical understanding but also significantly improved practical applications in risk management and derivative pricing.
-:::
+```{R}
+library(rugarch)
+data(sp500ret)
+sp500ret <- sp500ret[,"SP500RET"]
+n <- length(sp500ret)
+```
 
 #### Implementing the Stochastic Volatility Model in brms
 
@@ -961,3 +913,23 @@ The evolution of statistical methods in econometrics has seen the Bayesian appro
 
 The shift in perception and understanding of Bayesian methods highlights the growing recognition of their value in econometric analysis. As computational capabilities continue to evolve, the practicality and applicability of Bayesian methods in finance and econometrics are likely to expand even further
 
+### Further Reading for Bayesian Methods in Finance
+
+Certainly! Here are links to the recommended further reading books on Bayesian methods in finance. These links typically lead to the books' pages on Amazon or the publishers' websites, where you can find more details:
+
+1.  **"Bayesian Data Analysis" by Andrew Gelman et al.**
+    -   [Amazon Link](https://www.amazon.com/Bayesian-Data-Analysis-Third-Chapman/dp/1439840954)
+2.  **"The Bayesian Choice: From Decision-Theoretic Foundations to Computational Implementation" by Christian P. Robert**
+    -   [Amazon Link](https://www.amazon.com/Bayesian-Choice-Decision-Theoretic-Computational-Implementation/dp/0387715983)
+3.  **"Doing Bayesian Data Analysis: A Tutorial with R, JAGS, and Stan" by John Kruschke**
+    -   [Amazon Link](https://www.amazon.com/Doing-Bayesian-Data-Analysis-Tutorial/dp/0124058884)
+4.  **"Bayesian Analysis with Python" by Osvaldo Martin**
+    -   [Amazon Link](https://www.amazon.com/Bayesian-Analysis-Python-Osvaldo-Martin/dp/1789341655)
+5.  **"Statistical Rethinking: A Bayesian Course with Examples in R and Stan" by Richard McElreath**
+    -   [Amazon Link](https://www.amazon.com/Statistical-Rethinking-Bayesian-Examples-Chapman/dp/036713991X)
+6.  **"Bayesian Methods for Statistical Analysis" by Borek Puza**
+    -   [Amazon Link](https://www.amazon.com/Bayesian-Methods-Statistical-Analysis-Puza/dp/0646545093)
+
+```{r}
+source(scopus.R)
+```
