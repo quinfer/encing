@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Preface",
     "section": "",
-    "text": "Embracing Complexity\nIn the ever-evolving landscape of financial analytics, a paradigm shift has occurred with the integration of machine learning, classical financial time series econometrics, and Bayesian methods. These methodologies together provide a multifaceted approach to tackling the wicked problems in finance, characterized by complexity, uncertainty, and conflicting objectives. Drawing inspiration from seminal works, including (Bryan T. Kelly, Malamud, and Zhou 2022; Bryan T. Kelly and Xiu 2023), this book explores the intricate role these methodologies play in deciphering and predicting the behaviors of financial markets."
+    "text": "Embracing Complexity\nIn the ever-evolving landscape of financial analytics, a paradigm shift has occurred with the integration of machine learning, classical financial time series econometrics, and Bayesian methods. These methodologies together provide a multifaceted approach to tackling the wicked problems in finance, characterised by complexity, uncertainty, and conflicting objectives. Drawing inspiration from seminal works, including (Bryan T. Kelly, Malamud, and Zhou 2022; Bryan T. Kelly and Xiu 2023), this book explores the intricate role these methodologies play in deciphering and predicting the behaviors of financial markets."
   },
   {
     "objectID": "intro.html",
@@ -1131,7 +1131,7 @@
     "href": "index.html#financial-markets-a-complex-predictive-system",
     "title": "Preface",
     "section": "Financial Markets: A Complex Predictive System",
-    "text": "Financial Markets: A Complex Predictive System\nAt the core of financial analytics is the understanding that market prices are not just numbers but predictions, reflecting investors’ expectations about future asset payoffs and risks. Classical financial time series econometrics, with such models like ARIMA and GARCH, offers valuable insights into market dynamics through historical data analysis. However, when faced with the vast and complex datasets of modern finance, these traditional approaches can be limited by their rigidity and strict structural assumptions.\n\nThe Predictive Nature of Market Prices\nIn financial economics, the price of an asset is modeled as the expected discounted future payoff, formalized as:\n\\[P_{it} = E[M_{t+1} X_{it+1} | I_t ]\\]\nWhere:\n\n\\(P_{it}\\) represents the price of asset \\(i\\) at time \\(t\\).\n\\(E[\\cdot]\\) is the expectation operator.\n\\(M_{t+1}\\) denotes the stochastic discount factor, accounting for investors’ time preference and risk aversion.\n\\(X_{it+1}\\) is the future payoff of the asset.\n\\(I_t\\) encapsulates all available information at time \\(t\\).\n\nThis equation underscores that current market prices are essentially the aggregated predictions of investors about future payoffs, adjusted for risk and time preferences."
+    "text": "Financial Markets: A Complex Predictive System\nAt the core of financial analytics is the understanding that market prices are not just numbers but predictions, reflecting investors’ expectations about future asset payoffs and risks. Classical financial time series econometrics, with such models like ARIMA and GARCH, offers valuable insights into market dynamics through historical data analysis. However, when faced with the vast and complex datasets of modern finance, these traditional approaches can be limited by their rigidity and strict structural assumptions.\n\nThe Predictive Nature of Market Prices\nIn financial economics, the price of an asset is modeled as the expected discounted future payoff, formalised as:\n\\[P_{it} = E[M_{t+1} X_{it+1} | I_t ]\\]\nWhere:\n\n\\(P_{it}\\) represents the price of asset \\(i\\) at time \\(t\\).\n\\(E[\\cdot]\\) is the expectation operator.\n\\(M_{t+1}\\) denotes the stochastic discount factor, accounting for investors’ time preference and risk aversion.\n\\(X_{it+1}\\) is the future payoff of the asset.\n\\(I_t\\) encapsulates all available information at time \\(t\\).\n\nThis equation underscores that current market prices are essentially the aggregated predictions of investors about future payoffs, adjusted for risk and time preferences."
   },
   {
     "objectID": "index.html#the-role-of-bayesian-methods-and-machine-learning",
@@ -1145,7 +1145,7 @@
     "href": "index.html#unifying-theoretical-foundations",
     "title": "Preface",
     "section": "Unifying Theoretical Foundations",
-    "text": "Unifying Theoretical Foundations\nThe strengths of these methodologies are encapsulated in their foundational principles. Machine learning’s overparameterization and regularization techniques handle high-dimensional data and mitigate overfitting. Bayesian methods, on the other hand, offer a dynamic and adaptive framework for probabilistic modeling and inference."
+    "text": "Unifying Theoretical Foundations\nThe strengths of these methodologies are encapsulated in their foundational principles. Machine learning’s overparameterisation and regularisation techniques handle high-dimensional data and mitigate overfitting. Bayesian methods, on the other hand, offer a dynamic and adaptive framework for probabilistic modeling and inference."
   },
   {
     "objectID": "index.html#synergizing-econometrics-bayesian-methods-and-machine-learning",
@@ -1381,7 +1381,7 @@
     "href": "index.html#wrap-up",
     "title": "Preface",
     "section": "Wrap-up",
-    "text": "Wrap-up\nThis book embarks on a detailed exploration of how these three pivotal methodologies revolutionize financial data analytics. By embracing the complexity of financial markets and harnessing the collective strengths of econometrics, Bayesian methods, and machine learning, we aim to deepen our understanding of financial predictions and enhance decision-making in finance. Through this journey, readers will gain the necessary insights and tools to navigate the sophisticated realm of financial analytics in today’s world.\n\nAdvanced Financial Data Analytics by Barry Quinn is licensed under Attribution-NonCommercial 4.0 International"
+    "text": "Wrap-up\nThis book embarks on a detailed exploration of how these three pivotal methodologies revolutionise financial data analytics. By embracing the complexity of financial markets and harnessing the collective strengths of econometrics, Bayesian methods, and machine learning, we aim to deepen our understanding of financial predictions and enhance decision-making in finance. Through this journey, readers will gain the necessary insights and tools to navigate the sophisticated realm of financial analytics in today’s world.\n\nAdvanced Financial Data Analytics by Barry Quinn is licensed under Attribution-NonCommercial 4.0 International"
   },
   {
     "objectID": "tools.html#embracing-the-future-with-q-rap",

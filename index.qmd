@@ -8,7 +8,7 @@ bibliography: references.bib
 
 # Embracing Complexity {.unnumbered}
 
-In the ever-evolving landscape of financial analytics, a paradigm shift has occurred with the integration of machine learning, classical financial time series econometrics, and Bayesian methods. These methodologies together provide a multifaceted approach to tackling the [wicked problems](https://q-rap.connect.qub.ac.uk/FAB/about.html) in finance, characterized by complexity, uncertainty, and conflicting objectives. Drawing inspiration from seminal works, including [@Kelly2022complexity; @Kelly2023FML], this book explores the intricate role these methodologies play in deciphering and predicting the behaviors of financial markets.
+In the ever-evolving landscape of financial analytics, a paradigm shift has occurred with the integration of machine learning, classical financial time series econometrics, and Bayesian methods. These methodologies together provide a multifaceted approach to tackling the [wicked problems](https://q-rap.connect.qub.ac.uk/FAB/about.html) in finance, characterised by complexity, uncertainty, and conflicting objectives. Drawing inspiration from seminal works, including [@Kelly2022complexity; @Kelly2023FML], this book explores the intricate role these methodologies play in deciphering and predicting the behaviors of financial markets.
 
 ## Financial Markets: A Complex Predictive System {.unnumbered}
 
@@ -16,7 +16,7 @@ At the core of financial analytics is the understanding that market prices are n
 
 ### The Predictive Nature of Market Prices {.unnumbered}
 
-In financial economics, the price of an asset is modeled as the expected discounted future payoff, formalized as:
+In financial economics, the price of an asset is modeled as the expected discounted future payoff, formalised as:
 
 $$P_{it} = E[M_{t+1} X_{it+1} | I_t ]$$
 
@@ -38,7 +38,7 @@ Machine learning, with its capacity to process large datasets and adapt to vario
 
 ## Unifying Theoretical Foundations {.unnumbered}
 
-The strengths of these methodologies are encapsulated in their foundational principles. Machine learning's overparameterization and regularization techniques handle high-dimensional data and mitigate overfitting. Bayesian methods, on the other hand, offer a dynamic and adaptive framework for probabilistic modeling and inference.
+The strengths of these methodologies are encapsulated in their foundational principles. Machine learning's overparameterisation and regularisation techniques handle high-dimensional data and mitigate overfitting. Bayesian methods, on the other hand, offer a dynamic and adaptive framework for probabilistic modeling and inference.
 
 ## Synergising Econometrics, Bayesian Methods, and Machine Learning {.unnumbered}
 
@@ -80,7 +80,7 @@ Much like Batman we fall so that we can learn to pick ourselves up.
 
 ## Wrap-up {.unnumbered}
 
-This book embarks on a detailed exploration of how these three pivotal methodologies revolutionize financial data analytics. By embracing the complexity of financial markets and harnessing the collective strengths of econometrics, Bayesian methods, and machine learning, we aim to deepen our understanding of financial predictions and enhance decision-making in finance. Through this journey, readers will gain the necessary insights and tools to navigate the sophisticated realm of financial analytics in today's world.
+This book embarks on a detailed exploration of how these three pivotal methodologies revolutionise financial data analytics. By embracing the complexity of financial markets and harnessing the collective strengths of econometrics, Bayesian methods, and machine learning, we aim to deepen our understanding of financial predictions and enhance decision-making in finance. Through this journey, readers will gain the necessary insights and tools to navigate the sophisticated realm of financial analytics in today's world.
 
 <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
 
