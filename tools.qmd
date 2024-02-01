@@ -444,7 +444,7 @@ Programming in R within the Posit IDE provides a robust framework for financial 
 This chapter provides a foundational overview of using R for financial data science in the Posit IDE. The code examples are basic and intended to illustrate the concepts discussed. Depending on the audience's proficiency and the book's scope, you may include more complex examples and in-depth explanations of financial modeling and data analysis techniques.
 :::
 
-## Replicabation and reoduciblity in Financial data analytics
+## Theory behind reproducibility and replication
 
 ### Replication
 
