@@ -20,29 +20,31 @@ Certainly! To access Wharton Research Data Services (WRDS) using R on Posit Clou
 
 As a senior lecturer at Queen's University Belfast, you can leverage your QUB email address to create a WRDS (Wharton Research Data Services) account. WRDS provides a comprehensive source of financial, accounting, economic, management, marketing, banking, and insurance data.
 
-1. **Visit the WRDS Website**: Go to the WRDS website and look for the registration or sign-up option.
+1.  **Visit the WRDS Website**: Go to the WRDS website and look for the registration or sign-up option.
 
-2. **Select Your Institution**: Choose or search for 'Queen's University Belfast' as your affiliated institution.
+2.  **Select Your Institution**: Choose or search for 'Queen's University Belfast' as your affiliated institution.
 
-3. **Provide Your QUB Email**: During the registration process, use your QUB email address (`@qub.ac.uk`) to sign up. This is essential as WRDS uses institutional email addresses for verification.
+3.  **Provide Your QUB Email**: During the registration process, use your QUB email address (`@qub.ac.uk`) to sign up. This is essential as WRDS uses institutional email addresses for verification.
 
-4. **Complete the Registration Form**: Fill in the required details. This typically includes your name, role (e.g., faculty, student, staff), and contact information.
+4.  **Complete the Registration Form**: Fill in the required details. This typically includes your name, role (e.g., faculty, student, staff), and contact information.
 
-5. **Account Verification and Activation**: After submitting the form, WRDS may send a verification email to your QUB account. Follow any provided instructions to activate your account.
+5.  **Account Verification and Activation**: After submitting the form, WRDS may send a verification email to your QUB account. Follow any provided instructions to activate your account.
 
-6. **Set Username and Password**: Once your account is verified and activated, you will be prompted to create a username and password. These credentials will be used to access WRDS data.
+6.  **Set Username and Password**: Once your account is verified and activated, you will be prompted to create a username and password. These credentials will be used to access WRDS data.
 
 ### Accessing WRDS Data Using R on Posit Cloud
 
 After setting up your WRDS account, you can access the data using R on Posit Cloud:
 
-1. **Install and Load the RPostgreSQL Package**:
+1.  **Install and Load the RPostgreSQL Package**:
+
 ```{R}
 # install.packages("RPostgreSQL")
 library(RPostgreSQL)
 ```
 
-2. **Set Up Your WRDS Credentials**:
+2.  **Set Up Your WRDS Credentials**:
+
 ```{R}
    wrds_username <- 'your_username'  # Replace with your WRDS username
    wrds_password <- 'your_password'  # Replace with your WRDS password
@@ -50,7 +52,8 @@ wrds_username <- 'bquinn'
 wrds_password <- 'adamskiquinn'
 ```
 
-3. **Establish a Database Connection**:
+3.  **Establish a Database Connection**:
+
 ```{R}
    drv <- dbDriver("PostgreSQL")
    con <- dbConnect(drv, 
@@ -61,19 +64,20 @@ wrds_password <- 'adamskiquinn'
                     password = wrds_password)
 ```
 
-4. **Query the Database**:
+4.  **Query the Database**:
+
 ```{R}
    query <- "SELECT * FROM your_dataset LIMIT 10;"  # Replace with your query
    data <- dbGetQuery(con, query)
 ```
 
-5. **Close the Connection**:
+5.  **Close the Connection**:
+
 ```{R}
    dbDisconnect(con)
 ```
 
-Remember to use your credentials responsibly and adhere to WRDS's data usage policies. The availability of specific datasets may vary based on your institution's subscription. Always refer to the latest WRDS documentation for the most current information and procedures.
-Remember to handle the data according to WRDS's terms of use, especially regarding confidentiality and redistribution. Also, while querying, be aware of the size of datasets in WRDS, as some are quite large and complex queries might take a significant amount of time or system resources.
+Remember to use your credentials responsibly and adhere to WRDS's data usage policies. The availability of specific datasets may vary based on your institution's subscription. Always refer to the latest WRDS documentation for the most current information and procedures. Remember to handle the data according to WRDS's terms of use, especially regarding confidentiality and redistribution. Also, while querying, be aware of the size of datasets in WRDS, as some are quite large and complex queries might take a significant amount of time or system resources.
 
 ## Case Study: 10 years of daily prices for Chinese Listed Technology Firm
 
