@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Barry Quinn">
-<meta name="dcterms.date" content="2024-01-29">
+<meta name="dcterms.date" content="2024-02-07">
 
 <title>Advanced Financial Data Analytics - 5&nbsp; Financial times series econometrics</title>
 <style>
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -83,13 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -98,7 +92,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -115,12 +108,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./primer.html">Core Concepts</a></li><li class="breadcrumb-item"><a href="./time_series.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./primer.html">Core Concepts</a></li><li class="breadcrumb-item"><a href="./time_series.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -130,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Advanced Financial Data Analytics</a> 
@@ -257,7 +250,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -344,7 +337,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#r-code-example-for-time-series-forecasting" id="toc-r-code-example-for-time-series-forecasting" class="nav-link" data-scroll-target="#r-code-example-for-time-series-forecasting"><span class="header-section-number">7.8.4</span> R Code Example for Time Series Forecasting</a></li>
   <li><a href="#explanation-of-the-r-code-3" id="toc-explanation-of-the-r-code-3" class="nav-link" data-scroll-target="#explanation-of-the-r-code-3"><span class="header-section-number">7.8.5</span> Explanation of the R Code</a></li>
   </ul></li>
-  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">7.9</span> Further reading</a></li>
+  <li><a href="#introduction-to-random-walks-in-financial-time-series" id="toc-introduction-to-random-walks-in-financial-time-series" class="nav-link" data-scroll-target="#introduction-to-random-walks-in-financial-time-series"><span class="header-section-number">7.9</span> Introduction to Random Walks in Financial Time Series</a>
+  <ul class="collapse">
+  <li><a href="#r-simulation-context" id="toc-r-simulation-context" class="nav-link" data-scroll-target="#r-simulation-context"><span class="header-section-number">7.9.1</span> R Simulation Context</a></li>
+  </ul></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">7.10</span> Further reading</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -352,7 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./primer.html">Core Concepts</a></li><li class="breadcrumb-item"><a href="./time_series.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></h1>
 </div>
@@ -371,7 +368,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 29, 2024</p>
+      <p class="date">February 7, 2024</p>
     </div>
   </div>
   
@@ -379,11 +376,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
   
 
-
 </header>
 
-
-<p><img src="images/logos/DALL·E 2024-01-22 10.24.22 - Modify the second logo design for an advanced financial data analytics course by removing any text. Maintain the vibrant style with medium level of de.png" class="img-fluid" style="float: left; margin-right: 10px;;width:30.0%"> <span class="hand"> Financial time series data encapsulates the essence of the financial world’s dynamism, representing a sequence of quantifiable financial events spread across time intervals. This data type is indispensable in the realm of finance, serving as a critical tool for analyzing and interpreting market movements, economic indicators, and financial trends. For analysts, investors, economists, and policy makers, understanding financial time series is not just beneficial – it’s crucial for informed decision-making and strategic planning in the ever-evolving landscape of financial markets. </span></p>
+<p><img src="images/logos/DALL·E 2024-01-22 10.24.22 - Modify the second logo design for an advanced financial data analytics course by removing any text. Maintain the vibrant style with medium level of de.png" class="img-fluid" style="float: left; margin-right: 10px;;width:30.0%"> <span class="hand">Financial time series data encapsulates the essence of the financial world’s dynamism, representing a sequence of quantifiable financial events spread across time intervals. This data type is indispensable in the realm of finance, serving as a critical tool for analyzing and interpreting market movements, economic indicators, and financial trends. For analysts, investors, economists, and policy makers, understanding financial time series is not just beneficial – it’s crucial for informed decision-making and strategic planning in the ever-evolving landscape of financial markets.</span></p>
 <section id="what-is-financial-time-series-data" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="what-is-financial-time-series-data"><span class="header-section-number">5.1</span> What is Financial Time Series Data?</h2>
 <p>At its core, financial time series data is a collection of observations recorded sequentially over time. It encompasses a broad spectrum of data types, including daily stock prices, monthly interest rates, annual GDP figures, and more. Each data point in a time series bears a timestamp, reflecting its unique position in the temporal sequence. This inherent time-dependency is what sets financial time series apart from other statistical data, introducing complexities like trends, seasonality, and autocorrelation.</p>
@@ -443,21 +438,13 @@ Attaching package: 'zoo'</code></pre>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the closing prices</span></span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(aapl_close, <span class="at">main =</span> <span class="st">"AAPL Closing Prices"</span>, <span class="at">col =</span> <span class="st">"blue"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="time_series_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="time_series_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using a simple time series model - Moving Average</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>aapl_ma <span class="ot">&lt;-</span> <span class="fu">rollmean</span>(aapl_close, <span class="at">k =</span> <span class="dv">50</span>, <span class="at">fill =</span> <span class="cn">NA</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(aapl_ma, <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="time_series_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="time_series_files/figure-html/unnamed-chunk-2-2.png" class="img-fluid" width="672"></p>
 </div>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># More advanced analysis - ARIMA model</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
@@ -465,11 +452,7 @@ Attaching package: 'zoo'</code></pre>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>forecast_aapl <span class="ot">&lt;-</span> <span class="fu">forecast</span>(aapl_arima, <span class="at">h =</span> <span class="dv">30</span>)</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forecast_aapl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="time_series_files/figure-html/unnamed-chunk-2-3.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="time_series_files/figure-html/unnamed-chunk-2-3.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>In this R script, we first import Apple’s stock data using the <code>quantmod</code> package. We then plot the closing prices to visualize the data. A simple moving average is applied to smooth out short-term fluctuations and highlight longer-term trends. Finally, an ARIMA (AutoRegressive Integrated Moving Average) model is fitted to the data, offering a more sophisticated forecasting tool. The <code>forecast</code> function is used to predict future stock prices, which can be invaluable for investment decision-making.</p>
@@ -645,11 +628,7 @@ Attaching package: 'zoo'</code></pre>
 <span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Time (Months)"</span>) <span class="sc">+</span></span>
 <span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="time_series_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="time_series_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -711,11 +690,7 @@ alternative hypothesis: stationary</code></pre>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the time series</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(non_stationary_ts, <span class="at">main =</span> <span class="st">"Simulated Non-Stationary Time Series"</span>, <span class="at">ylab =</span> <span class="st">"Value"</span>, <span class="at">xlab =</span> <span class="st">"Time"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="time_series_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="time_series_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Certainly! The next section in your course outline could focus on “Linear Time Series Models,” a critical area in financial time series analysis. This section will be more extensive, covering several key models and their applications. Here’s the markdown-formatted content for inclusion in your Quarto notebook:</p>
@@ -777,11 +752,7 @@ alternative hypothesis: stationary</code></pre>
 <span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the forecast</span></span>
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forecast_arima)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="time_series_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="time_series_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -864,11 +835,7 @@ Attaching package: 'rugarch'</code></pre>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>forecast_garch <span class="ot">&lt;-</span> <span class="fu">ugarchforecast</span>(fit, <span class="at">n.ahead =</span> <span class="dv">10</span>)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forecast_garch,<span class="at">which=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="time_series_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="time_series_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1024,11 +991,7 @@ ts2 0.3912 1.0000</code></pre>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>forecast_var <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_var, <span class="at">n.ahead =</span> <span class="dv">10</span>)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forecast_var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="time_series_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="time_series_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1092,11 +1055,7 @@ ts2 0.3912 1.0000</code></pre>
 <span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the forecast</span></span>
 <span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forecast_values)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="time_series_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
+<p><img src="time_series_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section>
@@ -1111,8 +1070,78 @@ ts2 0.3912 1.0000</code></pre>
 <p>Forecasting financial time series is a blend of art and science, requiring not only technical expertise in statistical methods but also a keen understanding of financial markets and economic conditions.</p>
 </section>
 </section>
-<section id="further-reading" class="level2" data-number="7.9">
-<h2 data-number="7.9" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">7.9</span> Further reading</h2>
+<section id="introduction-to-random-walks-in-financial-time-series" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="introduction-to-random-walks-in-financial-time-series"><span class="header-section-number">7.9</span> Introduction to Random Walks in Financial Time Series</h2>
+<section id="the-concept-of-a-random-walk" class="level4" data-number="7.9.0.1">
+<h4 data-number="7.9.0.1" class="anchored" data-anchor-id="the-concept-of-a-random-walk"><span class="header-section-number">7.9.0.1</span> The Concept of a Random Walk</h4>
+<p>A random walk is a statistical model used to represent the seemingly random movements observed in financial markets. In its simplest form, a random walk suggests that the future path of the price of a financial asset (like a stock or a bond) is unpredictable based on its past movements. The theory posits that price changes are independent of each other and follow a predictable statistical pattern.</p>
+</section>
+<section id="key-characteristics-of-random-walks" class="level4" data-number="7.9.0.2">
+<h4 data-number="7.9.0.2" class="anchored" data-anchor-id="key-characteristics-of-random-walks"><span class="header-section-number">7.9.0.2</span> Key Characteristics of Random Walks</h4>
+<ul>
+<li><strong>Independent and Identically Distributed Steps</strong>: In a random walk model, each step or price change is independent of the previous one, meaning past movements do not influence future movements.</li>
+<li><strong>Stochastic Process</strong>: The random walk is a type of stochastic process, where the next value in the series is determined by both a random component (such as market sentiment) and a deterministic component (like a drift term representing average return).</li>
+<li><strong>Drift and Volatility</strong>: The model often includes a ‘drift’ term, which represents the average expected return, and a ‘volatility’ term, which captures the standard deviation of returns, reflecting the risk or uncertainty.</li>
+</ul>
+</section>
+<section id="random-walks-in-financial-markets" class="level4" data-number="7.9.0.3">
+<h4 data-number="7.9.0.3" class="anchored" data-anchor-id="random-walks-in-financial-markets"><span class="header-section-number">7.9.0.3</span> Random Walks in Financial Markets</h4>
+<p>In finance, the random walk hypothesis is closely linked to the efficient market hypothesis, which suggests that asset prices fully reflect all available information. According to this theory, it’s impossible to consistently outperform the market through any analysis (technical or fundamental), as price changes are essentially random.</p>
+</section>
+<section id="implications" class="level4" data-number="7.9.0.4">
+<h4 data-number="7.9.0.4" class="anchored" data-anchor-id="implications"><span class="header-section-number">7.9.0.4</span> Implications</h4>
+<ul>
+<li><strong>Price Forecasting</strong>: Under the random walk model, forecasting future prices based on historical price data is deemed futile.</li>
+<li><strong>Investment Strategies</strong>: This theory supports passive investment strategies over active trading, as it implies that exploiting market inefficiencies for consistent gains is not feasible in the long term.</li>
+<li><strong>Risk Management</strong>: Understanding the random nature of price movements is crucial for risk management in portfolio construction and financial planning.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Random Walk Simulation in R</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)  <span class="co"># For reproducibility</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>n_steps <span class="ot">&lt;-</span> <span class="dv">1000</span>  <span class="co"># Number of steps in the random walk</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>initial_price <span class="ot">&lt;-</span> <span class="dv">100</span>  <span class="co"># Starting price</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>drift <span class="ot">&lt;-</span> <span class="fl">0.0002</span>  <span class="co"># Drift term, representing the expected return</span></span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>volatility <span class="ot">&lt;-</span> <span class="fl">0.01</span>  <span class="co"># Volatility term, representing the standard deviation of returns</span></span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate random steps, either -1 or 1</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>steps <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>), <span class="at">size =</span> n_steps, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>steps[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># The first step is 0 so that the series starts at the initial price</span></span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert steps to returns</span></span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>returns <span class="ot">&lt;-</span> drift <span class="sc">+</span> volatility <span class="sc">*</span> steps</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the price series</span></span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>prices <span class="ot">&lt;-</span> initial_price <span class="sc">*</span> <span class="fu">exp</span>(<span class="fu">cumsum</span>(returns))</span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting the random walk</span></span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(prices, <span class="at">type =</span> <span class="st">'l'</span>, <span class="at">main =</span> <span class="st">'Random Walk Representation of a Financial Time Series'</span>,</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">'Time Steps'</span>, <span class="at">ylab =</span> <span class="st">'Price'</span>, <span class="at">col =</span> <span class="st">'blue'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="time_series_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section>
+<section id="r-simulation-context" class="level3" data-number="7.9.1">
+<h3 data-number="7.9.1" class="anchored" data-anchor-id="r-simulation-context"><span class="header-section-number">7.9.1</span> R Simulation Context</h3>
+<p>The R script provided simulates a basic random walk, representing a financial time series. This simulation includes: - <strong>Random Steps</strong>: Simulating daily price movements as equally likely to go up or down. - <strong>Drift</strong>: A small positive drift to mimic the long-term average return of a financial asset. - <strong>Volatility</strong>: Incorporating randomness in the magnitude of price changes to reflect market volatility.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This simulation serves as a basic model for understanding financial time series dynamics, though real-world financial data may exhibit more complex behaviors such as trends, seasonality, or mean reversion.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="further-reading" class="level2" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">7.10</span> Further reading</h2>
 
 
 </section>
@@ -1198,9 +1227,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1210,17 +1240,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1233,125 +1254,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1395,7 +1297,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1421,32 +1322,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1508,18 +1383,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./returns.html" class="pagination-link  aria-label=" &lt;span="" financial="" data="" and="" asset="" returns&lt;="" span&gt;"="">
+      <a href="./returns.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Understanding Financial Data and Asset Returns</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./bayesian_methods.html" class="pagination-link" aria-label="<span class='chapter-number'>6</span>&nbsp; <span class='chapter-title'>Bayesian Methods</span>">
+      <a href="./bayesian_methods.html" class="pagination-link">
         <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-
 
 
 
