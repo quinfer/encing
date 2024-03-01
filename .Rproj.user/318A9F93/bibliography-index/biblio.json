@@ -3,6 +3,60 @@
         {
             "author": [
                 {
+                    "family": "Richardson",
+                    "given": "Matthew"
+                },
+                {
+                    "family": "Smith",
+                    "given": "Tom"
+                }
+            ],
+            "container-title": "The Review of Financial Studies",
+            "id": "richardson1991tests",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        1991
+                    ]
+                ]
+            },
+            "page": "227-254",
+            "publisher": "Oxford University Press",
+            "title": "Tests of financial models in the presence of overlapping observations",
+            "type": "article-journal",
+            "volume": "4"
+        },
+        {
+            "author": [
+                {
+                    "family": "Lo",
+                    "given": "Andrew W"
+                },
+                {
+                    "family": "MacKinlay",
+                    "given": "A Craig"
+                }
+            ],
+            "container-title": "Journal of econometrics",
+            "id": "lo1990econometric",
+            "issue": "1-2",
+            "issued": {
+                "date-parts": [
+                    [
+                        1990
+                    ]
+                ]
+            },
+            "page": "181-211",
+            "publisher": "Elsevier",
+            "title": "An econometric analysis of nonsynchronous trading",
+            "type": "article-journal",
+            "volume": "45"
+        },
+        {
+            "author": [
+                {
                     "family": "Vilhuber",
                     "given": "Lars"
                 }

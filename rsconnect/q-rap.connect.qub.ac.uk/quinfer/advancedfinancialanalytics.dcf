@@ -5,9 +5,7 @@ account: quinfer
 server: q-rap.connect.qub.ac.uk
 hostUrl: https://q-rap.connect.qub.ac.uk/__api__
 appId: 65
-bundleId: 399
+bundleId: 402
 url: https://q-rap.connect.qub.ac.uk/AFDA/
-when: 1706361358.82666
-lastSyncTime: 1706361358.82667
 asMultiple: FALSE
 asStatic: TRUE

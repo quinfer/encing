@@ -3,12 +3,8 @@ title: "Machine Learning in Finance"
 author: "Barry Quinn"
 editor: visual
 ---
-```{R}
-reticulate::use_condaenv("XAI")
-```
 
-
-![](images/logos/DALL·E%202024-01-22%2010.21.45%20-%20Create%20the%20third%20logo%20design%20for%20an%20advanced%20financial%20data%20analytics%20course.%20The%20design%20should%20be%20vibrant%20and%20of%20medium%20detail,%20utilizing%20Pantone%20185.png){width="30%" style="float: left; margin-right: 10px;"} [ Welcome to the Machine Learning in Finance section of your course! Machine learning (ML) is increasingly becoming integral to modern financial decision-making, enabling professionals to harness massive data streams and derive powerful insights. ML models offer flexible and sophisticated ways to tackle diverse challenges, from pattern recognition and forecasting to recommendation systems and stress tests. In this introductory segment, we will highlight fundamental ML techniques, outline their primary applications in finance, and clarify the subtle yet vital distinctions between supervised, unsupervised, and reinforcement learning. ]{.hand}
+![](images/logos/DALL·E%202024-01-22%2010.21.45%20-%20Create%20the%20third%20logo%20design%20for%20an%20advanced%20financial%20data%20analytics%20course.%20The%20design%20should%20be%20vibrant%20and%20of%20medium%20detail,%20utilizing%20Pantone%20185.png){width="30%" style="float: left; margin-right: 10px;"} [Welcome to the Machine Learning in Finance section of your course! Machine learning (ML) is increasingly becoming integral to modern financial decision-making, enabling professionals to harness massive data streams and derive powerful insights. ML models offer flexible and sophisticated ways to tackle diverse challenges, from pattern recognition and forecasting to recommendation systems and stress tests. In this introductory segment, we will highlight fundamental ML techniques, outline their primary applications in finance, and clarify the subtle yet vital distinctions between supervised, unsupervised, and reinforcement learning.]{.hand}
 
 # Overview of Machine Learning Techniques in Finance
 
@@ -301,7 +297,7 @@ Implementing Q-learning with a state space of lagged prices in Python involves a
 
 Here's an example in Python:
 
-```python
+``` python
 import numpy as np
 import pandas as pd
 
@@ -359,7 +355,7 @@ Assuming the `price_data` DataFrame has the rolling return and action columns:
 
 Here's the Python code with these components:
 
-```python
+``` python
 import numpy as np
 import pandas as pd
 

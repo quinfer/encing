@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.3.450">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -23,7 +23,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -59,7 +59,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -102,13 +101,7 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 50,
-  "keyboard-shortcut": [
-    "f",
-    "/",
-    "s"
-  ],
-  "show-item-context": false,
+  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -117,7 +110,6 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
-    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
@@ -127,34 +119,6 @@ div.csl-indent {
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="mycssblend.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -163,12 +127,12 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./primer.html">Core Concepts</a></li><li class="breadcrumb-item"><a href="./bayesian_methods.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-        </a>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./primer.html">Core Concepts</a></li><li class="breadcrumb-item"><a href="./bayesian_methods.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -178,7 +142,7 @@ window.Quarto = {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Advanced Financial Data Analytics</a> 
@@ -305,7 +269,7 @@ window.Quarto = {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -345,19 +309,19 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#ar1-example-in-r" id="toc-ar1-example-in-r" class="nav-link" data-scroll-target="#ar1-example-in-r"><span class="header-section-number">6.6.1</span> AR(1) Example in R</a></li>
   <li><a href="#arma11-example-in-r" id="toc-arma11-example-in-r" class="nav-link" data-scroll-target="#arma11-example-in-r"><span class="header-section-number">6.6.2</span> ARMA(1,1) Example in R</a></li>
-  <li><a href="#volatility-models" id="toc-volatility-models" class="nav-link" data-scroll-target="#volatility-models"><span class="header-section-number">6.6.3</span> Volatility Models</a></li>
-  <li><a href="#key-concepts-of-stochastic-volatility" id="toc-key-concepts-of-stochastic-volatility" class="nav-link" data-scroll-target="#key-concepts-of-stochastic-volatility"><span class="header-section-number">6.6.4</span> Key Concepts of Stochastic Volatility:</a></li>
-  <li><a href="#examples-of-stochastic-volatility-models" id="toc-examples-of-stochastic-volatility-models" class="nav-link" data-scroll-target="#examples-of-stochastic-volatility-models"><span class="header-section-number">6.6.5</span> Examples of Stochastic Volatility Models:</a></li>
-  <li><a href="#mathematical-representation" id="toc-mathematical-representation" class="nav-link" data-scroll-target="#mathematical-representation"><span class="header-section-number">6.6.6</span> Mathematical Representation:</a></li>
+  <li><a href="#volatility-models-ex" id="toc-volatility-models-ex" class="nav-link" data-scroll-target="#volatility-models-ex"><span class="header-section-number">6.6.3</span> Volatility Models EX</a></li>
   </ul></li>
-  <li><a href="#common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians" id="toc-common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians" class="nav-link" data-scroll-target="#common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians"><span class="header-section-number">6.7</span> Common Misconceptions of Bayesian Econometrics by Traditional Frequentist Econometricians</a></li>
+  <li><a href="#common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians" id="toc-common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians" class="nav-link" data-scroll-target="#common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians"><span class="header-section-number">6.7</span> Common Misconceptions of Bayesian Econometrics by Traditional Frequentist Econometricians</a>
+  <ul class="collapse">
+  <li><a href="#further-reading-for-bayesian-methods-in-finance" id="toc-further-reading-for-bayesian-methods-in-finance" class="nav-link" data-scroll-target="#further-reading-for-bayesian-methods-in-finance"><span class="header-section-number">6.7.1</span> Further Reading for Bayesian Methods in Finance</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./primer.html">Core Concepts</a></li><li class="breadcrumb-item"><a href="./bayesian_methods.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></h1>
 </div>
@@ -378,11 +342,13 @@ window.Quarto = {
   </div>
   
 
-
 </header>
 
-
-<p><img src="images/logos/DALL·E 2024-01-18 16.32.37 - Create a professional logo for an advanced financial data analytics course. The design should be vibrant, with a medium level of detail, balancing com.png" class="img-fluid" style="float: left; margin-right: 10px;;width:30.0%"> <span class="hand"> Bayesian methods offer some theoretical advantages over traditional statistical techniques in finance. Central to these advantages is the incorporation of prior knowledge or beliefs into the analysis. Unlike frequentist statistics, which rely solely on data from current experiments or studies, Bayesian methods allow for the integration of past data, expert opinions, or established theories. This approach results in a more comprehensive analytical framework, as it continuously updates and refines these beliefs with new data. Additionally, Bayesian statistics provide a probabilistic interpretation of results, offering a more nuanced understanding of uncertainty and risk. This flexibility in accommodating varying degrees of prior knowledge and the ability to update beliefs dynamically make Bayesian methods particularly powerful in theoretical terms. In practical financial applications, these theoretical advantages translate into enhanced capabilities for solving complex problems. For instance, in risk assessment and portfolio management, Bayesian methods can assimilate historical market data with current trends, allowing for more accurate predictions and robust investment strategies. They are also invaluable in predictive modelling, where they help in forecasting market movements under uncertainty, a common scenario in financial markets. Furthermore, Bayesian techniques aid in the development of more sophisticated pricing models for financial instruments, taking into account a wider range of factors and scenarios. Overall, the ability of Bayesian methods to integrate prior knowledge with new information and their probabilistic nature make them versatile tools in navigating the complexities and uncertainties inherent in financial analysis </span></p>
+<p><img src="images/logos/DALL·E 2024-01-18 16.32.37 - Create a professional logo for an advanced financial data analytics course. The design should be vibrant, with a medium level of detail, balancing com.png" class="img-fluid" style="float: left; margin-right: 10px;;width:50.0%"></p>
+<section id="bayesian-methods-offer-a-powerful-alternative-to-traditional-statistical-analysis-in-the-world-of-finance.-these-methods-incorporate-prior-knowledge-and-update-beliefs-based-on-new-data-providing-a-dynamic-approach-to-financial-analysis.-weeks-3-and-4-of-the-course-will-delve-into-these-methods-and-their-practical-applications." class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="bayesian-methods-offer-a-powerful-alternative-to-traditional-statistical-analysis-in-the-world-of-finance.-these-methods-incorporate-prior-knowledge-and-update-beliefs-based-on-new-data-providing-a-dynamic-approach-to-financial-analysis.-weeks-3-and-4-of-the-course-will-delve-into-these-methods-and-their-practical-applications.">Bayesian methods offer a powerful alternative to traditional statistical analysis in the world of finance. These methods incorporate prior knowledge and update beliefs based on new data, providing a dynamic approach to financial analysis. Weeks 3 and 4 of the course will delve into these methods and their practical applications.</h4>
+<p><br></p>
+</section>
 <section id="bayesian-thinking-for-finance" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="bayesian-thinking-for-finance"><span class="header-section-number">6.1</span> Bayesian thinking for finance</h2>
 <p>Bayesian methods in finance represent a paradigm shift from traditional statistical methodologies, offering a unique approach to the interpretation of financial data. These methods, grounded in Bayesian thinking, integrate prior knowledge with observed data, providing a dynamic framework for financial analysis and decision-making.</p>
@@ -1048,8 +1014,8 @@ y_{ij} = \beta_0 + u_j + \epsilon_{ij}
 <li><code>plot(fit_rstanarm)</code>: Plots the posterior distributions of the parameters.</li>
 </ol>
 </section>
-<section id="volatility-models" class="level3" data-number="6.6.3">
-<h3 data-number="6.6.3" class="anchored" data-anchor-id="volatility-models"><span class="header-section-number">6.6.3</span> Volatility Models</h3>
+<section id="volatility-models-ex" class="level3" data-number="6.6.3">
+<h3 data-number="6.6.3" class="anchored" data-anchor-id="volatility-models-ex"><span class="header-section-number">6.6.3</span> Volatility Models EX</h3>
 <p>For volatility models, we cannot directly apply the BRMS or rstanarm packages, so I will present an example of GARCH(1,1) in pure STAN language, which can be executed using the command line interface or RStan package.</p>
 <section id="step-1-define-the-dataset" class="level4" data-number="6.6.3.1">
 <h4 data-number="6.6.3.1" class="anchored" data-anchor-id="step-1-define-the-dataset"><span class="header-section-number">6.6.3.1</span> Step 1: Define the dataset</h4>
@@ -1124,86 +1090,35 @@ model {
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_garch_draws);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>These explanations accompany the provided codes to help you understand the process of simulating an ARMA(1, 1) process and performing Bayesian estimation using STAN. You can experiment with changing the model parameters and analysing different datasets to deepen your understanding and skills.</p>
+<p>Stochastic Volatility (SV) is another popular volatility model in finance. Similar to GARCH, it models the variance of a time series as a latent process affected by shocks. Unlike GARCH, SV treats the variance as a random variable following a continuous-time diffusion process.</p>
+<p>In this example, I will show you how to implement a Stochastic Volatility model using the brms package.</p>
 </section>
-<section id="stochastic-volatility" class="level4" data-number="6.6.3.5">
-<h4 data-number="6.6.3.5" class="anchored" data-anchor-id="stochastic-volatility"><span class="header-section-number">6.6.3.5</span> Stochastic Volatility</h4>
-<p>Stochastic volatility is a concept in financial mathematics that describes the phenomenon where the volatility of an asset price is itself randomly changing over time. This is in contrast to the constant volatility assumption in the Black-Scholes model, which was the standard model for option pricing before the development of stochastic volatility models.</p>
+<section id="dataset-preparation" class="level4" data-number="6.6.3.5">
+<h4 data-number="6.6.3.5" class="anchored" data-anchor-id="dataset-preparation"><span class="header-section-number">6.6.3.5</span> Dataset Preparation</h4>
+<p>Use the same SP500 dataset as before:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rugarch)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(sp500ret)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>sp500ret <span class="ot">&lt;-</span> sp500ret[,<span class="st">"SP500RET"</span>]</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="fu">length</span>(sp500ret)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-</section>
-<section id="key-concepts-of-stochastic-volatility" class="level3" data-number="6.6.4">
-<h3 data-number="6.6.4" class="anchored" data-anchor-id="key-concepts-of-stochastic-volatility"><span class="header-section-number">6.6.4</span> Key Concepts of Stochastic Volatility:</h3>
-<ol type="1">
-<li><p><strong>Volatility</strong>: In finance, volatility refers to the degree of variation of a trading price series over time. It is often measured by the standard deviation of returns.</p></li>
-<li><p><strong>Stochastic Process</strong>: A stochastic process is a random process, meaning it is a process that produces a sequence of outcomes where the outcome at any point in time is at least partially random.</p></li>
-<li><p><strong>Stochastic Volatility Models</strong>: These models assume that the volatility of the asset is not constant but varies with time and market conditions. This is more realistic as it reflects the observed market behaviour where volatility is not stable.</p></li>
-</ol>
-</section>
-<section id="examples-of-stochastic-volatility-models" class="level3" data-number="6.6.5">
-<h3 data-number="6.6.5" class="anchored" data-anchor-id="examples-of-stochastic-volatility-models"><span class="header-section-number">6.6.5</span> Examples of Stochastic Volatility Models:</h3>
-<ol type="1">
-<li><p><strong>Heston Model</strong>: Proposed by Steven Heston in 1993, the Heston model is a popular stochastic volatility model for derivative pricing. It characterises the volatility of the asset as a mean-reverting stochastic process.</p></li>
-<li><p><strong>SABR Model</strong>: The SABR model (Stochastic Alpha, Beta, Rho) is a dynamic model that captures the stochastic volatility and the correlation between the asset price and its volatility.</p></li>
-<li><p><strong>GARCH Model</strong>: Generalized Autoregressive Conditional Heteroskedasticity (GARCH) models are used in econometrics for time series data to describe volatility clustering, a phenomenon where large changes in prices are followed by large changes and small changes by small changes.</p></li>
-</ol>
-</section>
-<section id="mathematical-representation" class="level3" data-number="6.6.6">
-<h3 data-number="6.6.6" class="anchored" data-anchor-id="mathematical-representation"><span class="header-section-number">6.6.6</span> Mathematical Representation:</h3>
-<p>In mathematical terms, stochastic volatility models often involve differential equations. For example, in the Heston model, the asset price ( S_t ) and its variance ( v_t ) are described by the following stochastic differential equations:</p>
-<p>[ dS_t = S_t dt + S_t dW_t^S ] [ dv_t = (- v_t) dt + dW_t^v ]</p>
-<p>where ( ) is the rate of return, ( ) is the rate of mean reversion, ( ) is the long-term variance, ( ) is the volatility of the volatility, and ( W_t^S ) and ( W_t^v ) are Wiener processes.</p>
-<p>Stochastic volatility models are widely used in:</p>
-<ul>
-<li><strong>Option Pricing</strong>: They provide more accurate pricing, especially for long-dated options and options with a large strike price.</li>
-<li><strong>Risk Management</strong>: Understanding the stochastic nature of volatility helps in better risk assessment and management.</li>
-<li><strong>Financial Econometrics</strong>: These models are used for empirical analysis of financial time series data.</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Academic Callout: The Evolution of Stochastic Volatility in Financial Models
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The concept of stochastic volatility has significantly evolved in the field of financial mathematics, particularly in the context of option pricing and risk management. This evolution reflects a shift from the simplistic assumptions of constant volatility to more complex models that capture the dynamic nature of financial markets.</p>
-<p>The journey begins with the Black-Scholes model, which revolutionized option pricing. However, it assumed constant volatility, a limitation that became apparent as markets evolved.</p>
-<p><strong>Introduction of Stochastic Volatility</strong></p>
-<ul>
-<li><strong>Hull and White (1987)</strong>: Hull and White’s seminal paper “The Pricing of Options on Assets with Stochastic Volatilities” (<a href="#"><span class="citation" data-cites="hull1987pricing">(<span><strong>hull1987pricing?</strong></span>)</span></a>) marked a significant shift. They introduced a model where volatility itself is a stochastic process, acknowledging that volatility is not constant but varies unpredictably over time.</li>
-</ul>
-<p><strong>Refinement and Expansion</strong></p>
-<ul>
-<li><strong>Heston Model (1993)</strong>: Steven Heston further advanced stochastic volatility modeling with his paper “A Closed-Form Solution for Options with Stochastic Volatility with Applications to Bond and Currency Options” (<a href="#"><span class="citation" data-cites="heston1993closed">(<span><strong>heston1993closed?</strong></span>)</span></a>). The Heston model provided a closed-form solution for options pricing under stochastic volatility, making it a cornerstone in this field.</li>
-</ul>
-<p><strong>Econometric Perspective</strong></p>
-<ul>
-<li><strong>GARCH Models (Bollerslev, 1986)</strong>: While not a stochastic volatility model in the strict sense, Tim Bollerslev’s Generalized Autoregressive Conditional Heteroskedasticity (GARCH) model (<a href="#"><span class="citation" data-cites="bollerslev1986generalized">(<span><strong>bollerslev1986generalized?</strong></span>)</span></a>) is crucial in understanding volatility dynamics. GARCH models, evolving from ARCH models introduced by Engle, treat volatility as a deterministic function of past returns and variances, capturing the phenomenon of volatility clustering in time series data.</li>
-</ul>
-<p><strong>Modern Applications and Developments</strong></p>
-<ul>
-<li><strong>SABR Model and Beyond</strong>: Post-Heston, models like the SABR model further refined the understanding of stochastic volatility, especially in the context of interest rate derivatives. Today, stochastic volatility models continue to evolve, incorporating jumps and other complex features to better mirror market behaviors.</li>
-</ul>
-<p>The history of stochastic volatility in financial models is a testament to the evolving understanding of market dynamics. From the foundational Black-Scholes model to the sophisticated stochastic volatility models of today, this journey reflects the continuous quest for more accurate and realistic financial modeling techniques. These developments have not only enhanced theoretical understanding but also significantly improved practical applications in risk management and derivative pricing.</p>
-</div>
-</div>
-<section id="implementing-the-stochastic-volatility-model-in-brms" class="level4" data-number="6.6.6.1">
-<h4 data-number="6.6.6.1" class="anchored" data-anchor-id="implementing-the-stochastic-volatility-model-in-brms"><span class="header-section-number">6.6.6.1</span> Implementing the Stochastic Volatility Model in brms</h4>
+<section id="implementing-the-stochastic-volatility-model-in-brms" class="level4" data-number="6.6.3.6">
+<h4 data-number="6.6.3.6" class="anchored" data-anchor-id="implementing-the-stochastic-volatility-model-in-brms"><span class="header-section-number">6.6.3.6</span> Implementing the Stochastic Volatility Model in brms</h4>
 <p>Instead of working directly with the original data, create a transformed dataset with logarithmic volatilities:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>volatilities <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">abs</span>(<span class="fu">diff</span>(sp500ret)))</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>volatilities_transformed <span class="ot">&lt;-</span> <span class="fu">log</span>(volatilities)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>volatilities <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">abs</span>(<span class="fu">diff</span>(sp500ret)))</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>volatilities_transformed <span class="ot">&lt;-</span> <span class="fu">log</span>(volatilities)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Transformed dataset is stored in <code>volatilities_transformed</code>. Now, we can fit the SV model using brms:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>fit_sv <span class="ot">&lt;-</span> <span class="fu">brm</span>(<span class="fu">bf</span>(volatilities_transformed <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fu">t</span>(volatilities_transformed),</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                  phi <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fu">t</span>(volatilities_transformed),</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">nl =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> <span class="fu">data.frame</span>(volatilities_transformed),</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">200</span>, <span class="at">warmup =</span> <span class="dv">1000</span>,</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.95</span>, <span class="at">max_treedepth =</span> <span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>fit_sv <span class="ot">&lt;-</span> <span class="fu">brm</span>(<span class="fu">bf</span>(volatilities_transformed <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fu">t</span>(volatilities_transformed),</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                  phi <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fu">t</span>(volatilities_transformed),</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">nl =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">data =</span> <span class="fu">data.frame</span>(volatilities_transformed),</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">200</span>, <span class="at">warmup =</span> <span class="dv">1000</span>,</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">control =</span> <span class="fu">list</span>(<span class="at">adapt_delta =</span> <span class="fl">0.95</span>, <span class="at">max_treedepth =</span> <span class="dv">15</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Formula includes two parts separated by a comma:</p>
 <ol type="1">
@@ -1212,11 +1127,11 @@ Academic Callout: The Evolution of Stochastic Volatility in Financial Models
 </ol>
 <p>Other arguments configure the MCMC settings.</p>
 </section>
-<section id="results-analysis" class="level4" data-number="6.6.6.2">
-<h4 data-number="6.6.6.2" class="anchored" data-anchor-id="results-analysis"><span class="header-section-number">6.6.6.2</span> Results Analysis</h4>
+<section id="results-analysis" class="level4" data-number="6.6.3.7">
+<h4 data-number="6.6.3.7" class="anchored" data-anchor-id="results-analysis"><span class="header-section-number">6.6.3.7</span> Results Analysis</h4>
 <p>analyse the results similarly to the GARCH example:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stan_diagnostic_plots</span>(fit_sv)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_sv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stan_diagnostic_plots</span>(fit_sv)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_sv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This example demonstrates how to implement a Stochastic Volatility model using brms. You can modify the model settings or change the dataset to develop a deeper understanding and skillset.</p>
 </section>
 </section>
@@ -1233,9 +1148,41 @@ Academic Callout: The Evolution of Stochastic Volatility in Financial Models
 <li><p><strong>Inapplicability in Certain Areas</strong>: It’s sometimes thought that Bayesian methods are not applicable to certain problems in econometrics. However, with the advancement in computational methods, Bayesian solutions have been developed for a broad range of problems, often providing insightful and useful results.</p></li>
 </ol>
 <p>The shift in perception and understanding of Bayesian methods highlights the growing recognition of their value in econometric analysis. As computational capabilities continue to evolve, the practicality and applicability of Bayesian methods in finance and econometrics are likely to expand even further</p>
+<section id="further-reading-for-bayesian-methods-in-finance" class="level3" data-number="6.7.1">
+<h3 data-number="6.7.1" class="anchored" data-anchor-id="further-reading-for-bayesian-methods-in-finance"><span class="header-section-number">6.7.1</span> Further Reading for Bayesian Methods in Finance</h3>
+<p>Certainly! Here are links to the recommended further reading books on Bayesian methods in finance. These links typically lead to the books’ pages on Amazon or the publishers’ websites, where you can find more details:</p>
+<ol type="1">
+<li><strong>“Bayesian Data Analysis” by Andrew Gelman et al.</strong>
+<ul>
+<li><a href="https://www.amazon.com/Bayesian-Data-Analysis-Third-Chapman/dp/1439840954">Amazon Link</a></li>
+</ul></li>
+<li><strong>“The Bayesian Choice: From Decision-Theoretic Foundations to Computational Implementation” by Christian P. Robert</strong>
+<ul>
+<li><a href="https://www.amazon.com/Bayesian-Choice-Decision-Theoretic-Computational-Implementation/dp/0387715983">Amazon Link</a></li>
+</ul></li>
+<li><strong>“Doing Bayesian Data Analysis: A Tutorial with R, JAGS, and Stan” by John Kruschke</strong>
+<ul>
+<li><a href="https://www.amazon.com/Doing-Bayesian-Data-Analysis-Tutorial/dp/0124058884">Amazon Link</a></li>
+</ul></li>
+<li><strong>“Bayesian Analysis with Python” by Osvaldo Martin</strong>
+<ul>
+<li><a href="https://www.amazon.com/Bayesian-Analysis-Python-Osvaldo-Martin/dp/1789341655">Amazon Link</a></li>
+</ul></li>
+<li><strong>“Statistical Rethinking: A Bayesian Course with Examples in R and Stan” by Richard McElreath</strong>
+<ul>
+<li><a href="https://www.amazon.com/Statistical-Rethinking-Bayesian-Examples-Chapman/dp/036713991X">Amazon Link</a></li>
+</ul></li>
+<li><strong>“Bayesian Methods for Statistical Analysis” by Borek Puza</strong>
+<ul>
+<li><a href="https://www.amazon.com/Bayesian-Methods-Statistical-Analysis-Puza/dp/0646545093">Amazon Link</a></li>
+</ul></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(scopus.R)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-Brooks2019" class="csl-entry" role="listitem">
 Brooks, Christopher M. 2019. <em>Introductory Econometrics for Finance</em>. Cambridge University Press.
 </div>
@@ -1334,6 +1281,7 @@ Vilhuber, Lars. 2021. <span>“Reproducibility and Replicability in Economics.�
 </div>
 </div>
 </section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1415,9 +1363,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+  function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
+      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -1427,17 +1376,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start',
+      placement: 'bottom-start'
     };
-    if (contentFn) {
-      config.content = contentFn;
-    }
-    if (onTriggerFn) {
-      config.onTrigger = onTriggerFn;
-    }
-    if (onUntriggerFn) {
-      config.onUntrigger = onUntriggerFn;
-    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -1450,125 +1390,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
       return note.innerHTML;
-    });
-  }
-  const xrefs = window.document.querySelectorAll('a.quarto-xref');
-  const processXRef = (id, note) => {
-    // Strip column container classes
-    const stripColumnClz = (el) => {
-      el.classList.remove("page-full", "page-columns");
-      if (el.children) {
-        for (const child of el.children) {
-          stripColumnClz(child);
-        }
-      }
-    }
-    stripColumnClz(note)
-    if (id === null || id.startsWith('sec-')) {
-      // Special case sections, only their first couple elements
-      const container = document.createElement("div");
-      if (note.children && note.children.length > 2) {
-        container.appendChild(note.children[0].cloneNode(true));
-        for (let i = 1; i < note.children.length; i++) {
-          const child = note.children[i];
-          if (child.tagName === "P" && child.innerText === "") {
-            continue;
-          } else {
-            container.appendChild(child.cloneNode(true));
-            break;
-          }
-        }
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(container);
-        }
-        return container.innerHTML
-      } else {
-        if (window.Quarto?.typesetMath) {
-          window.Quarto.typesetMath(note);
-        }
-        return note.innerHTML;
-      }
-    } else {
-      // Remove any anchor links if they are present
-      const anchorLink = note.querySelector('a.anchorjs-link');
-      if (anchorLink) {
-        anchorLink.remove();
-      }
-      if (window.Quarto?.typesetMath) {
-        window.Quarto.typesetMath(note);
-      }
-      // TODO in 1.5, we should make sure this works without a callout special case
-      if (note.classList.contains("callout")) {
-        return note.outerHTML;
-      } else {
-        return note.innerHTML;
-      }
-    }
-  }
-  for (var i=0; i<xrefs.length; i++) {
-    const xref = xrefs[i];
-    tippyHover(xref, undefined, function(instance) {
-      instance.disable();
-      let url = xref.getAttribute('href');
-      let hash = undefined; 
-      if (url.startsWith('#')) {
-        hash = url;
-      } else {
-        try { hash = new URL(url).hash; } catch {}
-      }
-      if (hash) {
-        const id = hash.replace(/^#\/?/, "");
-        const note = window.document.getElementById(id);
-        if (note !== null) {
-          try {
-            const html = processXRef(id, note.cloneNode(true));
-            instance.setContent(html);
-          } finally {
-            instance.enable();
-            instance.show();
-          }
-        } else {
-          // See if we can fetch this
-          fetch(url.split('#')[0])
-          .then(res => res.text())
-          .then(html => {
-            const parser = new DOMParser();
-            const htmlDoc = parser.parseFromString(html, "text/html");
-            const note = htmlDoc.getElementById(id);
-            if (note !== null) {
-              const html = processXRef(id, note);
-              instance.setContent(html);
-            } 
-          }).finally(() => {
-            instance.enable();
-            instance.show();
-          });
-        }
-      } else {
-        // See if we can fetch a full url (with no hash to target)
-        // This is a special case and we should probably do some content thinning / targeting
-        fetch(url)
-        .then(res => res.text())
-        .then(html => {
-          const parser = new DOMParser();
-          const htmlDoc = parser.parseFromString(html, "text/html");
-          const note = htmlDoc.querySelector('main.content');
-          if (note !== null) {
-            // This should only happen for chapter cross references
-            // (since there is no id in the URL)
-            // remove the first header
-            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
-              note.children[0].remove();
-            }
-            const html = processXRef(null, note);
-            instance.setContent(html);
-          } 
-        }).finally(() => {
-          instance.enable();
-          instance.show();
-        });
-      }
-    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -1612,7 +1433,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
-            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -1638,32 +1458,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
-        // Handle positioning of the toggle
-    window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-    );
-    function throttle(fn, ms) {
-    let throttle = false;
-    let timer;
-      return (...args) => {
-        if(!throttle) { // first call gets through
-            fn.apply(this, args);
-            throttle = true;
-        } else { // all the others get throttled
-            if(timer) clearTimeout(timer); // cancel #2
-            timer = setTimeout(() => {
-              fn.apply(this, args);
-              timer = throttle = false;
-            }, ms);
-        }
-      };
-    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -1725,18 +1519,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./time_series.html" class="pagination-link  aria-label=" &lt;span="" times="" series="" econometrics&lt;="" span&gt;"="">
+      <a href="./time_series.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./ml.html" class="pagination-link" aria-label="<span class='chapter-number'>7</span>&nbsp; <span class='chapter-title'>Machine Learning in Finance</span>">
+      <a href="./ml.html" class="pagination-link">
         <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-
 
 
 

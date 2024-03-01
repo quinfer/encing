@@ -5,137 +5,82 @@ editor: visual
 bibliography: references.bib
 ---
 
-
-
-![](images/logos/DALL·E 2024-01-18 16.32.37 - Create a professional logo for an advanced financial data analytics course. The design should be vibrant, with a medium level of detail, balancing com.png){width=30% style="float: left; margin-right: 10px;"}
+![](images/logos/DALL·E%202024-01-18%2016.32.37%20-%20Create%20a%20professional%20logo%20for%20an%20advanced%20financial%20data%20analytics%20course.%20The%20design%20should%20be%20vibrant,%20with%20a%20medium%20level%20of%20detail,%20balancing%20com.png){width="30%" style="float: left; margin-right: 10px;"}
 
 Financial time series, such as asset prices, exchange rates, and interest rates, are fundamental in econometric analysis. Unlike prices, returns are more commonly used due to their desirable statistical properties, such as stationarity and scale independence. This chapter will explore various aspects of financial returns.
 
-## We transform prices to returns
+# We transform prices to returns
 
 In financial econometrics, the focus on analyzing returns rather than prices is both theoretically and practically driven. Here's a detailed explanation based on the book @lo1997econometrics
 
-### Theoretical Reasons
+## Theoretical Reasons
 
-1. **Stationarity**: Financial time series of prices are typically non-stationary, meaning their statistical properties (like mean and variance) change over time. This non-stationarity violates the basic assumptions of many econometric models. Returns, calculated as the percentage change in prices, are more likely to be stationary. Stationary data is crucial for applying many statistical and econometric techniques, as it ensures that the model's parameters are constant over time.
+1.  **Stationarity**: Financial time series of prices are typically non-stationary, meaning their statistical properties (like mean and variance) change over time. This non-stationarity violates the basic assumptions of many econometric models. Returns, calculated as the percentage change in prices, are more likely to be stationary. Stationary data is crucial for applying many statistical and econometric techniques, as it ensures that the model's parameters are constant over time.
 
-2. **Difficulties with Non-Stationary Data**: Working with non-stationary data can lead to spurious regression problems, where relationships between variables appear significant even when they are not. Returns typically exhibit weaker forms of non-stationarity compared to prices, reducing the risk of such misleading results.
+2.  **Difficulties with Non-Stationary Data**: Working with non-stationary data can lead to spurious regression problems, where relationships between variables appear significant even when they are not. Returns typically exhibit weaker forms of non-stationarity compared to prices, reducing the risk of such misleading results.
 
-3. **Economic Theory Alignment**: Returns represent the reward for bearing risk, which is a fundamental concept in financial economics. Analyzing returns aligns more closely with economic theories that focus on risk and reward, such as the Capital Asset Pricing Model (CAPM) and Efficient Market Hypothesis (EMH).
+3.  **Economic Theory Alignment**: Returns represent the reward for bearing risk, which is a fundamental concept in financial economics. Analyzing returns aligns more closely with economic theories that focus on risk and reward, such as the Capital Asset Pricing Model (CAPM) and Efficient Market Hypothesis (EMH).
 
-4. **Volatility Modeling**: Returns facilitate the modeling of volatility, a key aspect in financial markets. Models like GARCH (Generalized Autoregressive Conditional Heteroskedasticity) are designed to capture the volatility clustering often observed in returns, which is not as apparent when analyzing prices directly.
+4.  **Volatility Modeling**: Returns facilitate the modeling of volatility, a key aspect in financial markets. Models like GARCH (Generalized Autoregressive Conditional Heteroskedasticity) are designed to capture the volatility clustering often observed in returns, which is not as apparent when analyzing prices directly.
 
-### Transaction Costs
+## Transaction Costs
 
-1. **Round Trip Transaction Costs**: This concept usually refers to the total costs incurred in completing a full investment cycle – buying and then subsequently selling a financial asset. These costs include brokerage fees, bid-ask spreads, taxes, and other transaction expenses.
+1.  **Round Trip Transaction Costs**: This concept usually refers to the total costs incurred in completing a full investment cycle – buying and then subsequently selling a financial asset. These costs include brokerage fees, bid-ask spreads, taxes, and other transaction expenses.
 
-2. **Impact on Returns Analysis**: When considering round trip transaction costs in the context of financial markets, it's important to analyze returns rather than prices. This is because the actual return on an investment needs to account for these costs. For instance, even if an asset's price appreciates, the net return might be lower (or even negative) after accounting for transaction costs.
+2.  **Impact on Returns Analysis**: When considering round trip transaction costs in the context of financial markets, it's important to analyze returns rather than prices. This is because the actual return on an investment needs to account for these costs. For instance, even if an asset's price appreciates, the net return might be lower (or even negative) after accounting for transaction costs.
 
-3. **Modeling and Risk Assessment**: In econometric models, incorporating transaction costs is crucial for realistic risk and return assessments. These costs can significantly impact the viability and attractiveness of trading strategies, especially those involving frequent transactions.
+3.  **Modeling and Risk Assessment**: In econometric models, incorporating transaction costs is crucial for realistic risk and return assessments. These costs can significantly impact the viability and attractiveness of trading strategies, especially those involving frequent transactions.
 
-4. **Behavioral Implications**: Transaction costs also influence investor behavior. High costs might deter frequent trading, thereby affecting the liquidity and price volatility of assets.
+4.  **Behavioral Implications**: Transaction costs also influence investor behavior. High costs might deter frequent trading, thereby affecting the liquidity and price volatility of assets.
 
+## Practical Reasons
 
-### Practical Reasons
+1.  **Comparability**: Returns standardize the performance across different assets, allowing for meaningful comparisons. For instance, a \$5 increase in a \$10 stock is a 50% return, whereas the same \$5 increase in a \$100 stock is only a 5% return. Analyzing prices would not capture this difference in performance.
 
-1. **Comparability**: Returns standardize the performance across different assets, allowing for meaningful comparisons. For instance, a $5 increase in a $10 stock is a 50% return, whereas the same $5 increase in a $100 stock is only a 5% return. Analyzing prices would not capture this difference in performance.
+2.  **Simplicity in Modeling**: Modeling returns simplifies the mathematical complexity involved in dealing with non-stationary price series. This simplification allows for more straightforward interpretation and application of models.
 
-2. **Simplicity in Modeling**: Modeling returns simplifies the mathematical complexity involved in dealing with non-stationary price series. This simplification allows for more straightforward interpretation and application of models.
+3.  **Risk Management**: In financial risk management, the focus is often on the variability of returns (i.e., risk) rather than absolute price levels. Analyzing returns directly aligns with this focus, aiding in the development of risk management strategies.
 
-3. **Risk Management**: In financial risk management, the focus is often on the variability of returns (i.e., risk) rather than absolute price levels. Analyzing returns directly aligns with this focus, aiding in the development of risk management strategies.
-
-4. **Efficient Market Considerations**: In efficient markets, it is believed that all available information is already reflected in current prices. Therefore, the focus is on changes in prices (returns), which reflect new information, rather than on the price levels themselves.
-
-
-::: callout-tip
-### TL;DR
-Analysing returns rather than prices in financial time series is rooted in both theoretical foundations and practical considerations. The stationarity of returns, their alignment with economic theories, and their suitability for risk and volatility modeling are key theoretical reasons. Practically, returns offer comparability across assets, simplify modeling, align with risk management practices, and are more relevant in the context of efficient markets.
-:::
-
-## Introduction to Random Walks in Financial Time Series
-
-#### The Concept of a Random Walk
-A random walk is a statistical model used to represent the seemingly random movements observed in financial markets. In its simplest form, a random walk suggests that the future path of the price of a financial asset (like a stock or a bond) is unpredictable based on its past movements. The theory posits that price changes are independent of each other and follow a predictable statistical pattern.
-
-#### Key Characteristics of Random Walks
-- **Independent and Identically Distributed Steps**: In a random walk model, each step or price change is independent of the previous one, meaning past movements do not influence future movements.
-- **Stochastic Process**: The random walk is a type of stochastic process, where the next value in the series is determined by both a random component (such as market sentiment) and a deterministic component (like a drift term representing average return).
-- **Drift and Volatility**: The model often includes a 'drift' term, which represents the average expected return, and a 'volatility' term, which captures the standard deviation of returns, reflecting the risk or uncertainty.
-
-#### Random Walks in Financial Markets
-In finance, the random walk hypothesis is closely linked to the efficient market hypothesis, which suggests that asset prices fully reflect all available information. According to this theory, it's impossible to consistently outperform the market through any analysis (technical or fundamental), as price changes are essentially random.
-
-#### Implications
-- **Price Forecasting**: Under the random walk model, forecasting future prices based on historical price data is deemed futile.
-- **Investment Strategies**: This theory supports passive investment strategies over active trading, as it implies that exploiting market inefficiencies for consistent gains is not feasible in the long term.
-- **Risk Management**: Understanding the random nature of price movements is crucial for risk management in portfolio construction and financial planning.
+4.  **Efficient Market Considerations**: In efficient markets, it is believed that all available information is already reflected in current prices. Therefore, the focus is on changes in prices (returns), which reflect new information, rather than on the price levels themselves.
 
 
-```{R}
-# Random Walk Simulation in R
+# Asset Returns
 
-set.seed(0)  # For reproducibility
-n_steps <- 1000  # Number of steps in the random walk
-initial_price <- 100  # Starting price
-drift <- 0.0002  # Drift term, representing the expected return
-volatility <- 0.01  # Volatility term, representing the standard deviation of returns
+## One-Period Simple Returns
 
-# Generate random steps, either -1 or 1
-steps <- sample(c(-1, 1), size = n_steps, replace = TRUE)
-steps[1] <- 0  # The first step is 0 so that the series starts at the initial price
-
-# Convert steps to returns
-returns <- drift + volatility * steps
-
-# Calculate the price series
-prices <- initial_price * exp(cumsum(returns))
-
-# Plotting the random walk
-plot(prices, type = 'l', main = 'Random Walk Representation of a Financial Time Series',
-     xlab = 'Time Steps', ylab = 'Price', col = 'blue')
-```
-
-### R Simulation Context
-The R script provided simulates a basic random walk, representing a financial time series. This simulation includes:
-- **Random Steps**: Simulating daily price movements as equally likely to go up or down.
-- **Drift**: A small positive drift to mimic the long-term average return of a financial asset.
-- **Volatility**: Incorporating randomness in the magnitude of price changes to reflect market volatility.
-
-::: callout-important
-This simulation serves as a basic model for understanding financial time series dynamics, though real-world financial data may exhibit more complex behaviors such as trends, seasonality, or mean reversion.
-:::
-
-## Asset Returns
-
-### One-Period Simple Returns
 Simple returns represent the percentage change in asset price over a single period and are calculated as follows:
 
 $$ R_t = \frac{P_t - P_{t-1}}{P_{t-1}} $$
 
-where \( R_t \) is the return at time \( t \), \( P_t \) is the price at time \( t \), and \( P_{t-1} \) is the price at time \( t-1 \).
+where ( R_t ) is the return at time ( t ), ( P_t ) is the price at time ( t ), and ( P\_{t-1} ) is the price at time ( t-1 ).
 
-#### R Example:
 ```{R}
+library(tsfe)
 # Assuming 'prices' is a vector of asset prices
-returns <- diff(prices) / lag(prices, 1)
+prices<-monte_carlo_paths()
+prices<-filter(prices, possible_path_no==1)
+
+returns <- na.omit(diff(prices$sample_path)) / lag(prices$sample_path, 1)
 returns <- na.omit(returns)
 ```
 
-### Multiperiod Simple Returns
-For multiple periods, simple returns are compounded. The formula for a return over \( n \) periods is:
+## Multiperiod Simple Returns
+
+For multiple periods, simple returns are compounded. The formula for a return over ( n ) periods is:
 
 $$ R_{t, t+n} = \prod_{i=1}^{n} (1 + R_{t+i}) - 1 $$
 
-#### R Example:
+
 ```{R}
 # To calculate multiperiod returns
 multiperiod_return <- prod(1 + returns) - 1
 ```
 
-### Time Interval Considerations
+## Time Interval Considerations
+
 The time interval of returns (daily, monthly, yearly) significantly impacts their magnitude and volatility. Annualizing returns involves scaling them to a yearly basis, usually by multiplying (for simple returns) or exponentiation (for log returns) by the number of periods per year.
 
-#### R Example:
+
 ```{R}
 daily_return <- returns
 # Annualizing daily returns (assuming 252 trading days in a year)
@@ -143,65 +88,273 @@ annualized_return <- (1 + daily_return) ^ 252 - 1
 ```
 
 ## Continuously Compounded Returns
+
 Continuously compounded, or log returns, are computed as the natural logarithm of the price ratio:
 
 $$ r_t = \ln\left(\frac{P_t}{P_{t-1}}\right) $$
 
 Log returns are time-additive, making them suitable for multi-period returns calculation and econometric modeling.
 
-#### R Example:
+
 ```{R}
-log_returns <- diff(log(prices))
+log_returns <- diff(log(prices$sample_path))
 log_returns <- na.omit(log_returns)
 ```
 
 ## Portfolio Returns
+
 Portfolio returns are the weighted average of individual asset returns, reflecting the portfolio composition.
 
 ### Simple Portfolio Returns
+
 The simple return of a portfolio is the sum of the weighted returns of each asset.
 
 $$ R_{portfolio} = \sum_{i=1}^{N} w_i R_i $$
 
-where \( w_i \) is the weight of the \( i^{th} \) asset in the portfolio, and \( R_i \) is its return.
+where ( w_i ) is the weight of the ( i\^{th} ) asset in the portfolio, and ( R_i ) is its return.
 
-#### R Example:
-```r
+
+``` r
 # Assuming 'weights' is a vector of portfolio weights and 'returns' is a matrix of returns
 portfolio_return <- rowSums(weights * returns)
 ```
 
 ### Log Portfolio Returns
+
 For log returns, the portfolio return is not a simple weighted sum but can be approximated for small individual returns.
 
 ## Adjustments for Dividend Payments
+
 Total return, considering both price changes and dividends, gives a more complete picture of an asset's performance.
 
 $$ R_{total} = \frac{P_t + D_t - P_{t-1}}{P_{t-1}} $$
 
-where \( D_t \) is the dividend paid at time \( t \).
+where ( D_t ) is the dividend paid at time ( t ).
 
 ## Excess Returns
+
 Excess return is the return of an asset over and above a benchmark or risk-free rate, crucial in risk-adjusted performance analysis.
 
 $$ R_{excess} = R_{asset} - R_{benchmark} $$
 
 ## Bond Yields and Prices
-This section would cover various bond types and their yield calculations, including Yield to Maturity (YTM) and Current Yield.
 
-## Implied Volatility
-Discuss implied volatility in options pricing, particularly with the Black-Scholes model. Introduce the CBOE VIX as a real-world application.
+Here is an expansion of the Bond Yields and Prices section with more details and examples on the sub-topics:
 
-#### R Example:
-```{R}
-library(forecast)
-# Assuming 'log_returns' is a vector of log returns
-model <- auto.arima(log_returns)
-forecast <- forecast(model)
+## Bond Yields and Prices
+
+Bonds are debt instruments issued by governments, municipalities, and corporations to raise capital. Key bond features include:
+
+### Coupon Rate
+The coupon rate is the periodic interest rate paid on the par value, typically semiannually. It represents an annual percentage yield to the investor based on invested capital. Coupon payments are calculated as:  
+
+```{r}
+pv <- 100  
+cpn <- 0.05
+cpn_payment <- pv * cpn  
+print(cpn_payment)
 ```
 
-## Conclusion
-This chapter provides an in-depth understanding of financial data and asset returns, essential for effective financial analysis and investment strategies.  
+### Maturity Date
+The maturity date determines the bond’s term or tenor. Longer-dated bonds generally pay higher yields to compensate investors for reduced liquidity and higher interest rate risk over time. Maturity also impacts the relationship between price and yield.
+
+### Factors Impacting Yields
+
+Several factors determine the base yield investors demand on bonds:
+
+**Credit Risk** - Probability that principal and interest will not be repaid as obligated. Lower rated bonds offer higher yields to offset higher default risk.
+
+**Time to Maturity** - As discussed, longer maturities require higher yields.
+
+**Tax Treatment** - Tax exemptions for municipal bonds allow them to pay lower pre-tax yields.
+
+**Liquidity** - Easier tradability allows lower yields to compensate for reduced risk.
+
+**Interest Rates** - Prevailing rates determine a baseline for yield levels across bonds.  
+
+For example, 10-year BBB corporate bonds currently offer higher yields than 10-year Treasuries due to higher credit risk:
+
+```{r}
+library(quantmod)  
+
+corp_ytm <- 0.049  # 4.9% YTM
+tbill_ytm<- 0.038   # 3.8% YTM 
+
+print(paste0("Corporate Bond Premium = ", round(100*(corp_ytm - tbill_ytm), 2), " basis points"))
+```
+
+### Bond Categories 
+
+Sure, here is an expansion on the different bond categories:
+
+### Bond Categories
+
+There are a few major categories of bonds:
+
+**Treasury Bonds** - Issued by the federal government and considered essentially default risk-free. Treasuries make up the largest single debt market and serve benchmark pricing and yield roles. Different types are distinguished by maturity:
+
+- Treasury bills - Maturities less than 1 year 
+- Treasury notes - 2 to 10 year maturities
+- Treasury bonds - Over 10 years 
+
+**Municipal Bonds** - Issued by state and local governments to finance public infrastructure projects. Key features include tax exemption and thus lower yields along with higher default risk than federal government:  
+
+```{r}
+# Taxable equivalent yield
+tax_rate <- 0.3
+tax_exempt_yield <- 0.02  
+
+equivalent_taxable_yield <- tax_exempt_yield / (1 - tax_rate) 
+equivalent_taxable_yield
+```
+
+**Corporate Bonds** - Debt issued by corporations and are categorized by credit ratings. Investment-grade bonds (BBB-or higher rating) offer modest yields while high-yield "junk" bonds pay much higher yields due to elevated default risk.
+
+**Mortgage Bonds** – Debt collateralized by pools of mortgage loans with interest and principal used to make payments. 
+
+In terms of total volume outstanding in the US, Treasury and corporate bonds have the greatest market size followed by mortgage-related and municipal securities. Understanding differences across bond categories assists with portfolio allocation and relative value comparisons.
+
+## Implied Volatility
+
+Here is an expanded Implied Volatility section with more details and R code examples:
+
+## Implied Volatility
+
+Volatility measures how rapidly an asset's price moves. It is a key input in options pricing models.
+
+### Options Pricing Basics
+
+Options give holders the right, but not the obligation, to buy or sell the underlying asset by the expiration date at a pre-determined price (strike price). In return, buyers pay an upfront premium. Two types exist:
+
+- **Call Options:** Right to buy the asset 
+- **Put Options:** Right to sell the asset
+
+For instance, a stock call option may have a $100 strike with $5 premium.
+
+The classic Black-Scholes formula prices options based on current stock price, strike price, volatility, risk-free rate, and time to expiration.
+
+```{r}
+# Black-Scholes Call Option Example
+S <- 100     # Asset price  
+K <- 100     # Strike price
+sigma <- 0.3 # Volatility 
+r <- 0.01    # Risk-free rate  
+t <- 1       # Years til expiration  
+
+d1 <- (log(S/K)+(r+sigma^2/2)*t) / (sigma*sqrt(t))  
+d2 <- d1 - sigma*sqrt(t)
+call_price <- S * pnorm(d1) - K * exp(-r * t) * pnorm(d2)
+
+print(paste("Call Price:", round(call_price, 2)))
+```
+
+### Implied Volatility
+
+Rather than estimating volatility based on historical prices, implied volatility uses the known market price and inverts the options pricing model to solve for volatility. It represents the market's forward-looking expectation of volatility over the option's life.
+
+```r
+library(tsfe)
+# Market parameters
+S <- 100 # Current stock price
+K <- 100 # Strike price
+T <- 1 # Time to maturity in years
+r <- 0.05 # Risk-free interest rate
+q <- 0 # Dividend yield
+market_price <- 4 # Actual call price observed in the market
+
+# Calculate implied volatility using the BlackScholes function from MyFinancePackage
+implied_vol <- uniroot(function(x) BlackScholes("call", S, K, T, r, x, q) - market_price, interval = c(0.01, 5))$root
+
+print(paste("Implied Volatility:", round(implied_vol * 100, 2), "%"))
+
+```
+
+### Explanation:
+
+- **BlackScholes Function**: This function is defined to calculate the price of a call option based on the Black-Scholes model. It takes the current stock price (`S0`), strike price (`K`), time to maturity (`T`), risk-free interest rate (`r`), volatility (`sigma`), and dividend yield (`q`) as inputs.
+
+- **Market Parameters**: These variables represent the conditions under which you're trying to find the implied volatility. `S` is the current stock price, `K` is the strike price, `T` is the time to expiration in years, `r` is the risk-free interest rate, and `q` is the dividend yield. `market_price` is the observed market price of the call option.
+
+- **Implied Volatility Calculation**: The `uniroot` function finds the volatility value that, when used in the `BlackScholes` function, results in the option price matching the market price of the call option. The `interval = c(0.01, 5)` argument specifies the search interval for the volatility (from 1% to 500%). Adjust this interval based on your market expectations and the typical volatility range of the underlying asset.
+
+- **Print Statement**: Finally, the calculated implied volatility is printed out as a percentage with two decimal places.
+
+Comparing implied volatility vs. historical volatility shows when options may be relatively expensive or cheap based on realized volatility. The CBOE Volatility Index (VIX) takes this concept further by aggregating implied volatility across S&P 500 index options to measure broad market volatility expectations.
+
+### CBOE Volatility Index (VIX)
+
+The VIX represents the market's consensus expectation for S&P 500 volatility over the next 30 days based on SPX option prices. Known as the "fear gauge," it enables trading volatility directly:  
+
+```{r}
+# Calculate VIX based on SPX option prices
+spx_calls <- getOptionChain("SPX") 
+call_prices <- spx_calls$lastPrice  
+
+vix <- variance_swap(log(call_prices), spx_calls$strike, 
+                     S0=mean(spx_calls$strike), ttm=30/365)
+print(paste("VIX:", round(100*sqrt(vix), 2)))
+```
+
+Rather than a direct index, the VIX allows trading volatility expectations through VIX futures contracts and VIX-linked ETFs and ETNs. Monitoring the VIX shows when traders anticipate unstable markets compared to realized volatility. Comparing VIX levels to historical averages provides context on volatility regime shifts.
+
+
+
+# Overlapping Returns and Autocorrelation
+
+A common approach in empirical asset pricing research involves using time-series data of asset returns. For example, a researcher may collect daily stock return data over several years to study predictive signals, risk factors, or other relationships. However, the use of overlapping multiperiod returns can introduce statistical complications @lo1990econometric.  
+
+The issue arises because adjacent return observations share common days, inducing autocorrelation in the time-series data. For instance, 20-day returns with a 1-day shift comprise 19 identical daily returns. This overlap across return intervals leads to spurious correlation, violating assumptions of independently and identically distributed (i.i.d) observations under classical statistical models.
+
+Consequences include biased coefficient estimates, understated standard errors, and over-rejection of null hypotheses during hypothesis testing. In effect, the observed sample size overstates the effective size for calculating precision and confidence levels. The series appears to contain more information than is actually present. 
+
+Consider the simulated autocorrelated return process:
+
+```{r}
+set.seed(1)  
+r <- arima.sim(model=list(ar=0.5), n=100)
+acf(r)  
+```
+
+Regressing another random series x onto r yields biased estimates and t-stats: 
+
+```{r}
+x <- rnorm(100) 
+y <- x + r + rnorm(100)
+summary(lm(y ~ x))
+```
+
+There are several potential approaches for handling overlapping data:  
+
+1. Utilize non-overlapping returns - e.g. annual instead of monthly. This eliminates overlap bias but reduces sample size considerably.  
+
+```{r}
+r<-tibble(r)
+slices<-seq(1, nrow(r), 12)
+r_annual <- r |> slice(slices)   
+```
+
+2. Model the autocorrelation structure like an ARMA process. Specify this correlation during estimation for properly adjusted estimates and standard errors. However, this relies on correctly specifying the autocorrelation structure.  
+
+```{r} 
+ar1 <- arima(y, xreg=x, order=c(1,0,0))  
+```
+
+3. Employ statistical techniques robust to certain autocorrelation structures, such as heteroskedasticity and autocorrelation (HAC) corrections to standard errors. For example, Newey-West standard errors.
+
+```{r}
+library(lmtest)
+library(sandwich) 
+r <- arima.sim(model=list(ar=0.5), n=100)
+x <- rnorm(100)
+y <- x + r + rnorm(100)
+
+mod <- lm(y ~ x)
+
+coeftest(mod, vcov = NeweyWest(mod))
+```
+
+Overlapping returns has relevance in many empirical finance settings but warrants additional consideration during econometric modeling and analysis. Failing to account for the induced autocorrelation can undermine results and conclusions. For example, @richardson1991tests investigate daily stock return regressions and find that positive autocorrelation from overlapping intervals can falsely indicate significant predictability when the true process contains only white noise.
+
 
 ## References
 

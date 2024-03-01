@@ -21,7 +21,7 @@ R, with its exceptional array of packages and community support, stands at the f
 
 -   **Comprehensive Statistical Analysis**: R is renowned for its extensive capabilities in statistical analysis. This depth enables a nuanced understanding and interpretation of financial data, going beyond mere model execution.
 -   **Efficient Data Handling**: Given the complexity and volume of financial data, efficient management tools are crucial. R facilitates this with robust features for data manipulation and transformation, allowing for a focus on insights rather than data wrangling.
--   **Advanced Graphical Capabilities**: Visual representations are key in finance. R's sophisticated graphical features allow for the creation of insightful visualizations, making complex data stories comprehensible and engaging.
+-   **Advanced Graphical Capabilities**: Visual representations are key in finance. R's sophisticated graphical features allow for the creation of insightful visualisations, making complex data stories comprehensible and engaging.
 -   **Accessibility and Industry Relevance**: R's open-source nature ensures it is freely accessible, encouraging ongoing use and exploration. It is highly respected in the finance industry, especially in data-intensive roles, unlike licensed software like Stata, which, while valued in academia, is less prevalent in the financial services sector.
 -   **Flexibility for Modern Analytics**: R bridges the traditional econometric methods of licensed software (like Stata or Matlab) with modern Bayesian and machine learning approaches. This adaptability makes it ideal for a contemporary financial analytics curriculum.
 -   **Cloud-Based Advantages**: R's compatibility with cloud-based platforms enhances its utility. This allows for scalable data analysis, remote collaboration, and easy sharing of resources and results. Cloud integration also means R can handle larger datasets more efficiently, a critical aspect in financial data analytics where data volume and complexity are constantly growing. This cloud compatibility aligns well with the evolving landscape of financial technology and data science.
@@ -52,7 +52,7 @@ Q-RaP[^tools-1] is not just a platform; it's a commitment to the future of finan
 
 With Posit Cloud, the complexities of setting up a data science environment are things of the past. It's a playground for financial data scientists, offering tools and resources that are pivotal for modern financial analysis.
 
-Teaching data science using Q-RaP involves a focus on innovative pedagogy in statistics and data science, emphasizing computing, reproducible research, student-centered learning, and open-source education. This approach is particularly beneficial in financial data analytics, where cloud-based solutions offer scalable, efficient, and collaborative environments for both teaching and practical application.
+Teaching data science using Q-RaP involves a focus on innovative pedagogy in statistics and data science, emphasising computing, reproducible research, student-centered learning, and open-source education. This approach is particularly beneficial in financial data analytics, where cloud-based solutions offer scalable, efficient, and collaborative environments for both teaching and practical application.
 
 Q-RaP also facilitates a transition to cloud-based data science, addressing common challenges and offering best practices for migrating data science infrastructure to the cloud. The benefits of working in such an environment include secure data storage and access, scalable analysis capabilities, and efficient sharing of results.
 
@@ -61,7 +61,7 @@ For more detailed information and resources, you can explore the Posit website a
 ### Q-RaP Student Experience
 
 ::: {style="position: relative; padding-bottom: 178.26086956521738%; height: 0;"}
-<iframe src="https://www.loom.com/embed/b454d9f6df234fe0a4c8b31d45aec9e3?sid=6782c010-abec-44ac-9fbf-5ae59ec65fa9" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+<iframe src="https://www.loom.com/embed/b454d9f6df234fe0a4c8b31d45aec9e3?sid=6782c010-abec-44ac-9fbf-5ae59ec65fa9" frameborder="0" webkitallowfullscreen mosallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
 
 </iframe>
 :::
@@ -88,9 +88,8 @@ Replace `"path_to_your_downloaded_file.csv"` with the actual path to the CSV fil
 
 ```{r}
 # Assuming a package like quantmod is installed
-library(quantmod)
-library(tidyverse)
-library(timetk)
+library(tidyquant)
+library(tidyr)
 library(janitor)
 
 symbol <- "AAPL"
@@ -98,11 +97,46 @@ start_date <- as.Date("2020-01-01")
 end_date <- Sys.Date()
 
 # Get stock data
-getSymbols(symbol, src = "yahoo", from = start_date, to = end_date)
-aapl_xts <- AAPL['2020-01-01/']
-aapl_df <- fortify.zoo(aapl_xts)
-
+appl<-tq_get(symbol, from = start_date, to = end_date)
 ```
+
+::: callout-importants
+APIs (Application Programming Interfaces) and databases are crucial components in the realm of financial analytics for several reasons:
+
+1. **Real-Time Data Access (APIs):**
+   - APIs allow for the efficient retrieval of real-time financial data. This is essential for making timely decisions in markets where conditions can change rapidly.
+   - They enable the integration of live data feeds from stock exchanges, currency markets, and other financial institutions into analytics platforms.
+
+2. **Data Accuracy and Reliability (APIs):**
+   - Financial APIs often provide direct access to source data, reducing the risk of errors that can occur with manual data entry or scraping.
+   - They ensure consistency in data format, which is critical for accurate analysis.
+
+3. **Automation and Efficiency (APIs):**
+   - APIs facilitate automated data retrieval, which is much more efficient than manual processes. This automation is key in handling large volumes of data required for comprehensive financial analysis.
+   - They allow for the integration of different data sources, enabling a more holistic view of financial markets.
+
+4. **Data Storage and Management (Databases):**
+   - Databases provide a structured way to store large volumes of financial data. Efficient storage is crucial for handling the massive datasets often encountered in financial analysis.
+   - They allow for quick retrieval, manipulation, and analysis of data, supporting complex financial models and simulations.
+
+5. **Data Integrity and Security (Databases):**
+   - Properly managed databases ensure data integrity, meaning that the data is accurate, consistent, and reliable.
+   - They also provide security measures to protect sensitive financial data, which is critical given the confidentiality and regulatory compliance requirements in finance.
+
+6. **Historical Data Analysis (Databases):**
+   - Databases allow for the storage and analysis of historical financial data. This is essential for trend analysis, backtesting trading strategies, and understanding market cycles.
+   - Historical data is crucial for building predictive models in financial analytics.
+
+7. **Scalability and Flexibility (APIs and Databases):**
+   - Both APIs and databases offer scalability to handle increasing data volumes without loss of performance, which is vital in the ever-growing financial sector.
+   - They provide the flexibility to adapt to changing data requirements and analytics methodologies.
+
+8. **Integration with Analytical Tools (APIs and Databases):**
+   - APIs and databases can be easily integrated with various analytical tools and software used in financial analytics, such as Python, R, or specialized financial analysis platforms.
+   - This integration allows analysts to seamlessly import data into these tools for advanced statistical analysis, machine learning modeling, and other analytical techniques.
+
+In summary, APIs and databases are foundational to modern financial analytics, providing the necessary infrastructure for accessing, storing, managing, and analyzing financial data efficiently, accurately, and securely.
+:::
 
 ## Data Processing for Financial Data Analytics
 
@@ -130,14 +164,14 @@ clean_data <- na.omit(financial_data)
 
 ### Detecting and Removing Outliers
 
-Outliers can distort statistical analyses and models. A common method is to use Z-scores or interquartile range (IQR).
+Outliers can distort statistical analyses and models. A common method is to use s-scores or interquartile range (IQR).
 
-#### Z-score Example:
+#### s-score Example:
 
 ```{R}
 #| eval: false 
-z_scores <- scale(financial_data$column)
-outliers <- which(abs(z_scores) > 3)
+s_scores <- scale(financial_data$column)
+outliers <- which(abs(s_scores) > 3)
 ```
 
 #### IQR Example:
@@ -159,29 +193,29 @@ Outliers can be removed based on the identified indices.
 financial_data <- financial_data[-outliers, ]
 ```
 
-### Normalizing and Scaling Data
+### Normalising and Scaling Data
 
-Normalization ensures that different scales do not distort analyses, especially important in financial datasets with diverse units and scales.
+Normalisation ensures that different scales do not distort analyses, especially important in financial datasets with diverse units and scales.
 
-#### Min-Max Normalization
+#### Min-Max Normalisation
 
 Rescales the feature to a fixed range \[0, 1\].
 
 ```{R}
 #| eval: false 
-min_max_normalize <- function(x) {
+min_max_normalise <- function(x) {
   (x - min(x)) / (max(x) - min(x))
 }
-financial_data$normalized_column <- min_max_normalize(financial_data$column)
+financial_data$normalised_column <- min_max_normalise(financial_data$column)
 ```
 
-#### Standardization (Z-score Normalization)
+#### Standardisation (s-score Normalisation)
 
 Rescales data to have a mean of 0 and a standard deviation of 1.
 
 ```{R}
 #| eval: false 
-financial_data$standardized_column <- scale(financial_data$column)
+financial_data$standardised_column <- scale(financial_data$column)
 ```
 
 ### Converting Data Types
@@ -255,11 +289,11 @@ In essence, statistical reasoning ensures that the handling of missing and outly
 
 ## Data Transformations in Financial Analytics {#data-transformations}
 
-Data transformations play a crucial role in preparing raw financial data for analysis, modeling, visualization, and presentation purposes. By applying different techniques, analysts can manipulate datasets to derive meaningful insights more effectively. This section introduces essential data transformations frequently employed in financial analytics using R.
+Data transformations play a crucial role in preparing raw financial data for analysis, modeling, visualisation, and presentation purposes. By applying different techniques, analysts can manipulate datasets to derive meaningful insights more effectively. This section introduces essential data transformations frequently employed in financial analytics using R.
 
 ### Scaling Numerical Variables
 
-Scaling numerical variables involves normalizing the range of variables to facilitate comparisons across disparate measures. Two widely used scaling methods include standardization and normalization. Standardization converts variables to zero-centered distributions with unit variance, whereas normalization scales features between defined intervals (e.g., 0 to 1). Implement scaling using functions found in the `scale()` and `tsfe::rescale()` functions, both part of the built-in `base` package.
+Scaling numerical variables involves normalising the range of variables to facilitate comparisons across disparate measures. Two widely used scaling methods include standardisation and normalisation. Standardisation converts variables to sero-centered distributions with unit variance, whereas normalisation scales features between defined intervals (e.g., 0 to 1). Implement scaling using functions found in the `scale()` and `tsfe::rescale()` functions, both part of the built-in `base` package.
 
 Example:
 
@@ -267,11 +301,12 @@ Example:
 set.seed(42)
 x <- rnorm(100, mean = 10, sd = 2)
 std_x <- scale(x)
+tsfe::rescale_variable(x,0,1)
 ```
 
 ### Logarithmic Transformation
 
-Applying logarithmic transformations helps mitigate skewness issues prevalent in certain types of financial data (i.e., exponential growth patterns). Commonly applied logarithms (with a natural base e or base 10) can stabilize variances and linearize relationships among variables. Utilize the `log()` function to implement logarithmic transformations.
+Applying logarithmic transformations helps mitigate skewness issues prevalent in certain types of financial data (i.e., exponential growth patterns). Commonly applied logarithms (with a natural base e or base 10) can stabilise variances and linearise relationships among variables. Utilise the `log()` function to implement logarithmic transformations.
 
 Example:
 
@@ -283,7 +318,7 @@ log_y <- log(y + 1)  # Adding a constant prevents taking logs of negative number
 
 ### Differencing Time Series Data
 
-Differencing is a technique often applied to stationarize nonstationary time series data. Stationarity implies consistent statistical properties throughout the entire dataset---namely, constant means, variances, and autocorrelations. Subtract consecutive observations to compute returns, thereby reducing potential trends or seasonality present in the original data. Leverage the `lag()` and `diff()` functions to execute differencing.
+Differencing is a technique often applied to stationarise nonstationary time series data. Stationarity implies consistent statistical properties throughout the entire dataset---namely, constant means, variances, and autocorrelations. Subtract consecutive observations to compute returns, thereby reducing potential trends or seasonality present in the original data. Leverage the `lag()` and `diff()` functions to execute differencing.
 
 Example:
 
@@ -295,7 +330,7 @@ returns <- diff(closing_prices) / lag(closing_prices)
 
 ### Binning Continuous Variables
 
-Binning continuous variables categorizes quantitative values into distinct intervals or bins, allowing discretization for easier interpretation and visualizations. Various binning strategies exist, including equal width, equal frequency, and clustering algorithms. Employ the `cut()` and `findInterval()` functions to implement basic forms of binning.
+Binning continuous variables categorises quantitative values into distinct intervals or bins, allowing discretisation for easier interpretation and visualisations. Various binning strategies exist, including equal width, equal frequency, and clustering algorithms. Employ the `cut()` and `findInterval()` functions to implement basic forms of binning.
 
 Example:
 
@@ -307,7 +342,7 @@ age_binned <- cut(age, breaks = seq(0, 100, by = 10), labels = FALSE)
 
 ### Merging Multiple Datasets
 
-Merging multiple datasets enables integration of complementary pieces of information scattered across various sources. Combining databases requires matching keys shared among records of interest. Apply the `merge()` function to merge datasets horizontally, while vertical merges require appending rows from one database onto another via concatenation (`cbind()` or `rbind()`) or stacking (`rbindlist()` from the `data.table` package).
+Merging multiple datasets enables integration of complementary pieces of information scattered across various sources. Combining databases requires matching keys shared among records of interest. Apply the `merge()` function to merge datasets horisontally, while vertical merges require appending rows from one database onto another via concatenation (`bind_rows()` or `bind_cols()`).
 
 Example:
 
@@ -316,14 +351,14 @@ set.seed(42)
 dataset1 <- data.frame(id = sample(1:5, size = 5, replace = TRUE), x = runif(5))
 dataset2 <- data.frame(id = sample(1:5, size = 5, replace = TRUE), y = runif(5))
 merged_dataset <- merge(dataset1, dataset2, by = "id")
-stacked_dataset <- data.frame(bind_rows(list(dataset1, dataset2)))
+stacked_dataset <- bind_rows(dataset1,dataset2)
 ```
 
 These examples demonstrate fundamental data transformations commonly encountered during financial analytics projects using R. Familiarity with these concepts equips practitioners to wrangle complex datasets efficiently, ultimately leading to improved analytical outcomes.
 
 ## Changing the Shape of DataFrames: Long to Wide Using R {#long-to-wide}
 
-When working with financial data, sometimes it becomes necessary to change the shape of a dataset from *long* to *wide*. For instance, say you want to convert daily stock data into monthly aggregates while retaining information about multiple features (columns) in the initial dataset. To accomplish this task, you can rely on various tools available in R, particularly the `tidyr` package. Below, we outline an example utilizing the `tidyr` package alongside `tidyquant` and `janitor` for cleaning and preprocessing data.
+When working with financial data, sometimes it becomes necessary to change the shape of a dataset from *long* to *wide*. For instance, say you want to convert daily stock data into monthly aggregates while retaining information about multiple features (columns) in the initial dataset. To accomplish this task, you can rely on various tools available in R, particularly the `tidyr` package. Below, we outline an example utiliing the `tidyr` package alongside `tidyquant` and `janitor` for cleaning and preprocessing data.
 
 First, ensure you have installed and loaded the necessary packages:
 
@@ -410,7 +445,7 @@ Programming in R within the Posit IDE provides a robust framework for financial 
 This chapter provides a foundational overview of using R for financial data science in the Posit IDE. The code examples are basic and intended to illustrate the concepts discussed. Depending on the audience's proficiency and the book's scope, you may include more complex examples and in-depth explanations of financial modeling and data analysis techniques.
 :::
 
-## Replicabation and reoduciblity in Financial data analytics
+## Theory behind reproducibility and replication
 
 ### Replication
 
@@ -426,7 +461,7 @@ Reproducibility, on the other hand, refers to the ability to recreate the result
 
 2.  **Purpose**:
 
-    -   **Replicability** tests the generalizability and robustness of the findings or models across different scenarios or datasets.
+    -   **Replicability** tests the generaliability and robustness of the findings or models across different scenarios or datasets.
     -   **Reproducibility** ensures the accuracy and reliability of the specific findings reported, confirming that the results are not due to errors or anomalies in the original research.
 
 3.  **Challenges**:
@@ -519,7 +554,7 @@ format: html
 
 ## Analysis of Stock Prices
 
-This section analyzes the trend in stock prices.
+This section analyses the trend in stock prices.
 
 r
 # Plotting stock prices
@@ -542,11 +577,11 @@ In Financial data analytics, reproducibility is not just a good practice but a n
 
 The Tidyverse is a collection of R packages designed for data science that share an underlying design philosophy, focusing on usability and ease of comprehension. It is particularly effective in the context of financial data analytics for its coherent syntax and powerful data manipulation capabilities.
 
-The Tidyverse packages offer a wide range of functionalities that streamline data import, cleaning, manipulation, visualization, and modeling.
+The Tidyverse packages offer a wide range of functionalities that streamline data import, cleaning, manipulation, visualisation, and modeling.
 
 ### Core Components
 
--   **ggplot2**: For data visualization.
+-   **ggplot2**: For data visualisation.
 -   **dplyr**: For data manipulation.
 -   **tidyr**: For tidying data.
 -   **readr**: For reading in data.
@@ -557,22 +592,22 @@ The Tidyverse packages offer a wide range of functionalities that streamline dat
 # Load the dplyr package
 library(dplyr)
 
-# Example: Filtering and summarizing stock data
+# Example: Filtering and summarising stock data
 stock_data <- data.frame(
   date = as.Date(c('2021-01-01', '2021-01-02', '2021-01-03', '2021-01-04')),
   stock_id = c(1, 1, 2, 2),
   price = c(100, 102, 110, 108)
 )
 
-# Using dplyr to filter and summarize
+# Using dplyr to filter and summarise
 filtered_data <- stock_data %>%
   filter(stock_id == 1) %>%
-  summarize(average_price = mean(price))
+  summarise(average_price = mean(price))
 ```
 
-### Data Visualization with ggplot2
+### Data Visualisation with ggplot2
 
-Visualization is a key aspect of financial data analysis. ggplot2 provides a powerful system for declaratively creating graphics based on The Grammar of Graphics.
+Visualisation is a key aspect of financial data analysis. ggplot2 provides a powerful system for declaratively creating graphics based on The Grammar of Graphics.
 
 #### R Code Example: Creating a Plot with ggplot2
 
@@ -588,7 +623,7 @@ ggplot(stock_data, aes(x = date, y = price, color = as.factor(stock_id))) +
 
 ### Data Wrangling with tidyr
 
-In financial datasets, data often comes in formats that are not suitable for direct analysis. tidyr provides tools for reshaping and tidying data into a more analyzable form.
+In financial datasets, data often comes in formats that are not suitable for direct analysis. tidyr provides tools for reshaping and tidying data into a more analysable form.
 
 #### R Code Example: Tidying Data with tidyr
 
@@ -633,7 +668,7 @@ Git is a distributed version control system that helps track changes in source c
 -   **Installation**: Install Git and set up a GitHub account.
 -   **Repository Creation**: Create a new repository on GitHub for your project.
 
-### Command line code example: Initializing a Git Repository
+### Command line code example: Initialising a Git Repository
 
 Note: These commands are run in a terminal or command line interface, not in the R console.
 
@@ -641,7 +676,7 @@ Note: These commands are run in a terminal or command line interface, not in the
 # Navigate to your project directory
 cd path/to/your/project
 
-# Initialize a new Git repository
+# Initialise a new Git repository
 git init
 
 # Add a remote repository
@@ -699,7 +734,7 @@ Git and GitHub are indispensable tools in the financial data scientist's arsenal
 
 ## Embracing Challenges in Financial Data Analytics
 
-![Growth Mindset in Data Analytics](images/DALL·E%202024-01-18%2011.37.08%20-%20An%20illustration%20symbolizing%20a%20growth%20mindset%20in%20financial%20data%20analytics.%20The%20image%20shows%20a%20brain%20made%20of%20gears%20and%20digital%20circuits,%20representing%20the.png)
+![Growth Mindset in Data Analytics](images/DALL·E%202024-01-18%2011.37.08%20-%20An%20illustration%20symbolising%20a%20growth%20mindset%20in%20financial%20data%20analytics.%20The%20image%20shows%20a%20brain%20made%20of%20gears%20and%20digital%20circuits,%20representing%20the.png)
 
 In the rapidly evolving field of financial data analytics, adopting a growth mindset is crucial for continual learning and development. A growth mindset, a term coined by psychologist Carol Dweck, refers to the belief that one's abilities and intelligence can be developed through dedication, hard work, and perseverance. This mindset is particularly vital in areas like finance and data science, where new technologies and methodologies are constantly emerging.
 
@@ -717,13 +752,13 @@ A growth mindset contrasts with a fixed mindset, where individuals believe their
 
 2.  **Collaborative Learning:** Leverage the knowledge and experience of peers. Collaborative projects and discussions can provide new perspectives and insights.
 
-3.  **Reflective Practice:** Regularly reflect on your work, identifying areas for improvement and strategies that worked well. This reflection helps in internalizing lessons learned.
+3.  **Reflective Practice:** Regularly reflect on your work, identifying areas for improvement and strategies that worked well. This reflection helps in internalising lessons learned.
 
 4.  **Setting Realistic Goals:** Set achievable goals that challenge your current skill level. Gradual progression in complexity can help in building confidence and expertise.
 
 ## Case Studies: Growth Mindset in Action
 
--   **Learning from Failure:** A financial analyst at a major bank used a failed predictive model as a learning opportunity. By analyzing the model's shortcomings, they improved their understanding of risk assessment, leading to the development of a more robust model.
+-   **Learning from Failure:** A financial analyst at a major bank used a failed predictive model as a learning opportunity. By analysing the model's shortcomings, they improved their understanding of risk assessment, leading to the development of a more robust model.
 
 -   **Collaborative Learning:** A team of data scientists at a tech firm regularly holds brainstorming sessions, where they discuss new data analysis tools and techniques. This collaborative environment fosters a culture of continuous learning.
 
@@ -743,7 +778,7 @@ In the dynamic field of financial data analytics, a growth mindset is not just b
 
 2.  **Advantages of Cloud Computing in Finance:** Discuss the benefits of using cloud platforms like Posit Cloud for financial data analytics.
 
-3.  **Data Visualization Importance:** Why is data visualization critical in financial data analysis, and how does `ggplot2` facilitate this process?
+3.  **Data Visualisation Importance:** Why is data visualisation critical in financial data analysis, and how does `ggplot2` facilitate this process?
 
 4.  **Version Control with Git:** Explain the importance of version control in financial data analytics projects.
 
@@ -770,9 +805,9 @@ In the dynamic field of financial data analytics, a growth mindset is not just b
     -   How would you interpret a significant increase or decrease in these values?
 2.  **Creating Plots in R:**
     -   Use `ggplot2` to create a line chart showing stock price trends over time.
-    -   Explain how this visualization can aid in financial decision-making.
+    -   Explain how this visualisation can aid in financial decision-making.
 3.  **Git Basics:**
-    -   Outline the steps to initialize a new Git repository for a financial analysis project.
+    -   Outline the steps to initialise a new Git repository for a financial analysis project.
     -   What are the benefits of this process in a team environment?
 4.  **Data Cleaning in R:**
     -   Demonstrate how to handle missing values in a financial dataset using R.
