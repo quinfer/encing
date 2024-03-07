@@ -9,7 +9,7 @@ bibliography: references.bib
 
 Financial time series, such as asset prices, exchange rates, and interest rates, are fundamental in econometric analysis. Unlike prices, returns are more commonly used due to their desirable statistical properties, such as stationarity and scale independence. This chapter will explore various aspects of financial returns.
 
-# We transform prices to returns
+g# We transform prices to returns
 
 In financial econometrics, the focus on analyzing returns rather than prices is both theoretically and practically driven. Here's a detailed explanation based on the book @lo1997econometrics
 
@@ -25,7 +25,7 @@ In financial econometrics, the focus on analyzing returns rather than prices is 
 
 ## Transaction Costs
 
-1.  **Round Trip Transaction Costs**: This concept usually refers to the total costs incurred in completing a full investment cycle – buying and then subsequently selling a financial asset. These costs include brokerage fees, bid-ask spreads, taxes, and other transaction expenses.
+1.  **Round Trip Transaction Costs**: This concept usually refers to the total costs incurred in completing a full investment cycle -- buying and then subsequently selling a financial asset. These costs include brokerage fees, bid-ask spreads, taxes, and other transaction expenses.
 
 2.  **Impact on Returns Analysis**: When considering round trip transaction costs in the context of financial markets, it's important to analyze returns rather than prices. This is because the actual return on an investment needs to account for these costs. For instance, even if an asset's price appreciates, the net return might be lower (or even negative) after accounting for transaction costs.
 
@@ -42,7 +42,6 @@ In financial econometrics, the focus on analyzing returns rather than prices is 
 3.  **Risk Management**: In financial risk management, the focus is often on the variability of returns (i.e., risk) rather than absolute price levels. Analyzing returns directly aligns with this focus, aiding in the development of risk management strategies.
 
 4.  **Efficient Market Considerations**: In efficient markets, it is believed that all available information is already reflected in current prices. Therefore, the focus is on changes in prices (returns), which reflect new information, rather than on the price levels themselves.
-
 
 # Asset Returns
 
@@ -70,7 +69,6 @@ For multiple periods, simple returns are compounded. The formula for a return ov
 
 $$ R_{t, t+n} = \prod_{i=1}^{n} (1 + R_{t+i}) - 1 $$
 
-
 ```{R}
 # To calculate multiperiod returns
 multiperiod_return <- prod(1 + returns) - 1
@@ -79,7 +77,6 @@ multiperiod_return <- prod(1 + returns) - 1
 ## Time Interval Considerations
 
 The time interval of returns (daily, monthly, yearly) significantly impacts their magnitude and volatility. Annualizing returns involves scaling them to a yearly basis, usually by multiplying (for simple returns) or exponentiation (for log returns) by the number of periods per year.
-
 
 ```{R}
 daily_return <- returns
@@ -94,7 +91,6 @@ Continuously compounded, or log returns, are computed as the natural logarithm o
 $$ r_t = \ln\left(\frac{P_t}{P_{t-1}}\right) $$
 
 Log returns are time-additive, making them suitable for multi-period returns calculation and econometric modeling.
-
 
 ```{R}
 log_returns <- diff(log(prices$sample_path))
@@ -112,7 +108,6 @@ The simple return of a portfolio is the sum of the weighted returns of each asse
 $$ R_{portfolio} = \sum_{i=1}^{N} w_i R_i $$
 
 where ( w_i ) is the weight of the ( i\^{th} ) asset in the portfolio, and ( R_i ) is its return.
-
 
 ``` r
 # Assuming 'weights' is a vector of portfolio weights and 'returns' is a matrix of returns
@@ -146,7 +141,8 @@ Here is an expansion of the Bond Yields and Prices section with more details and
 Bonds are debt instruments issued by governments, municipalities, and corporations to raise capital. Key bond features include:
 
 ### Coupon Rate
-The coupon rate is the periodic interest rate paid on the par value, typically semiannually. It represents an annual percentage yield to the investor based on invested capital. Coupon payments are calculated as:  
+
+The coupon rate is the periodic interest rate paid on the par value, typically semiannually. It represents an annual percentage yield to the investor based on invested capital. Coupon payments are calculated as:
 
 ```{r}
 pv <- 100  
@@ -156,7 +152,8 @@ print(cpn_payment)
 ```
 
 ### Maturity Date
-The maturity date determines the bond’s term or tenor. Longer-dated bonds generally pay higher yields to compensate investors for reduced liquidity and higher interest rate risk over time. Maturity also impacts the relationship between price and yield.
+
+The maturity date determines the bond's term or tenor. Longer-dated bonds generally pay higher yields to compensate investors for reduced liquidity and higher interest rate risk over time. Maturity also impacts the relationship between price and yield.
 
 ### Factors Impacting Yields
 
@@ -170,7 +167,7 @@ Several factors determine the base yield investors demand on bonds:
 
 **Liquidity** - Easier tradability allows lower yields to compensate for reduced risk.
 
-**Interest Rates** - Prevailing rates determine a baseline for yield levels across bonds.  
+**Interest Rates** - Prevailing rates determine a baseline for yield levels across bonds.
 
 For example, 10-year BBB corporate bonds currently offer higher yields than 10-year Treasuries due to higher credit risk:
 
@@ -183,7 +180,7 @@ tbill_ytm<- 0.038   # 3.8% YTM
 print(paste0("Corporate Bond Premium = ", round(100*(corp_ytm - tbill_ytm), 2), " basis points"))
 ```
 
-### Bond Categories 
+### Bond Categories
 
 Sure, here is an expansion on the different bond categories:
 
@@ -193,11 +190,11 @@ There are a few major categories of bonds:
 
 **Treasury Bonds** - Issued by the federal government and considered essentially default risk-free. Treasuries make up the largest single debt market and serve benchmark pricing and yield roles. Different types are distinguished by maturity:
 
-- Treasury bills - Maturities less than 1 year 
-- Treasury notes - 2 to 10 year maturities
-- Treasury bonds - Over 10 years 
+-   Treasury bills - Maturities less than 1 year
+-   Treasury notes - 2 to 10 year maturities
+-   Treasury bonds - Over 10 years
 
-**Municipal Bonds** - Issued by state and local governments to finance public infrastructure projects. Key features include tax exemption and thus lower yields along with higher default risk than federal government:  
+**Municipal Bonds** - Issued by state and local governments to finance public infrastructure projects. Key features include tax exemption and thus lower yields along with higher default risk than federal government:
 
 ```{r}
 # Taxable equivalent yield
@@ -210,7 +207,7 @@ equivalent_taxable_yield
 
 **Corporate Bonds** - Debt issued by corporations and are categorized by credit ratings. Investment-grade bonds (BBB-or higher rating) offer modest yields while high-yield "junk" bonds pay much higher yields due to elevated default risk.
 
-**Mortgage Bonds** – Debt collateralized by pools of mortgage loans with interest and principal used to make payments. 
+**Mortgage Bonds** -- Debt collateralized by pools of mortgage loans with interest and principal used to make payments.
 
 In terms of total volume outstanding in the US, Treasury and corporate bonds have the greatest market size followed by mortgage-related and municipal securities. Understanding differences across bond categories assists with portfolio allocation and relative value comparisons.
 
@@ -226,10 +223,10 @@ Volatility measures how rapidly an asset's price moves. It is a key input in opt
 
 Options give holders the right, but not the obligation, to buy or sell the underlying asset by the expiration date at a pre-determined price (strike price). In return, buyers pay an upfront premium. Two types exist:
 
-- **Call Options:** Right to buy the asset 
-- **Put Options:** Right to sell the asset
+-   **Call Options:** Right to buy the asset
+-   **Put Options:** Right to sell the asset
 
-For instance, a stock call option may have a $100 strike with $5 premium.
+For instance, a stock call option may have a \$100 strike with \$5 premium.
 
 The classic Black-Scholes formula prices options based on current stock price, strike price, volatility, risk-free rate, and time to expiration.
 
@@ -252,7 +249,7 @@ print(paste("Call Price:", round(call_price, 2)))
 
 Rather than estimating volatility based on historical prices, implied volatility uses the known market price and inverts the options pricing model to solve for volatility. It represents the market's forward-looking expectation of volatility over the option's life.
 
-```r
+``` r
 library(tsfe)
 # Market parameters
 S <- 100 # Current stock price
@@ -266,26 +263,25 @@ market_price <- 4 # Actual call price observed in the market
 implied_vol <- uniroot(function(x) BlackScholes("call", S, K, T, r, x, q) - market_price, interval = c(0.01, 5))$root
 
 print(paste("Implied Volatility:", round(implied_vol * 100, 2), "%"))
-
 ```
 
 ### Explanation:
 
-- **BlackScholes Function**: This function is defined to calculate the price of a call option based on the Black-Scholes model. It takes the current stock price (`S0`), strike price (`K`), time to maturity (`T`), risk-free interest rate (`r`), volatility (`sigma`), and dividend yield (`q`) as inputs.
+-   **BlackScholes Function**: This function is defined to calculate the price of a call option based on the Black-Scholes model. It takes the current stock price (`S0`), strike price (`K`), time to maturity (`T`), risk-free interest rate (`r`), volatility (`sigma`), and dividend yield (`q`) as inputs.
 
-- **Market Parameters**: These variables represent the conditions under which you're trying to find the implied volatility. `S` is the current stock price, `K` is the strike price, `T` is the time to expiration in years, `r` is the risk-free interest rate, and `q` is the dividend yield. `market_price` is the observed market price of the call option.
+-   **Market Parameters**: These variables represent the conditions under which you're trying to find the implied volatility. `S` is the current stock price, `K` is the strike price, `T` is the time to expiration in years, `r` is the risk-free interest rate, and `q` is the dividend yield. `market_price` is the observed market price of the call option.
 
-- **Implied Volatility Calculation**: The `uniroot` function finds the volatility value that, when used in the `BlackScholes` function, results in the option price matching the market price of the call option. The `interval = c(0.01, 5)` argument specifies the search interval for the volatility (from 1% to 500%). Adjust this interval based on your market expectations and the typical volatility range of the underlying asset.
+-   **Implied Volatility Calculation**: The `uniroot` function finds the volatility value that, when used in the `BlackScholes` function, results in the option price matching the market price of the call option. The `interval = c(0.01, 5)` argument specifies the search interval for the volatility (from 1% to 500%). Adjust this interval based on your market expectations and the typical volatility range of the underlying asset.
 
-- **Print Statement**: Finally, the calculated implied volatility is printed out as a percentage with two decimal places.
+-   **Print Statement**: Finally, the calculated implied volatility is printed out as a percentage with two decimal places.
 
 Comparing implied volatility vs. historical volatility shows when options may be relatively expensive or cheap based on realized volatility. The CBOE Volatility Index (VIX) takes this concept further by aggregating implied volatility across S&P 500 index options to measure broad market volatility expectations.
 
 ### CBOE Volatility Index (VIX)
 
-The VIX represents the market's consensus expectation for S&P 500 volatility over the next 30 days based on SPX option prices. Known as the "fear gauge," it enables trading volatility directly:  
+The VIX represents the market's consensus expectation for S&P 500 volatility over the next 30 days based on SPX option prices. Known as the "fear gauge," it enables trading volatility directly:
 
-```{r}
+```
 # Calculate VIX based on SPX option prices
 spx_calls <- getOptionChain("SPX") 
 call_prices <- spx_calls$lastPrice  
@@ -297,15 +293,13 @@ print(paste("VIX:", round(100*sqrt(vix), 2)))
 
 Rather than a direct index, the VIX allows trading volatility expectations through VIX futures contracts and VIX-linked ETFs and ETNs. Monitoring the VIX shows when traders anticipate unstable markets compared to realized volatility. Comparing VIX levels to historical averages provides context on volatility regime shifts.
 
-
-
 # Overlapping Returns and Autocorrelation
 
-A common approach in empirical asset pricing research involves using time-series data of asset returns. For example, a researcher may collect daily stock return data over several years to study predictive signals, risk factors, or other relationships. However, the use of overlapping multiperiod returns can introduce statistical complications @lo1990econometric.  
+A common approach in empirical asset pricing research involves using time-series data of asset returns. For example, a researcher may collect daily stock return data over several years to study predictive signals, risk factors, or other relationships. However, the use of overlapping multiperiod returns can introduce statistical complications @lo1990econometric.
 
 The issue arises because adjacent return observations share common days, inducing autocorrelation in the time-series data. For instance, 20-day returns with a 1-day shift comprise 19 identical daily returns. This overlap across return intervals leads to spurious correlation, violating assumptions of independently and identically distributed (i.i.d) observations under classical statistical models.
 
-Consequences include biased coefficient estimates, understated standard errors, and over-rejection of null hypotheses during hypothesis testing. In effect, the observed sample size overstates the effective size for calculating precision and confidence levels. The series appears to contain more information than is actually present. 
+Consequences include biased coefficient estimates, understated standard errors, and over-rejection of null hypotheses during hypothesis testing. In effect, the observed sample size overstates the effective size for calculating precision and confidence levels. The series appears to contain more information than is actually present.
 
 Consider the simulated autocorrelated return process:
 
@@ -315,7 +309,7 @@ r <- arima.sim(model=list(ar=0.5), n=100)
 acf(r)  
 ```
 
-Regressing another random series x onto r yields biased estimates and t-stats: 
+Regressing another random series x onto r yields biased estimates and t-stats:
 
 ```{r}
 x <- rnorm(100) 
@@ -323,9 +317,9 @@ y <- x + r + rnorm(100)
 summary(lm(y ~ x))
 ```
 
-There are several potential approaches for handling overlapping data:  
+There are several potential approaches for handling overlapping data:
 
-1. Utilize non-overlapping returns - e.g. annual instead of monthly. This eliminates overlap bias but reduces sample size considerably.  
+1.  Utilize non-overlapping returns - e.g. annual instead of monthly. This eliminates overlap bias but reduces sample size considerably.
 
 ```{r}
 r<-tibble(r)
@@ -333,13 +327,13 @@ slices<-seq(1, nrow(r), 12)
 r_annual <- r |> slice(slices)   
 ```
 
-2. Model the autocorrelation structure like an ARMA process. Specify this correlation during estimation for properly adjusted estimates and standard errors. However, this relies on correctly specifying the autocorrelation structure.  
+2.  Model the autocorrelation structure like an ARMA process. Specify this correlation during estimation for properly adjusted estimates and standard errors. However, this relies on correctly specifying the autocorrelation structure.
 
-```{r} 
+```{r}
 ar1 <- arima(y, xreg=x, order=c(1,0,0))  
 ```
 
-3. Employ statistical techniques robust to certain autocorrelation structures, such as heteroskedasticity and autocorrelation (HAC) corrections to standard errors. For example, Newey-West standard errors.
+3.  Employ statistical techniques robust to certain autocorrelation structures, such as heteroskedasticity and autocorrelation (HAC) corrections to standard errors. For example, Newey-West standard errors.
 
 ```{r}
 library(lmtest)
@@ -355,6 +349,4 @@ coeftest(mod, vcov = NeweyWest(mod))
 
 Overlapping returns has relevance in many empirical finance settings but warrants additional consideration during econometric modeling and analysis. Failing to account for the induced autocorrelation can undermine results and conclusions. For example, @richardson1991tests investigate daily stock return regressions and find that positive autocorrelation from overlapping intervals can falsely indicate significant predictability when the true process contains only white noise.
 
-
 ## References
-

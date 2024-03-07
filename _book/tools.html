@@ -786,12 +786,12 @@ Theoretical Importance of Statistical Reasoning in Handling Missing and Outlying
 <pre><code># A tibble: 6 × 8
   symbol date        open  high   low close    volume adjusted
   &lt;chr&gt;  &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-1 AAPL   2020-01-02  74.1  75.2  73.8  75.1 135480400     73.2
-2 AAPL   2020-01-03  74.3  75.1  74.1  74.4 146322800     72.4
-3 AAPL   2020-01-06  73.4  75.0  73.2  74.9 118387200     73.0
-4 AAPL   2020-01-07  75.0  75.2  74.4  74.6 108872000     72.7
+1 AAPL   2020-01-02  74.1  75.2  73.8  75.1 135480400     73.1
+2 AAPL   2020-01-03  74.3  75.1  74.1  74.4 146322800     72.3
+3 AAPL   2020-01-06  73.4  75.0  73.2  74.9 118387200     72.9
+4 AAPL   2020-01-07  75.0  75.2  74.4  74.6 108872000     72.6
 5 AAPL   2020-01-08  74.3  76.1  74.3  75.8 132079200     73.8
-6 AAPL   2020-01-09  76.8  77.6  76.6  77.4 170108400     75.4</code></pre>
+6 AAPL   2020-01-09  76.8  77.6  76.6  77.4 170108400     75.3</code></pre>
 </div>
 </div>
 <p>To convert the data to a wide structure where each feature (column) represents a unique combination of ticker symbol and indicator name, employ the <code>pivot_wider()</code> function:</p>
@@ -811,12 +811,12 @@ Theoretical Importance of Statistical Reasoning in Handling Missing and Outlying
 <pre><code># A tibble: 6 × 3
   date        aapl  msft
   &lt;date&gt;     &lt;dbl&gt; &lt;dbl&gt;
-1 2020-01-02  73.2  155.
-2 2020-01-03  72.4  153.
-3 2020-01-06  73.0  153.
-4 2020-01-07  72.7  152.
+1 2020-01-02  73.1  154.
+2 2020-01-03  72.3  153.
+3 2020-01-06  72.9  153.
+4 2020-01-07  72.6  152.
 5 2020-01-08  73.8  154.
-6 2020-01-09  75.4  156.</code></pre>
+6 2020-01-09  75.3  156.</code></pre>
 </div>
 </div>
 <p>By doing so, you create a new dataset with a single line per reporting period and individual columns representing specific combinations of tickers and indicators. Additionally, notice the usage of helper functions from the <code>janitor</code> package to improve readability further.</p>
@@ -858,7 +858,7 @@ Theoretical Importance of Statistical Reasoning in Handling Missing and Outlying
 <span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span>
 <span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="tools_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
+<p></p><div style="width: 100% ; height: 400px ; text-align: center; box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box;" class="muted well">Shiny applications not supported in static R Markdown documents</div><p></p>
 </div>
 </div>
 <p>These examples demonstrate a basic workflow in R for financial data analysis, from data collection to interactive reporting. Remember, for complex financial analyses, more sophisticated techniques and careful consideration of financial theories and market behaviors are necessary.</p>
