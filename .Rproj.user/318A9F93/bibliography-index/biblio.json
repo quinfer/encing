@@ -3,6 +3,851 @@
         {
             "author": [
                 {
+                    "family": "Borovykh",
+                    "given": "Anastasia"
+                },
+                {
+                    "family": "Bohte",
+                    "given": "Sander"
+                },
+                {
+                    "family": "Oosterlee",
+                    "given": "Cornelis W"
+                }
+            ],
+            "container-title": "arXiv preprint arXiv:1703.04691",
+            "id": "borovykh2017conditional",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "title": "Conditional time series forecasting with convolutional neural networks",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Campbell",
+                    "given": "John Y"
+                },
+                {
+                    "family": "Shiller",
+                    "given": "Robert J"
+                }
+            ],
+            "container-title": "Review of Financial Studies",
+            "id": "campbell1988dividend",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        1988
+                    ]
+                ]
+            },
+            "page": "195-228",
+            "publisher": "Oxford University Press",
+            "title": "The dividend-price ratio and expectations of future dividends and discount factors",
+            "type": "article-journal",
+            "volume": "1"
+        },
+        {
+            "author": [
+                {
+                    "family": "Christiano",
+                    "given": "Lawrence J"
+                },
+                {
+                    "family": "Eichenbaum",
+                    "given": "Martin"
+                },
+                {
+                    "family": "Evans",
+                    "given": "Charles L"
+                }
+            ],
+            "container-title": "Handbook of macroeconomics",
+            "id": "christiano1999monetary",
+            "issued": {
+                "date-parts": [
+                    [
+                        1999
+                    ]
+                ]
+            },
+            "page": "65-148",
+            "publisher": "Elsevier",
+            "title": "Monetary policy shocks: What have we learned and to what end?",
+            "title-short": "Monetary policy shocks",
+            "type": "chapter",
+            "volume": "1"
+        },
+        {
+            "author": [
+                {
+                    "family": "Chuku",
+                    "given": "Chuku"
+                },
+                {
+                    "family": "Simpasa",
+                    "given": "Anthony"
+                },
+                {
+                    "family": "Oduor",
+                    "given": "Jacob"
+                }
+            ],
+            "container-title": "International Economics",
+            "id": "chuku2019intelligent",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "page": "74-93",
+            "publisher": "Elsevier",
+            "title": "Intelligent forecasting of economic growth for developing economies",
+            "type": "article-journal",
+            "volume": "159"
+        },
+        {
+            "author": [
+                {
+                    "family": "Creal",
+                    "given": "Drew"
+                },
+                {
+                    "family": "Koopman",
+                    "given": "Siem Jan"
+                },
+                {
+                    "family": "Lucas",
+                    "given": "Andre"
+                }
+            ],
+            "container-title": "Journal of Applied Econometrics",
+            "id": "creal2013generalized",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013
+                    ]
+                ]
+            },
+            "page": "777-795",
+            "publisher": "Wiley Online Library",
+            "title": "Generalized autoregressive score models with applications",
+            "type": "article-journal",
+            "volume": "28"
+        },
+        {
+            "author": [
+                {
+                    "family": "Diebold",
+                    "given": "Francis X"
+                },
+                {
+                    "family": "Yilmaz",
+                    "given": "Kamil"
+                }
+            ],
+            "container-title": "The Economic Journal",
+            "id": "diebold2009measuring",
+            "issue": "534",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009
+                    ]
+                ]
+            },
+            "page": "158-171",
+            "publisher": "Oxford University Press",
+            "title": "Measuring financial asset return and volatility spillovers, with application to global equity markets",
+            "type": "article-journal",
+            "volume": "119"
+        },
+        {
+            "author": [
+                {
+                    "family": "Diks",
+                    "given": "Cees"
+                },
+                {
+                    "family": "Panchenko",
+                    "given": "Valentyn"
+                }
+            ],
+            "container-title": "Causality: Statistical perspectives and applications",
+            "id": "diks2006new",
+            "issued": {
+                "date-parts": [
+                    [
+                        2006
+                    ]
+                ]
+            },
+            "page": "327-354",
+            "publisher": "John Wiley & Sons",
+            "title": "A new statistic and practical guidelines for nonparametric granger causality testing",
+            "type": "chapter"
+        },
+        {
+            "author": [
+                {
+                    "family": "Doucet",
+                    "given": "Arnaud"
+                },
+                {
+                    "family": "Godsill",
+                    "given": "Simon"
+                },
+                {
+                    "family": "Andrieu",
+                    "given": "Christophe"
+                }
+            ],
+            "container-title": "Statistics and Computing",
+            "id": "doucet2000sequential",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2000
+                    ]
+                ]
+            },
+            "page": "197-208",
+            "publisher": "Springer",
+            "title": "On sequential monte carlo sampling methods for bayesian filtering",
+            "type": "article-journal",
+            "volume": "10"
+        },
+        {
+            "author": [
+                {
+                    "family": "Durbin",
+                    "given": "James"
+                },
+                {
+                    "family": "Koopman",
+                    "given": "Siem Jan"
+                }
+            ],
+            "id": "durbin2012time",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012
+                    ]
+                ]
+            },
+            "publisher": "Oxford University Press",
+            "title": "Time series analysis by state space methods",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "Eichler",
+                    "given": "Michael"
+                }
+            ],
+            "container-title": "Causality: Statistical perspectives and applications",
+            "id": "eichler2012causal",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012
+                    ]
+                ]
+            },
+            "page": "327-354",
+            "publisher": "John Wiley & Sons",
+            "title": "Causal inference in time series analysis",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Engle",
+                    "given": "Robert F"
+                },
+                {
+                    "family": "Granger",
+                    "given": "Clive WJ"
+                }
+            ],
+            "container-title": "Econometrica",
+            "id": "engle1987co",
+            "issued": {
+                "date-parts": [
+                    [
+                        1987
+                    ]
+                ]
+            },
+            "page": "251-276",
+            "publisher": "JSTOR",
+            "title": "Co-integration and error correction: Representation, estimation, and testing",
+            "title-short": "Co-integration and error correction",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Gatev",
+                    "given": "Evan"
+                },
+                {
+                    "family": "Goetzmann",
+                    "given": "William N"
+                },
+                {
+                    "family": "Rouwenhorst",
+                    "given": "K Geert"
+                }
+            ],
+            "container-title": "Review of Financial Studies",
+            "id": "gatev2006pairs",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2006
+                    ]
+                ]
+            },
+            "page": "797-827",
+            "publisher": "Oxford University Press",
+            "title": "Pairs trading: Performance of a relative-value arbitrage rule",
+            "title-short": "Pairs trading",
+            "type": "article-journal",
+            "volume": "19"
+        },
+        {
+            "author": [
+                {
+                    "family": "Granger",
+                    "given": "Clive WJ"
+                }
+            ],
+            "container-title": "Econometrica",
+            "id": "granger1969investigating",
+            "issued": {
+                "date-parts": [
+                    [
+                        1969
+                    ]
+                ]
+            },
+            "page": "424-438",
+            "publisher": "JSTOR",
+            "title": "Investigating causal relations by econometric models and cross-spectral methods",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Hall",
+                    "given": "Anthony D"
+                },
+                {
+                    "family": "Anderson",
+                    "given": "Heather M"
+                },
+                {
+                    "family": "Granger",
+                    "given": "Clive WJ"
+                }
+            ],
+            "container-title": "The Review of Economics and Statistics",
+            "id": "hall1992cointegration",
+            "issued": {
+                "date-parts": [
+                    [
+                        1992
+                    ]
+                ]
+            },
+            "page": "116-126",
+            "publisher": "JSTOR",
+            "title": "A cointegration analysis of treasury bill yields",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Harvey",
+                    "given": "Andrew"
+                },
+                {
+                    "family": "Ruiz",
+                    "given": "Esther"
+                },
+                {
+                    "family": "Shephard",
+                    "given": "Neil"
+                }
+            ],
+            "container-title": "The Review of Economic Studies",
+            "id": "harvey1994multivariate",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        1994
+                    ]
+                ]
+            },
+            "page": "247-264",
+            "publisher": "Oxford University Press",
+            "title": "Multivariate stochastic variance models",
+            "type": "article-journal",
+            "volume": "61"
+        },
+        {
+            "author": [
+                {
+                    "family": "Johansen",
+                    "given": "Søren"
+                }
+            ],
+            "id": "johansen1995likelihood",
+            "issued": {
+                "date-parts": [
+                    [
+                        1995
+                    ]
+                ]
+            },
+            "publisher": "Oxford University Press",
+            "title": "Likelihood-based inference in cointegrated vector autoregressive models",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "Kalman",
+                    "given": "Rudolph Emil"
+                }
+            ],
+            "container-title": "Journal of Basic Engineering",
+            "id": "kalman1960new",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        1960
+                    ]
+                ]
+            },
+            "page": "35-45",
+            "publisher": "American Society of Mechanical Engineers",
+            "title": "A new approach to linear filtering and prediction problems",
+            "type": "article-journal",
+            "volume": "82"
+        },
+        {
+            "author": [
+                {
+                    "family": "Kao",
+                    "given": "Li-Jen"
+                },
+                {
+                    "family": "Wan",
+                    "given": "Shih-Xuan"
+                }
+            ],
+            "container-title": "International Journal of Applied Economics and Finance",
+            "id": "kao2009applying",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009
+                    ]
+                ]
+            },
+            "page": "81-90",
+            "publisher": "Science Publications",
+            "title": "Applying support vector regression to forecast exchange rates",
+            "type": "article-journal",
+            "volume": "3"
+        },
+        {
+            "author": [
+                {
+                    "family": "Krishnan",
+                    "given": "Rahul G"
+                },
+                {
+                    "family": "Shalit",
+                    "given": "Uri"
+                },
+                {
+                    "family": "Sontag",
+                    "given": "David"
+                }
+            ],
+            "collection-number": "1",
+            "container-title": "Proceedings of the AAAI conference on artificial intelligence",
+            "id": "krishnan2017structured",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "title": "Structured inference networks for nonlinear state space models",
+            "type": "paper-conference",
+            "volume": "31"
+        },
+        {
+            "author": [
+                {
+                    "family": "Lettau",
+                    "given": "Martin"
+                },
+                {
+                    "family": "Ludvigson",
+                    "given": "Sydney"
+                }
+            ],
+            "container-title": "The Journal of Finance",
+            "id": "lettau2001consumption",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2001
+                    ]
+                ]
+            },
+            "page": "815-849",
+            "publisher": "Wiley Online Library",
+            "title": "Consumption, aggregate wealth, and expected stock returns",
+            "type": "article-journal",
+            "volume": "56"
+        },
+        {
+            "author": [
+                {
+                    "family": "Lütkepohl",
+                    "given": "Helmut"
+                }
+            ],
+            "id": "lutkepohl2005new",
+            "issued": {
+                "date-parts": [
+                    [
+                        2005
+                    ]
+                ]
+            },
+            "publisher": "Springer Science & Business Media",
+            "title": "New introduction to multiple time series analysis",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "Meinhold",
+                    "given": "Richard J"
+                },
+                {
+                    "family": "Singpurwalla",
+                    "given": "Nozer D"
+                }
+            ],
+            "container-title": "The American Statistician",
+            "id": "meinhold1983understanding",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        1983
+                    ]
+                ]
+            },
+            "page": "123-127",
+            "publisher": "Taylor & Francis",
+            "title": "Understanding the kalman filter",
+            "type": "article-journal",
+            "volume": "37"
+        },
+        {
+            "author": [
+                {
+                    "family": "Nicholson",
+                    "given": "William B"
+                },
+                {
+                    "family": "Matteson",
+                    "given": "David S"
+                },
+                {
+                    "family": "Bien",
+                    "given": "Jacob"
+                }
+            ],
+            "container-title": "International Journal of Forecasting",
+            "id": "nicholson2017varx",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "page": "627-651",
+            "publisher": "Elsevier",
+            "title": "VARX-l: Structured regularization for large vector autoregressions with exogenous variables",
+            "title-short": "VARX-l",
+            "type": "article-journal",
+            "volume": "33"
+        },
+        {
+            "author": [
+                {
+                    "family": "Rangapuram",
+                    "given": "Syama Sundar"
+                },
+                {
+                    "family": "Seeger",
+                    "given": "Matthias W"
+                },
+                {
+                    "family": "Gasthaus",
+                    "given": "Jan"
+                },
+                {
+                    "family": "Stella",
+                    "given": "Lorenzo"
+                },
+                {
+                    "family": "Wang",
+                    "given": "Yuyang"
+                },
+                {
+                    "family": "Januschowski",
+                    "given": "Tim"
+                }
+            ],
+            "container-title": "Advances in neural information processing systems",
+            "id": "rangapuram2018deep",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "page": "7785-7794",
+            "title": "Deep state space models for time series forecasting",
+            "type": "paper-conference",
+            "volume": "31"
+        },
+        {
+            "author": [
+                {
+                    "family": "Salinas",
+                    "given": "David"
+                },
+                {
+                    "family": "Flunkert",
+                    "given": "Valentin"
+                },
+                {
+                    "family": "Gasthaus",
+                    "given": "Jan"
+                },
+                {
+                    "family": "Januschowski",
+                    "given": "Tim"
+                }
+            ],
+            "container-title": "International Journal of Forecasting",
+            "id": "salinas2020deepar",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "page": "1181-1191",
+            "publisher": "Elsevier",
+            "title": "DeepAR: Probabilistic forecasting with autoregressive recurrent networks",
+            "title-short": "DeepAR",
+            "type": "article-journal",
+            "volume": "36"
+        },
+        {
+            "author": [
+                {
+                    "family": "Sims",
+                    "given": "Christopher A"
+                }
+            ],
+            "container-title": "Econometrica",
+            "id": "sims1980macroeconomics",
+            "issued": {
+                "date-parts": [
+                    [
+                        1980
+                    ]
+                ]
+            },
+            "page": "1-48",
+            "publisher": "JSTOR",
+            "title": "Macroeconomics and reality",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Stock",
+                    "given": "James H"
+                },
+                {
+                    "family": "Watson",
+                    "given": "Mark W"
+                }
+            ],
+            "container-title": "Journal of Economic Perspectives",
+            "id": "stock2001vector",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2001
+                    ]
+                ]
+            },
+            "page": "101-115",
+            "publisher": "American Economic Association",
+            "title": "Vector autoregressions",
+            "type": "article-journal",
+            "volume": "15"
+        },
+        {
+            "author": [
+                {
+                    "family": "Tank",
+                    "given": "Alex"
+                },
+                {
+                    "family": "Covert",
+                    "given": "Ian"
+                },
+                {
+                    "family": "Foti",
+                    "given": "Nicholas"
+                },
+                {
+                    "family": "Shojaie",
+                    "given": "Ali"
+                },
+                {
+                    "family": "Fox",
+                    "given": "Emily"
+                }
+            ],
+            "container-title": "arXiv preprint arXiv:1802.05842",
+            "id": "tank2018neural",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "title": "Neural granger causality for time series",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Timmermann",
+                    "given": "Allan"
+                }
+            ],
+            "container-title": "International Journal of Forecasting",
+            "id": "timmermann2008elusive",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2008
+                    ]
+                ]
+            },
+            "page": "1-18",
+            "publisher": "Elsevier",
+            "title": "Elusive return predictability",
+            "type": "article-journal",
+            "volume": "24"
+        },
+        {
+            "author": [
+                {
+                    "family": "Tsay",
+                    "given": "Ruey S"
+                }
+            ],
+            "id": "tsay2005analysis",
+            "issued": {
+                "date-parts": [
+                    [
+                        2005
+                    ]
+                ]
+            },
+            "publisher": "John Wiley & Sons",
+            "title": "Analysis of financial time series",
+            "type": "book",
+            "volume": "543"
+        },
+        {
+            "author": [
+                {
+                    "family": "Wilms",
+                    "given": "Ines"
+                },
+                {
+                    "family": "Croux",
+                    "given": "Christophe"
+                }
+            ],
+            "container-title": "International Journal of Forecasting",
+            "id": "wilms2016forecasting",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "page": "1256-1267",
+            "publisher": "Elsevier",
+            "title": "Forecasting using sparse cointegration",
+            "type": "article-journal",
+            "volume": "32"
+        },
+        {
+            "author": [
+                {
                     "family": "Richardson",
                     "given": "Matthew"
                 },
