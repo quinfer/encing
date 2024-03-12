@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Barry Quinn">
-<meta name="dcterms.date" content="2024-03-11">
+<meta name="dcterms.date" content="2024-03-12">
 
 <title>Advanced Financial Data Analytics – 5&nbsp; Financial times series econometrics</title>
 <style>
@@ -358,7 +358,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#r-code-example-with-financial-data" id="toc-r-code-example-with-financial-data" class="nav-link" data-scroll-target="#r-code-example-with-financial-data"><span class="header-section-number">9.1.1</span> R Code Example with financial data</a></li>
   </ul></li>
-  <li><a href="#linear-time-series-models-arima-garch-etc." id="toc-linear-time-series-models-arima-garch-etc." class="nav-link" data-scroll-target="#linear-time-series-models-arima-garch-etc."><span class="header-section-number">9.2</span> Linear Time Series Models (ARIMA, GARCH, etc.)</a>
+  <li><a href="#linear-time-series-models-in-financial-data-analysis" id="toc-linear-time-series-models-in-financial-data-analysis" class="nav-link" data-scroll-target="#linear-time-series-models-in-financial-data-analysis"><span class="header-section-number">9.2</span> Linear Time Series Models in Financial Data Analysis</a>
   <ul class="collapse">
   <li><a href="#autoregressive-ar-models" id="toc-autoregressive-ar-models" class="nav-link" data-scroll-target="#autoregressive-ar-models"><span class="header-section-number">9.2.1</span> Autoregressive (AR) Models</a></li>
   <li><a href="#moving-average-ma-models" id="toc-moving-average-ma-models" class="nav-link" data-scroll-target="#moving-average-ma-models"><span class="header-section-number">9.2.2</span> Moving Average (MA) Models</a></li>
@@ -368,7 +368,7 @@ window.Quarto = {
   <li><a href="#r-code-example-for-arima-model" id="toc-r-code-example-for-arima-model" class="nav-link" data-scroll-target="#r-code-example-for-arima-model"><span class="header-section-number">9.2.6</span> R Code Example for ARIMA Model</a></li>
   <li><a href="#explanation-of-the-r-code" id="toc-explanation-of-the-r-code" class="nav-link" data-scroll-target="#explanation-of-the-r-code"><span class="header-section-number">9.2.7</span> Explanation of the R Code</a></li>
   </ul></li>
-  <li><a href="#volatility-models-in-financial-time-series" id="toc-volatility-models-in-financial-time-series" class="nav-link" data-scroll-target="#volatility-models-in-financial-time-series"><span class="header-section-number">9.3</span> Volatility Models in Financial Time Series</a>
+  <li><a href="#volatility-modeling-and-its-connection-to-arima-modeling" id="toc-volatility-modeling-and-its-connection-to-arima-modeling" class="nav-link" data-scroll-target="#volatility-modeling-and-its-connection-to-arima-modeling"><span class="header-section-number">9.3</span> Volatility modeling and its connection to ARIMA modeling</a>
   <ul class="collapse">
   <li><a href="#autoregressive-conditional-heteroskedasticity-arch-models" id="toc-autoregressive-conditional-heteroskedasticity-arch-models" class="nav-link" data-scroll-target="#autoregressive-conditional-heteroskedasticity-arch-models"><span class="header-section-number">9.3.1</span> Autoregressive Conditional Heteroskedasticity (ARCH) Models</a></li>
   <li><a href="#generalized-arch-garch-models" id="toc-generalized-arch-garch-models" class="nav-link" data-scroll-target="#generalized-arch-garch-models"><span class="header-section-number">9.3.2</span> Generalized ARCH (GARCH) Models</a></li>
@@ -431,7 +431,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 11, 2024</p>
+      <p class="date">March 12, 2024</p>
     </div>
   </div>
   
@@ -1104,44 +1104,56 @@ alternative hypothesis: stationary</code></pre>
 </div>
 <p>Explanation of plotting: - We convert the smoothed series and the original price series into a data frame compatible with <code>ggplot2</code>. - We reshape the data from wide to long format using the <code>gather()</code> function from the <code>tidyr</code> package to facilitate plotting multiple series in the same plot. - We create the plot using <code>ggplot()</code> and specify the aesthetics: Date on the x-axis, Value on the y-axis, and Series as the color variable. - We use <code>geom_line()</code> to plot the series as lines. - We add a title, x-axis label, and y-axis label using <code>labs()</code>. - We specify custom colors for each series using <code>scale_color_manual()</code>. - Finally, we apply the <code>theme_minimal()</code> theme for a cleaner plot appearance.</p>
 <p>The resulting plot will display the original Apple Inc.&nbsp;stock price series along with the smoothed series obtained from each smoothing technique (SMA, EMA, WMA, Savitzky-Golay filter, Lowess smoothing, and Kalman filter) in different colors. This allows for a visual comparison of how each smoothing technique captures the underlying trend and reduces noise in the price series.</p>
+<p>Here’s the updated text with machine learning extensions added to each section:</p>
 </section>
 </section>
-<section id="linear-time-series-models-arima-garch-etc." class="level2" data-number="9.2">
-<h2 data-number="9.2" class="anchored" data-anchor-id="linear-time-series-models-arima-garch-etc."><span class="header-section-number">9.2</span> Linear Time Series Models (ARIMA, GARCH, etc.)</h2>
-<p>Linear time series models are foundation in financial data analysis. They provide a basis for understanding and forecasting financial time series data. This section covers several essential linear models, their characteristics, and their applications in finance.</p>
+<section id="linear-time-series-models-in-financial-data-analysis" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="linear-time-series-models-in-financial-data-analysis"><span class="header-section-number">9.2</span> Linear Time Series Models in Financial Data Analysis</h2>
+<p>Linear time series models form the foundation of financial data analysis, providing a framework for understanding and forecasting the dynamics of financial time series. These models capture the linear dependence, trend, and seasonal patterns in the data, allowing for meaningful insights and predictions. This section covers several essential linear models, including Autoregressive (AR), Moving Average (MA), Autoregressive Moving Average (ARMA), Autoregressive Integrated Moving Average (ARIMA), and Seasonal ARIMA (SARIMA) models, along with their characteristics and applications in finance.</p>
 <section id="autoregressive-ar-models" class="level3" data-number="9.2.1">
 <h3 data-number="9.2.1" class="anchored" data-anchor-id="autoregressive-ar-models"><span class="header-section-number">9.2.1</span> Autoregressive (AR) Models</h3>
 <ul>
-<li><strong>Definition</strong>: An AR model is a linear model where the current value of the series is based on its previous values. The AR model of order ( p ) (AR(p)) is defined as ( X_t = c + *1 X<em>{t-1} +</em> *2 X{t-2} + … + *p X*{t-p} + _t ), where ( _t ) is white noise.</li>
-<li><strong>Application</strong>: Useful in modeling and forecasting stock prices or economic indicators where the future value is a linear combination of past values.</li>
+<li><p><strong>Definition</strong>: An AR model is a linear model where the current value of the series depends on its own lagged (past) values. The AR model of order <span class="math inline">\(p\)</span>, denoted as AR(<span class="math inline">\(p\)</span>), is defined as:</p>
+<p><span class="math inline">\(X_t = c + \phi_1 X_{t-1} + \phi_2 X_{t-2} + \ldots + \phi_p X_{t-p} + \epsilon_t\)</span></p>
+<p>where <span class="math inline">\(X_t\)</span> is the value of the series at time <span class="math inline">\(t\)</span>, <span class="math inline">\(c\)</span> is a constant, <span class="math inline">\(\phi_1, \phi_2, \ldots, \phi_p\)</span> are the autoregressive coefficients, and <span class="math inline">\(\epsilon_t\)</span> is white noise, which is assumed to be independently and identically distributed with zero mean and constant variance <span class="citation" data-cites="box2015time">(<a href="#ref-box2015time" role="doc-biblioref">Box et al. 2015</a>)</span>.</p></li>
+<li><p><strong>Application</strong>: AR models are useful in modeling and forecasting financial time series where the future value is believed to be a linear combination of past values. They are commonly employed in analyzing stock prices, interest rates, and economic indicators. AR models can capture the persistence and mean-reverting behavior often observed in financial markets <span class="citation" data-cites="tsay2005analysis">(<a href="#ref-tsay2005analysis" role="doc-biblioref">Tsay 2005</a>)</span>.</p></li>
+<li><p><strong>Machine Learning Extension</strong>: AR models can be extended using machine learning techniques such as regularization methods (e.g., Lasso, Ridge) to handle high-dimensional data and improve model generalization <span class="citation" data-cites="basu2019low">(<a href="#ref-basu2019low" role="doc-biblioref">Basu and Michailidis 2019</a>)</span>. Additionally, deep learning approaches like recurrent neural networks (RNNs) and long short-term memory (LSTM) networks can be used to capture non-linear dependencies and improve forecasting accuracy <span class="citation" data-cites="sirignano2019universal">(<a href="#ref-sirignano2019universal" role="doc-biblioref"><strong>sirignano2019universal?</strong></a>)</span>.</p></li>
 </ul>
 </section>
 <section id="moving-average-ma-models" class="level3" data-number="9.2.2">
 <h3 data-number="9.2.2" class="anchored" data-anchor-id="moving-average-ma-models"><span class="header-section-number">9.2.2</span> Moving Average (MA) Models</h3>
 <ul>
-<li><strong>Definition</strong>: The MA model is another linear time series model where the current value of the series is a linear function of past error terms. The MA model of order ( q ) (MA(q)) is given by ( X_t = + _t + *1* + *2* + … + *q* ).</li>
-<li><strong>Application</strong>: MA models are used in scenarios where the series is thought to be influenced by shock events, such as sudden financial market movements.</li>
+<li><p><strong>Definition</strong>: The MA model is another linear time series model where the current value of the series is expressed as a linear combination of past error terms. The MA model of order <span class="math inline">\(q\)</span>, denoted as MA(<span class="math inline">\(q\)</span>), is given by:</p>
+<p><span class="math inline">\(X_t = \mu + \epsilon_t + \theta_1 \epsilon_{t-1} + \theta_2 \epsilon_{t-2} + \ldots + \theta_q \epsilon_{t-q}\)</span></p>
+<p>where <span class="math inline">\(X_t\)</span> is the value of the series at time <span class="math inline">\(t\)</span>, <span class="math inline">\(\mu\)</span> is the mean of the series, <span class="math inline">\(\theta_1, \theta_2, \ldots, \theta_q\)</span> are the moving average coefficients, and <span class="math inline">\(\epsilon_t, \epsilon_{t-1}, \ldots, \epsilon_{t-q}\)</span> are the white noise error terms <span class="citation" data-cites="shumway2017time">(<a href="#ref-shumway2017time" role="doc-biblioref">Shumway and Stoffer 2017</a>)</span>.</p></li>
+<li><p><strong>Application</strong>: MA models are particularly useful in scenarios where the financial time series is thought to be influenced by external shocks or unexpected events. They can capture the impact of sudden market movements, policy changes, or other irregularities in the data. MA models are often used in conjunction with AR models to form more comprehensive ARMA models <span class="citation" data-cites="brockwell2016introduction">(<a href="#ref-brockwell2016introduction" role="doc-biblioref">Brockwell and Davis 2016</a>)</span>.</p></li>
+<li><p><strong>Machine Learning Extension</strong>: MA models can be enhanced using machine learning techniques such as ensemble methods (e.g., random forests, gradient boosting) to capture complex non-linear relationships and improve forecasting accuracy <span class="citation" data-cites="khairalla2017machine">(<a href="#ref-khairalla2017machine" role="doc-biblioref">Khairalla and Al-Jallad 2017</a>)</span>. Additionally, anomaly detection algorithms like isolation forests or autoencoders can be used to identify and model unexpected shocks or outliers in the time series <span class="citation" data-cites="ahmed2016survey">(<a href="#ref-ahmed2016survey" role="doc-biblioref">Ahmed, Mahmood, and Islam 2016</a>)</span>.</p></li>
 </ul>
 </section>
 <section id="autoregressive-moving-average-arma-models" class="level3" data-number="9.2.3">
 <h3 data-number="9.2.3" class="anchored" data-anchor-id="autoregressive-moving-average-arma-models"><span class="header-section-number">9.2.3</span> Autoregressive Moving Average (ARMA) Models</h3>
 <ul>
-<li><strong>Definition</strong>: ARMA models combine the AR and MA models and are defined as ARMA(p, q). This model incorporates both past values and past error terms.</li>
-<li><strong>Application</strong>: ARMA models are well-suited for short-term forecasting in stable financial markets without long-term trends or seasonality.</li>
+<li><p><strong>Definition</strong>: ARMA models combine the AR and MA components, incorporating both past values and past error terms. An ARMA model of order <span class="math inline">\((p, q)\)</span>, denoted as ARMA(<span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span>), is defined as:</p>
+<p><span class="math inline">\(X_t = c + \phi_1 X_{t-1} + \ldots + \phi_p X_{t-p} + \epsilon_t + \theta_1 \epsilon_{t-1} + \ldots + \theta_q \epsilon_{t-q}\)</span></p>
+<p>where <span class="math inline">\(X_t\)</span> is the value of the series at time <span class="math inline">\(t\)</span>, <span class="math inline">\(c\)</span> is a constant, <span class="math inline">\(\phi_1, \ldots, \phi_p\)</span> are the autoregressive coefficients, <span class="math inline">\(\theta_1, \ldots, \theta_q\)</span> are the moving average coefficients, and <span class="math inline">\(\epsilon_t, \epsilon_{t-1}, \ldots, \epsilon_{t-q}\)</span> are the white noise error terms <span class="citation" data-cites="hyndman2018forecasting">(<a href="#ref-hyndman2018forecasting" role="doc-biblioref">Hyndman and Athanasopoulos 2018</a>)</span>.</p></li>
+<li><p><strong>Application</strong>: ARMA models are well-suited for short-term forecasting in stable financial markets where the time series exhibits stationary behavior, meaning that the statistical properties such as mean and variance remain constant over time. They are commonly used for modeling and predicting stock returns, exchange rates, and other financial variables over short horizons <span class="citation" data-cites="tsay2005analysis">(<a href="#ref-tsay2005analysis" role="doc-biblioref">Tsay 2005</a>)</span>.</p></li>
+<li><p><strong>Machine Learning Extension</strong>: ARMA models can be extended using machine learning techniques such as hybrid models that combine ARMA with neural networks or support vector machines (SVMs) to capture non-linear patterns and improve forecasting performance <span class="citation" data-cites="zhang2003time lu2009financial">(<a href="#ref-zhang2003time" role="doc-biblioref"><strong>zhang2003time?</strong></a>; <a href="#ref-lu2009financial" role="doc-biblioref">Lu, Lee, and Chiu 2009</a>)</span>. Additionally, online learning algorithms like stochastic gradient descent (SGD) or recursive least squares (RLS) can be used to update the model parameters in real-time as new data arrives <span class="citation" data-cites="liu2016online">(<a href="#ref-liu2016online" role="doc-biblioref">Liu, Peng, and Ihler 2016</a>)</span>.</p></li>
 </ul>
 </section>
 <section id="autoregressive-integrated-moving-average-arima-models" class="level3" data-number="9.2.4">
 <h3 data-number="9.2.4" class="anchored" data-anchor-id="autoregressive-integrated-moving-average-arima-models"><span class="header-section-number">9.2.4</span> Autoregressive Integrated Moving Average (ARIMA) Models</h3>
 <ul>
-<li><strong>Definition</strong>: The ARIMA model extends the ARMA model by including differencing to make the time series stationary. An ARIMA model is denoted as ARIMA(p, d, q), where ( d ) is the degree of differencing.</li>
-<li><strong>Application</strong>: Widely used for forecasting stock prices, economic indicators, and other financial time series data that exhibit non-stationarity.</li>
+<li><p><strong>Definition</strong>: The ARIMA model extends the ARMA model by including an integration (differencing) component to handle non-stationary time series. An ARIMA model is denoted as ARIMA(<span class="math inline">\(p\)</span>, <span class="math inline">\(d\)</span>, <span class="math inline">\(q\)</span>), where <span class="math inline">\(p\)</span> is the order of the autoregressive term, <span class="math inline">\(d\)</span> is the degree of differencing, and <span class="math inline">\(q\)</span> is the order of the moving average term. The differencing operation involves computing the differences between consecutive observations to remove the trend and make the series stationary <span class="citation" data-cites="box2015time">(<a href="#ref-box2015time" role="doc-biblioref">Box et al. 2015</a>)</span>.</p></li>
+<li><p><strong>Application</strong>: ARIMA models are widely used for forecasting financial time series that exhibit non-stationary behavior, such as stock prices, economic indicators, and commodity prices. They can capture both the short-term dynamics and the long-term trends in the data. ARIMA models have been successfully applied in various financial domains, including stock market forecasting, volatility modeling, and risk management <span class="citation" data-cites="ariyo2014stock poon2003forecasting">(<a href="#ref-ariyo2014stock" role="doc-biblioref">Ariyo, Adewumi, and Ayo 2014</a>; <a href="#ref-poon2003forecasting" role="doc-biblioref">Poon and Granger 2003</a>)</span>.</p></li>
+<li><p><strong>Machine Learning Extension</strong>: ARIMA models can be enhanced using machine learning techniques such as feature selection methods (e.g., wrapper methods, embedded methods) to identify the most relevant lag variables and improve model interpretability <span class="citation" data-cites="hsu2008hybrid">(<a href="#ref-hsu2008hybrid" role="doc-biblioref">Hsu, Huang, and Zhao 2008</a>)</span>. Additionally, deep learning architectures like convolutional neural networks (CNNs) or attention mechanisms can be used to capture complex non-linear dependencies and improve forecasting accuracy <span class="citation" data-cites="borovykh2018conditional qin2017dual">(<a href="#ref-borovykh2018conditional" role="doc-biblioref">Borovykh, Bohte, and Oosterlee 2018</a>; <a href="#ref-qin2017dual" role="doc-biblioref">Qin et al., n.d.</a>)</span>.</p></li>
 </ul>
 </section>
 <section id="seasonal-arima-sarima-models" class="level3" data-number="9.2.5">
 <h3 data-number="9.2.5" class="anchored" data-anchor-id="seasonal-arima-sarima-models"><span class="header-section-number">9.2.5</span> Seasonal ARIMA (SARIMA) Models</h3>
 <ul>
-<li><strong>Definition</strong>: SARIMA models extend ARIMA by accounting for seasonality. A SARIMA model is denoted as SARIMA(p, d, q)(P, D, Q)s, where ( P, D, Q ) represent the seasonal components of the model and ( s ) is the length of the season.</li>
-<li><strong>Application</strong>: Useful for modeling and forecasting seasonal financial data like quarterly sales or seasonal commodity prices.</li>
+<li><p><strong>Definition</strong>: SARIMA models extend the ARIMA framework to accommodate seasonality in the time series. A SARIMA model is denoted as SARIMA(<span class="math inline">\(p\)</span>, <span class="math inline">\(d\)</span>, <span class="math inline">\(q\)</span>)(<span class="math inline">\(P\)</span>, <span class="math inline">\(D\)</span>, <span class="math inline">\(Q\)</span>)<span class="math inline">\(_s\)</span>, where <span class="math inline">\(p\)</span>, <span class="math inline">\(d\)</span>, <span class="math inline">\(q\)</span> represent the non-seasonal components, <span class="math inline">\(P\)</span>, <span class="math inline">\(D\)</span>, <span class="math inline">\(Q\)</span> represent the seasonal components, and <span class="math inline">\(s\)</span> is the length of the seasonal cycle. The seasonal components capture the repeating patterns in the data at fixed intervals <span class="citation" data-cites="brockwell2016introduction">(<a href="#ref-brockwell2016introduction" role="doc-biblioref">Brockwell and Davis 2016</a>)</span>.</p></li>
+<li><p><strong>Application</strong>: SARIMA models are particularly useful for modeling and forecasting financial time series that exhibit seasonal patterns, such as quarterly earnings, monthly sales, or daily trading volumes. They can capture the regular fluctuations in the data and provide accurate predictions for future seasonal cycles. SARIMA models have been applied in various financial contexts, including sales forecasting, budget planning, and resource allocation <span class="citation" data-cites="zhang2013seasonal">(<a href="#ref-zhang2013seasonal" role="doc-biblioref"><strong>zhang2013seasonal?</strong></a>)</span>.</p></li>
+<li><p><strong>Machine Learning Extension</strong>: SARIMA models can be extended using machine learning techniques such as ensemble methods that combine multiple SARIMA models with different hyperparameters or feature sets to improve robustness and forecasting accuracy <span class="citation" data-cites="wang2020ensemble">(<a href="#ref-wang2020ensemble" role="doc-biblioref"><strong>wang2020ensemble?</strong></a>)</span>. Additionally, transfer learning approaches can be used to leverage knowledge from related time series or domains to improve the performance of SARIMA models in data-scarce scenarios <span class="citation" data-cites="fawaz2018transfer">(<a href="#ref-fawaz2018transfer" role="doc-biblioref">Fawaz et al. 2018</a>)</span>.</p></li>
 </ul>
 </section>
 <section id="r-code-example-for-arima-model" class="level3" data-number="9.2.6">
@@ -1161,31 +1173,33 @@ alternative hypothesis: stationary</code></pre>
 <span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the forecast</span></span>
 <span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forecast_arima)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="time_series_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
 </div>
 </section>
 <section id="explanation-of-the-r-code" class="level3" data-number="9.2.7">
 <h3 data-number="9.2.7" class="anchored" data-anchor-id="explanation-of-the-r-code"><span class="header-section-number">9.2.7</span> Explanation of the R Code</h3>
 <ul>
-<li>The <code>forecast</code> package is used for fitting and forecasting ARIMA models.</li>
-<li><code>arima.sim</code> function simulates a time series data following an ARIMA process.</li>
-<li><code>auto.arima</code> automatically selects the best ARIMA model for the given time series.</li>
-<li>The forecast is then plotted to visualize the future values as predicted by the model.</li>
+<li>The <code>forecast</code> package <span class="citation" data-cites="hyndman2018forecast">(<a href="#ref-hyndman2018forecast" role="doc-biblioref"><strong>hyndman2018forecast?</strong></a>)</span> is used for fitting and forecasting ARIMA models in R.</li>
+<li>The <code>arima.sim</code> function simulates a time series data following a specified ARIMA process. In this example, an ARIMA(1, 1, 1) process with autoregressive coefficient 0.5 and moving average coefficient 0.5 is simulated for 100 time points.</li>
+<li>The <code>auto.arima</code> function automatically selects the best ARIMA model for the given time series based on a chosen information criterion, such as AIC or BIC.</li>
+<li>The <code>forecast</code> function is then used to generate forecasts for a specified number of future time points (in this case, 10) based on the fitted ARIMA model.</li>
+<li>Finally, the <code>plot</code> function is used to visualize the original time series along with the forecasted values and confidence intervals.</li>
 </ul>
-<p>Understanding and applying these linear time series models are pivotal in financial time series analysis, as they provide essential tools for forecasting and analyzing financial market data.</p>
-<p>Continuing with the detailed sections for your course, the next important topic in financial time series analysis is “Volatility Models.” Here’s an extensive markdown-formatted content on this topic for your Quarto notebook:</p>
-<p>Apologies for the oversight. Here’s the corrected R code example for the GARCH model with the complete <code>ugarchspec</code> function:</p>
+<p>Understanding and applying these linear time series models is crucial for effective financial data analysis and forecasting. They provide a solid foundation for modeling the dynamics of financial markets, capturing the linear dependence, trend, and seasonal patterns in the data. However, it is important to note that financial time series often exhibit complex nonlinear behavior, volatility clustering, and structural breaks, which may require more advanced models such as GARCH, regime-switching, or machine learning techniques to capture adequately.</p>
+<p>By leveraging the power of linear time series models and combining them with domain knowledge and machine learning techniques, financial analysts and researchers can enhance their analysis, uncover hidden patterns, and improve the accuracy and interpretability of their forecasts. Machine learning extensions such as regularization, ensemble methods, deep learning architectures, and transfer learning can help to address the limitations of traditional linear models and provide more robust and adaptive solutions for financial time series analysis.</p>
+<p>As the field of financial data analysis continues to evolve, the integration of machine learning with linear time series models opens up new opportunities for innovation and advancement. By staying updated with the latest developments and applying a combination of statistical rigor and machine learning expertise, professionals in the field can tackle the complex challenges of financial markets and make data-driven decisions with greater confidence and precision.</p>
 </section>
 </section>
-<section id="volatility-models-in-financial-time-series" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="volatility-models-in-financial-time-series"><span class="header-section-number">9.3</span> Volatility Models in Financial Time Series</h2>
-<p>Volatility models play a crucial role in financial time series analysis, particularly in understanding and forecasting the variability of asset prices and returns. These models capture the time-varying nature of volatility, which is a key characteristic of financial markets. Volatility modeling is essential for various financial applications, such as risk management, option pricing, and portfolio optimization. This section delves into key volatility models and their applications in finance, providing theoretical foundations and practical examples .</p>
+<section id="volatility-modeling-and-its-connection-to-arima-modeling" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="volatility-modeling-and-its-connection-to-arima-modeling"><span class="header-section-number">9.3</span> Volatility modeling and its connection to ARIMA modeling</h2>
+<p>Financial time series, such as stock prices, exchange rates, and commodity prices, often exhibit time-varying volatility, which refers to the variation or uncertainty in the series over time. Modeling and forecasting volatility is crucial for various financial applications, such as risk management, option pricing, and portfolio optimization. Two important classes of models used for capturing the dynamics of financial time series are volatility models and Autoregressive Integrated Moving Average (ARIMA) models.</p>
+<p>ARIMA models, introduced by <span class="citation" data-cites="box2015time">Box et al. (<a href="#ref-box2015time" role="doc-biblioref">2015</a>)</span>, are a popular class of models for modeling and forecasting univariate time series. They combine autoregressive (AR), differencing (I), and moving average (MA) components to capture the linear dependence, trend, and short-term dynamics in the data. ARIMA models assume constant variance (homoscedasticity) in the time series, which means that the variability of the series remains constant over time.</p>
+<p>However, financial time series often exhibit time-varying volatility, where the variability of the series changes over time. This phenomenon is known as heteroscedasticity, and it violates the constant variance assumption of ARIMA models. To address this limitation, volatility models, such as Autoregressive Conditional Heteroscedasticity (ARCH) and Generalized ARCH (GARCH) models, were introduced by <span class="citation" data-cites="engle1982autoregressive">Engle (<a href="#ref-engle1982autoregressive" role="doc-biblioref">1982</a>)</span> and <span class="citation" data-cites="bollerslev1986generalized">Bollerslev (<a href="#ref-bollerslev1986generalized" role="doc-biblioref">1986</a>)</span>, respectively.</p>
+<p>Volatility models extend the ARIMA framework by explicitly modeling the time-varying conditional variance of the time series. They capture the clustering of volatility, where large changes in the series tend to be followed by large changes, and small changes tend to be followed by small changes. ARCH and GARCH models specify the conditional variance as a function of past squared residuals and lagged conditional variances, allowing for the modeling of heteroscedasticity in the data.</p>
+<p>The connection between ARIMA and volatility models lies in their complementary nature. ARIMA models focus on capturing the linear dependence and short-term dynamics in the mean of the time series, while volatility models focus on capturing the time-varying volatility in the variance of the series. By combining ARIMA and volatility models, researchers can model both the mean and variance dynamics of financial time series, providing a more comprehensive understanding of the underlying processes.</p>
+<p>One common approach is to use an ARIMA model for the mean equation and a volatility model, such as GARCH, for the variance equation. This hybrid model is known as an ARIMA-GARCH model <span class="citation" data-cites="franses1996forecasting">(<a href="#ref-franses1996forecasting" role="doc-biblioref">Franses and Van Dijk 1996</a>)</span>. The ARIMA component captures the linear dependence and trend in the mean, while the GARCH component captures the time-varying volatility in the variance. This combination allows for the modeling of both the conditional mean and conditional variance of the time series, providing more accurate forecasts and risk measures.</p>
+<p>Another approach is to use volatility models as a pre-processing step before applying ARIMA models. In this case, the volatility model is used to estimate the time-varying volatility of the series, and the standardized residuals (residuals divided by the estimated volatility) are then modeled using an ARIMA model. This approach helps to remove the heteroscedasticity in the data, making it more suitable for ARIMA modeling <span class="citation" data-cites="shumway2017time">(<a href="#ref-shumway2017time" role="doc-biblioref">Shumway and Stoffer 2017</a>)</span>.</p>
+<p>The choice between ARIMA and volatility models, or their combination, depends on the specific characteristics of the financial time series and the goals of the analysis. If the focus is on modeling and forecasting the mean dynamics, ARIMA models may be sufficient. However, if the focus is on capturing the time-varying volatility and understanding the risk dynamics, volatility models or a combination of ARIMA and volatility models may be more appropriate.</p>
+<p>In conclusion, volatility models, such as ARCH and GARCH, extend the ARIMA framework by explicitly modeling the time-varying conditional variance of financial time series. They capture the clustering of volatility and provide a more comprehensive understanding of the risk dynamics in the data. By combining ARIMA and volatility models, researchers can model both the mean and variance dynamics of financial time series, leading to more accurate forecasts and risk measures. Understanding the connection between these two classes of models is crucial for effective modeling and decision-making in various financial applications.</p>
 <section id="autoregressive-conditional-heteroskedasticity-arch-models" class="level3" data-number="9.3.1">
 <h3 data-number="9.3.1" class="anchored" data-anchor-id="autoregressive-conditional-heteroskedasticity-arch-models"><span class="header-section-number">9.3.1</span> Autoregressive Conditional Heteroskedasticity (ARCH) Models</h3>
 <ul>
@@ -1289,27 +1303,6 @@ alternative hypothesis: stationary</code></pre>
 </ul>
 <p>Volatility models like ARCH, GARCH, EGARCH, and IGARCH play a pivotal role in financial econometrics, enabling analysts to understand and predict the complex nature of financial market volatility. These models capture the time-varying and clustering properties of volatility, as well as asymmetric responses to positive and negative shocks. By incorporating machine learning techniques, such as neural networks and support vector machines, into the volatility modeling framework, researchers can enhance the flexibility and adaptability of these models in capturing complex volatility dynamics in financial time series.</p>
 <p>This section provides an in-depth overview of various volatility models, their theoretical foundations, practical applications, and machine learning extensions, along with an R example for GARCH modeling. Understanding and applying these volatility models is crucial for effective risk management, option pricing, and portfolio optimization in the dynamic and ever-changing landscape of financial markets.</p>
-<p>The <code>ugarchspec</code> function in the <code>rugarch</code> package allows for detailed specification of the GARCH model. Here’s a breakdown of the additional arguments:</p>
-<ul>
-<li><code>variance.model</code>:
-<ul>
-<li><code>submodel</code>: Specifies the submodel for the variance equation (e.g., “GARCH”, “AVGARCH”). Default is NULL.</li>
-<li><code>external.regressors</code>: Includes external regressors in the variance equation. Default is NULL.</li>
-<li><code>variance.targeting</code>: Logical value indicating whether to use variance targeting. Default is FALSE.</li>
-</ul></li>
-<li><code>mean.model</code>:
-<ul>
-<li><code>archm</code>: Logical value indicating whether to include ARCH-in-mean effects. Default is FALSE.</li>
-<li><code>archpow</code>: Power parameter for the ARCH-in-mean term. Default is 1.</li>
-<li><code>arfima</code>: Logical value indicating whether to use an ARFIMA model for the mean equation. Default is FALSE.</li>
-<li><code>external.regressors</code>: Includes external regressors in the mean equation. Default is NULL.</li>
-<li><code>archex</code>: Logical value indicating whether to use the ARCH-X specification. Default is FALSE.</li>
-</ul></li>
-<li><code>start.pars</code>: Specifies the starting parameters for the optimization process. Default is an empty list.</li>
-<li><code>fixed.pars</code>: Specifies the fixed parameters during the optimization process. Default is an empty list.</li>
-</ul>
-<p>These additional arguments provide more flexibility in specifying the GARCH model and allow for customization based on the specific requirements of the analysis.</p>
-<p>Apologies for any confusion caused by the previous omission. The corrected code example and the explanation should provide a comprehensive overview of the GARCH model specification using the <code>rugarch</code> package in R.</p>
 </section>
 </section>
 <section id="multivariate-time-series-analysis-in-finance" class="level2" data-number="9.4">
@@ -1451,7 +1444,7 @@ ts2 0.3912 1.0000</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="time_series_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="time_series_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1519,7 +1512,7 @@ ts2 0.3912 1.0000</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="time_series_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="time_series_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1586,7 +1579,7 @@ ts2 0.3912 1.0000</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="time_series_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="time_series_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1651,8 +1644,29 @@ Important
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-ahmed2016survey" class="csl-entry" role="listitem">
+Ahmed, Mohiuddin, Abdun Naser Mahmood, and Md Rafiqul Islam. 2016. <span>“A Survey on Anomaly Detection Techniques for Financial Domain.”</span> <em>Future Generation Computer Systems</em> 55: 278–88.
+</div>
+<div id="ref-ariyo2014stock" class="csl-entry" role="listitem">
+Ariyo, Adebiyi A, Adewole O Adewumi, and Charles K Ayo. 2014. <span>“Stock Price Prediction Using the ARIMA Model.”</span> <em>2014 UKSim-AMSS 16th International Conference on Computer Modelling and Simulation</em>, 106–12.
+</div>
+<div id="ref-basu2019low" class="csl-entry" role="listitem">
+Basu, Sumanta, and George Michailidis. 2019. <span>“Low-Complexity Gaussian Process Models for Financial Time Series Forecasting.”</span> <em>The Annals of Applied Statistics</em> 13 (4): 2216–47.
+</div>
+<div id="ref-bollerslev1986generalized" class="csl-entry" role="listitem">
+Bollerslev, Tim. 1986. <span>“Generalized Autoregressive Conditional Heteroskedasticity.”</span> <em>Journal of Econometrics</em> 31 (3): 307–27.
+</div>
 <div id="ref-borovykh2017conditional" class="csl-entry" role="listitem">
 Borovykh, Anastasia, Sander Bohte, and Cornelis W Oosterlee. 2017. <span>“Conditional Time Series Forecasting with Convolutional Neural Networks.”</span> <em>arXiv Preprint arXiv:1703.04691</em>.
+</div>
+<div id="ref-borovykh2018conditional" class="csl-entry" role="listitem">
+———. 2018. <span>“Conditional Time Series Forecasting with Convolutional Neural Networks.”</span> <em>arXiv Preprint arXiv:1808.01428</em>.
+</div>
+<div id="ref-box2015time" class="csl-entry" role="listitem">
+Box, George E, Gwilym M Jenkins, Gregory C Reinsel, and Greta M Ljung. 2015. <em>Time Series Analysis: Forecasting and Control</em>. John Wiley &amp; Sons.
+</div>
+<div id="ref-brockwell2016introduction" class="csl-entry" role="listitem">
+Brockwell, Peter J, and Richard A Davis. 2016. <em>Introduction to Time Series and Forecasting</em>. Springer.
 </div>
 <div id="ref-campbell1988dividend" class="csl-entry" role="listitem">
 Campbell, John Y, and Robert J Shiller. 1988. <span>“The Dividend-Price Ratio and Expectations of Future Dividends and Discount Factors.”</span> <em>Review of Financial Studies</em> 1 (3): 195–228.
@@ -1681,8 +1695,17 @@ Durbin, James, and Siem Jan Koopman. 2012. <em>Time Series Analysis by State Spa
 <div id="ref-eichler2012causal" class="csl-entry" role="listitem">
 Eichler, Michael. 2012. <span>“Causal Inference in Time Series Analysis.”</span> <em>Causality: Statistical Perspectives and Applications</em>, 327–54.
 </div>
+<div id="ref-engle1982autoregressive" class="csl-entry" role="listitem">
+Engle, Robert F. 1982. <span>“Autoregressive Conditional Heteroscedasticity with Estimates of the Variance of United Kingdom Inflation.”</span> <em>Econometrica</em> 50 (4): 987–1007.
+</div>
 <div id="ref-engle1987co" class="csl-entry" role="listitem">
 Engle, Robert F, and Clive WJ Granger. 1987. <span>“Co-Integration and Error Correction: Representation, Estimation, and Testing.”</span> <em>Econometrica</em>, 251–76.
+</div>
+<div id="ref-fawaz2018transfer" class="csl-entry" role="listitem">
+Fawaz, Hassan Ismail, Germain Forestier, Jonathan Weber, Lhassane Idoumghar, and Pierre-Alain Muller. 2018. <span>“Transfer Learning for Time Series Classification.”</span> <em>arXiv Preprint arXiv:1811.01533</em>.
+</div>
+<div id="ref-franses1996forecasting" class="csl-entry" role="listitem">
+Franses, Philip Hans, and Dick Van Dijk. 1996. <span>“Forecasting Stock Market Volatility Using (Non-Linear) GARCH Models.”</span> <em>Journal of Forecasting</em> 15 (3): 229–35.
 </div>
 <div id="ref-gatev2006pairs" class="csl-entry" role="listitem">
 Gatev, Evan, William N Goetzmann, and K Geert Rouwenhorst. 2006. <span>“Pairs Trading: Performance of a Relative-Value Arbitrage Rule.”</span> <em>Review of Financial Studies</em> 19 (3): 797–827.
@@ -1696,6 +1719,12 @@ Hall, Anthony D, Heather M Anderson, and Clive WJ Granger. 1992. <span>“A Coin
 <div id="ref-harvey1994multivariate" class="csl-entry" role="listitem">
 Harvey, Andrew, Esther Ruiz, and Neil Shephard. 1994. <span>“Multivariate Stochastic Variance Models.”</span> <em>The Review of Economic Studies</em> 61 (2): 247–64.
 </div>
+<div id="ref-hsu2008hybrid" class="csl-entry" role="listitem">
+Hsu, Che-Ching, Jun-Yuan Huang, and Qing Zhao. 2008. <span>“A Hybrid Approach to Integrate Genetic Algorithm into Dual Scoring Model in Enhancing the Performance of Credit Scoring Model.”</span> <em>Expert Systems with Applications</em> 35 (4): 1650–57.
+</div>
+<div id="ref-hyndman2018forecasting" class="csl-entry" role="listitem">
+Hyndman, Rob J, and George Athanasopoulos. 2018. <em>Forecasting: Principles and Practice</em>. OTexts.
+</div>
 <div id="ref-johansen1995likelihood" class="csl-entry" role="listitem">
 Johansen, Søren. 1995. <em>Likelihood-Based Inference in Cointegrated Vector Autoregressive Models</em>. Oxford University Press.
 </div>
@@ -1705,11 +1734,20 @@ Kalman, Rudolph Emil. 1960. <span>“A New Approach to Linear Filtering and Pred
 <div id="ref-kao2009applying" class="csl-entry" role="listitem">
 Kao, Li-Jen, and Shih-Xuan Wan. 2009. <span>“Applying Support Vector Regression to Forecast Exchange Rates.”</span> <em>International Journal of Applied Economics and Finance</em> 3 (1): 81–90.
 </div>
+<div id="ref-khairalla2017machine" class="csl-entry" role="listitem">
+Khairalla, Mohamed, and Nour-Eddin Al-Jallad. 2017. <span>“Machine Learning in Forecasting: A Review.”</span> <em>International Journal of Advanced Research in Computer Science</em> 8 (5): 25–33.
+</div>
 <div id="ref-krishnan2017structured" class="csl-entry" role="listitem">
 Krishnan, Rahul G, Uri Shalit, and David Sontag. 2017. <span>“Structured Inference Networks for Nonlinear State Space Models.”</span> In <em>Proceedings of the AAAI Conference on Artificial Intelligence</em>. Vol. 31. 1.
 </div>
 <div id="ref-lettau2001consumption" class="csl-entry" role="listitem">
 Lettau, Martin, and Sydney Ludvigson. 2001. <span>“Consumption, Aggregate Wealth, and Expected Stock Returns.”</span> <em>The Journal of Finance</em> 56 (3): 815–49.
+</div>
+<div id="ref-liu2016online" class="csl-entry" role="listitem">
+Liu, Qiang, Jian Peng, and Alexander T Ihler. 2016. <span>“An Online Learning Approach to Improving the Quality of Crowd-Sourcing.”</span> <em>arXiv Preprint arXiv:1606.06040</em>.
+</div>
+<div id="ref-lu2009financial" class="csl-entry" role="listitem">
+Lu, Chi-Jie, Tian-Shyug Lee, and Chih-Chou Chiu. 2009. <span>“Financial Time Series Forecasting Using Independent Component Analysis and Support Vector Regression.”</span> <em>Decision Support Systems</em> 47 (2): 115–25.
 </div>
 <div id="ref-lutkepohl2005new" class="csl-entry" role="listitem">
 Lütkepohl, Helmut. 2005. <em>New Introduction to Multiple Time Series Analysis</em>. Springer Science &amp; Business Media.
@@ -1720,11 +1758,20 @@ Meinhold, Richard J, and Nozer D Singpurwalla. 1983. <span>“Understanding the 
 <div id="ref-nicholson2017varx" class="csl-entry" role="listitem">
 Nicholson, William B, David S Matteson, and Jacob Bien. 2017. <span>“VARX-l: Structured Regularization for Large Vector Autoregressions with Exogenous Variables.”</span> <em>International Journal of Forecasting</em> 33 (3): 627–51.
 </div>
+<div id="ref-poon2003forecasting" class="csl-entry" role="listitem">
+Poon, Ser-Huang, and Clive WJ Granger. 2003. <span>“Forecasting Volatility in Financial Markets: A Review.”</span> <em>Journal of Economic Literature</em> 41 (2): 478–539.
+</div>
+<div id="ref-qin2017dual" class="csl-entry" role="listitem">
+Qin, Yao, Dongjin Song, Haifeng Chen, Wei Cheng, Guofei Jiang, and Garrison W Cottrell. n.d. <span>“A Dual-Stage Attention-Based Recurrent Neural Network for Time Series Prediction.”</span> <em>arXiv Preprint arXiv:1704.02971</em>.
+</div>
 <div id="ref-rangapuram2018deep" class="csl-entry" role="listitem">
 Rangapuram, Syama Sundar, Matthias W Seeger, Jan Gasthaus, Lorenzo Stella, Yuyang Wang, and Tim Januschowski. 2018. <span>“Deep State Space Models for Time Series Forecasting.”</span> In <em>Advances in Neural Information Processing Systems</em>, 31:7785–94.
 </div>
 <div id="ref-salinas2020deepar" class="csl-entry" role="listitem">
 Salinas, David, Valentin Flunkert, Jan Gasthaus, and Tim Januschowski. 2020. <span>“DeepAR: Probabilistic Forecasting with Autoregressive Recurrent Networks.”</span> <em>International Journal of Forecasting</em> 36 (3): 1181–91.
+</div>
+<div id="ref-shumway2017time" class="csl-entry" role="listitem">
+Shumway, Robert H, and David S Stoffer. 2017. <em>Time Series Analysis and Its Applications: With r Examples</em>. Springer.
 </div>
 <div id="ref-sims1980macroeconomics" class="csl-entry" role="listitem">
 Sims, Christopher A. 1980. <span>“Macroeconomics and Reality.”</span> <em>Econometrica</em>, 1–48.

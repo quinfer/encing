@@ -132,6 +132,409 @@
         {
             "author": [
                 {
+                    "family": "Ahmed",
+                    "given": "Mohiuddin"
+                },
+                {
+                    "family": "Mahmood",
+                    "given": "Abdun Naser"
+                },
+                {
+                    "family": "Islam",
+                    "given": "Md Rafiqul"
+                }
+            ],
+            "container-title": "Future Generation Computer Systems",
+            "id": "ahmed2016survey",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "page": "278-288",
+            "publisher": "Elsevier",
+            "title": "A survey on anomaly detection techniques for financial domain",
+            "type": "article-journal",
+            "volume": "55"
+        },
+        {
+            "author": [
+                {
+                    "family": "Ariyo",
+                    "given": "Adebiyi A"
+                },
+                {
+                    "family": "Adewumi",
+                    "given": "Adewole O"
+                },
+                {
+                    "family": "Ayo",
+                    "given": "Charles K"
+                }
+            ],
+            "container-title": "2014 UKSim-AMSS 16th International Conference on Computer Modelling and Simulation",
+            "id": "ariyo2014stock",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014
+                    ]
+                ]
+            },
+            "page": "106-112",
+            "publisher": "IEEE",
+            "title": "Stock price prediction using the ARIMA model",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Basu",
+                    "given": "Sumanta"
+                },
+                {
+                    "family": "Michailidis",
+                    "given": "George"
+                }
+            ],
+            "container-title": "The Annals of Applied Statistics",
+            "id": "basu2019low",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "page": "2216-2247",
+            "publisher": "Institute of Mathematical Statistics",
+            "title": "Low-complexity gaussian process models for financial time series forecasting",
+            "type": "article-journal",
+            "volume": "13"
+        },
+        {
+            "author": [
+                {
+                    "family": "Borovykh",
+                    "given": "Anastasia"
+                },
+                {
+                    "family": "Bohte",
+                    "given": "Sander"
+                },
+                {
+                    "family": "Oosterlee",
+                    "given": "Cornelis W"
+                }
+            ],
+            "container-title": "arXiv preprint arXiv:1808.01428",
+            "id": "borovykh2018conditional",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "title": "Conditional time series forecasting with convolutional neural networks",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Box",
+                    "given": "George E"
+                },
+                {
+                    "family": "Jenkins",
+                    "given": "Gwilym M"
+                },
+                {
+                    "family": "Reinsel",
+                    "given": "Gregory C"
+                },
+                {
+                    "family": "Ljung",
+                    "given": "Greta M"
+                }
+            ],
+            "id": "box2015time",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "publisher": "John Wiley & Sons",
+            "title": "Time series analysis: Forecasting and control",
+            "title-short": "Time series analysis",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "Brockwell",
+                    "given": "Peter J"
+                },
+                {
+                    "family": "Davis",
+                    "given": "Richard A"
+                }
+            ],
+            "id": "brockwell2016introduction",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "publisher": "Springer",
+            "title": "Introduction to time series and forecasting",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "Fawaz",
+                    "given": "Hassan Ismail"
+                },
+                {
+                    "family": "Forestier",
+                    "given": "Germain"
+                },
+                {
+                    "family": "Weber",
+                    "given": "Jonathan"
+                },
+                {
+                    "family": "Idoumghar",
+                    "given": "Lhassane"
+                },
+                {
+                    "family": "Muller",
+                    "given": "Pierre-Alain"
+                }
+            ],
+            "container-title": "arXiv preprint arXiv:1811.01533",
+            "id": "fawaz2018transfer",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "title": "Transfer learning for time series classification",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Hsu",
+                    "given": "Che-Ching"
+                },
+                {
+                    "family": "Huang",
+                    "given": "Jun-Yuan"
+                },
+                {
+                    "family": "Zhao",
+                    "given": "Qing"
+                }
+            ],
+            "container-title": "Expert Systems with Applications",
+            "id": "hsu2008hybrid",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        2008
+                    ]
+                ]
+            },
+            "page": "1650-1657",
+            "publisher": "Elsevier",
+            "title": "A hybrid approach to integrate genetic algorithm into dual scoring model in enhancing the performance of credit scoring model",
+            "type": "article-journal",
+            "volume": "35"
+        },
+        {
+            "author": [
+                {
+                    "family": "Hyndman",
+                    "given": "Rob J"
+                },
+                {
+                    "family": "Athanasopoulos",
+                    "given": "George"
+                }
+            ],
+            "id": "hyndman2018forecasting",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "publisher": "OTexts",
+            "title": "Forecasting: Principles and practice",
+            "title-short": "Forecasting",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "Khairalla",
+                    "given": "Mohamed"
+                },
+                {
+                    "family": "Al-Jallad",
+                    "given": "Nour-Eddin"
+                }
+            ],
+            "container-title": "International Journal of Advanced Research in Computer Science",
+            "id": "khairalla2017machine",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "page": "25-33",
+            "title": "Machine learning in forecasting: A review",
+            "title-short": "Machine learning in forecasting",
+            "type": "article-journal",
+            "volume": "8"
+        },
+        {
+            "author": [
+                {
+                    "family": "Liu",
+                    "given": "Qiang"
+                },
+                {
+                    "family": "Peng",
+                    "given": "Jian"
+                },
+                {
+                    "family": "Ihler",
+                    "given": "Alexander T"
+                }
+            ],
+            "container-title": "arXiv preprint arXiv:1606.06040",
+            "id": "liu2016online",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "title": "An online learning approach to improving the quality of crowd-sourcing",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Lu",
+                    "given": "Chi-Jie"
+                },
+                {
+                    "family": "Lee",
+                    "given": "Tian-Shyug"
+                },
+                {
+                    "family": "Chiu",
+                    "given": "Chih-Chou"
+                }
+            ],
+            "container-title": "Decision Support Systems",
+            "id": "lu2009financial",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009
+                    ]
+                ]
+            },
+            "page": "115-125",
+            "publisher": "Elsevier",
+            "title": "Financial time series forecasting using independent component analysis and support vector regression",
+            "type": "article-journal",
+            "volume": "47"
+        },
+        {
+            "author": [
+                {
+                    "family": "Poon",
+                    "given": "Ser-Huang"
+                },
+                {
+                    "family": "Granger",
+                    "given": "Clive WJ"
+                }
+            ],
+            "container-title": "Journal of economic literature",
+            "id": "poon2003forecasting",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2003
+                    ]
+                ]
+            },
+            "page": "478-539",
+            "publisher": "American Economic Association",
+            "title": "Forecasting volatility in financial markets: A review",
+            "title-short": "Forecasting volatility in financial markets",
+            "type": "article-journal",
+            "volume": "41"
+        },
+        {
+            "author": [
+                {
+                    "family": "Qin",
+                    "given": "Yao"
+                },
+                {
+                    "family": "Song",
+                    "given": "Dongjin"
+                },
+                {
+                    "family": "Chen",
+                    "given": "Haifeng"
+                },
+                {
+                    "family": "Cheng",
+                    "given": "Wei"
+                },
+                {
+                    "family": "Jiang",
+                    "given": "Guofei"
+                },
+                {
+                    "family": "Cottrell",
+                    "given": "Garrison W"
+                }
+            ],
+            "container-title": "arXiv preprint arXiv:1704.02971",
+            "id": "qin2017dual",
+            "title": "A dual-stage attention-based recurrent neural network for time series prediction",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
                     "family": "Borovykh",
                     "given": "Anastasia"
                 },

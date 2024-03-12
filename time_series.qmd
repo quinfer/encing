@@ -3,6 +3,7 @@ title: "Financial times series econometrics"
 author: "Barry Quinn"
 editor: visual
 date: today
+bibliography: references.bib
 execute:
   message: false
   warning: false
@@ -736,29 +737,6 @@ Understanding and applying these linear time series models is crucial for effect
 By leveraging the power of linear time series models and combining them with domain knowledge and machine learning techniques, financial analysts and researchers can enhance their analysis, uncover hidden patterns, and improve the accuracy and interpretability of their forecasts. Machine learning extensions such as regularization, ensemble methods, deep learning architectures, and transfer learning can help to address the limitations of traditional linear models and provide more robust and adaptive solutions for financial time series analysis.
 
 As the field of financial data analysis continues to evolve, the integration of machine learning with linear time series models opens up new opportunities for innovation and advancement. By staying updated with the latest developments and applying a combination of statistical rigor and machine learning expertise, professionals in the field can tackle the complex challenges of financial markets and make data-driven decisions with greater confidence and precision.
-
-References:
-- @ahmed2016survey
-- @ariyo2014stock
-- @basu2019low
-- @borovykh2018conditional
-- @box2015time
-- @brockwell2016introduction
-- @fawaz2018transfer
-- @hsu2008hybrid
-- @hyndman2018forecasting
-- @khairalla2017machine
-- @liu2016online
-- @lu2009financial
-- @poon2003forecasting
-- @qin2017dual
-- @shumway2017time
-- @sirignano2019universal
-- @tsay2005analysis
-- @wang2020ensemble
-- @zhang2003time
-- @zhang2013seasonal
-
 
 
 ## Volatility modeling and its connection to ARIMA modeling
