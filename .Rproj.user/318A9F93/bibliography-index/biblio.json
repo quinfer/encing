@@ -3,6 +3,135 @@
         {
             "author": [
                 {
+                    "family": "Box",
+                    "given": "George E"
+                },
+                {
+                    "family": "Jenkins",
+                    "given": "Gwilym M"
+                },
+                {
+                    "family": "Reinsel",
+                    "given": "Gregory C"
+                },
+                {
+                    "family": "Ljung",
+                    "given": "Greta M"
+                }
+            ],
+            "id": "box2015time",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "publisher": "John Wiley & Sons",
+            "title": "Time series analysis: Forecasting and control",
+            "title-short": "Time series analysis",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "Engle",
+                    "given": "Robert F"
+                }
+            ],
+            "container-title": "Econometrica",
+            "id": "engle1982autoregressive",
+            "issue": "4",
+            "issued": {
+                "date-parts": [
+                    [
+                        1982
+                    ]
+                ]
+            },
+            "page": "987-1007",
+            "publisher": "JSTOR",
+            "title": "Autoregressive conditional heteroscedasticity with estimates of the variance of united kingdom inflation",
+            "type": "article-journal",
+            "volume": "50"
+        },
+        {
+            "author": [
+                {
+                    "family": "Bollerslev",
+                    "given": "Tim"
+                }
+            ],
+            "container-title": "Journal of Econometrics",
+            "id": "bollerslev1986generalized",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        1986
+                    ]
+                ]
+            },
+            "page": "307-327",
+            "publisher": "Elsevier",
+            "title": "Generalized autoregressive conditional heteroskedasticity",
+            "type": "article-journal",
+            "volume": "31"
+        },
+        {
+            "author": [
+                {
+                    "family": "Franses",
+                    "given": "Philip Hans"
+                },
+                {
+                    "family": "Van Dijk",
+                    "given": "Dick"
+                }
+            ],
+            "container-title": "Journal of Forecasting",
+            "id": "franses1996forecasting",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        1996
+                    ]
+                ]
+            },
+            "page": "229-235",
+            "publisher": "Wiley Online Library",
+            "title": "Forecasting stock market volatility using (non-linear) GARCH models",
+            "type": "article-journal",
+            "volume": "15"
+        },
+        {
+            "author": [
+                {
+                    "family": "Shumway",
+                    "given": "Robert H"
+                },
+                {
+                    "family": "Stoffer",
+                    "given": "David S"
+                }
+            ],
+            "id": "shumway2017time",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "publisher": "Springer",
+            "title": "Time series analysis and its applications: With r examples",
+            "title-short": "Time series analysis and its applications",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
                     "family": "Borovykh",
                     "given": "Anastasia"
                 },
