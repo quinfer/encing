@@ -3,6 +3,564 @@
         {
             "author": [
                 {
+                    "family": "Donaldson",
+                    "given": "R. Glen"
+                },
+                {
+                    "family": "Kamstra",
+                    "given": "Mark"
+                }
+            ],
+            "container-title": "Journal of Time Series Analysis",
+            "id": "donaldson1997neural",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        1997
+                    ]
+                ]
+            },
+            "page": "523-539",
+            "publisher": "Wiley Online Library",
+            "title": "Neural network residual modelling in the presence of nonlinearity and non-normality",
+            "type": "article-journal",
+            "volume": "18"
+        },
+        {
+            "author": [
+                {
+                    "family": "Chen",
+                    "given": "Shangzhi"
+                },
+                {
+                    "family": "Hardle",
+                    "given": "Wolfgang Karl"
+                }
+            ],
+            "container-title": "Computational Statistics",
+            "id": "chen2014support",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014
+                    ]
+                ]
+            },
+            "page": "1111-1128",
+            "publisher": "Springer",
+            "title": "Support vector arch model for foreign exchange rate prediction",
+            "type": "article-journal",
+            "volume": "29"
+        },
+        {
+            "author": [
+                {
+                    "family": "Kim",
+                    "given": "Soohyon"
+                },
+                {
+                    "family": "Ku",
+                    "given": "Sungho"
+                },
+                {
+                    "family": "Chang",
+                    "given": "Woojin"
+                }
+            ],
+            "container-title": "arXiv preprint arXiv:1911.13213",
+            "id": "kim2019forecasting",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "title": "Forecasting financial volatility using deep learning–LSTM and GARCH",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Heaton",
+                    "given": "James B."
+                },
+                {
+                    "family": "Polson",
+                    "given": "Nicholas G."
+                },
+                {
+                    "family": "Witte",
+                    "given": "Jan Hendrik"
+                }
+            ],
+            "container-title": "Applied Stochastic Models in Business and Industry",
+            "id": "heaton2017deep",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "page": "3-12",
+            "publisher": "Wiley Online Library",
+            "title": "Deep learning for finance: Deep portfolios",
+            "title-short": "Deep learning for finance",
+            "type": "article-journal",
+            "volume": "33"
+        },
+        {
+            "author": [
+                {
+                    "family": "Liu",
+                    "given": "Qiankun"
+                },
+                {
+                    "family": "Yin",
+                    "given": "Jia"
+                },
+                {
+                    "family": "Leung",
+                    "given": "Victor"
+                },
+                {
+                    "family": "Zhu",
+                    "given": "Zhongfei"
+                }
+            ],
+            "container-title": "International Journal of Forecasting",
+            "id": "liu2020neural",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "page": "1090-1102",
+            "publisher": "Elsevier",
+            "title": "Neural network-based EGARCH model for forecasting exchange rate volatility",
+            "type": "article-journal",
+            "volume": "36"
+        },
+        {
+            "author": [
+                {
+                    "family": "Chen",
+                    "given": "Yanhui"
+                },
+                {
+                    "family": "Horesh",
+                    "given": "Roy"
+                },
+                {
+                    "family": "Jia",
+                    "given": "Jiawei"
+                },
+                {
+                    "family": "Liang",
+                    "given": "Yaojin"
+                },
+                {
+                    "family": "Zheng",
+                    "given": "Zijun"
+                }
+            ],
+            "container-title": "2020 IEEE international conference on financial engineering (ICFE)",
+            "id": "chen2020forecasting",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "page": "1-6",
+            "publisher": "IEEE",
+            "title": "Forecasting asymmetric volatility with machine learning",
+            "type": "paper-conference"
+        },
+        {
+            "author": [
+                {
+                    "family": "Li",
+                    "given": "Huiyu"
+                },
+                {
+                    "family": "Guo",
+                    "given": "Yaoyu"
+                }
+            ],
+            "container-title": "Journal of Systems Science and Complexity",
+            "id": "li2016neural",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "page": "1247-1265",
+            "publisher": "Springer",
+            "title": "Neural network IGARCH model and china stock market volatility: The effects of structural breaks",
+            "title-short": "Neural network IGARCH model and china stock market volatility",
+            "type": "article-journal",
+            "volume": "29"
+        },
+        {
+            "author": [
+                {
+                    "family": "Chen",
+                    "given": "Wei"
+                },
+                {
+                    "family": "Chen",
+                    "given": "Shihong"
+                }
+            ],
+            "container-title": "2018 10th international conference on information management and engineering (ICIME)",
+            "id": "chen2018forecasting",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "page": "48-52",
+            "publisher": "IEEE",
+            "title": "Forecasting volatility of chinese stock market by support vector machine",
+            "type": "paper-conference"
+        },
+        {
+            "author": [
+                {
+                    "family": "Nicholson",
+                    "given": "William B."
+                },
+                {
+                    "family": "Matteson",
+                    "given": "David S."
+                },
+                {
+                    "family": "Bien",
+                    "given": "Jacob"
+                }
+            ],
+            "container-title": "International Journal of Forecasting",
+            "id": "nicholson2017varx",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "page": "627-651",
+            "publisher": "Elsevier",
+            "title": "Varx-l: Structured regularization for large vector autoregressions with exogenous variables",
+            "title-short": "Varx-l",
+            "type": "article-journal",
+            "volume": "33"
+        },
+        {
+            "author": [
+                {
+                    "family": "Salinas",
+                    "given": "David"
+                },
+                {
+                    "family": "Flunkert",
+                    "given": "Valentin"
+                },
+                {
+                    "family": "Gasthaus",
+                    "given": "Jan"
+                },
+                {
+                    "family": "Januschowski",
+                    "given": "Tim"
+                }
+            ],
+            "container-title": "International Journal of Forecasting",
+            "id": "salinas2020deepar",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "page": "1181-1191",
+            "publisher": "Elsevier",
+            "title": "DeepAR: Probabilistic forecasting with autoregressive recurrent networks",
+            "title-short": "DeepAR",
+            "type": "article-journal",
+            "volume": "36"
+        },
+        {
+            "author": [
+                {
+                    "family": "Kao",
+                    "given": "Yi-Chih"
+                },
+                {
+                    "family": "Chuang",
+                    "given": "Tyng-Bin"
+                },
+                {
+                    "family": "Chou",
+                    "given": "Hsu-Ning"
+                }
+            ],
+            "container-title": "Expert Systems with Applications",
+            "id": "kao2009applying",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009
+                    ]
+                ]
+            },
+            "page": "2763-2770",
+            "publisher": "Elsevier",
+            "title": "Applying support vector regression in structural relationship identification",
+            "type": "article-journal",
+            "volume": "36"
+        },
+        {
+            "author": [
+                {
+                    "family": "Chuku",
+                    "given": "Chuku"
+                },
+                {
+                    "family": "Odudu",
+                    "given": "Idongesit"
+                },
+                {
+                    "family": "Ekpenyong",
+                    "given": "Ekpenyong"
+                }
+            ],
+            "container-title": "Financial Innovation",
+            "id": "chuku2019intelligent",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "page": "1-16",
+            "publisher": "Springer",
+            "title": "An intelligent forecasting scheme for financial time series data using long short term memory and particle swarm optimization",
+            "type": "article-journal",
+            "volume": "5"
+        },
+        {
+            "author": [
+                {
+                    "family": "Wilms",
+                    "given": "Ines"
+                },
+                {
+                    "family": "Croux",
+                    "given": "Christophe"
+                }
+            ],
+            "container-title": "Journal of Forecasting",
+            "id": "wilms2016forecasting",
+            "issue": "7",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "page": "607-619",
+            "publisher": "Wiley Online Library",
+            "title": "Forecasting high-dimensional cointegrated time series using sparse vector autoregressive models",
+            "type": "article-journal",
+            "volume": "35"
+        },
+        {
+            "author": [
+                {
+                    "family": "Borovykh",
+                    "given": "Anastasia"
+                },
+                {
+                    "family": "Bohte",
+                    "given": "Sander"
+                },
+                {
+                    "family": "Oosterlee",
+                    "given": "Cornelis W."
+                }
+            ],
+            "container-title": "arXiv preprint arXiv:1703.04691",
+            "id": "borovykh2017conditional",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "title": "Conditional time series forecasting with convolutional neural networks",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Tank",
+                    "given": "Alex"
+                },
+                {
+                    "family": "Covert",
+                    "given": "Ian"
+                },
+                {
+                    "family": "Foti",
+                    "given": "Nicholas"
+                },
+                {
+                    "family": "Shojaie",
+                    "given": "Ali"
+                },
+                {
+                    "family": "Fox",
+                    "given": "Emily"
+                }
+            ],
+            "container-title": "arXiv preprint arXiv:1802.05842",
+            "id": "tank2018neural",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "title": "Neural granger causality for nonlinear time series",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Rangapuram",
+                    "given": "Syama Sundar"
+                },
+                {
+                    "family": "Seeger",
+                    "given": "Matthias W."
+                },
+                {
+                    "family": "Gasthaus",
+                    "given": "Jan"
+                },
+                {
+                    "family": "Stella",
+                    "given": "Lorenzo"
+                },
+                {
+                    "family": "Wang",
+                    "given": "Yuyang"
+                },
+                {
+                    "family": "Januschowski",
+                    "given": "Tim"
+                }
+            ],
+            "container-title": "Advances in Neural Information Processing Systems",
+            "id": "rangapuram2018deep",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "page": "7785-7794",
+            "title": "Deep state space models for time series forecasting",
+            "type": "article-journal",
+            "volume": "31"
+        },
+        {
+            "author": [
+                {
+                    "family": "Krishnan",
+                    "given": "Rahul G."
+                },
+                {
+                    "family": "Shalit",
+                    "given": "Uri"
+                },
+                {
+                    "family": "Sontag",
+                    "given": "David"
+                }
+            ],
+            "collection-number": "1",
+            "container-title": "Proceedings of the AAAI conference on artificial intelligence",
+            "id": "krishnan2017structured",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "title": "Structured inference networks for nonlinear state space models",
+            "type": "paper-conference",
+            "volume": "31"
+        },
+        {
+            "author": [
+                {
+                    "family": "Doucet",
+                    "given": "Arnaud"
+                },
+                {
+                    "family": "Godsill",
+                    "given": "Simon"
+                },
+                {
+                    "family": "Andrieu",
+                    "given": "Christophe"
+                }
+            ],
+            "container-title": "Statistics and Computing",
+            "id": "doucet2000sequential",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2000
+                    ]
+                ]
+            },
+            "page": "197-208",
+            "publisher": "Springer",
+            "title": "On sequential monte carlo sampling methods for bayesian filtering",
+            "type": "article-journal",
+            "volume": "10"
+        },
+        {
+            "author": [
+                {
                     "family": "Box",
                     "given": "George E"
                 },
