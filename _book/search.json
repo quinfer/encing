@@ -1825,5 +1825,148 @@
       "Core Concepts",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Financial times series econometrics</span>"
     ]
+  },
+  {
+    "objectID": "resources.html",
+    "href": "resources.html",
+    "title": "Appendix A — resources",
+    "section": "",
+    "text": "A.1 The TSFE R package\nThis package contains templates for reports, and functions and workshops using in Time series financial econometrics taught by Barry Quinn at Queen’s Management School.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>resources</span>"
+    ]
+  },
+  {
+    "objectID": "resources.html#installation",
+    "href": "resources.html#installation",
+    "title": "Appendix A — resources",
+    "section": "A.2 Installation",
+    "text": "A.2 Installation\nremotes::install_github(\"quinfer/tsfe\")\nAnd the development version from GitHub with:\n# install.packages(\"devtools\")\ndevtools::install_github(\"quinfer/tsfe\")",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>resources</span>"
+    ]
+  },
+  {
+    "objectID": "resources.html#example",
+    "href": "resources.html#example",
+    "title": "Appendix A — resources",
+    "section": "A.2 Example",
+    "text": "A.2 Example\nThis is a basic example which shows you how to solve a common problem:\nlibrary(tsfe)\n## basic example code\ndata(\"ftse350\")  # This is a 2MB file so might take some time to initially load\nsummary(ftse350)\n#&gt;      Name              ticker            variable              date           \n#&gt;  Length:1014400     Length:1014400     Length:1014400     Min.   :2016-04-29  \n#&gt;  Class :character   Class :character   Class :character   1st Qu.:2017-06-14  \n#&gt;  Mode  :character   Mode  :character   Mode  :character   Median :2018-07-20  \n#&gt;                                                           Mean   :2018-07-13  \n#&gt;                                                           3rd Qu.:2019-08-14  \n#&gt;                                                           Max.   :2020-09-01  \n#&gt;      value          \n#&gt;  Min.   :     1.05  \n#&gt;  1st Qu.:   373.10  \n#&gt;  Median :   893.92  \n#&gt;  Mean   :  3273.80  \n#&gt;  3rd Qu.:  2210.00  \n#&gt;  Max.   :159163.60\n\nA.2.1 Tutorials\nYou can start the tutorials in one of two ways. First, in RStudio 1.3 or later, you will find the ATI tutorials listed in the “Tutorial” tab in the top-right pane (by default). Find a tutorial and click “Run Tutorial” to get started. Second, you can run any tutorial from the R console by typing the following line:\nlearnr::run_tutorial(\"Workshop2\",\"tsfe\")\nThis should bring up a tutorial in your default web browser. You can see the full list of tutorials by running:\nlearnr::run_tutorial(package = \"tsfe\")\nIf you would like to access the raw RMarkdown code which created these tutorials you can do so here\n\n\nA.2.2 Project Report\nThis package also includes a RMarkdown template for use in the project report. Go to File&gt;New&gt;R Markdown… and choose from From Template then project-report. There are four sections in the report\n\nIntroduction and literature review\nData and methodology\nResults\nDiscussion\n\nThe marks are allocated equally to each section.\n\n\nA.2.3 Datasets\nThis package also includes dataset used in the course",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>resources</span>"
+    ]
+  },
+  {
+    "objectID": "resources.html#tutorials",
+    "href": "resources.html#tutorials",
+    "title": "Appendix A — resources",
+    "section": "A.4 Tutorials",
+    "text": "A.4 Tutorials\nYou can start the tutorials in one of two ways. First, in RStudio 1.3 or later, you will find the ATI tutorials listed in the “Tutorial” tab in the top-right pane (by default). Find a tutorial and click “Run Tutorial” to get started. Second, you can run any tutorial from the R console by typing the following line:\nlearnr::run_tutorial(\"Workshop2\",\"tsfe\")\nThis should bring up a tutorial in your default web browser. You can see the full list of tutorials by running:\nlearnr::run_tutorial(package = \"tsfe\")\nIf you would like to access the raw RMarkdown code which created these tutorials you can do so here",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>resources</span>"
+    ]
+  },
+  {
+    "objectID": "resources.html#project-report",
+    "href": "resources.html#project-report",
+    "title": "Appendix A — resources",
+    "section": "A.5 Project Report",
+    "text": "A.5 Project Report\nThis package also includes a RMarkdown template for use in the project report. Go to File&gt;New&gt;R Markdown… and choose from From Template then project-report. There are four sections in the report\n\nIntroduction and literature review\nData and methodology\nResults\nDiscussion\n\nThe marks are allocated equally to each section.\n\nA.5.1 Indicative marking scheme\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ncrit erion\nd escri ption \\_E xpect ation not met\nd escri ption \\_A pproa ching E xpect ation\ndescr iptio n\\_ Meets E xpect ation\nde scrip tion\n\n\\_Ex ceeds E xpect ation\nvalue \\_E xpect ation not met\nvalue \\_A pproa ching E xpect ation\nvalu e\\_ Meets E xpect ation\nv alue\n\n\\_Ex ceeds E xpect ation\n\n\n\n\nIntr o+Lit\nThe in trodu ction needs a lot more work. A poor and incom plete r eview of the liter ature which do esn’t show any cri tical abi lity.\nThe in trodu ction br oadly sets out the pr oblem but could be much impr oved. The liter ature r eview req uires more co ntent and cri tical com ment.\nAn ade quate in trodu ction which br oadly sets out the pro blem. A good liter ature r eview that sets out some of the rel evant liter ature but need more crit ique.\nA very good in trodu ction which is easy to read and intro duces the pr oblem well, se tting out the ov erall pr oject aim. A very good liter ature re view, deta iling the rel evant liter ature and criti quing it.\n5\n15\n20\n25\n\n\nDa ta+me thods\nA poor model is used with very l ittle cri tical com ment.\nA pprop riate model and estim ation techn iques are used but l ittle cri tique is used.\nA good model cons truct and use of the sta ndard estim ation t echni ques. There is some cri tique of the met hods.\nA very good model co nstru ction with cri tical com ments of its use. Estim ation techn iques are well laid out and criti qued, with some im prove ments menti oned.\n5\n15\n20\n25\n\n\nRe sults\nRe sults are not well de fined and the use of t ables and g raphs needs much more work.\nPoor use of g raphs and ta bles. Infer ences are poor and are not well re lated to pre vious empi rical rese arch.\nThere is a pprop riate use of both t ables and gr aphs. The infer ences on re sults are good but have s parse cri tical comm ents. I mprov ement could be made with more conte xtual co mment about pre vious empi rical res ults.\nVery good use is made of both t ables and gr aphs. The most i ntere sting fea tures of the re sults are well ident ified with infer ences re lated to ov erall pr oject aims. A exce llent cri tique of your re sults using pre vious empi rical rese arch.\n5\n15\n20\n25\n\n\nDiscu ssion\nPoor and incom plete infer ences and c onclu sions from the pre vious sec tions\nSome infe rence from the pre vious sect ions.\nGood use of cri tical infer ences with some refe rence to how fin dings are re lated to the exi sting l itera ture.\nExce llent use of cri tical infer ences with well th ought out cri tique given the liter ature desc ribed in the pre vious sect ions.\n5\n15\n20\n25\n\n\nOri ginal ity + Refle ctive Essay\nLa cking meth odolo gical ap plica tion. Adequ ately ar gued. Basic und ersta nding and knowl edge. Gaps or in accur acies but not damag ing.L ittle rele vance mat erial a nd/or inacc urate a nswer or i ncomp lete. Di sorga nised and irrel evant mat erial and mi sunde rstan ding. Mi nimal or no rel evant mate rial.\nVery good know ledge and und ersta nding of m odule con tent. Well a rgued ans wers. Evi dence of o rigin ality and cri tical judge ment. Sound me thodo logy. Cri tical judg ement and some grasp of co mplex issue sGood know ledge and und ersta nding of the m odule con tent. Reaso nably we ll-ar gued. La rgely d escri ptive or narr ative in f ocus. Meth odolo gical a pplic ation is not consi stent or thor ough.\nVery good know ledge and und ersta nding of m odule con tent. Well a rgued ans wers. Evi dence of o rigin ality and cri tical judge ment. Sound me thodo logy. Cri tical judg ement and some grasp of co mplex issu\nTho rough and syste matic know ledge and und ersta nding of the m odule con tent. A clear grasp of the i ssues invo lved, with evi dence of innov ative and the ori ginal use of lea rning resou rces. Know ledge b eyond m odule con tent. Clear evi dence of i ndepe ndent th ought and or igina lity. Meth odolo gical ri gour. High cri tical judg ement and a conf ident grasp of co mplex i ssues\n5\n18\n28\n40",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>resources</span>"
+    ]
+  },
+  {
+    "objectID": "resources.html#datasets",
+    "href": "resources.html#datasets",
+    "title": "Appendix A — resources",
+    "section": "A.6 Datasets",
+    "text": "A.6 Datasets\nThis package also includes dataset used in the course",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>resources</span>"
+    ]
+  },
+  {
+    "objectID": "resources.html#course-r-package",
+    "href": "resources.html#course-r-package",
+    "title": "Appendix A — resources",
+    "section": "",
+    "text": "DOI",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>resources</span>"
+    ]
+  },
+  {
+    "objectID": "resources.html#the-tsfe-r-package",
+    "href": "resources.html#the-tsfe-r-package",
+    "title": "Appendix A — resources",
+    "section": "",
+    "text": "DOI\n\n\n\n\nA.1.1 Installation\nremotes::install_github(\"quinfer/tsfe\")\nAnd the development version from GitHub with:\n# install.packages(\"devtools\")\ndevtools::install_github(\"quinfer/tsfe\")",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>resources</span>"
+    ]
+  },
+  {
+    "objectID": "resources.html#coures-slides",
+    "href": "resources.html#coures-slides",
+    "title": "Appendix A — resources",
+    "section": "A.3 Coures Slides",
+    "text": "A.3 Coures Slides",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>resources</span>"
+    ]
+  },
+  {
+    "objectID": "resources.html#course-slide-decks",
+    "href": "resources.html#course-slide-decks",
+    "title": "Appendix A — resources",
+    "section": "A.3 Course Slide Decks",
+    "text": "A.3 Course Slide Decks",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>A</span>  <span class='chapter-title'>resources</span>"
+    ]
+  },
+  {
+    "objectID": "academic-integrity.html",
+    "href": "academic-integrity.html",
+    "title": "Appendix C — Advanced Financial Data Analytics Academic Integrity Policy",
+    "section": "",
+    "text": "Introduction\nAcademic integrity is the bedrock of research, scholarship, and the pursuit of knowledge. In the Advanced Financial Data Analytics course, we uphold the highest standards of honesty, fairness, and trust in all academic work. This policy outlines your responsibilities and expectations for ensuring academic integrity.\nDefinitions\n\nPlagiarism: The use of another person’s work (ideas, code, data, analysis, writing, etc.) or the output of AI language models without proper citation and acknowledgement. This includes self-plagiarism, where one submits their own prior work without indicating its origin.\nFabrication: Falsifying or inventing data, research findings, or other information.\nCheating: Using unauthorised materials, assistance, or methods during assessments (exams, projects, etc.).\nFacilitation of Academic Dishonesty: Knowingly helping or attempting to help another student violate this policy.\n\nCourse-Specific Expectations\n\nOriginal Work: Assignments, projects, and exams must reflect your own independent understanding, effort, and analysis.\nCollaboration (If Permitted): Clearly disclose collaboration boundaries as defined in instructions. Unauthorised sharing of code, datasets, or solutions is prohibited.\nUse of External Resources: Appropriately cite any external code, datasets, papers, or resources used.\nData Handling: Collect, process, and analyse data ethically and transparently. Document any manipulations, transformations, or filtering applied.\nCode Reproducibility: Structure your code with clear comments and documentation to allow for reproducibility by others.\nAppropriate Use of AI Tools:\n\nTransparency: Clearly disclose the use of AI tools (e.g., code generation, text summarisation) in any submitted work.\nCritical Evaluation: Employ your own judgment to evaluate and edit AI-generated outputs, ensuring they align with your own understanding and the assignment requirements.\nAvoid Over-reliance: AI tools should supplement, not replace, your own analysis, problem-solving skills, and critical thinking.\n\n\nConsequences of Violations\nViolations of this policy will be taken seriously and may result in:\n\nZero on the assignment or exam\nCourse failure\nDisciplinary action by the university\n\nReporting Suspected Violations\nYou have an obligation to report suspected academic dishonesty to the instructor or appropriate university authorities.\nSupport and Guidance\nWe are committed to fostering an environment where academic integrity thrives.\n\nUtilise the course syllabus, assignment guidelines, and instructor-provided resources.\nIf uncertain about proper citation, collaboration practices, or the ethical use of AI, ask your instructor beforesubmitting work.\nAccess university resources on academic writing, code development, and ethical research practices.\n\nAcknowledgement\nBy enrolling in this course, you acknowledge and agree to uphold this academic integrity policy.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Advanced Financial Data Analytics Academic Integrity Policy</span>"
+    ]
+  },
+  {
+    "objectID": "academic-integrity.html#definitions",
+    "href": "academic-integrity.html#definitions",
+    "title": "Appendix C — Advanced Financial Data Analytics Academic Integrity Policy",
+    "section": "C.2 Definitions",
+    "text": "C.2 Definitions\n\nPlagiarism: The use of another person’s work (ideas, code, data, analysis, writing, etc.) or the output of AI language models without proper citation and acknowledgement. This includes self-plagiarism, where one submits their own prior work without indicating its origin.\nFabrication: Falsifying or inventing data, research findings, or other information.\nCheating: Using unauthorised materials, assistance, or methods during assessments (exams, projects, etc.).\nFacilitation of Academic Dishonesty: Knowingly helping or attempting to help another student violate this policy.\n\nCourse-Specific Expectations\n\nOriginal Work: Assignments, projects, and exams must reflect your own independent understanding, effort, and analysis.\nCollaboration (If Permitted): Clearly disclose collaboration boundaries as defined in instructions. Unauthorised sharing of code, datasets, or solutions is prohibited.\nUse of External Resources: Appropriately cite any external code, datasets, papers, or resources used.\nData Handling: Collect, process, and analyse data ethically and transparently. Document any manipulations, transformations, or filtering applied.\nCode Reproducibility: Structure your code with clear comments and documentation to allow for reproducibility by others.\nAppropriate Use of AI Tools:\n\nTransparency: Clearly disclose the use of AI tools (e.g., code generation, text summarisation) in any submitted work.\nCritical Evaluation: Employ your own judgment to evaluate and edit AI-generated outputs, ensuring they align with your own understanding and the assignment requirements.\nAvoid Over-reliance: AI tools should supplement, not replace, your own analysis, problem-solving skills, and critical thinking.\n\n\nConsequences of Violations\nViolations of this policy will be taken seriously and may result in:\n\nZero on the assignment or exam\nCourse failure\nDisciplinary action by the university\n\nReporting Suspected Violations\nYou have an obligation to report suspected academic dishonesty to the instructor or appropriate university authorities.\nSupport and Guidance\nWe are committed to fostering an environment where academic integrity thrives.\n\nUtilise the course syllabus, assignment guidelines, and instructor-provided resources.\nIf uncertain about proper citation, collaboration practices, or the ethical use of AI, ask your instructor beforesubmitting work.\nAccess university resources on academic writing, code development, and ethical research practices.\n\nAcknowledgement\nBy enrolling in this course, you acknowledge and agree to uphold this academic integrity policy.",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Advanced Financial Data Analytics Academic Integrity Policy</span>"
+    ]
+  },
+  {
+    "objectID": "academic-integrity.html#tldr",
+    "href": "academic-integrity.html#tldr",
+    "title": "Appendix C — Advanced Financial Data Analytics Academic Integrity Policy",
+    "section": "C.3 TL;DR",
+    "text": "C.3 TL;DR\n\n\n\n\n\ngraph TD\n    subgraph Core Principles\n        Honesty --&gt; Original_Work\n        Fairness --&gt; Citations & Permitted_Collaboration\n        Trust -- Influences --&gt; Citations\n    end\n    subgraph Student Actions\n        Student_Actions --&gt; Original_Work \n        Student_Actions --&gt; Citations\n        Student_Actions --&gt; Permitted_Collaboration\n    end",
+    "crumbs": [
+      "Appendices",
+      "<span class='chapter-number'>C</span>  <span class='chapter-title'>Advanced Financial Data Analytics Academic Integrity Policy</span>"
+    ]
   }
 ]

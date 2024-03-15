@@ -26,6 +26,7 @@ book:
   appendices: 
     - resources.qmd
     - solutions.qmd
+    - academic-integrity.qmd
 
 bibliography: references.bib
 

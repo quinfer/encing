@@ -1,0 +1,84 @@
+---
+title: "Advanced Financial Data Analytics Academic Integrity Policy"
+editor: visual
+css: style.css
+---
+
+## Introduction
+
+Academic integrity is the bedrock of research, scholarship, and the pursuit of knowledge. In the Advanced Financial Data Analytics course, we uphold the highest standards of honesty, fairness, and trust in all academic work. This policy outlines your responsibilities and expectations for ensuring academic integrity.
+
+## Definitions
+
+-   **Plagiarism:** The use of another person's work (ideas, code, data, analysis, writing, etc.) or the output of AI language models without proper citation and acknowledgement. This includes self-plagiarism, where one submits their own prior work without indicating its origin.
+
+-   **Fabrication:** Falsifying or inventing data, research findings, or other information.
+
+-   **Cheating:** Using unauthorised materials, assistance, or methods during assessments (exams, projects, etc.).
+
+-   **Facilitation of Academic Dishonesty:** Knowingly helping or attempting to help another student violate this policy.
+
+**Course-Specific Expectations**
+
+-   **Original Work:** Assignments, projects, and exams must reflect your own independent understanding, effort, and analysis.
+
+-   **Collaboration (If Permitted):** Clearly disclose collaboration boundaries as defined in instructions. Unauthorised sharing of code, datasets, or solutions is prohibited.
+
+-   **Use of External Resources:** Appropriately cite any external code, datasets, papers, or resources used.
+
+-   **Data Handling:** Collect, process, and analyse data ethically and transparently. Document any manipulations, transformations, or filtering applied.
+
+-   **Code Reproducibility:** Structure your code with clear comments and documentation to allow for reproducibility by others.
+
+-   **Appropriate Use of AI Tools:**
+
+    -   Transparency: Clearly disclose the use of AI tools (e.g., code generation, text summarisation) in any submitted work.
+
+    -   Critical Evaluation: Employ your own judgment to evaluate and edit AI-generated outputs, ensuring they align with your own understanding and the assignment requirements.
+
+    -   Avoid Over-reliance: AI tools should supplement, not replace, your own analysis, problem-solving skills, and critical thinking.
+
+**Consequences of Violations**
+
+Violations of this policy will be taken seriously and may result in:
+
+-   Zero on the assignment or exam
+
+-   Course failure
+
+-   Disciplinary action by the university
+
+**Reporting Suspected Violations**
+
+You have an obligation to report suspected academic dishonesty to the instructor or appropriate university authorities.
+
+**Support and Guidance**
+
+We are committed to fostering an environment where academic integrity thrives.
+
+-   Utilise the course syllabus, assignment guidelines, and instructor-provided resources.
+
+-   If uncertain about proper citation, collaboration practices, or the ethical use of AI, ask your instructor *before*submitting work.
+
+-   Access university resources on academic writing, code development, and ethical research practices.
+
+**Acknowledgement**
+
+By enrolling in this course, you acknowledge and agree to uphold this academic integrity policy.
+
+## TL;DR
+
+
+```{mermaid}
+graph TD
+    subgraph Core Principles
+        Honesty --> Original_Work
+        Fairness --> Citations & Permitted_Collaboration
+        Trust -- Influences --> Citations
+    end
+    subgraph Student Actions
+        Student_Actions --> Original_Work 
+        Student_Actions --> Citations
+        Student_Actions --> Permitted_Collaboration
+    end
+```
