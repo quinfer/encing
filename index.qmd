@@ -1,0 +1,91 @@
+---
+title: "Preface"
+author: "Barry Quinn"
+editor: visual
+date: today
+bibliography: references.bib
+---
+
+# Embracing Complexity {.unnumbered}
+
+In the ever-evolving landscape of financial analytics, a paradigm shift has occurred with the integration of machine learning, classical financial time series econometrics, and Bayesian methods. These methodologies together provide a multifaceted approach to tackling the [wicked problems](https://q-rap.connect.qub.ac.uk/FAB/about.html) in finance, characterised by complexity, uncertainty, and conflicting objectives. Drawing inspiration from seminal works, including [@Kelly2022complexity; @Kelly2023FML], this book explores the intricate role these methodologies play in deciphering and predicting the behaviors of financial markets.
+
+## Financial Markets: A Complex Predictive System {.unnumbered}
+
+At the core of financial analytics is the understanding that market prices are not just numbers but predictions, reflecting investors' expectations about future asset payoffs and risks. Classical financial time series econometrics, with such models like ARIMA and GARCH, offers valuable insights into market dynamics through historical data analysis. However, when faced with the vast and complex datasets of modern finance, these traditional approaches can be limited by their rigidity and strict structural assumptions.
+
+### The Predictive Nature of Market Prices {.unnumbered}
+
+In financial economics, the price of an asset is modeled as the expected discounted future payoff, formalised as:
+
+$$P_{it} = E[M_{t+1} X_{it+1} | I_t ]$$
+
+Where:
+
+-   $P_{it}$ represents the price of asset $i$ at time $t$.
+-   $E[\cdot]$ is the expectation operator.
+-   $M_{t+1}$ denotes the stochastic discount factor, accounting for investors' time preference and risk aversion.
+-   $X_{it+1}$ is the future payoff of the asset.
+-   $I_t$ encapsulates all available information at time $t$.
+
+This equation underscores that current market prices are essentially the aggregated predictions of investors about future payoffs, adjusted for risk and time preferences.
+
+## The Role of Bayesian Methods and Machine Learning {.unnumbered}
+
+Bayesian methods bring a probabilistic dimension, enabling the incorporation of prior knowledge and continuous updating with new data. This flexibility is crucial in adapting to the uncertain and dynamic nature of financial markets.
+
+Machine learning, with its capacity to process large datasets and adapt to various functional forms, complements traditional econometrics and Bayesian approaches. Its utility lies in its ability to model the complexities of financial markets with a higher degree of accuracy.
+
+## Unifying Theoretical Foundations {.unnumbered}
+
+The strengths of these methodologies are encapsulated in their foundational principles. Machine learning's overparameterisation and regularisation techniques handle high-dimensional data and mitigate overfitting. Bayesian methods, on the other hand, offer a dynamic and adaptive framework for probabilistic modeling and inference.
+
+## Synergising Econometrics, Bayesian Methods, and Machine Learning {.unnumbered}
+
+The convergence of classical financial time series econometrics, Bayesian methods, and machine learning forms a comprehensive toolkit for addressing the intricacies of financial markets. Econometrics lays the groundwork with established models, Bayesian methods add adaptability in the face of uncertainty, and machine learning brings advanced predictive power, especially for large and complex datasets.
+
+## Adopting a Growth Mindset While Learning Advanced Financial Data Analytics {.unnumbered}
+
+Learning advanced financial data analytics, like any skill, requires dedication, effort, and persistence. Adopting a growth mindset can significantly enhance your motivation and ability to overcome obstacles along the path to acquiring new competencies. Carol Dweck, a psychologist and researcher, introduced the concept of growth vs. fixed mindset, revealing that individuals with a growth mindset tend to thrive more in challenging environments.
+
+A growth mindset embodies the following characteristics:
+
+-   **Embrace Challenges**: See hurdles as opportunities to strengthen abilities and improve skills.
+-   **Persist in Face of Setbacks**: Remain committed and confident when confronted with failures or roadblocks.
+-   **Leverage Criticism and Feedback**: Treat critiques as valuable input to fine-tune knowledge and abilities.
+-   **Find Lessons in Others' Success**: Learn from accomplished peers to spur personal growth.
+-   **Outgrow Complacency**: Refuse to settle for stagnation; constantly challenge yourself to innovate and progress.
+
+Applying a growth mindset to learning advanced financial data analytics offers the following advantages:
+
+-   **Improved Performance**: By focusing on progress and growth, you increase your chances of achieving better outcomes.
+-   **Resiliency**: Overcome setbacks and frustrations by remaining dedicated and motivated.
+-   **Collaboration**: Value teamwork and peer interaction as catalysts for expansion and development.
+-   **Adaptability**: Evolve and adjust to new situations and challenges, preparing for unexpected change.
+-   **Long-Term Focus**: Invest in sustainable learning habits to maintain momentum and drive lifelong growth.
+
+When approaching advanced financial data analytics, consider the following suggestions to encourage a growth mindset:
+
+-   **Set Clear Goals**: Define achievable short-term targets leading to long-term accomplishments.
+-   **Track Progress**: Record improvements and celebrate milestones to sustain enthusiasm.
+-   **Seek Opportunities**: Actively search for novel experiences and training programs to broaden your skillset.
+-   **Engage Peers**: Participate in communities, workshops, and networking events to learn from others and expand your network.
+-   **Accept Mistakes**: Acknowledge errors as stepping stones towards improvement and learning.
+
+By embracing a growth mindset, you position yourself for success in mastering advanced financial data analytics, fostering a life-long commitment to learning and development.
+
+{{< video https://youtu.be/ZS8QHRtzcPg >}}
+
+Much like Batman we fall so that we can learn to pick ourselves up.
+
+## Wrap-up {.unnumbered}
+
+This book embarks on a detailed exploration of how these three pivotal methodologies revolutionise financial data analytics. By embracing the complexity of financial markets and harnessing the collective strengths of econometrics, Bayesian methods, and machine learning, we aim to deepen our understanding of financial predictions and enhance decision-making in finance. Through this journey, readers will gain the necessary insights and tools to navigate the sophisticated realm of financial analytics in today's world.
+
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
+
+<a property="dct:title" rel="cc:attributionURL" href="https://q-rap.connect.qub.ac.uk/AFDA/">Advanced Financial Data Analytics</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://quinference.come">Barry Quinn</a> is licensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution-NonCommercial 4.0 International<img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/><img src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/><img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"/></a>
+
+</p>
+
+## References

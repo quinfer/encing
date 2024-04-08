@@ -1,0 +1,792 @@
+{
+    "sources": [
+        {
+            "author": [
+                {
+                    "family": "Vilhuber",
+                    "given": "Lars"
+                }
+            ],
+            "container-title": "Annual Review of Economics",
+            "id": "Vilhuber2021",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "page": "45-70",
+            "publisher": "Annual Reviews",
+            "title": "Reproducibility and replicability in economics",
+            "type": "article-journal",
+            "volume": "13"
+        },
+        {
+            "author": [
+                {
+                    "family": "Lo",
+                    "given": "Andrew W."
+                },
+                {
+                    "family": "MacKinlay",
+                    "given": "A. Craig"
+                }
+            ],
+            "id": "lo1997econometrics",
+            "issued": {
+                "date-parts": [
+                    [
+                        1997
+                    ]
+                ]
+            },
+            "publisher": "Princeton University Press",
+            "title": "The econometrics of financial markets",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1017/9781139161879",
+            "author": [
+                {
+                    "family": "Gelman",
+                    "given": "Andrew"
+                },
+                {
+                    "family": "Hill",
+                    "given": "Jennifer"
+                },
+                {
+                    "family": "Vehtari",
+                    "given": "Aki"
+                }
+            ],
+            "id": "Gelman2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "keyword": "",
+            "title": "Regression and Other Stories",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.1111/rssa.12378",
+            "ISSN": "0964-1998",
+            "URL": "https://rss.onlinelibrary.wiley.com/doi/full/10.1111/rssa.12378",
+            "abstract": "Abstract Bayesian data analysis is about more than just computing a posterior distribution, and Bayesian visualization is about more than trace plots of Markov chains. Practical Bayesian data analysis, like all data analysis, is an iterative process of model building, inference, model checking and evaluation, and model expansion. Visualization is helpful in each of these stages of the Bayesian workflow and it is indispensable when drawing inferences from the types of modern, high dimensional models that are used by applied researchers.",
+            "author": [
+                {
+                    "family": "Jonah",
+                    "suffix": "Gabry"
+                },
+                {
+                    "family": "Daniel",
+                    "suffix": "Simpson"
+                },
+                {
+                    "family": "Aki",
+                    "suffix": "Vehtari"
+                },
+                {
+                    "family": "Michael",
+                    "suffix": "Betancourt"
+                },
+                {
+                    "family": "Andrew",
+                    "suffix": "Gelman"
+                }
+            ],
+            "container-title": "J. R. Stat. Soc. Ser. A Stat. Soc.",
+            "id": "Jonah2019",
+            "issue": "2",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019,
+                        2
+                    ]
+                ]
+            },
+            "keyword": "",
+            "page": "389-402",
+            "title": "Visualization in Bayesian workflow",
+            "type": "article-journal",
+            "volume": "182"
+        },
+        {
+            "DOI": "10.2139/ssrn.4520856",
+            "abstract": "We survey the nascent literature on machine learning in the study of financial markets. We highlight the best examples of what this line of research has to offer and recommend promising directions for future research. This survey is designed for both financial economists interested in grasping machine learning tools, as well as for statisticians and machine learners seeking interesting financial contexts where advanced methods may be deployed.",
+            "author": [
+                {
+                    "family": "Kelly",
+                    "given": "Bryan T."
+                },
+                {
+                    "family": "Xiu",
+                    "given": "Dacheng"
+                }
+            ],
+            "container-title": "SSRN Electronic Journal",
+            "id": "Kelly2023FML",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "keyword": "",
+            "title": "Financial Machine Learning",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.2139/ssrn.4171581",
+            "author": [
+                {
+                    "family": "Kelly",
+                    "given": "Bryan T"
+                },
+                {
+                    "family": "Malamud",
+                    "given": "Semyon"
+                },
+                {
+                    "family": "Zhou",
+                    "given": "Kangying"
+                }
+            ],
+            "container-title": "SSRN Electronic Journal",
+            "id": "Kelly2022complexity",
+            "issued": {
+                "date-parts": [
+                    [
+                        2022
+                    ]
+                ]
+            },
+            "keyword": "",
+            "title": "The Virtue of Complexity Everywhere",
+            "type": "article-journal"
+        },
+        {
+            "DOI": "10.1093/he/9780198776697.001.0001",
+            "author": [
+                {
+                    "family": "Lo",
+                    "given": "Andrew"
+                },
+                {
+                    "family": "MacKinlay",
+                    "given": "Craig"
+                }
+            ],
+            "id": "Ang2002",
+            "issued": {
+                "date-parts": [
+                    [
+                        2002
+                    ]
+                ]
+            },
+            "publisher": "Oxford University Press",
+            "title": "Analysis of financial time series",
+            "type": "book"
+        },
+        {
+            "ISBN": "9781108465052",
+            "author": [
+                {
+                    "family": "Brooks",
+                    "given": "Christopher M."
+                }
+            ],
+            "id": "Brooks2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "publisher": "Cambridge University Press",
+            "title": "Introductory econometrics for finance",
+            "type": "book"
+        },
+        {
+            "ISBN": "9781292252449",
+            "author": [
+                {
+                    "family": "Greene",
+                    "given": "William H."
+                }
+            ],
+            "id": "Greene2018",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "publisher": "Pearson Education Limited",
+            "title": "Econometric analysis",
+            "type": "book"
+        },
+        {
+            "ISBN": "9780691042896",
+            "author": [
+                {
+                    "family": "Hamilton",
+                    "given": "James Douglas"
+                }
+            ],
+            "id": "Hamilton1994",
+            "issued": {
+                "date-parts": [
+                    [
+                        1994
+                    ]
+                ]
+            },
+            "publisher": "Princeton University Press",
+            "title": "Time series analysis",
+            "type": "book"
+        },
+        {
+            "ISBN": "9781439840955",
+            "author": [
+                {
+                    "family": "Gelman",
+                    "given": "Andrew"
+                },
+                {
+                    "family": "Hill",
+                    "given": "Jennifer"
+                },
+                {
+                    "family": "Stern",
+                    "given": "Hal"
+                },
+                {
+                    "family": "Dunson",
+                    "given": "David"
+                },
+                {
+                    "family": "Vehtari",
+                    "given": "Aki"
+                },
+                {
+                    "family": "Rubin",
+                    "given": "Donald"
+                }
+            ],
+            "id": "Gelman2013",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013
+                    ]
+                ]
+            },
+            "publisher": "Chapman; Hall/CRC",
+            "title": "Bayesian data analysis",
+            "type": "book"
+        },
+        {
+            "ISBN": "9780262018029",
+            "author": [
+                {
+                    "family": "Murphy",
+                    "given": "Kevin P."
+                }
+            ],
+            "id": "Murphy2012",
+            "issued": {
+                "date-parts": [
+                    [
+                        2012
+                    ]
+                ]
+            },
+            "publisher": "MIT Press",
+            "title": "Machine learning: A probabilistic perspective",
+            "title-short": "Machine learning",
+            "type": "book"
+        },
+        {
+            "ISBN": "9783642259286",
+            "author": [
+                {
+                    "family": "Hartmann",
+                    "given": "Stefan"
+                },
+                {
+                    "family": "Hardle",
+                    "given": "Wolfgang"
+                }
+            ],
+            "id": "Hartmann2013",
+            "issued": {
+                "date-parts": [
+                    [
+                        2013
+                    ]
+                ]
+            },
+            "publisher": "Springer Science & Business Media",
+            "title": "Applied multivariate time series analysis: State space and kalman filter approach",
+            "title-short": "Applied multivariate time series analysis",
+            "type": "book"
+        },
+        {
+            "ISBN": "9780078021301",
+            "author": [
+                {
+                    "family": "Diebold",
+                    "given": "Francis X."
+                }
+            ],
+            "id": "Diebold2015",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "publisher": "Thomson Higher Education",
+            "title": "Elements of forecasting",
+            "type": "book"
+        },
+        {
+            "ISBN": "9781118618638",
+            "author": [
+                {
+                    "family": "Tsay",
+                    "given": "Ruey S."
+                }
+            ],
+            "id": "Tsay2014",
+            "issued": {
+                "date-parts": [
+                    [
+                        2014
+                    ]
+                ]
+            },
+            "publisher": "John Wiley & Sons, Ltd",
+            "title": "Multivariate time series analysis: With r and financial applications",
+            "title-short": "Multivariate time series analysis",
+            "type": "book"
+        },
+        {
+            "DOI": "10.1093/rcfs/cfw034",
+            "author": [
+                {
+                    "family": "Brühl",
+                    "given": "Kristina"
+                },
+                {
+                    "family": "Engelberg",
+                    "given": "Alexander"
+                },
+                {
+                    "family": "Koijen",
+                    "given": "Ralph"
+                },
+                {
+                    "family": "Siegel",
+                    "given": "Stephan"
+                }
+            ],
+            "container-title": "Review of Corporate Finance Studies",
+            "id": "Cremers2018",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "page": "1-32",
+            "title": "Artificial intelligence in finance",
+            "type": "article-journal",
+            "volume": "7"
+        },
+        {
+            "DOI": "10.1111/jofi.13249",
+            "author": [
+                {
+                    "family": "Jensen",
+                    "given": "Bryan;Pedersen",
+                    "suffix": "Theis Ingerslev;Kelly"
+                }
+            ],
+            "container-title": "Journal of Finance",
+            "id": "Heje2023",
+            "issued": {
+                "date-parts": [
+                    [
+                        2023
+                    ]
+                ]
+            },
+            "page": "2465-2518",
+            "title": "Is there a replication crisis in finance?",
+            "type": "article-journal",
+            "volume": "78"
+        },
+        {
+            "DOI": "10.1002/ijfe.2393",
+            "author": [
+                {
+                    "family": "Huang",
+                    "given": "Mei Chi"
+                }
+            ],
+            "container-title": "International Journal of Finance and Economics",
+            "id": "Chi2022",
+            "issued": {
+                "date-parts": [
+                    [
+                        2022
+                    ]
+                ]
+            },
+            "page": "4660-4683",
+            "title": "Time-varying roles of housing risk factors in state-level housing markets",
+            "type": "article-journal",
+            "volume": "27"
+        },
+        {
+            "DOI": "10.1080/1351847X.2021.1899953",
+            "author": [
+                {
+                    "family": "Brown",
+                    "given": "Pulak;Gray",
+                    "suffix": "Sarah;Ghosh"
+                }
+            ],
+            "container-title": "European Journal of Finance",
+            "id": "Jennifer2021",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "page": "1581-1603",
+            "title": "Saving behaviour and health: A high-dimensional bayesian analysis of british panel data",
+            "title-short": "Saving behaviour and health",
+            "type": "article-journal",
+            "volume": "27"
+        },
+        {
+            "DOI": "10.1111/jofi.12854",
+            "author": [
+                {
+                    "family": "Chib",
+                    "given": "Xiaming;Zhao",
+                    "suffix": "Siddhartha;Zeng"
+                }
+            ],
+            "container-title": "Journal of Finance",
+            "id": "Lingxiao2020",
+            "issued": {
+                "date-parts": [
+                    [
+                        2020
+                    ]
+                ]
+            },
+            "page": "551-577",
+            "title": "On comparing asset pricing models",
+            "type": "article-journal",
+            "volume": "75"
+        },
+        {
+            "DOI": "10.1017/S0022109017000746",
+            "author": [
+                {
+                    "family": "Stoughton",
+                    "given": "Kit Pong;Yi",
+                    "suffix": "Neal M.;Wong"
+                }
+            ],
+            "container-title": "Journal of Financial and Quantitative Analysis",
+            "id": "Long2017",
+            "issued": {
+                "date-parts": [
+                    [
+                        2017
+                    ]
+                ]
+            },
+            "page": "2611-2642",
+            "title": "Investment efficiency and product market competition",
+            "type": "article-journal",
+            "volume": "52"
+        },
+        {
+            "DOI": "10.1080/1351847X.2012.760167",
+            "author": [
+                {
+                    "family": "Paolella",
+                    "given": "Marc S."
+                }
+            ],
+            "container-title": "European Journal of Finance",
+            "id": "S.2015",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "page": "1214-1252",
+            "title": "Multivariate asset return prediction with mixture models",
+            "type": "article-journal",
+            "volume": "21"
+        },
+        {
+            "DOI": "10.1093/rfs/hhu069",
+            "author": [
+                {
+                    "family": "Payzan-Lenestour",
+                    "given": "Peter",
+                    "suffix": "Elise;Bossaerts"
+                }
+            ],
+            "container-title": "Review of Financial Studies",
+            "id": "Peter2015",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "page": "1874-1913",
+            "title": "Learning about unstable, publicly unobservable payoffs",
+            "type": "article-journal",
+            "volume": "28"
+        },
+        {
+            "DOI": "10.1111/j.1540-6261.2010.01599.x",
+            "author": [
+                {
+                    "family": "Grenadier",
+                    "given": "Andrey",
+                    "suffix": "Steven R.;Malenko"
+                }
+            ],
+            "container-title": "Journal of Finance",
+            "id": "Andrey2010",
+            "issued": {
+                "date-parts": [
+                    [
+                        2010
+                    ]
+                ]
+            },
+            "page": "1949-1986",
+            "title": "A bayesian approach to real options: The case of distinguishing between temporary and permanent shocks",
+            "title-short": "A bayesian approach to real options",
+            "type": "article-journal",
+            "volume": "65"
+        },
+        {
+            "DOI": "10.1111/j.1540-6261.2009.01514.x",
+            "author": [
+                {
+                    "family": "Li",
+                    "given": "Hui",
+                    "suffix": "C. Wei;Xue"
+                }
+            ],
+            "container-title": "Journal of Finance",
+            "id": "Hui2009",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009
+                    ]
+                ]
+            },
+            "page": "2665-2701",
+            "title": "A bayesian’s bubble",
+            "type": "article-journal",
+            "volume": "64"
+        },
+        {
+            "DOI": "10.1002/ijfe.388",
+            "author": [
+                {
+                    "family": "Ulibarri",
+                    "given": "Peter C.;Hovsepian",
+                    "suffix": "Carlos A.;Anselmo"
+                }
+            ],
+            "container-title": "International Journal of Finance and Economics",
+            "id": "Ionut2009",
+            "issued": {
+                "date-parts": [
+                    [
+                        2009
+                    ]
+                ]
+            },
+            "page": "N/A",
+            "title": "Erratum: ’Noise-trader risk’ and bayesian market making in FX derivatives: Rolling loaded dice? (International journal of finance and economics (2008))",
+            "title-short": "Erratum",
+            "type": "article-journal",
+            "volume": "14"
+        },
+        {
+            "DOI": "10.1111/j.1540-6261.2008.01411.x",
+            "author": [
+                {
+                    "family": "Kaustia",
+                    "given": "Samuli",
+                    "suffix": "Markku;Knüpfer"
+                }
+            ],
+            "container-title": "Journal of Finance",
+            "id": "Samuli2008",
+            "issued": {
+                "date-parts": [
+                    [
+                        2008
+                    ]
+                ]
+            },
+            "page": "2679-2702",
+            "title": "Do investors overweight personal experience? Evidence from IPO subscriptions",
+            "type": "article-journal",
+            "volume": "63"
+        },
+        {
+            "DOI": "10.1111/0022-1082.00204",
+            "author": [
+                {
+                    "family": "Pástor",
+                    "given": "Ľuboš"
+                }
+            ],
+            "container-title": "Journal of Finance",
+            "id": "Ľuboš2000",
+            "issued": {
+                "date-parts": [
+                    [
+                        2000
+                    ]
+                ]
+            },
+            "page": "179-223",
+            "title": "Portfolio selection and asset pricing models",
+            "type": "article-journal",
+            "volume": "55"
+        },
+        {
+            "DOI": "10.1111/j.1540-6261.1989.tb04391.x",
+            "author": [
+                {
+                    "family": "FELDMAN",
+                    "given": "DAVID"
+                }
+            ],
+            "container-title": "The Journal of Finance",
+            "id": "DAVID1989",
+            "issued": {
+                "date-parts": [
+                    [
+                        1989
+                    ]
+                ]
+            },
+            "page": "789-812",
+            "title": "The term structure of interest rates in a partially observable economy",
+            "type": "article-journal",
+            "volume": "44"
+        },
+        {
+            "DOI": "10.1111/j.1540-6261.1986.tb02533.x",
+            "author": [
+                {
+                    "family": "STANHOUSE",
+                    "given": "BRYAN"
+                }
+            ],
+            "container-title": "The Journal of Finance",
+            "id": "BRYAN1986",
+            "issued": {
+                "date-parts": [
+                    [
+                        1986
+                    ]
+                ]
+            },
+            "page": "1103-1114",
+            "title": "Commercial bank portfolio behavior and endogenous uncertainty",
+            "type": "article-journal",
+            "volume": "41"
+        },
+        {
+            "DOI": "10.1111/j.1540-6261.1979.tb00072.x",
+            "author": [
+                {
+                    "family": "STANHOUSE",
+                    "given": "LARRY",
+                    "suffix": "BRYAN;SHERMAN"
+                }
+            ],
+            "container-title": "The Journal of Finance",
+            "id": "LARRY1979",
+            "issued": {
+                "date-parts": [
+                    [
+                        1979
+                    ]
+                ]
+            },
+            "page": "1263-1269",
+            "title": "A note on information in the loan evaluation process",
+            "type": "article-journal",
+            "volume": "34"
+        },
+        {
+            "DOI": "10.2307/2330267",
+            "author": [
+                {
+                    "family": "Joy",
+                    "given": "John O.",
+                    "suffix": "O. Maurice;Tollefson"
+                }
+            ],
+            "container-title": "Journal of Financial and Quantitative Analysis",
+            "id": "O.1975",
+            "issued": {
+                "date-parts": [
+                    [
+                        1975
+                    ]
+                ]
+            },
+            "page": "723-739",
+            "title": "On the financial applications of discriminant analysis",
+            "type": "article-journal",
+            "volume": "10"
+        }
+    ],
+    "project_biblios": [
+        "references.bib"
+    ]
+}

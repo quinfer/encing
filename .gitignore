@@ -1,0 +1,5 @@
+/.quarto/
+.scopus_api_key
+/.Rproj.user/
+.Rhistory
+.DS_Store

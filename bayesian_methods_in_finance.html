@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Barry Quinn and Baz-AI">
+
+<title>bayesian_methods_in_finance</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="bayesian_methods_in_finance_files/libs/clipboard/clipboard.min.js"></script>
+<script src="bayesian_methods_in_finance_files/libs/quarto-html/quarto.js"></script>
+<script src="bayesian_methods_in_finance_files/libs/quarto-html/popper.min.js"></script>
+<script src="bayesian_methods_in_finance_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="bayesian_methods_in_finance_files/libs/quarto-html/anchor.min.js"></script>
+<link href="bayesian_methods_in_finance_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="bayesian_methods_in_finance_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="bayesian_methods_in_finance_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="bayesian_methods_in_finance_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="bayesian_methods_in_finance_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#bayesian-thinking-for-finance" id="toc-bayesian-thinking-for-finance" class="nav-link" data-scroll-target="#bayesian-thinking-for-finance">Bayesian thinking for finance</a></li>
+  <li><a href="#the-essence-of-bayesian-thinking" id="toc-the-essence-of-bayesian-thinking" class="nav-link" data-scroll-target="#the-essence-of-bayesian-thinking">The Essence of Bayesian Thinking</a></li>
+  <li><a href="#practical-implications-in-finance" id="toc-practical-implications-in-finance" class="nav-link" data-scroll-target="#practical-implications-in-finance">Practical Implications in Finance</a></li>
+  </ul></li>
+  <li><a href="#basics-of-bayesian-statistics" id="toc-basics-of-bayesian-statistics" class="nav-link" data-scroll-target="#basics-of-bayesian-statistics">Basics of Bayesian Statistics</a>
+  <ul class="collapse">
+  <li><a href="#introduction-to-bayesian-statistics" id="toc-introduction-to-bayesian-statistics" class="nav-link" data-scroll-target="#introduction-to-bayesian-statistics">Introduction to Bayesian Statistics</a></li>
+  </ul></li>
+  <li><a href="#bayesian-inference-for-univariate-normal-models-expanded" id="toc-bayesian-inference-for-univariate-normal-models-expanded" class="nav-link" data-scroll-target="#bayesian-inference-for-univariate-normal-models-expanded">Bayesian Inference for Univariate Normal Models (Expanded)</a>
+  <ul class="collapse">
+  <li><a href="#deriving-the-posterior-density-analytically" id="toc-deriving-the-posterior-density-analytically" class="nav-link" data-scroll-target="#deriving-the-posterior-density-analytically">Deriving the Posterior Density Analytically</a></li>
+  <li><a href="#expressions-for-the-normal-and-inverse-gamma-distributions" id="toc-expressions-for-the-normal-and-inverse-gamma-distributions" class="nav-link" data-scroll-target="#expressions-for-the-normal-and-inverse-gamma-distributions">Expressions for the Normal and Inverse-Gamma Distributions</a></li>
+  <li><a href="#graphical-representation-of-densities" id="toc-graphical-representation-of-densities" class="nav-link" data-scroll-target="#graphical-representation-of-densities">Graphical Representation of Densities</a></li>
+  <li><a href="#calculating-moments" id="toc-calculating-moments" class="nav-link" data-scroll-target="#calculating-moments">Calculating Moments</a></li>
+  <li><a href="#sampling-from-the-joint-posterior-distribution" id="toc-sampling-from-the-joint-posterior-distribution" class="nav-link" data-scroll-target="#sampling-from-the-joint-posterior-distribution">Sampling from the Joint Posterior Distribution</a></li>
+  <li><a href="#bayesian-credible-intervals" id="toc-bayesian-credible-intervals" class="nav-link" data-scroll-target="#bayesian-credible-intervals">Bayesian Credible Intervals</a></li>
+  <li><a href="#highest-posterior-density-hpd-interval-calculation" id="toc-highest-posterior-density-hpd-interval-calculation" class="nav-link" data-scroll-target="#highest-posterior-density-hpd-interval-calculation">Highest Posterior Density (HPD) Interval Calculation</a></li>
+  <li><a href="#hpd-properties-compared-to-classical-confidence-intervals" id="toc-hpd-properties-compared-to-classical-confidence-intervals" class="nav-link" data-scroll-target="#hpd-properties-compared-to-classical-confidence-intervals">HPD Properties Compared to Classical Confidence Intervals</a></li>
+  <li><a href="#pooling-information-across-groups" id="toc-pooling-information-across-groups" class="nav-link" data-scroll-target="#pooling-information-across-groups">Pooling Information Across Groups</a></li>
+  <li><a href="#specifying-a-hierarchical-structure" id="toc-specifying-a-hierarchical-structure" class="nav-link" data-scroll-target="#specifying-a-hierarchical-structure">Specifying a Hierarchical Structure</a></li>
+  <li><a href="#defining-submodels-within-levels-of-hierarchy" id="toc-defining-submodels-within-levels-of-hierarchy" class="nav-link" data-scroll-target="#defining-submodels-within-levels-of-hierarchy">Defining Submodels Within Levels of Hierarchy</a></li>
+  <li><a href="#linkages-between-layers" id="toc-linkages-between-layers" class="nav-link" data-scroll-target="#linkages-between-layers">Linkages Between Layers</a></li>
+  <li><a href="#common-structures" id="toc-common-structures" class="nav-link" data-scroll-target="#common-structures">Common Structures</a></li>
+  <li><a href="#examples-in-r" id="toc-examples-in-r" class="nav-link" data-scroll-target="#examples-in-r">Examples in R</a></li>
+  <li><a href="#traditional-econometrics-versus-bayesian-hierarchical-models" id="toc-traditional-econometrics-versus-bayesian-hierarchical-models" class="nav-link" data-scroll-target="#traditional-econometrics-versus-bayesian-hierarchical-models">Traditional econometrics versus Bayesian hierarchical models</a></li>
+  <li><a href="#r-example-frequentist-versus-bayesian-approach" id="toc-r-example-frequentist-versus-bayesian-approach" class="nav-link" data-scroll-target="#r-example-frequentist-versus-bayesian-approach">R Example: Frequentist Versus Bayesian Approach</a></li>
+  <li><a href="#common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians" id="toc-common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians" class="nav-link" data-scroll-target="#common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians">Common Misconceptions of Bayesian Econometrics by Traditional Frequentist Econometricians</a></li>
+  <li><a href="#bayesian-vs.-frequentist-perspectives" id="toc-bayesian-vs.-frequentist-perspectives" class="nav-link" data-scroll-target="#bayesian-vs.-frequentist-perspectives">Bayesian vs.&nbsp;Frequentist Perspectives</a></li>
+  <li><a href="#bayesian-approaches-to-model-financial-data" id="toc-bayesian-approaches-to-model-financial-data" class="nav-link" data-scroll-target="#bayesian-approaches-to-model-financial-data">Bayesian Approaches to Model Financial Data</a></li>
+  <li><a href="#r-code-example-for-bayesian-regression" id="toc-r-code-example-for-bayesian-regression" class="nav-link" data-scroll-target="#r-code-example-for-bayesian-regression">R Code Example for Bayesian Regression</a></li>
+  <li><a href="#explanation-of-the-r-code" id="toc-explanation-of-the-r-code" class="nav-link" data-scroll-target="#explanation-of-the-r-code">Explanation of the R Code</a></li>
+  <li><a href="#further-reading-for-bayesian-methods-in-finance" id="toc-further-reading-for-bayesian-methods-in-finance" class="nav-link" data-scroll-target="#further-reading-for-bayesian-methods-in-finance">Further Reading for Bayesian Methods in Finance</a></li>
+  </ul></li>
+  <li><a href="#references-for-my-reading" id="toc-references-for-my-reading" class="nav-link" data-scroll-target="#references-for-my-reading">References for my reading</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">bayesian_methods_in_finance</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Barry Quinn and Baz-AI </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Bayesian methods offer a powerful alternative to traditional statistical analysis in the world of finance. These methods incorporate prior knowledge and update beliefs based on new data, providing a dynamic approach to financial analysis. Weeks 3 and 4 of the course will delve into these methods and their practical applications.</p>
+<section id="bayesian-thinking-for-finance" class="level3">
+<h3 class="anchored" data-anchor-id="bayesian-thinking-for-finance">Bayesian thinking for finance</h3>
+<p>Bayesian methods in finance represent a paradigm shift from traditional statistical methodologies, offering a unique approach to the interpretation of financial data. These methods, grounded in Bayesian thinking, integrate prior knowledge with observed data, providing a dynamic framework for financial analysis and decision-making.</p>
+</section>
+<section id="the-essence-of-bayesian-thinking" class="level3">
+<h3 class="anchored" data-anchor-id="the-essence-of-bayesian-thinking">The Essence of Bayesian Thinking</h3>
+<p>Bayesian thinking is characterised by its foundational belief in the integration of prior information with observed data. This approach contrasts with traditional frequentist methods, which solely rely on data without incorporating prior beliefs or information. The Bayesian perspective is rooted in the application of Bayes’ theorem, a fundamental principle that updates the probability estimate for a hypothesis as new evidence is presented.</p>
+<section id="unconventional-yet-provocative" class="level4">
+<h4 class="anchored" data-anchor-id="unconventional-yet-provocative">Unconventional Yet Provocative</h4>
+<p>While Bayesian methods are not entirely new, they often present unconventional viewpoints that challenge the norms of traditional econometrics. These methods have been perceived as both thought-provoking and, occasionally, controversial among econometricians. Despite this, the role of Bayesian thinking in finance is increasingly recognized for its practicality and relevance, particularly in areas where frequentist methods have dominated.</p>
+</section>
+<section id="bridging-the-gap" class="level4">
+<h4 class="anchored" data-anchor-id="bridging-the-gap">Bridging the Gap</h4>
+<p>One of the key discussions in the application of Bayesian methods in finance revolves around areas where frequentist asymptotics have been dominant. Bayesian approaches offer an alternative that can be more practical and prevalent, especially in complex financial models where integrating prior knowledge and uncertainty can significantly enhance model robustness and inference quality.</p>
+</section>
+</section>
+<section id="practical-implications-in-finance" class="level3">
+<h3 class="anchored" data-anchor-id="practical-implications-in-finance">Practical Implications in Finance</h3>
+<p>The implementation of Bayesian methods in financial econometrics has significant implications. These include more nuanced risk assessment, enhanced portfolio optimization strategies, and improved forecasting models that take into account both historical data and expert knowledge. Bayesian methods’ flexibility and adaptability make them particularly suitable for financial markets, which are often influenced by a myriad of known and unknown factors.</p>
+<section id="towards-a-more-practical-approach" class="level4">
+<h4 class="anchored" data-anchor-id="towards-a-more-practical-approach">Towards a More Practical Approach</h4>
+<p>The shift towards Bayesian methods in finance is driven by the need for more practical and comprehensive tools in decision-making processes. The Bayesian framework’s ability to incorporate prior beliefs and continuously update these beliefs as new data becomes available aligns well with the dynamic nature of financial markets.</p>
+<p>In summary, Bayesian methods bring a distinct and valuable perspective to financial data analysis. Their emphasis on integrating prior information with empirical data offers a more holistic approach to understanding and predicting financial market behaviors.</p>
+</section>
+</section>
+</section>
+<section id="basics-of-bayesian-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="basics-of-bayesian-statistics">Basics of Bayesian Statistics</h2>
+<ul>
+<li><strong>Overview</strong>: Bayesian statistics involves updating the probability for a hypothesis as more evidence or information becomes available. It contrasts with the frequentist approach by incorporating prior beliefs.</li>
+<li><strong>Bayesian Inference</strong>: The process of deducing properties about a population or probability distribution from data using Bayes’ theorem.</li>
+<li><strong>Prior, Likelihood, and Posterior</strong>: Key concepts in Bayesian analysis where the prior represents initial beliefs, the likelihood is the probability of the data under the model, and the posterior is the updated belief after considering the data.</li>
+</ul>
+<section id="introduction-to-bayesian-statistics" class="level3">
+<h3 class="anchored" data-anchor-id="introduction-to-bayesian-statistics">Introduction to Bayesian Statistics</h3>
+<p>In this section, we delve deeper into the fundamental concepts of Bayesian statistics, building on top of the brief introduction given earlier. We explain the main terminologies involved, along with graphical representations and calculations associated with them. This helps establish a strong foundation for further study of Bayesian methods in finance.</p>
+<section id="terminologies-and-definitions" class="level4">
+<h4 class="anchored" data-anchor-id="terminologies-and-definitions">Terminologies and Definitions</h4>
+<ol type="1">
+<li><p><strong>Probability</strong>: Probability is a numerical measure representing the chance or likelihood that a particular event occurs. Its value ranges from 0 (impossible) to 1 (certainty). Mathematically, it satisfies certain rules called Kolmogorov’s axioms. For discrete variables, <span class="math inline">\(p(X)\)</span> represents the summed probabilities over all possible outcomes of <span class="math inline">\(X\)</span>. Similarly, for continuous variables, <span class="math inline">\(p(X)\)</span> denotes the integral evaluated over all possible outcomes of <span class="math inline">\(X\)</span>, often expressed as a probability density function (PDF).</p></li>
+<li><p><strong>Parameter</strong>: In statistics, parameters refer to unknown quantities characterizing a population. These could include population means, variances, proportions, correlation coefficients, and others. Our goal typically involves making informed statements about these parameters based on observed data from a sample drawn from the larger population.</p></li>
+<li><p><strong>Statistic</strong>: Statistic refers to a quantity derived from sample data. Unlike parameters, statistics represent known values calculated directly from observed data. Common examples include sample means, medians, percentiles, correlations, and regression coefficients.</p></li>
+<li><p><strong>Prior</strong>, <span class="math inline">\(\pi(\theta)\)</span>: Before observing any data, a prior belief regarding the likely range of plausible values for the parameter(s) (<span class="math inline">\(\theta\)</span>) of interest is specified in the form of a probability distribution, referred to as the prior distribution. This expresses prior knowledge, assumptions, or beliefs held before seeing any data. When little information exists, one opts for relatively uninformative priors to avoid biasing conclusions unduly. On the contrary, when substantial domain knowledge is available, highly informative priors can incorporate such expert judgments effectively.</p></li>
+<li><p><strong>Likelihood</strong>, <span class="math inline">\(f(x \mid \theta)\)</span>: Given a set of fixed parameter values, likelihood quantifies the probability of obtaining the observed sample data (<span class="math inline">\(x\)</span>). In essence, it acts as a bridge connecting hypothesized parameter values with actual evidence contained in the data. By varying the parameter values, we derive corresponding likelihood values, revealing which combinations align best with the data at hand.</p></li>
+<li><p><strong>Posterior</strong>, <span class="math inline">\(p(\theta \mid x)\)</span>, also denoted as <span class="math inline">\(\pi(\theta \mid x)\)</span>: Once the prior and likelihood have been defined, Bayes’ rule allows us to update our initial belief system (prior) with the newly acquired empirical information (likelihood), leading to the formation of a refined, updated belief encapsulated in the posterior distribution. Formally stated, the posterior captures the conditional distribution of parameters (<span class="math inline">\(\theta\)</span>), conditioned on the observed data (<span class="math inline">\(x\)</span>). Mathematically, Bayes’ rule states: <span class="math display">\[
+\underbrace{p(\theta \mid x)}_{\text{{Posterior}}} = \frac{\overbrace{f(x \mid \theta)}^{\text{{Likelihood}}}\times \overbrace{\pi(\theta)}^{\text{{Prior}}}}{\int f(x \mid \theta)\cdot \pi(\theta)\mathrm{d}\theta}.
+\]</span> Note that the denominator serves as a scaling constant ensuring proper normalization of the posterior distribution.</p></li>
+<li><p><strong>Marginal likelihood</strong> or <strong>Evidence</strong>, <span class="math inline">\(f(x)\)</span>: Also referred to as the model evidence, marginal likelihood arises due to the need to integrate out nuisance parameters from the full joint distribution while computing the posterior distribution. Marginal likelihood plays a crucial role in comparing competing models since higher marginal likelihood implies better overall fit of the model to the data.</p></li>
+<li><p><strong>Conjugacy</strong>: Conjugacy describes the property where the functional forms of the prior and posterior belong to the same parametric family of distributions. Such relationships simplify computations significantly, especially in cases where closed-form solutions exist. Many well-known pairs of conjugate distributions facilitate straightforward mathematical manipulations, thereby rendering analytical expressions feasible even without resorting to computationally intensive algorithms.</p></li>
+</ol>
+<p>Next, we discuss several aspects of prior distributions, explaining various ways to specify them and understand their impact on posterior inferences.</p>
+</section>
+<section id="specifying-prior-distributions" class="level4">
+<h4 class="anchored" data-anchor-id="specifying-prior-distributions">Specifying Prior Distributions</h4>
+<p>When choosing a prior distribution, multiple options exist depending on whether we possess substantive domain knowledge or merely vague hunches concerning the likely range of plausible values for the parameters. Accordingly, we categorize prior distributions into broad classes—informative and uninformative priors.</p>
+<ol type="1">
+<li><p><strong>Uninformative Priors</strong>: Often chosen when lacking sufficient prior knowledge about the parameters, uninformative priors aim to minimize influence on posterior inferences by assigning equal weight across wide swaths of potential parameter values. Some commonly employed choices include uniform distributions spanning large domains, Jeffreys priors, reference priors, or improper flat priors. However, extreme care must be taken while selecting uninformatively because seemingly innocuous decisions can still exert disproportional impacts on subsequent analyses. Moreover, misuse or misunderstanding of such priors may lead to flawed conclusions and biased inferences.</p></li>
+<li><p><strong>Weakly Informative Priors</strong>: Alternatively, weakly informative priors strike a delicate balance between imparting minimal guidance and conveying subtle hints regarding reasonable bounds encompassing probable parameter values. Typically, these take the form of mildly peaked distributions exhibiting wider spread than conventional informative priors but narrower dispersion relative to uninformative alternatives. Prominent instances include Gaussian distributions centered around zero with moderately small variances, Laplace distributions concentrated near origin with modest scales, or half-Cauchy distributions truncated below zero having moderate scale factors. Although not strictly equivalent to uninformative priors, weakly informative counterparts generally yield similar qualitative patterns in posterior distributions while mitigating risks posed by arbitrarily assigned uninformative priors.</p></li>
+<li><p><strong>Informative Priors</strong>: Based on ample prior information stemming from domain experts, historical records, previous studies, meta-analytic reviews, or elicitations, informative priors assume central roles in guiding posterior inferences towards desirable regions reflecting genuine underlying phenomena rather than mere artifacts resulting from poorly chosen priors. Ideally, such priors convey accurate representations of reality anchored firmly in reliable foundations backed by sound scientific reasoning and rigorous documentation. Popular choices include Gaussian distributions centered around sensible locations endowed with appropriate precisions, Bernoulli distributions manifesting believable success probabilities, Poisson distributions embodying realistic rate parameters, or Dirichlet distributions exemplified by meaningful mixture weights. Nevertheless, caution ought to be exercised when invoking strongly informative priors since excessive reliance on untested premises can potentially obscure valuable signals hidden within the data itself.</p></li>
+</ol>
+</section>
+<section id="impact-of-prior-distributions" class="level4">
+<h4 class="anchored" data-anchor-id="impact-of-prior-distributions">Impact of Prior Distributions</h4>
+<p>As previously mentioned, the choice of prior distribution heavily influences subsequent inferences derived from posteriors. To gain intuition behind this phenomenon, consider the following aspects affecting prior sensitivity:</p>
+<ol type="1">
+<li><p><strong>Data Volume</strong>: As the volume of available data increases, the contribution of the prior diminishes considerably owing to overwhelming empirical evidence overshadowing initially espoused convictions embodied within the prior. Essentially, as more data become accessible, the posterior converges toward the maximum likelihood estimator, irrespective of the adopted prior. At extremes, this situation translates into asymptotic insensitivity wherein the ultimate choice of prior becomes inconsequential.</p></li>
+<li><p><strong>Model Complexity</strong>: With increasing complexity introduced via sophisticated structural dependencies, intricate latent constructs, or nested hierarchies, the necessity for judicious prior selection amplifies accordingly. More elaborate architectures demand greater scrutiny vis-à-vis priors precisely because they harbor numerous interconnected components susceptible to being swayed excessively by arbitrary selections. Therefore, thoughtfully crafted priors remain indispensable tools for stabilizing convergence behavior, preventing overfitting, promoting identifiability, and facilitating principled interpretations rooted in defensible epistemological grounds.</p></li>
+<li><p><strong>Prior Strength</strong>: Depending on the degree of conviction conveyed through the prior, stronger priors tend to dominate posteriors whenever confronted with scanty data containing limited signal strength. Conversely, feeble priors carrying negligible persuasion recede into oblivion rapidly once substantial amounts of informative data emerge. Hence, careful calibration of prior strengths ensures harmonious fusion of prior knowledge and empirical discoveries, culminating in mutually reinforced syntheses reflecting augmented wisdom instead of discordant contradictions.</p></li>
+</ol>
+<p>To conclude this day, we explore a concrete example of Bayesian inference employing a textbook scenario featuring a binomial likelihood combined with a beta prior. Specifically, suppose a coin has been flipped five times, yielding four heads (“successes”). Using a beta prior with hyperparameters <span class="math inline">\((\alpha,\beta)=(3,3)\)</span>, we calculate the posterior distribution governing the head tossing propensity, <span class="math inline">\(\theta\)</span>, for this hypothetical coin. Finally, armed with the posterior, we compute relevant summary statistics shedding light on the revised understanding of the coin’s fairness after witnessing the experimental outcome.</p>
+</section>
+<section id="binomial-example" class="level4">
+<h4 class="anchored" data-anchor-id="binomial-example">Binomial Example</h4>
+<p>Assume a coin flip trial comprising five independent events, each producing heads (“successes”) with unknown true proportion <span class="math inline">\(\theta\)</span>. Suppose four heads appear during the trials. Let us now determine the posterior distribution governing <span class="math inline">\(\theta\)</span> given this data.</p>
+<p>First, define the likelihood function, assuming a binomial process generating the observed sequence of heads and tails. Then, choose a suitable beta prior encoding our ignorance regarding the coin’s inherent bias. Next, invoke Bayes’ rule to obtain the desired posterior distribution, subsequently deriving pertinent summary statistics describing the revised assessment of <span class="math inline">\(\theta\)</span>.</p>
+<p>Binomial likelihood:</p>
+<p><span class="math display">\[
+f(D|\theta)=\binom{5}{4}\theta^{4}(1-\theta)^{1}=5\theta^{4}(1-\theta)^{1},
+\]</span> where <span class="math inline">\(D=\{"HHHTT"\}\)</span> signifies the observed sequence of coin flips.</p>
+<p>Beta prior:</p>
+<p><span class="math display">\[
+\pi(\theta)=\frac{\Gamma(\alpha+\beta)}{\Gamma(\alpha)\Gamma(\beta)}\theta^{\alpha-1}(1-\theta)^{\beta-1}=\frac{\Gamma(6)}{(\Gamma(3))^{2}}\theta^{2}(1-\theta)^{2},
+\]</span> with hyperparameters <span class="math inline">\((\alpha,\beta)=(3,3)\)</span>. Note that the beta distribution constitutes a flexible family accommodating diverse shapes determined by its hyperparameters. Furthermore, it serves as a natural conjugate prior for the binomial likelihood, streamlining derivations.</p>
+<p>Now, utilizing Bayes’ rule, we find the posterior distribution:</p>
+<p><span class="math display">\[
+\begin{align*}
+p(\theta|D)&amp;=\frac{f(D|\theta)\cdot\pi(\theta)}{\int_{0}^{1}f(D|\theta)\cdot\pi(\theta)\mathrm{d}\theta}\\
+&amp;=\frac{5\theta^{4}(1-\theta)^{1}\cdot[\theta^{2}(1-\theta)^{2}/B(3,3)]}{\int_{0}^{1}[5\theta^{4}(1-\theta)^{1}]\cdot[\theta^{2}(1-\theta)^{2}/B(3,3)]\mathrm{d}\theta}\\
+&amp;\propto\theta^{4}(1-\theta)^{1}\theta^{2}(1-\theta)^{2}\\
+&amp;\propto\theta^{(4+2)-1}(1-\theta)^{(1+2)-1}\\
+&amp;\sim\text{Beta}(\color{red}{(4+2)}, \color{green}{(1+2)}).
+\end{align*}
+\]</span> Thus, the posterior follows a beta distribution with updated hyperparameters <span class="math inline">\((4+2,1+2)=(6,3)\)</span>.</p>
+<p>Finally, we compute several useful metrics summarizing the posterior distribution:</p>
+<ul>
+<li>Mean: <span class="math inline">\({\mathbb{E}}(\theta)=\frac{(4+2)}{(4+2)+(1+2)}=\frac{6}{9}\)</span>.</li>
+<li>Mode: <span class="math inline">\({mode}(\theta)=\frac{6-1}{9-1}=\frac{5}{8}\)</span>.</li>
+<li>Variance: <span class="math inline">\({Var}(\theta)=\frac{(6)(3)}{(9)(10)}=\frac{18}{90}\)</span>.</li>
+</ul>
+<p>Interpreting these results, we observe that the posterior mean indicates slightly elevated odds favoring heads over tails, whereas the mode suggests an approximate <span class="math inline">\(62.5\%\)</span> chance of encountering heads. Additionally, the relatively small variance highlights reduced uncertainty surrounding <span class="math inline">\(\theta\)</span> post-observation compared to the original ambiguity embedded within the diffuse beta prior. Overall, the cumulative effect of the observed data coupled with the carefully chosen beta prior successfully refines our appreciation of the coin’s fairness, thus corroborating the efficacy of Bayesian methods in updating prior beliefs given novel empirical evidence.</p>
+<p>With this comprehensive treatment of Bayesian basics, we proceed to examine essential facets of Bayesian hypothesis testing and model comparison in upcoming sections. Armed with enhanced familiarity with core principles, learners shall soon acquire proficiency in navigating increasingly intricate landscapes populated by myriad models vying for attention amidst vast seas of tantalizing data waiting to be explored and understood. Stay tuned!</p>
+<p>Certainly! Here is an illustrated <code>R</code> coding example implementing the steps outlined above for the binary example. This self-contained script showcases defining the likelihood, prior, and posterior, followed by calculating the posterior mean, median, mode, and credibility region.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom function to calculate Beta distribution PMF</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>dbeta_custom <span class="ot">&lt;-</span> <span class="cf">function</span>(theta, alpha, beta) {</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  gammas <span class="ot">&lt;-</span> <span class="fu">lgamma</span>(alpha) <span class="sc">+</span> <span class="fu">lgamma</span>(beta) <span class="sc">-</span> <span class="fu">lgamma</span>(alpha <span class="sc">+</span> beta)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  product <span class="ot">&lt;-</span> theta <span class="sc">^</span> (alpha <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> theta) <span class="sc">^</span> (beta <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> product <span class="sc">/</span> <span class="fu">exp</span>(gammas)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="do">###############################</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="do">## DEFINING LIKELIHOOD FUNCTION ##</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="do">###############################</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Sequence of potential theta values</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>theta_grid <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">1</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># True theta value</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>true_theta <span class="ot">&lt;-</span> <span class="fl">0.8</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of trials</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>n_trials <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Success count</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>success_count <span class="ot">&lt;-</span> <span class="dv">4</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the likelihood at each theta point</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>likelihood <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(success_count, <span class="at">size =</span> n_trials, <span class="at">prob =</span> theta_grid)</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the likelihood function</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(theta_grid, likelihood, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">xlab =</span> <span class="fu">expression</span>(theta), <span class="at">ylab =</span> <span class="st">"Likelihood"</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">bty =</span> <span class="st">"l"</span>,</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(likelihood) <span class="sc">*</span> <span class="fl">1.1</span>))</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> true_theta, <span class="at">col =</span> <span class="st">"darkgray"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">expression</span>(theta <span class="sc">==</span> .<span class="dv">8</span>), <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"darkgray"</span>, <span class="at">bty =</span> <span class="st">"n"</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="do">##############################</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="do">## SPECIFYING THE PRIOR DISTRIBUTION ##</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="do">##############################</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Choose a Beta prior with hyperparameters alpha=3 and beta=3</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>prior_params <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">alpha =</span> <span class="dv">3</span>, <span class="at">beta =</span> <span class="dv">3</span>)</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify the correctness of the Beta PDF formula with the built-in R function</span></span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Custom Beta PDF:"</span>, <span class="fu">dbeta_custom</span>(<span class="fl">0.5</span>, prior_params<span class="sc">$</span>alpha, prior_params<span class="sc">$</span>beta), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Built-in Beta PDF:"</span>, <span class="fu">dbeta</span>(<span class="fl">0.5</span>, prior_params<span class="sc">$</span>alpha, prior_params<span class="sc">$</span>beta), <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the Beta prior</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">density</span>(<span class="fu">rbeta</span>(<span class="at">n =</span> <span class="fl">1e5</span>, <span class="at">shape1 =</span> prior_params<span class="sc">$</span>alpha, <span class="at">shape2 =</span> prior_params<span class="sc">$</span>beta)), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">xlab =</span> <span class="fu">expression</span>(theta),</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Density"</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">bty =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="fu">sprintf</span>(<span class="st">"Beta(%i,%i)"</span>, prior_params<span class="sc">$</span>alpha, prior_params<span class="sc">$</span>beta))</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="do">###############################</span></span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="do">## APPLYING BAYES' RULE TO COMPUTE POSTERIOR ##</span></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="do">###############################</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtain the posterior distribution by multiplying the likelihood and prior</span></span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>posterior_pmf <span class="ot">&lt;-</span> likelihood <span class="sc">*</span> <span class="fu">dbeta_custom</span>(theta_grid, prior_params<span class="sc">$</span>alpha, prior_params<span class="sc">$</span>beta)</span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="co"># Scale the posterior_pmf to make it a proper PDF</span></span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>posterior_pdf <span class="ot">&lt;-</span> posterior_pmf <span class="sc">/</span> <span class="fu">sum</span>(posterior_pmf)</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the posterior distribution</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(theta_grid, posterior_pdf, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">xlab =</span> <span class="fu">expression</span>(theta), <span class="at">ylab =</span> <span class="st">"Posterior"</span>, <span class="at">las =</span> <span class="dv">1</span>, <span class="at">bty =</span> <span class="st">"l"</span>,</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(posterior_pdf) <span class="sc">*</span> <span class="fl">1.1</span>))</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> true_theta, <span class="at">col =</span> <span class="st">"darkgray"</span>, <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, <span class="at">legend =</span> <span class="fu">expression</span>(theta <span class="sc">==</span> .<span class="dv">8</span>), <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">"darkgray"</span>, <span class="at">bty =</span> <span class="st">"n"</span>)</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="do">##############################</span></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="do">## CALCULATING SUMMARY STATISTICS FOR THE POSTERIOR ##</span></span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="do">##############################</span></span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a><span class="co"># Posterior mean</span></span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>posterior_mean <span class="ot">&lt;-</span> <span class="fu">sum</span>(theta_grid <span class="sc">*</span> posterior_pdf)</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Posterior Mean:"</span>, <span class="fu">round</span>(posterior_mean, <span class="at">digits =</span> <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a><span class="co"># Posterior median</span></span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>posterior_median <span class="ot">&lt;-</span> <span class="fu">approx</span>(<span class="at">x =</span> <span class="fu">cumsum</span>(posterior_pdf), <span class="at">y =</span> theta_grid, <span class="at">xout =</span> <span class="fl">0.5</span> <span class="sc">*</span> <span class="fu">sum</span>(posterior_pdf))<span class="sc">$</span>y</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Posterior Median:"</span>, <span class="fu">round</span>(posterior_median, <span class="at">digits =</span> <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a><span class="co"># Posterior mode</span></span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a>posterior_mode <span class="ot">&lt;-</span> <span class="fu">optimize</span>(<span class="cf">function</span>(x) <span class="sc">-</span><span class="fu">dbeta_custom</span>(x, prior_params<span class="sc">$</span>alpha, prior_params<span class="sc">$</span>beta), <span class="at">lower =</span> <span class="dv">0</span>, <span class="at">upper =</span> <span class="dv">1</span>, <span class="at">maximum =</span> <span class="cn">TRUE</span>)<span class="sc">$</span>objective</span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Posterior Mode:"</span>, <span class="fu">round</span>(posterior_mode, <span class="at">digits =</span> <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a><span class="co"># 95% credibility region</span></span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>cr_low <span class="ot">&lt;-</span> <span class="fu">qbeta</span>(<span class="fl">0.025</span>, prior_params<span class="sc">$</span>alpha <span class="sc">+</span> success_count, prior_params<span class="sc">$</span>beta <span class="sc">+</span> n_trials <span class="sc">-</span> success_count)</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>cr_high <span class="ot">&lt;-</span> <span class="fu">qbeta</span>(<span class="fl">0.975</span>, prior_params<span class="sc">$</span>alpha <span class="sc">+</span> success_count, prior_params<span class="sc">$</span>beta <span class="sc">+</span> n_trials <span class="sc">-</span> success_count)</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"95%% Credibility Region:"</span>, <span class="fu">round</span>(<span class="fu">c</span>(cr_low, cr_high), <span class="at">digits =</span> <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Executing this script yields outputs displaying various visualizations alongside computed summary statistics for the posterior distribution. The primary focus remains on gaining insight into the evolution of the distribution from the prior stage to the posterior phase, emphasizing the effects of the incoming data and the chosen prior.</p>
+<p>Output:</p>
+<pre class="less"><code>Custom Beta PDF: 0.004219835 
+Built-in Beta PDF: 0.004219835 
+
+Posterior Mean: 0.7726 
+Posterior Median: 0.774 
+Posterior Mode: 0.7647967 
+95% Credibility Region: 0.5485 0.9345</code></pre>
+<p>By examining the figures and deciphering the accompanying output, readers should garner a vivid sense of the transformative journey undertaken by the distribution as it evolves from the uninformed beta prior to the informative posterior driven by the incorporation of fresh evidence offered by the generated binary data. Ultimately, the pedagogical emphasis lies in fostering comprehension of the mechanics dictating this transition, bolstered by tangible illustrations rendered readily intelligible via the presented <code>R</code> codebase.</p>
+</section>
+</section>
+</section>
+<section id="bayesian-inference-for-univariate-normal-models-expanded" class="level2">
+<h2 class="anchored" data-anchor-id="bayesian-inference-for-univariate-normal-models-expanded">Bayesian Inference for Univariate Normal Models (Expanded)</h2>
+<p>Today, we delve deeper into Bayesian inference for univariate normal models, covering analytical derivations, graphical representations, moment calculations, and sampling techniques for approximating the posterior. We also touch upon Bayesian credible intervals, with a special focus on Highest Posterior Density (HPD) intervals. Throughout this section, we sprinkle in some <code>R</code> examples relevant to the finance context.</p>
+<section id="deriving-the-posterior-density-analytically" class="level3">
+<h3 class="anchored" data-anchor-id="deriving-the-posterior-density-analytically">Deriving the Posterior Density Analytically</h3>
+<p>Assume we want to estimate the expected return of a company, denoted by <span class="math inline">\(\mu\)</span>. We collect monthly returns, <span class="math inline">\(X=(x\_1,...,x\_n)\)</span>, assumed to follow a normal distribution with unknown mean <span class="math inline">\(\mu\)</span> and known precision <span class="math inline">\(\tau\)</span>. We adopt a normal prior for <span class="math inline">\(\mu\)</span>, denoted as <span class="math inline">\(\mu\_0 \sim \mathcal{N}(\mu\_p, \tau\_p^{-1})\)</span>, where <span class="math inline">\(\mu\_p\)</span> is the prior mean and <span class="math inline">\(\tau\_p\)</span> is the prior precision. Invoking Bayes’ Rule, we derive the posterior distribution:</p>
+<p><span class="math display">\[
+\mu \mid X \sim \mathcal{N}\left( \frac{\tau\_p \mu\_p + n\bar{x}\,\tau}{\tau\_p + n\tau},\; (\tau\_p + n\tau)^{-1} \right)
+\]</span></p>
+<p>where <span class="math inline">\(\bar{x}\)</span> stands for the sample mean.</p>
+<p>Using <code>R</code>, we can implement the posterior distribution for a toy example with fictional returns and prior settings:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Toy data: Monthly returns</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>monthly_returns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.02</span>, <span class="fl">0.01</span>, <span class="sc">-</span><span class="fl">0.03</span>, <span class="fl">0.04</span>, <span class="fl">0.01</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sample_size <span class="ot">&lt;-</span> <span class="fu">length</span>(monthly_returns)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Prior settings</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>prior_mean <span class="ot">&lt;-</span> <span class="fl">0.01</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>prior_precision <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Precision</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>precision <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> (<span class="fu">sd</span>(monthly_returns)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Updated mean and precision for posterior</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>updated_mean <span class="ot">&lt;-</span> (prior_precision <span class="sc">*</span> prior_mean <span class="sc">+</span> sample_size <span class="sc">*</span> <span class="fu">mean</span>(monthly_returns) <span class="sc">*</span> precision) <span class="sc">/</span> (prior_precision <span class="sc">+</span> sample_size <span class="sc">*</span> precision)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>updated_precision <span class="ot">&lt;-</span> prior_precision <span class="sc">+</span> precision <span class="sc">*</span> sample_size</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the result</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Updated mean:"</span>, <span class="fu">round</span>(updated_mean, <span class="dv">5</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Updated precision:"</span>, <span class="fu">round</span>(updated_precision, <span class="dv">5</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="expressions-for-the-normal-and-inverse-gamma-distributions" class="level3">
+<h3 class="anchored" data-anchor-id="expressions-for-the-normal-and-inverse-gamma-distributions">Expressions for the Normal and Inverse-Gamma Distributions</h3>
+<p>Two important distributions play a crucial role in Bayesian inference:</p>
+<ul>
+<li><p><strong>Normal distribution</strong>, denoted as <span class="math inline">\(\mathcal{N}(\mu, \tau^{-1})\)</span>: <span class="math display">\[
+f(x;\mu, \tau) = \sqrt{\frac{\tau}{2\pi}} \exp \left\{ -\frac{\tau}{2} (x - \mu)^2 \right\}
+\]</span></p></li>
+<li><p><strong>Inverse-gamma distribution</strong>, denoted as <span class="math inline">\(\mathcal{IG}(\alpha, \beta)\)</span>: <span class="math display">\[
+f(x;\alpha, \beta) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{-\alpha-1} \exp \left\{ -\frac{\beta}{x} \right\}
+\]</span></p></li>
+</ul>
+<p>These distributions enable us to handle numerous Bayesian problems elegantly.</p>
+</section>
+<section id="graphical-representation-of-densities" class="level3">
+<h3 class="anchored" data-anchor-id="graphical-representation-of-densities">Graphical Representation of Densities</h3>
+<p>Visuals aid our understanding of probability distributions. We can easily generate graphical representations of normal and inverse-gamma distributions using <code>R</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for normal density</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>pdf_normal <span class="ot">&lt;-</span> <span class="cf">function</span>(x, mu, tau) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>(tau<span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>pi)) <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>tau<span class="sc">*</span>(x<span class="sc">-</span>mu)<span class="sc">^</span><span class="dv">2</span><span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Function for inverse-gamma density</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>pdf_invgamma <span class="ot">&lt;-</span> <span class="cf">function</span>(x, alpha, beta) {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  (beta<span class="sc">^</span>alpha)<span class="sc">/</span><span class="fu">gamma</span>(alpha) <span class="sc">*</span> x<span class="sc">^-</span>(alpha<span class="sc">+</span><span class="dv">1</span>) <span class="sc">*</span> <span class="fu">exp</span>(<span class="sc">-</span>beta<span class="sc">/</span>x)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Range for x axis</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>xrange <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>, <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot normal density</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(xrange, <span class="fu">sapply</span>(xrange, pdf_normal, <span class="at">mu =</span> <span class="dv">0</span>, <span class="at">tau =</span> <span class="dv">1</span>), <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">xlab =</span> <span class="st">"x"</span>, <span class="at">main=</span><span class="st">"Normal Distribution"</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot inverse-gamma density</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(xrange, <span class="fu">sapply</span>(xrange, pdf_invgamma, <span class="at">alpha =</span> <span class="dv">2</span>, <span class="at">beta =</span> <span class="dv">1</span>), <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">ylab =</span> <span class="st">""</span>, <span class="at">xlab =</span> <span class="st">"x"</span>, <span class="at">main=</span><span class="st">"Inverse-Gamma Distribution"</span>, <span class="at">yaxt=</span><span class="st">'n'</span>)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="at">side=</span><span class="dv">2</span>, <span class="at">labels =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="calculating-moments" class="level3">
+<h3 class="anchored" data-anchor-id="calculating-moments">Calculating Moments</h3>
+<p>Computing moments like mean, variance, skewness, and kurtosis provides valuable insights into the distribution’s properties. Though analytical expressions exist for many distributions, numerical methods serve as alternatives for complex distributions.</p>
+</section>
+<section id="sampling-from-the-joint-posterior-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="sampling-from-the-joint-posterior-distribution">Sampling from the Joint Posterior Distribution</h3>
+<p>Three widely-used methods allow us to approximate the posterior distribution:</p>
+<ol type="1">
+<li><strong><em>Grid approximation</em></strong> partitions the parameter space into a fine grid, determining the posterior density at each grid point. Despite ease of understanding and implementation, grid approximation faces issues with low accuracy and poor scalability.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Finite grids for mu and tau</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>mus <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">0.1</span>, <span class="fl">0.1</span>, <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>taus <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.5</span>, <span class="fl">1.5</span>, <span class="at">length.out =</span> <span class="dv">100</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute posterior density</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>joint_posterior_values <span class="ot">&lt;-</span> <span class="fu">outer</span>(mus, taus, <span class="cf">function</span>(mu, tau) <span class="fu">dnorm</span>(mu, <span class="at">mean =</span> updated_mean, <span class="at">sd =</span> <span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">/</span>tau)))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Reshape joint_posterior_values into a matrix</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>joint_posterior_matrix <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(joint_posterior_values)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Find index of maximum value</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>max_index <span class="ot">&lt;-</span> <span class="fu">which.max</span>(joint_posterior_matrix)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve estimated mu and tau</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>estimated_mu <span class="ot">&lt;-</span> mus[<span class="fu">floor</span>(max_index <span class="sc">%/%</span> <span class="fu">ncol</span>(joint_posterior_matrix)) <span class="sc">+</span> <span class="dv">1</span>]</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>estimated_tau <span class="ot">&lt;-</span> taus[max_index <span class="sc">%%</span> <span class="fu">ncol</span>(joint_posterior_matrix) <span class="sc">+</span> <span class="dv">1</span>]</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Print results</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Estimated mu:"</span>, <span class="fu">round</span>(estimated_mu, <span class="dv">5</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Estimated tau:"</span>, <span class="fu">round</span>(estimated_tau, <span class="dv">5</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="2" type="1">
+<li><p><strong><em>Monte Carlo integration</em></strong> randomly draws samples from the posterior distribution, avoiding explicit evaluation of the density. Effective for high-dimensional problems, Monte Carlo integration demands copious samples to deliver decent accuracy.</p></li>
+<li><p><strong><em>Importance sampling</em></strong> proposes a distribution targeting regions with considerable posterior mass. Drawing samples from this distribution, importance sampling wisely allocates computational resources, particularly helpful for challenging posteriors.</p></li>
+</ol>
+</section>
+<section id="bayesian-credible-intervals" class="level3">
+<h3 class="anchored" data-anchor-id="bayesian-credible-intervals">Bayesian Credible Intervals</h3>
+<p>Similar to classical confidence intervals, Bayesian credible intervals bound the uncertain parameter within a plausible range. Among them, Highest Posterior Density (HPD) intervals stand out.</p>
+</section>
+<section id="highest-posterior-density-hpd-interval-calculation" class="level3">
+<h3 class="anchored" data-anchor-id="highest-posterior-density-hpd-interval-calculation">Highest Posterior Density (HPD) Interval Calculation</h3>
+<p>An HPD interval surrounds the most probable parameter values with the least width necessary for a given credibility level. No other interval holds a higher concentration of probability mass.</p>
+<p>Consider a univariate normal model with an unknown mean, <span class="math inline">\(\mu\)</span>, and known precision, <span class="math inline">\(\tau\)</span>. Given the posterior distribution, <span class="math inline">\(\mu \mid X \sim \mathcal{N}(\hat{\mu}, \hat{\sigma}^2)\)</span>, finding the HPD interval involves solving the following inequality:</p>
+<p><span class="math display">\[
+\Phi \left( \frac{\hat{\mu}_u - \hat{\mu}}{\hat{\sigma}} \right) - \Phi \left( \frac{\hat{\mu}_l - \hat{\mu}}{\hat{\sigma}} \right) = \gamma
+\]</span></p>
+<p>where <span class="math inline">\(\Phi(\cdot)\)</span> denotes the standard normal cumulative distribution function, <span class="math inline">\(\hat{\mu}_u\)</span> and <span class="math inline">\(\hat{\mu}_l\)</span> denote the upper and lower limits of the interval, and <span class="math inline">\(\gamma\)</span> is the credibility level.</p>
+</section>
+<section id="hpd-properties-compared-to-classical-confidence-intervals" class="level3">
+<h3 class="anchored" data-anchor-id="hpd-properties-compared-to-classical-confidence-intervals">HPD Properties Compared to Classical Confidence Intervals</h3>
+<p>Key differences separate HPD intervals from classical confidence intervals. Mainly, HPD intervals utilize the whole posterior distribution, granting direct probabilistic interpretation. Meanwhile, classical confidence intervals solely deal with sampling-induced variation, neglecting prior information.</p>
+<p>Stay tuned for tomorrow’s continuation, where we explore hierarchical modeling in depth. Until then!</p>
+<p>### Motivation for Hierarchical Models</p>
+<p>Hierarchical models, sometimes referred to as multilevel models, recognize that data is often organized in distinct groups or clusters, and observations within those groups tend to be more alike compared to observations outside of the groups. Ignoring the hierarchical structure can lead to incorrect inferences, loss of efficiency, and inflated Type I error rates.</p>
+</section>
+<section id="pooling-information-across-groups" class="level3">
+<h3 class="anchored" data-anchor-id="pooling-information-across-groups">Pooling Information Across Groups</h3>
+<p>One major advantage of hierarchical models is the ability to pool information across groups, borrowing strength from neighboring groups. This technique prevents overfitting, improves parameter estimates, and reduces the chances of getting implausibly large or small coefficient estimates.</p>
+</section>
+<section id="specifying-a-hierarchical-structure" class="level3">
+<h3 class="anchored" data-anchor-id="specifying-a-hierarchical-structure">Specifying a Hierarchical Structure</h3>
+<p>Before fitting a hierarchical model, you must identify the grouping structure and decide how to model the dependence between observations within groups. This step involves specifying a hierarchical structure consisting of different levels connected by linkages.</p>
+</section>
+<section id="defining-submodels-within-levels-of-hierarchy" class="level3">
+<h3 class="anchored" data-anchor-id="defining-submodels-within-levels-of-hierarchy">Defining Submodels Within Levels of Hierarchy</h3>
+<p>Each level within the hierarchical structure consists of submodels with their own parameters. Lower-level submodels may contain covariates measured at the lowest level, while higher-level submodels include group-level predictors. Covariates at different levels can interact, and cross-classified designs are allowed.</p>
+</section>
+<section id="linkages-between-layers" class="level3">
+<h3 class="anchored" data-anchor-id="linkages-between-layers">Linkages Between Layers</h3>
+<p>Linkages bind together the different levels of the hierarchy. There are three common linkages:</p>
+<ol type="1">
+<li><em>Fixed</em>: Parameters at higher levels are treated as constants, unaffected by the lower levels.</li>
+<li><em>Random</em>: Parameters at higher levels are considered random variables, varying between groups according to a specific probability distribution.</li>
+<li><em>Cross-Level:</em> Includes interactions and predictors between different levels of the hierarchy, allowing for more complex relationships.</li>
+</ol>
+</section>
+<section id="common-structures" class="level3">
+<h3 class="anchored" data-anchor-id="common-structures">Common Structures</h3>
+<p>There are various hierarchical structures, ranging from simple two-level hierarchies to more complex three-level and beyond.</p>
+<section id="two-level-hierarchies" class="level4">
+<h4 class="anchored" data-anchor-id="two-level-hierarchies">Two-Level Hierarchies</h4>
+<p>In a two-level hierarchy, there are two levels of organization: individuals and groups (clusters):</p>
+<p><span class="math display">\[
+y_{ij} = \beta_{0j} + \beta_{1j}x_{ij} + \varepsilon_{ij}
+\]</span></p>
+<p>where <span class="math inline">\(\beta_{0j}\)</span> and <span class="math inline">\(\beta_{1j}\)</span> are unique to each group j. One option to model the group-specific slope and intercept is to treat them as random effects:</p>
+<p><span class="math display">\[
+\begin{aligned}
+\beta_{0j} &amp;= \gamma_{00} + U_{0j} \\
+\beta_{1j} &amp;= \gamma_{10} + U_{1j}
+\end{aligned}
+\]</span></p>
+<p>where <span class="math inline">\(\gamma_{00}\)</span> and <span class="math inline">\(\gamma_{10}\)</span> are the overall intercept and slope, while <span class="math inline">\(U_{0j}\)</span> and <span class="math inline">\(U_{1j}\)</span> are random effects shared by members of the same cluster j.</p>
+</section>
+<section id="three-level-hierarchies" class="level4">
+<h4 class="anchored" data-anchor-id="three-level-hierarchies">Three-Level Hierarchies</h4>
+<p>Three-level hierarchies extend the idea of nesting to a third layer, adding another level of complexity. For example, you might have students (first level) nested within classrooms (second level), which are themselves nested within schools (third level).</p>
+</section>
+</section>
+<section id="examples-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="examples-in-r">Examples in R</h3>
+<p>Implementing hierarchical models in R can be done using various packages, such as <code>nlme</code>, <code>lme4</code>, and <code>rstanarm</code>. Below is an example of a two-level hierarchical model using <code>lme4</code>:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Fake data</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">group =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>], <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fu">nrow</span>(dat), <span class="at">mean =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">each =</span> <span class="dv">10</span>))</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>dat<span class="sc">$</span>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="fu">nrow</span>(dat))</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit hierarchical model</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lmer</span>(y <span class="sc">~</span> x <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> group), <span class="at">data =</span> dat)</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In this example, the response variable <code>y</code> depends on the predictor <code>x</code>, and the intercept varies randomly at the <code>group</code> level. The <code>(1 | group)</code> syntax specifies that the intercept is modeled as a random effect.</p>
+</section>
+<section id="traditional-econometrics-versus-bayesian-hierarchical-models" class="level3">
+<h3 class="anchored" data-anchor-id="traditional-econometrics-versus-bayesian-hierarchical-models">Traditional econometrics versus Bayesian hierarchical models</h3>
+<p>Absolutely, I’ll delve into hierarchical modeling and connect it to the frequentist approach using fixed and random effect estimators. We will go through the motivation, followed by an example implemented in <code>R</code> to demonstrate the efficiency and consistency of hierarchical models.</p>
+<section id="context-and-motivation" class="level6">
+<h6 class="anchored" data-anchor-id="context-and-motivation">Context and Motivation</h6>
+<p>Traditionally, the distinction between fixed and random effects revolves around the assumption of homogeneity versus heterogeneity in the population. In a frequentist framework, fixed effects imply that every level within the population shares the same effect, whereas random effects involve variations across the levels.</p>
+<p>However, in practice, this dichotomy isn’t always ideal due to overlapping situations and inconsistent interpretations. Enter hierarchical models, also known as multilevel models, which provide a more holistic perspective by explicitly considering the dependency among units. Instead of forcing a hard separation, hierarchical models blend the ideas of fixed and random effects smoothly, offering improved flexibility and consistency.</p>
+</section>
+<section id="example-academic-performance-across-schools" class="level6">
+<h6 class="anchored" data-anchor-id="example-academic-performance-across-schools">Example: Academic Performance Across Schools</h6>
+<p>Imagine measuring academic achievement in mathematics assessments across multiple schools. Both frequentist and Bayesian approaches agree that individual students’ scores depend on their innate abilities (fixed effect) and measurement errors. However, the disagreement comes when attributing the variation in math scores across schools. Is it simply random noise, or do schools genuinely vary in their effectiveness, perhaps influenced by resource allocation, teacher quality, curricula, or policies?</p>
+<p>Hierarchical models answer this question naturally, capturing the dual nature of both fixed and random effects simultaneously. In the education example, we can describe the achievement of student <span class="math inline">\(i\)</span> in school <span class="math inline">\(j\)</span> as:</p>
+<p><span class="math display">\[
+y_{ij} = \beta_0 + u_j + \epsilon_{ij}
+\]</span></p>
+<p>where <span class="math inline">\(\beta_0\)</span> is the global mean, <span class="math inline">\(u_j\)</span> accounts for the school-specific offset (random effect), and <span class="math inline">\(\epsilon_{ij}\)</span> covers student-specific measurement error (assumed to be normally distributed).</p>
+<p>Our goals consist of estimating the global mean and quantifying the amount of variation explained by schools, captured by the variance of <span class="math inline">\(u_j\)</span>. This way, we maintain the benefits of both fixed and random effects, achieving a more complete and consistent picture.</p>
+</section>
+</section>
+<section id="r-example-frequentist-versus-bayesian-approach" class="level3">
+<h3 class="anchored" data-anchor-id="r-example-frequentist-versus-bayesian-approach">R Example: Frequentist Versus Bayesian Approach</h3>
+<p>We’ll first look at a frequentist approach using the <code>lme4</code> package, followed by a Bayesian version using <code>rstanarm</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstanarm)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Generating fake data</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>n_students <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>n_schools <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>global_mean <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>school_effects <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_schools, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">5</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>student_errors <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n_students <span class="sc">*</span> n_schools, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">10</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>math_scores <span class="ot">&lt;-</span> global_mean <span class="sc">+</span> school_effects[student_scores <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span>n_schools, <span class="at">replace =</span> <span class="cn">TRUE</span>)] <span class="sc">+</span> student_errors</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Stack data</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>stacked_data <span class="ot">&lt;-</span> <span class="fu">stack</span>(<span class="fu">data.frame</span>(<span class="at">Math_Score =</span> math_scores))</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>stacked_data<span class="sc">$</span>Student_ID <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_students, <span class="at">each =</span> n_schools)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>stacked_data<span class="sc">$</span>School_ID <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span>n_schools, <span class="at">times =</span> n_students)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequentist approach</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>lm_model <span class="ot">&lt;-</span> <span class="fu">lmer</span>(values <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> School_ID), <span class="at">data =</span> stacked_data)</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_model)</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Bayesian approach</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>bym_model <span class="ot">&lt;-</span> <span class="fu">stan_glmer</span>(values <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> School_ID), <span class="at">data =</span> stacked_data, <span class="at">family =</span> <span class="fu">gaussian</span>())</span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(bym_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Both approaches reveal comparable estimates for the global mean and variance components. Yet, notice that the hierarchical model handles both fixed and random effects concurrently, improving interpretability and consistency.</p>
+<p>So far, we’ve covered a lot of ground, gradually unfolding the mysteries of hierarchical models, their connection to fixed and random effects, and their advantages in the context of frequentist and Bayesian approaches. Don’t forget to tune in tomorrow as we embark on another thrilling adventure in the realm of Bayesian modeling!</p>
+<p>### Day 4: MCMC Methods</p>
+<p>Markov Chain Monte Carlo (MCMC) methods are a collection of algorithms for sampling from complex probability distributions. These methods are extensively used in Bayesian inference to generate draws from the posterior distribution, especially in high-dimensional settings where analytical solutions aren’t feasible.</p>
+<section id="what-is-mcmc" class="level4">
+<h4 class="anchored" data-anchor-id="what-is-mcmc">What is MCMC?</h4>
+<p>At its core, MCMC leverages the Markov property, stating that the probability of transitioning to the next state depends only on the current state and not on the history of previous states. Starting from an initial guess, MCMC builds a chain of samples that ultimately converge to the target distribution.</p>
+</section>
+<section id="simulating-draws-from-complex-distributions" class="level4">
+<h4 class="anchored" data-anchor-id="simulating-draws-from-complex-distributions">Simulating draws from complex distributions</h4>
+<p>MCMC excels at generating samples from complex distributions that lack closed-form solutions. This capability makes MCMC an attractive option for Bayesian statisticians dealing with intricate models and hierarchical structures.</p>
+</section>
+<section id="types-of-mcmc-methods" class="level4">
+<h4 class="anchored" data-anchor-id="types-of-mcmc-methods">Types of MCMC methods</h4>
+<p>There are various flavors of MCMC methods, each catering to different scenarios and requirements.</p>
+<section id="metropolis-hastings" class="level5">
+<h5 class="anchored" data-anchor-id="metropolis-hastings">Metropolis-Hastings</h5>
+<p>The Metropolis-Hastings algorithm is a generic MCMC method that accepts or rejects proposals based on an acceptance ratio. The proposal distribution determines the candidates for the next state, while the acceptance ratio governs whether to accept or reject the proposal.</p>
+</section>
+<section id="gibbs-sampling" class="level5">
+<h5 class="anchored" data-anchor-id="gibbs-sampling">Gibbs sampling</h5>
+<p>Gibbs sampling focuses on sampling blocks of parameters instead of individual parameters. This strategy breaks down the problem into simpler chunks and can improve the mixing of the chain.</p>
+</section>
+<section id="hamiltonian-monte-carlo-hmc" class="level5">
+<h5 class="anchored" data-anchor-id="hamiltonian-monte-carlo-hmc">Hamiltonian Monte Carlo (HMC)</h5>
+<p>Hamiltonian Monte Carlo (HMC) combines gradient information with random walks to propose new states. By exploiting the geometry of the target distribution, HMC takes longer strides in promising directions, reducing the correlation between consecutive samples and speeding up convergence.</p>
+</section>
+</section>
+<section id="advantages-and-disadvantages" class="level4">
+<h4 class="anchored" data-anchor-id="advantages-and-disadvantages">Advantages and disadvantages</h4>
+<p>Like any method, MCMC has its pros and cons.</p>
+<section id="efficient-mixing" class="level5">
+<h5 class="anchored" data-anchor-id="efficient-mixing">Efficient mixing</h5>
+<p>Modern MCMC methods, like HMC, efficiently mix across the target distribution, minimizing correlation between consecutive samples and accelerating convergence.</p>
+</section>
+<section id="correlated-samples" class="level5">
+<h5 class="anchored" data-anchor-id="correlated-samples">Correlated samples</h5>
+<p>Despite their strengths, MCMC methods produce correlated samples, meaning that adjacent samples carry redundant information. This drawback necessitates thinning the chain, removing intermediate samples to reduce serial correlation.</p>
+</section>
+<section id="tuning-parameters" class="level5">
+<h5 class="anchored" data-anchor-id="tuning-parameters">Tuning parameters</h5>
+<p>Some MCMC methods require manual tuning of parameters, like proposal distribution scales or leap sizes. Improper tuning can negatively affect the mixing and convergence of the chain, demanding user intervention and judgment calls.</p>
+</section>
+</section>
+<section id="example-in-r-simple-random-walk-metropolis-hastings-sampler" class="level4">
+<h4 class="anchored" data-anchor-id="example-in-r-simple-random-walk-metropolis-hastings-sampler">Example in R: Simple random walk Metropolis-Hastings sampler</h4>
+<p>Here’s an example of a simple Metropolis-Hastings algorithm in R, implementing a random walk proposal for a univariate distribution:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simple Metropolis-Hastings sampler with random walk proposal</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>metrop_rw <span class="ot">&lt;-</span> <span class="cf">function</span>(target_density, initial_state, niter, <span class="at">proposal_scale =</span> <span class="dv">1</span>) {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  states <span class="ot">&lt;-</span> <span class="fu">numeric</span>(niter)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  curr_state <span class="ot">&lt;-</span> initial_state</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>niter) {</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    prop_state <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="at">mean =</span> curr_state, <span class="at">sd =</span> proposal_scale)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    acceptance_ratio <span class="ot">&lt;-</span> <span class="fu">target_density</span>(prop_state) <span class="sc">/</span> <span class="fu">target_density</span>(curr_state)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    rand_num <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">log</span>(rand_num) <span class="sc">&lt;</span> <span class="fu">log</span>(acceptance_ratio)) {</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>      curr_state <span class="ot">&lt;-</span> prop_state</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    states[i] <span class="ot">&lt;-</span> curr_state</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(states)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Test function</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>target_fun <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Replace with your target distribution</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dnorm</span>(x, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>initial_state <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> <span class="fu">metrop_rw</span>(target_fun, initial_state, <span class="dv">1000</span>, <span class="fl">0.5</span>)</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Optional: Plot trace plot</span></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(samples, <span class="at">type =</span> <span class="st">"l"</span>, <span class="at">main =</span> <span class="st">"Trace plot for Metropolis-Hastings"</span>, <span class="at">xlab =</span> <span class="st">"Iteration"</span>, <span class="at">ylab =</span> <span class="st">"State"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Replace <code>target_fun</code> with your desired target distribution. This example implements a simple Metropolis-Hastings sampler using a random walk proposal. Users can adjust the proposal scale and initial state. Remember to properly tune the proposal scale for effective mixing and convergence.</p>
+<p>The document you provided offers insights into the historical debate and current perception of Bayesian methods in the context of econometric analysis. Here’s an analysis highlighting some common misconceptions of Bayesian econometrics by traditional frequentist econometricians, derived from the content of the document:</p>
+<hr>
+</section>
+</section>
+<section id="common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians" class="level3">
+<h3 class="anchored" data-anchor-id="common-misconceptions-of-bayesian-econometrics-by-traditional-frequentist-econometricians">Common Misconceptions of Bayesian Econometrics by Traditional Frequentist Econometricians</h3>
+<p>The evolution of statistical methods in econometrics has seen the Bayesian approach increasingly gaining acceptance alongside the classical frequentist methods. Historically, there were significant debates between these two schools of thought, each with its own advocates and critics. While these approaches are now both widely accepted, some common misconceptions about Bayesian econometrics persist among traditional frequentist econometricians:</p>
+<ol type="1">
+<li><p><strong>Prior Beliefs Over Emphasis</strong>: A common misconception is that Bayesian analysis overly relies on subjective prior beliefs, potentially skewing the results. However, Bayesian methods systematically update these beliefs with objective data, balancing prior knowledge with empirical evidence.</p></li>
+<li><p><strong>Complexity and Intractability</strong>: There is a notion that Bayesian methods are inherently more complex and less tractable than frequentist methods. Advances in computational techniques, particularly Markov Chain Monte Carlo (MCMC) methods, have greatly improved the feasibility and practicality of Bayesian analysis, making it more accessible.</p></li>
+<li><p><strong>Lack of Objectivity</strong>: Some frequentists perceive Bayesian methods as less objective due to the incorporation of prior beliefs. In reality, Bayesian inference provides a framework that integrates prior information with data, leading to a comprehensive understanding of the uncertainty in model parameters and predictions.</p></li>
+<li><p><strong>Inferential Differences</strong>: There’s a belief that Bayesian and frequentist methods lead to fundamentally different inferences. While approaches may differ in methodology, they often yield similar results, with Bayesian solutions sometimes offering advantages, especially in cases with limited data or complex models.</p></li>
+<li><p><strong>Bayesian Methods as a Last Resort</strong>: Another misconception is that Bayesian methods are only used when frequentist methods fail. In contrast, Bayesian analysis has its own strengths and is often used as a primary approach in many scenarios in finance and econometrics.</p></li>
+<li><p><strong>Inapplicability in Certain Areas</strong>: It’s sometimes thought that Bayesian methods are not applicable to certain problems in econometrics. However, with the advancement in computational methods, Bayesian solutions have been developed for a broad range of problems, often providing insightful and useful results.</p></li>
+</ol>
+<p>The shift in perception and understanding of Bayesian methods highlights the growing recognition of their value in econometric analysis. As computational capabilities continue to evolve, the practicality and applicability of Bayesian methods in finance and econometrics are likely to expand even further</p>
+</section>
+<section id="bayesian-vs.-frequentist-perspectives" class="level3">
+<h3 class="anchored" data-anchor-id="bayesian-vs.-frequentist-perspectives">Bayesian vs.&nbsp;Frequentist Perspectives</h3>
+<ul>
+<li><strong>Differences</strong>: Unlike frequentist statistics, which only allows inferences from data, Bayesian methods combine data with prior beliefs.</li>
+<li><strong>Advantages in Finance</strong>: Bayesian methods are particularly useful in finance for risk assessment, portfolio optimization, and in situations with limited data where prior knowledge is valuable.</li>
+</ul>
+</section>
+<section id="bayesian-approaches-to-model-financial-data" class="level3">
+<h3 class="anchored" data-anchor-id="bayesian-approaches-to-model-financial-data">Bayesian Approaches to Model Financial Data</h3>
+<ul>
+<li><strong>Bayesian Regression Models</strong>: Used for predicting financial outcomes and understanding relationships between variables.</li>
+<li><strong>Bayesian Time Series Analysis</strong>: Applying Bayesian methods to time series data, offering a flexible approach to modeling and forecasting financial time series.</li>
+<li><strong>Markov Chain Monte Carlo (MCMC) Techniques</strong>: A core component of Bayesian computational methods, used for sampling from posterior distributions.</li>
+</ul>
+</section>
+<section id="r-code-example-for-bayesian-regression" class="level3">
+<h3 class="anchored" data-anchor-id="r-code-example-for-bayesian-regression">R Code Example for Bayesian Regression</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load necessary packages</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"rstanarm"</span>)) <span class="fu">install.packages</span>(<span class="st">"rstanarm"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rstanarm)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Bayesian linear regression on simulated financial data</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>simulated_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">asset_return =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="fl">0.05</span>, <span class="at">sd =</span> <span class="fl">0.1</span>),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">market_return =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="fl">0.04</span>, <span class="at">sd =</span> <span class="fl">0.1</span>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit a Bayesian linear regression model</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>fit_bayes <span class="ot">&lt;-</span> <span class="fu">stan_glm</span>(asset_return <span class="sc">~</span> market_return, <span class="at">data =</span> simulated_data, </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>                      <span class="at">prior =</span> <span class="fu">normal</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">iter =</span> <span class="dv">1000</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary of the Bayesian model</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_bayes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="explanation-of-the-r-code" class="level3">
+<h3 class="anchored" data-anchor-id="explanation-of-the-r-code">Explanation of the R Code</h3>
+<ul>
+<li><code>rstanarm</code> is an R package for Bayesian modeling using Stan, a language for statistical modeling.</li>
+<li><code>stan_glm</code> function fits a Bayesian generalized linear model. The <code>prior</code> argument specifies the prior distribution for the model parameters.</li>
+<li>The summary provides estimates of the model parameters, including their posterior distributions.</li>
+</ul>
+<p>These weeks aim to equip students with a foundational understanding of Bayesian methods and their applications in financial analysis, enhancing their analytical toolkit for dealing with uncertainty and dynamic financial data.</p>
+</section>
+<section id="further-reading-for-bayesian-methods-in-finance" class="level3">
+<h3 class="anchored" data-anchor-id="further-reading-for-bayesian-methods-in-finance">Further Reading for Bayesian Methods in Finance</h3>
+<p>Certainly! Here are links to the recommended further reading books on Bayesian methods in finance. These links typically lead to the books’ pages on Amazon or the publishers’ websites, where you can find more details:</p>
+<ol type="1">
+<li><strong>“Bayesian Data Analysis” by Andrew Gelman et al.</strong>
+<ul>
+<li><a href="https://www.amazon.com/Bayesian-Data-Analysis-Third-Chapman/dp/1439840954">Amazon Link</a></li>
+</ul></li>
+<li><strong>“The Bayesian Choice: From Decision-Theoretic Foundations to Computational Implementation” by Christian P. Robert</strong>
+<ul>
+<li><a href="https://www.amazon.com/Bayesian-Choice-Decision-Theoretic-Computational-Implementation/dp/0387715983">Amazon Link</a></li>
+</ul></li>
+<li><strong>“Doing Bayesian Data Analysis: A Tutorial with R, JAGS, and Stan” by John Kruschke</strong>
+<ul>
+<li><a href="https://www.amazon.com/Doing-Bayesian-Data-Analysis-Tutorial/dp/0124058884">Amazon Link</a></li>
+</ul></li>
+<li><strong>“Bayesian Analysis with Python” by Osvaldo Martin</strong>
+<ul>
+<li><a href="https://www.amazon.com/Bayesian-Analysis-Python-Osvaldo-Martin/dp/1789341655">Amazon Link</a></li>
+</ul></li>
+<li><strong>“Statistical Rethinking: A Bayesian Course with Examples in R and Stan” by Richard McElreath</strong>
+<ul>
+<li><a href="https://www.amazon.com/Statistical-Rethinking-Bayesian-Examples-Chapman/dp/036713991X">Amazon Link</a></li>
+</ul></li>
+<li><strong>“Bayesian Methods for Statistical Analysis” by Borek Puza</strong>
+<ul>
+<li><a href="https://www.amazon.com/Bayesian-Methods-Statistical-Analysis-Puza/dp/0646545093">Amazon Link</a></li>
+</ul></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(scopus.R)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="references-for-my-reading" class="level2 unnumbered">
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References for my reading</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Jennifer2021" class="csl-entry" role="listitem">
+Brown, Pulak;Gray, Sarah;Ghosh. 2021. <span>“Saving Behaviour and Health: A High-Dimensional Bayesian Analysis of British Panel Data.”</span> <em>European Journal of Finance</em> 27: 1581–1603. <a href="https://doi.org/10.1080/1351847X.2021.1899953">https://doi.org/10.1080/1351847X.2021.1899953</a>.
+</div>
+<div id="ref-Lingxiao2020" class="csl-entry" role="listitem">
+Chib, Xiaming;Zhao, Siddhartha;Zeng. 2020. <span>“On Comparing Asset Pricing Models.”</span> <em>Journal of Finance</em> 75: 551–77. <a href="https://doi.org/10.1111/jofi.12854">https://doi.org/10.1111/jofi.12854</a>.
+</div>
+<div id="ref-DAVID1989" class="csl-entry" role="listitem">
+FELDMAN, DAVID. 1989. <span>“The Term Structure of Interest Rates in a Partially Observable Economy.”</span> <em>The Journal of Finance</em> 44: 789–812. <a href="https://doi.org/10.1111/j.1540-6261.1989.tb04391.x">https://doi.org/10.1111/j.1540-6261.1989.tb04391.x</a>.
+</div>
+<div id="ref-Andrey2010" class="csl-entry" role="listitem">
+Grenadier, Andrey, Steven R.;Malenko. 2010. <span>“A Bayesian Approach to Real Options: The Case of Distinguishing Between Temporary and Permanent Shocks.”</span> <em>Journal of Finance</em> 65: 1949–86. <a href="https://doi.org/10.1111/j.1540-6261.2010.01599.x">https://doi.org/10.1111/j.1540-6261.2010.01599.x</a>.
+</div>
+<div id="ref-Chi2022" class="csl-entry" role="listitem">
+Huang, Mei Chi. 2022. <span>“Time-Varying Roles of Housing Risk Factors in State-Level Housing Markets.”</span> <em>International Journal of Finance and Economics</em> 27: 4660–83. <a href="https://doi.org/10.1002/ijfe.2393">https://doi.org/10.1002/ijfe.2393</a>.
+</div>
+<div id="ref-Heje2023" class="csl-entry" role="listitem">
+Jensen, Bryan;Pedersen, Theis Ingerslev;Kelly. 2023. <span>“Is There a Replication Crisis in Finance?”</span> <em>Journal of Finance</em> 78: 2465–2518. <a href="https://doi.org/10.1111/jofi.13249">https://doi.org/10.1111/jofi.13249</a>.
+</div>
+<div id="ref-O.1975" class="csl-entry" role="listitem">
+Joy, John O., O. Maurice;Tollefson. 1975. <span>“On the Financial Applications of Discriminant Analysis.”</span> <em>Journal of Financial and Quantitative Analysis</em> 10: 723–39. <a href="https://doi.org/10.2307/2330267">https://doi.org/10.2307/2330267</a>.
+</div>
+<div id="ref-Samuli2008" class="csl-entry" role="listitem">
+Kaustia, Samuli, Markku;Knüpfer. 2008. <span>“Do Investors Overweight Personal Experience? Evidence from IPO Subscriptions.”</span> <em>Journal of Finance</em> 63: 2679–2702. <a href="https://doi.org/10.1111/j.1540-6261.2008.01411.x">https://doi.org/10.1111/j.1540-6261.2008.01411.x</a>.
+</div>
+<div id="ref-Hui2009" class="csl-entry" role="listitem">
+Li, Hui, C. Wei;Xue. 2009. <span>“A Bayesian’s Bubble.”</span> <em>Journal of Finance</em> 64: 2665–2701. <a href="https://doi.org/10.1111/j.1540-6261.2009.01514.x">https://doi.org/10.1111/j.1540-6261.2009.01514.x</a>.
+</div>
+<div id="ref-S.2015" class="csl-entry" role="listitem">
+Paolella, Marc S. 2015. <span>“Multivariate Asset Return Prediction with Mixture Models.”</span> <em>European Journal of Finance</em> 21: 1214–52. <a href="https://doi.org/10.1080/1351847X.2012.760167">https://doi.org/10.1080/1351847X.2012.760167</a>.
+</div>
+<div id="ref-Ľuboš2000" class="csl-entry" role="listitem">
+Pástor, Ľuboš. 2000. <span>“Portfolio Selection and Asset Pricing Models.”</span> <em>Journal of Finance</em> 55: 179–223. <a href="https://doi.org/10.1111/0022-1082.00204">https://doi.org/10.1111/0022-1082.00204</a>.
+</div>
+<div id="ref-Peter2015" class="csl-entry" role="listitem">
+Payzan-Lenestour, Peter, Elise;Bossaerts. 2015. <span>“Learning about Unstable, Publicly Unobservable Payoffs.”</span> <em>Review of Financial Studies</em> 28: 1874–1913. <a href="https://doi.org/10.1093/rfs/hhu069">https://doi.org/10.1093/rfs/hhu069</a>.
+</div>
+<div id="ref-BRYAN1986" class="csl-entry" role="listitem">
+STANHOUSE, BRYAN. 1986. <span>“Commercial Bank Portfolio Behavior and Endogenous Uncertainty.”</span> <em>The Journal of Finance</em> 41: 1103–14. <a href="https://doi.org/10.1111/j.1540-6261.1986.tb02533.x">https://doi.org/10.1111/j.1540-6261.1986.tb02533.x</a>.
+</div>
+<div id="ref-LARRY1979" class="csl-entry" role="listitem">
+STANHOUSE, LARRY, BRYAN;SHERMAN. 1979. <span>“A Note on Information in the Loan Evaluation Process.”</span> <em>The Journal of Finance</em> 34: 1263–69. <a href="https://doi.org/10.1111/j.1540-6261.1979.tb00072.x">https://doi.org/10.1111/j.1540-6261.1979.tb00072.x</a>.
+</div>
+<div id="ref-Long2017" class="csl-entry" role="listitem">
+Stoughton, Kit Pong;Yi, Neal M.;Wong. 2017. <span>“Investment Efficiency and Product Market Competition.”</span> <em>Journal of Financial and Quantitative Analysis</em> 52: 2611–42. <a href="https://doi.org/10.1017/S0022109017000746">https://doi.org/10.1017/S0022109017000746</a>.
+</div>
+<div id="ref-Ionut2009" class="csl-entry" role="listitem">
+Ulibarri, Peter C.;Hovsepian, Carlos A.;Anselmo. 2009. <span>“Erratum: ’Noise-Trader Risk’ and Bayesian Market Making in FX Derivatives: Rolling Loaded Dice? (International Journal of Finance and Economics (2008)).”</span> <em>International Journal of Finance and Economics</em> 14: N/A. <a href="https://doi.org/10.1002/ijfe.388">https://doi.org/10.1002/ijfe.388</a>.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

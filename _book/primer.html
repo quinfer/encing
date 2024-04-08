@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Barry Quinn">
+
+<title>Advanced Financial Data Analytics - 2&nbsp; Statistics and Probability Primer</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./tools.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="mycssblend.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./primer.html">Core Concepts</a></li><li class="breadcrumb-item"><a href="./primer.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistics and Probability Primer</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Advanced Financial Data Analytics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Core Concepts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./primer.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistics and Probability Primer</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Toolkit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Understanding Financial Data and Asset Returns</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./time_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bayesian_methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Advanced Material</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./multilevel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./causal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Causal inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./colliderbias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Causal Salad, Endogeneity and collider bias</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">References</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">resources</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Chapter solutions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#statisticall-modelling-as-an-iterative-process." id="toc-statisticall-modelling-as-an-iterative-process." class="nav-link active" data-scroll-target="#statisticall-modelling-as-an-iterative-process."><span class="header-section-number">2.1</span> Statisticall modelling as an iterative process.</a>
+  <ul class="collapse">
+  <li><a href="#insights-from-academic-sources" id="toc-insights-from-academic-sources" class="nav-link" data-scroll-target="#insights-from-academic-sources"><span class="header-section-number">2.1.1</span> Insights from Academic Sources:</a></li>
+  <li><a href="#implications-for-financial-modeling-and-decision-making" id="toc-implications-for-financial-modeling-and-decision-making" class="nav-link" data-scroll-target="#implications-for-financial-modeling-and-decision-making"><span class="header-section-number">2.1.2</span> Implications for Financial Modeling and Decision-Making</a></li>
+  <li><a href="#practical-strategies-for-implementing-iterative-approaches" id="toc-practical-strategies-for-implementing-iterative-approaches" class="nav-link" data-scroll-target="#practical-strategies-for-implementing-iterative-approaches"><span class="header-section-number">2.1.3</span> Practical Strategies for Implementing Iterative Approaches</a></li>
+  </ul></li>
+  <li><a href="#scalar-quantities" id="toc-scalar-quantities" class="nav-link" data-scroll-target="#scalar-quantities"><span class="header-section-number">2.2</span> Scalar Quantities</a>
+  <ul class="collapse">
+  <li><a href="#example-annualized-return-computation" id="toc-example-annualized-return-computation" class="nav-link" data-scroll-target="#example-annualized-return-computation"><span class="header-section-number">2.2.1</span> Example: Annualized Return Computation</a></li>
+  </ul></li>
+  <li><a href="#vectors-and-matrix-algebra-basics" id="toc-vectors-and-matrix-algebra-basics" class="nav-link" data-scroll-target="#vectors-and-matrix-algebra-basics"><span class="header-section-number">2.3</span> Vectors and Matrix Algebra Basics</a>
+  <ul class="collapse">
+  <li><a href="#example-monthly-returns-comparison" id="toc-example-monthly-returns-comparison" class="nav-link" data-scroll-target="#example-monthly-returns-comparison"><span class="header-section-number">2.3.1</span> Example: Monthly Returns Comparison</a></li>
+  </ul></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link" data-scroll-target="#functions"><span class="header-section-number">2.4</span> Functions</a>
+  <ul class="collapse">
+  <li><a href="#example-compound-interest-function" id="toc-example-compound-interest-function" class="nav-link" data-scroll-target="#example-compound-interest-function"><span class="header-section-number">2.4.1</span> Example: Compound Interest Function</a></li>
+  </ul></li>
+  <li><a href="#understanding-descriptive-statistics" id="toc-understanding-descriptive-statistics" class="nav-link" data-scroll-target="#understanding-descriptive-statistics"><span class="header-section-number">2.5</span> Understanding Descriptive Statistics</a>
+  <ul class="collapse">
+  <li><a href="#example-sales-revenue-summary" id="toc-example-sales-revenue-summary" class="nav-link" data-scroll-target="#example-sales-revenue-summary"><span class="header-section-number">2.5.1</span> Example: Sales Revenue Summary</a></li>
+  <li><a href="#interpreting-the-output" id="toc-interpreting-the-output" class="nav-link" data-scroll-target="#interpreting-the-output"><span class="header-section-number">2.5.2</span> Interpreting the Output</a></li>
+  </ul></li>
+  <li><a href="#probability-theory" id="toc-probability-theory" class="nav-link" data-scroll-target="#probability-theory"><span class="header-section-number">3</span> Probability Theory</a>
+  <ul class="collapse">
+  <li><a href="#basic-principles-and-tools-of-probability-theory" id="toc-basic-principles-and-tools-of-probability-theory" class="nav-link" data-scroll-target="#basic-principles-and-tools-of-probability-theory"><span class="header-section-number">3.1</span> Basic Principles and Tools of Probability Theory</a>
+  <ul class="collapse">
+  <li><a href="#sample-space-and-events" id="toc-sample-space-and-events" class="nav-link" data-scroll-target="#sample-space-and-events"><span class="header-section-number">3.1.1</span> Sample Space and Events</a></li>
+  <li><a href="#union-intersection-and-complement-of-events" id="toc-union-intersection-and-complement-of-events" class="nav-link" data-scroll-target="#union-intersection-and-complement-of-events"><span class="header-section-number">3.1.2</span> Union, Intersection, and Complement of Events</a></li>
+  <li><a href="#conditional-probability" id="toc-conditional-probability" class="nav-link" data-scroll-target="#conditional-probability"><span class="header-section-number">3.1.3</span> Conditional Probability</a></li>
+  <li><a href="#multiplicative-property-of-conditional-probability" id="toc-multiplicative-property-of-conditional-probability" class="nav-link" data-scroll-target="#multiplicative-property-of-conditional-probability"><span class="header-section-number">3.1.4</span> Multiplicative Property of Conditional Probability</a></li>
+  <li><a href="#chain-rule-for-conditional-probability" id="toc-chain-rule-for-conditional-probability" class="nav-link" data-scroll-target="#chain-rule-for-conditional-probability"><span class="header-section-number">3.1.5</span> Chain Rule for Conditional Probability</a></li>
+  <li><a href="#bayes-formula" id="toc-bayes-formula" class="nav-link" data-scroll-target="#bayes-formula"><span class="header-section-number">3.1.6</span> Bayes’ Formula</a></li>
+  <li><a href="#independence-of-events" id="toc-independence-of-events" class="nav-link" data-scroll-target="#independence-of-events"><span class="header-section-number">3.1.7</span> Independence of Events</a></li>
+  <li><a href="#partition-of-the-sample-space" id="toc-partition-of-the-sample-space" class="nav-link" data-scroll-target="#partition-of-the-sample-space"><span class="header-section-number">3.1.8</span> Partition of the Sample Space</a></li>
+  <li><a href="#total-probability-theorem" id="toc-total-probability-theorem" class="nav-link" data-scroll-target="#total-probability-theorem"><span class="header-section-number">3.1.9</span> Total Probability Theorem</a></li>
+  <li><a href="#bayes-theorem-extensions" id="toc-bayes-theorem-extensions" class="nav-link" data-scroll-target="#bayes-theorem-extensions"><span class="header-section-number">3.1.10</span> Bayes’ Theorem Extensions</a></li>
+  <li><a href="#example-fraction-of-domestic-production-exports" id="toc-example-fraction-of-domestic-production-exports" class="nav-link" data-scroll-target="#example-fraction-of-domestic-production-exports"><span class="header-section-number">3.1.11</span> Example: Fraction of Domestic Production Exports</a></li>
+  <li><a href="#independent-events" id="toc-independent-events" class="nav-link" data-scroll-target="#independent-events"><span class="header-section-number">3.1.12</span> Independent Events</a></li>
+  <li><a href="#random-variables" id="toc-random-variables" class="nav-link" data-scroll-target="#random-variables"><span class="header-section-number">3.1.13</span> Random Variables</a></li>
+  <li><a href="#probability-mass-functions-discrete-random-variables" id="toc-probability-mass-functions-discrete-random-variables" class="nav-link" data-scroll-target="#probability-mass-functions-discrete-random-variables"><span class="header-section-number">3.1.14</span> Probability Mass Functions (Discrete Random Variables)</a></li>
+  <li><a href="#probability-density-functions-continuous-random-variables" id="toc-probability-density-functions-continuous-random-variables" class="nav-link" data-scroll-target="#probability-density-functions-continuous-random-variables"><span class="header-section-number">3.1.15</span> Probability Density Functions (Continuous Random Variables)</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#proability-schools-of-thought" id="toc-proability-schools-of-thought" class="nav-link" data-scroll-target="#proability-schools-of-thought"><span class="header-section-number">4</span> Proability Schools of Thought</a>
+  <ul class="collapse">
+  <li><a href="#frequentism" id="toc-frequentism" class="nav-link" data-scroll-target="#frequentism"><span class="header-section-number">4.1</span> Frequentism</a></li>
+  <li><a href="#bayesian-methods" id="toc-bayesian-methods" class="nav-link" data-scroll-target="#bayesian-methods"><span class="header-section-number">4.2</span> Bayesian Methods</a></li>
+  <li><a href="#how-are-they-related" id="toc-how-are-they-related" class="nav-link" data-scroll-target="#how-are-they-related"><span class="header-section-number">4.3</span> How are they related?</a></li>
+  <li><a href="#connection-between-classical-probability-and-bayesian-methods" id="toc-connection-between-classical-probability-and-bayesian-methods" class="nav-link" data-scroll-target="#connection-between-classical-probability-and-bayesian-methods"><span class="header-section-number">4.4</span> Connection between Classical Probability and Bayesian Methods</a></li>
+  <li><a href="#link-between-frequentism-and-bayesian-methods" id="toc-link-between-frequentism-and-bayesian-methods" class="nav-link" data-scroll-target="#link-between-frequentism-and-bayesian-methods"><span class="header-section-number">4.5</span> Link Between Frequentism and Bayesian Methods</a></li>
+  <li><a href="#shared-tenets-across-paradigms" id="toc-shared-tenets-across-paradigms" class="nav-link" data-scroll-target="#shared-tenets-across-paradigms"><span class="header-section-number">4.6</span> Shared Tenets Across Paradigms</a></li>
+  <li><a href="#impact-in-financial-analytics" id="toc-impact-in-financial-analytics" class="nav-link" data-scroll-target="#impact-in-financial-analytics"><span class="header-section-number">4.7</span> Impact in Financial Analytics</a></li>
+  </ul></li>
+  <li><a href="#excercises" id="toc-excercises" class="nav-link" data-scroll-target="#excercises"><span class="header-section-number">5</span> Excercises</a>
+  <ul class="collapse">
+  <li><a href="#theoretical-questions" id="toc-theoretical-questions" class="nav-link" data-scroll-target="#theoretical-questions"><span class="header-section-number">5.1</span> Theoretical Questions:</a>
+  <ul class="collapse">
+  <li><a href="#easier" id="toc-easier" class="nav-link" data-scroll-target="#easier"><span class="header-section-number">5.1.1</span> Easier</a></li>
+  <li><a href="#advanced" id="toc-advanced" class="nav-link" data-scroll-target="#advanced"><span class="header-section-number">5.1.2</span> Advanced</a></li>
+  </ul></li>
+  <li><a href="#practical-questions-with-starter-code" id="toc-practical-questions-with-starter-code" class="nav-link" data-scroll-target="#practical-questions-with-starter-code"><span class="header-section-number">5.2</span> Practical Questions with Starter Code:**</a>
+  <ul class="collapse">
+  <li><a href="#easier-1" id="toc-easier-1" class="nav-link" data-scroll-target="#easier-1"><span class="header-section-number">5.2.1</span> Easier</a></li>
+  <li><a href="#advanced-1" id="toc-advanced-1" class="nav-link" data-scroll-target="#advanced-1"><span class="header-section-number">5.2.2</span> Advanced:</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistics and Probability Primer</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Barry Quinn </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p><img src="images/logos/DALL·E 2024-01-18 16.32.37 - Create a professional logo for an advanced financial data analytics course. The design should be vibrant, with a medium level of detail, balancing com.png" class="img-fluid" style="float: left; margin-right: 10px;;width:30.0%"> <span class="hand">Statistics, the science of learning from data, is essential in decision-making and scientific inquiry. It involves collecting, analyzing, and interpreting data to measure and manage uncertainty. This discipline is crucial in validating research and ensuring conclusions are reliable. Central to statistics is probability theory, the foundation for managing uncertainty and randomness in data, which is especially vital in financial analytics. Here, statistics help model market behaviors, assess risks, and forecast trends using techniques like regression analysis, hypothesis testing, and time series analysis. Advanced financial analytics not only describe but also predict and optimize, using statistical models for risk management and algorithmic trading. The rise of big data and machine learning has further enhanced these models, enabling the detection of complex patterns in financial markets. Thus, statistics and probability theory are fundamental to financial decision-making, equipping practitioners with tools for mastering advanced financial analytics in a volatile world</span></p>
+<section id="statisticall-modelling-as-an-iterative-process." class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="statisticall-modelling-as-an-iterative-process."><span class="header-section-number">2.1</span> Statisticall modelling as an iterative process.</h2>
+<p><strong>Statisticians, like artists, have the bad habit of falling in love with their models.</strong></p>
+<p>George Box emphasized the importance of viewing statistical modeling as an iterative process, where models are continually improved, scrutinized, and reassessed against new data to reach increasingly reliable inferences and decisions. This chapter delves into the iterative nature of statistics, inspired by George Box’s visionary perspective, and its relevance to financial modeling and decision-making.</p>
+<p>At the heart of Box’s philosophy lies the acknowledgment that any statistical model is an approximation of reality. Due to measurement errors, sampling biases, misspecifications, or mere random fluctuations, even seemingly adequate models can fail. Accepting this imperfection calls for humility and constant vigilance, pushing statisticians to question their models and strive for improvement.</p>
+<p>Box envisioned statistical modeling as an ongoing cycle, composed of consecutive stages of speculation, exploration, verification, and modification. During each iteration, new findings inspire adjusted mental models, eventually translating into altered analyses.</p>
+<div id="fig-iter" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="images/Iterative problem solving seen as a feedback loop in financial analysis.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.1: Iterative Statistical Modeling: Induction, Deduction, and Model Refinement</figcaption>
+</figure>
+</div>
+<p><a href="#fig-iter">Figure&nbsp;<span class="quarto-unresolved-ref">fig-iter</span></a> illustrates an iterative process in statistical modeling, particularly in the context of financial analysis. Here’s how we can relate it to George Box’s ideas:</p>
+<ol type="1">
+<li><strong>Data Collection and Signal</strong>:
+<ul>
+<li>At the top right, we have a cloud labeled “True State of Financial World.” This represents the underlying reality we aim to understand.</li>
+<li>The blue arrow labeled “Signal” connects this reality to a rectangle labeled “Data Signal + Noise.” The data we collect contains both useful information (signal) and irrelevant noise.</li>
+</ul></li>
+<li><strong>Inductive Reasoning (Model Creation)</strong>:
+<ul>
+<li><strong>Observation and Pattern Recognition</strong>:
+<ul>
+<li>We engage in inductive reasoning by observing the data. We look for patterns, regularities, and relationships.</li>
+</ul></li>
+<li><strong>Preliminary Theory (Model M1)</strong>:
+<ul>
+<li>Based on observed patterns, we formulate a preliminary theory or model (let’s call it <strong>M1</strong>).</li>
+<li>M1 captures the relationships between variables, aiming to explain the observed data.</li>
+</ul></li>
+</ul></li>
+<li><strong>Deductive Reasoning (Model Testing)</strong>:
+<ul>
+<li><strong>Temporary Pretense</strong>:
+<ul>
+<li>Assume that <strong>M1</strong> is true (even though it may not be perfect).</li>
+</ul></li>
+<li><strong>Exact Estimation Calculations</strong>:
+<ul>
+<li>Apply <strong>M1</strong> to analyze the data, make predictions, and estimate outcomes.</li>
+</ul></li>
+<li><strong>Selective Worry</strong>:
+<ul>
+<li>Be critical about the limitations of <strong>M1</strong>. Where does it fall short?</li>
+</ul></li>
+<li><strong>Consequence of M1</strong>:
+<ul>
+<li>Predictions made by <strong>M1</strong> are compared with the actual outcomes (consequences).</li>
+<li>Discrepancies between predictions and reality highlight areas for improvement.</li>
+</ul></li>
+</ul></li>
+<li><strong>Model Refinement and Iteration</strong>:
+<ul>
+<li>If there are discrepancies:
+<ul>
+<li>Adjust or refine <strong>M1</strong> based on empirical evidence.</li>
+<li>Create an updated model, which we’ll call <strong>M2</strong>.</li>
+</ul></li>
+<li>The arrow labeled “Analysis with M1 (M1*, M1<strong>, …?)” indicates multiple iterations or versions of</strong> M1** being analyzed.</li>
+<li>The process continues iteratively, improving the model with each cycle.</li>
+</ul></li>
+<li><strong>Flexibility and Parsimony</strong>:
+<ul>
+<li><strong>Flexibility</strong>:
+<ul>
+<li>Rapid progress requires flexibility to adapt to new information and confrontations between theory and practice.</li>
+</ul></li>
+<li><strong>Parsimonious Models</strong>:
+<ul>
+<li>Effective models are both simple and powerful. Focus on what matters most.</li>
+</ul></li>
+</ul></li>
+</ol>
+<section id="insights-from-academic-sources" class="level3 callout-AcademicInsight" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="insights-from-academic-sources"><span class="header-section-number">2.1.1</span> Insights from Academic Sources:</h3>
+<ol type="1">
+<li><strong>Bayesian Visualization and Workflow</strong>:
+<ul>
+<li>The article “Visualization in Bayesian Workflow” emphasizes that Bayesian data analysis involves more than just computing a posterior distribution.</li>
+<li>Visualization plays a crucial role throughout the entire statistical workflow, including model building, inference, model checking, evaluation, and expansion.</li>
+<li>Modern, high-dimensional models used by applied researchers benefit significantly from effective visualization tools <span class="citation" data-cites="Jonah2019">(<a href="#ref-Jonah2019" role="doc-biblioref">Jonah et al. 2019</a>)</span>.</li>
+</ul></li>
+<li><strong>Andrew Gelman’s Perspective</strong>:
+<ul>
+<li>Andrew Gelman, a renowned statistician, emphasizes the importance of iterative modeling.</li>
+<li>His workadvocates for continuous refinement of models based on empirical evidence.</li>
+<li>Gelman’s approach aligns with George Box’s idea that all models are approximations, but some are useful. We should embrace imperfection and keep iterating <span class="citation" data-cites="Gelman2013 Gelman2020">(<a href="#ref-Gelman2013" role="doc-biblioref">Gelman et al. 2013</a>; <a href="#ref-Gelman2020" role="doc-biblioref">Gelman, Hill, and Vehtari 2020</a>)</span>.</li>
+</ul></li>
+</ol>
+</section>
+<section id="implications-for-financial-modeling-and-decision-making" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="implications-for-financial-modeling-and-decision-making"><span class="header-section-number">2.1.2</span> Implications for Financial Modeling and Decision-Making</h3>
+<p>Financial markets are inherently complex, dictated by intricate relationships and driven by manifold forces. Capturing this complexity requires an iterative approach, where models are consistently tested against emerging data and evolving circumstances.</p>
+<p>Emphasizing the iterative aspect of financial modeling brings about several benefits:</p>
+<ol type="1">
+<li>Improved responsiveness</li>
+<li>Reduced hubris</li>
+<li>More effective communication</li>
+</ol>
+</section>
+<section id="practical-strategies-for-implementing-iterative-approaches" class="level3" data-number="2.1.3">
+<h3 data-number="2.1.3" class="anchored" data-anchor-id="practical-strategies-for-implementing-iterative-approaches"><span class="header-section-number">2.1.3</span> Practical Strategies for Implementing Iterative Approaches</h3>
+<p>Implementing an iterative strategy in financial modeling calls for conscious efforts to instill a culture of continuous improvement. The following practices can help embed iterative thinking into organizational norms:</p>
+<ol type="1">
+<li>Cross-functional collaboration</li>
+<li>Open feedback mechanisms</li>
+<li>Periodic audits</li>
+<li>Version control</li>
+<li>Empowerment of junior staff</li>
+</ol>
+<p>George Box’s vision of statistics as an iterative process carries far-reaching ramifications for financial modeling and decision-making. By championing a perpetual pursuit of excellence, Box’s doctrine urges practitioners to abandon complacent acceptance of mediocre models in favor of persistent self-evaluation, reflection, and revision. Organizations embracing Box’s wisdom enjoy the spoils of sustained success, weathering adversity armed with the determination born of iterative resilience.</p>
+</section>
+</section>
+<section id="scalar-quantities" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="scalar-quantities"><span class="header-section-number">2.2</span> Scalar Quantities</h2>
+<p>Scalar quantities are numerical values that don’t depend on direction, such as temperature, mass, or height. In finance, scalars often appear in the form of returns, exchange rates, or prices. As a real-world finance application, suppose you want to compute the annualized return of a stock.</p>
+<section id="example-annualized-return-computation" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="example-annualized-return-computation"><span class="header-section-number">2.2.1</span> Example: Annualized Return Computation</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>current_price <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>initial_price <span class="ot">&lt;-</span> <span class="dv">80</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>holding_period <span class="ot">&lt;-</span> <span class="dv">180</span> <span class="co"># Days</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>annualized_return <span class="ot">&lt;-</span> (current_price <span class="sc">/</span> initial_price)<span class="sc">^</span>(<span class="dv">365</span> <span class="sc">/</span> holding_period) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>annualized_return</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5722151</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="vectors-and-matrix-algebra-basics" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="vectors-and-matrix-algebra-basics"><span class="header-section-number">2.3</span> Vectors and Matrix Algebra Basics</h2>
+<p>Vectors are arrays of numbers, and matrices are rectangular arrays. Both play a crucial role in expressing relationships between variables and performing computations efficiently. Consider a hypothetical scenario where you compare monthly returns across three different assets.</p>
+<section id="example-monthly-returns-comparison" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="example-monthly-returns-comparison"><span class="header-section-number">2.3.1</span> Example: Monthly Returns Comparison</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>monthly_returns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.02</span>, <span class="sc">-</span><span class="fl">0.01</span>, <span class="fl">0.03</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>asset_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Asset A"</span>, <span class="st">"Asset B"</span>, <span class="st">"Asset C"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>returns_dataframe <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Asset =</span> asset_names, <span class="at">Return =</span> monthly_returns)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>returns_dataframe</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Asset Return
+1 Asset A   0.02
+2 Asset B  -0.01
+3 Asset C   0.03</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="functions" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="functions"><span class="header-section-number">2.4</span> Functions</h2>
+<p>Functions map inputs to outputs and are ubiquitous in mathematics, statistics, and finance. Suppose you seek to calculate compound interest.</p>
+<section id="example-compound-interest-function" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="example-compound-interest-function"><span class="header-section-number">2.4.1</span> Example: Compound Interest Function</h3>
+<p>The provided code snippet is written in R, a programming language commonly used for statistical computing and graphics. It defines a function named <code>compound_interest</code> and then uses this function to calculate the final balance of an investment based on compound interest. Let’s break down the code to understand it better, particularly in the context of learning what a function is:</p>
+<ol type="1">
+<li><strong>Function Definition:</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>   compound_interest <span class="ot">&lt;-</span> <span class="cf">function</span>(principal, rate, periods) {</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>     return_amount <span class="ot">&lt;-</span> principal <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">+</span> rate)<span class="sc">^</span>periods</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>     return_amount</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>   }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>compound_interest &lt;- function(principal, rate, periods) {...}</code>: This line declares a new function named <code>compound_interest</code>. The function takes three arguments: <code>principal</code>, <code>rate</code>, and <code>periods</code>.
+<ul>
+<li><code>principal</code> is the initial amount of money invested or borrowed.</li>
+<li><code>rate</code> is the interest rate per period (for example, a yearly rate).</li>
+<li><code>periods</code> is the total number of periods the interest is applied (e.g., number of years).</li>
+<li>Inside the function, <code>return_amount &lt;- principal * (1 + rate)^periods</code>: This line calculates the amount of money after interest is applied for the specified periods. It follows the formula for compound interest.</li>
+<li>The function returns the calculated <code>return_amount</code>.</li>
+</ul></li>
+</ul>
+<ol start="2" type="1">
+<li><strong>Using the Function:</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>   initial_balance <span class="ot">&lt;-</span> <span class="dv">5000</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>   yearly_rate <span class="ot">&lt;-</span> <span class="fl">0.04</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>   years <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>   final_balance <span class="ot">&lt;-</span> <span class="fu">compound_interest</span>(initial_balance, yearly_rate, years <span class="sc">*</span> <span class="dv">12</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>   final_balance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 52598.14</code></pre>
+</div>
+</div>
+<ul>
+<li>Here, the function <code>compound_interest</code> is used to calculate the final balance of an investment.</li>
+<li><code>initial_balance &lt;- 5000</code>, <code>yearly_rate &lt;- 0.04</code>, and <code>years &lt;- 5</code> set the initial parameters for the investment.</li>
+<li><code>final_balance &lt;- compound_interest(initial_balance, yearly_rate, years * 12)</code>: This line calls the <code>compound_interest</code> function with the specified parameters. Note that <code>years * 12</code> is used as the function expects the number of periods and in this case, we are considering monthly compounding over 5 years.</li>
+<li><code>final_balance</code>: This line outputs the result stored in <code>final_balance</code>.</li>
+</ul>
+<p>In summary, this code is a practical example of defining and using a function in R. The <code>compound_interest</code> function encapsulates the logic for calculating compound interest, making it reusable and easier to manage. This is a fundamental aspect of learning programming, where functions are used to create modular, reusable code blocks.</p>
+<p>Certainly! The provided code snippet in R is an example of using descriptive statistics to summarize and understand a dataset, in this case, a firm’s quarterly sales revenue. Let’s delve deeper into the concept of descriptive statistics and then interpret the R code:</p>
+</section>
+</section>
+<section id="understanding-descriptive-statistics" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="understanding-descriptive-statistics"><span class="header-section-number">2.5</span> Understanding Descriptive Statistics</h2>
+<p>Descriptive statistics involve summarizing and organizing data so it can be easily understood. These statistics provide a quick overview of the data, helping to understand its general properties without delving into complex statistical analyses. Key measures in descriptive statistics include:</p>
+<ul>
+<li><strong>Location (Central Tendency):</strong> Measures like mean, median, and mode that indicate the central point of the data distribution.</li>
+<li><strong>Spread (Dispersion):</strong> These measures (e.g., range, interquartile range, variance, standard deviation) describe how spread out the data points are.</li>
+<li><strong>Skewness:</strong> This measures the asymmetry of the data distribution. A distribution can be left-skewed, right-skewed, or symmetric.</li>
+<li><strong>Variability:</strong> Measures how much the data points differ from each other.</li>
+</ul>
+<section id="example-sales-revenue-summary" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="example-sales-revenue-summary"><span class="header-section-number">2.5.1</span> Example: Sales Revenue Summary</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sales_revenue <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">25000</span>, <span class="dv">27000</span>, <span class="dv">26000</span>, <span class="dv">28000</span>, <span class="dv">30000</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sales_stats <span class="ot">&lt;-</span> <span class="fu">summary</span>(sales_revenue)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>sales_stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  25000   26000   27000   27200   28000   30000 </code></pre>
+</div>
+</div>
+<ul>
+<li><p><code>sales_revenue &lt;- c(25000, 27000, 26000, 28000, 30000)</code>: This line creates a vector <code>sales_revenue</code> containing the sales revenue figures. These could represent, for example, quarterly sales revenues for a year and an additional quarter.</p></li>
+<li><p><code>sales_stats &lt;- summary(sales_revenue)</code>: The <code>summary()</code> function in R is used to obtain a summary of the sales revenue data. This function provides a quick look at the basic descriptive statistics.</p></li>
+<li><p><code>sales_stats</code>: When this line is executed, it will display the output of the <code>summary()</code> function. The output typically includes:</p>
+<ul>
+<li><strong>Min and Max:</strong> The smallest and largest values in the dataset (minimum and maximum sales revenue).</li>
+<li><strong>1st Qu. and 3rd Qu.:</strong> These are the first (25th percentile) and third (75th percentile) quartiles, providing insights into the spread of the data.</li>
+<li><strong>Median:</strong> The middle value when the data is sorted (50th percentile). It represents a typical value in the dataset.</li>
+<li><strong>Mean:</strong> The average of the data.</li>
+</ul></li>
+</ul>
+</section>
+<section id="interpreting-the-output" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="interpreting-the-output"><span class="header-section-number">2.5.2</span> Interpreting the Output</h3>
+<p>The output from <code>summary(sales_revenue)</code> will help you understand the distribution and central tendency of the sales revenue data. For example, if the mean and median are close, the data is likely symmetrically distributed. If they differ significantly, it suggests skewness in the data. Quartiles give insight into the variability and possible outliers in the data set.</p>
+</section>
+</section>
+<section id="probability-theory" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Probability Theory</h1>
+<p>Probability theory offers a systematic approach to studying uncertain events and measuring uncertainty, serving as the cornerstone for much of statistical analysis. It provides a framework for quantifying the likelihood of events, ranging from the most mundane to the highly complex, and is essential for comprehending various statistical techniques used in data analysis.</p>
+<p>This theory revolves around the concept of a ‘probability’, a measure that assigns a numerical value to the likelihood of an event occurring, ranging from 0 (impossibility) to 1 (certainty). These probabilities are fundamental to understanding and interpreting data in a wide range of disciplines, from finance and economics to the natural and social sciences.</p>
+<p>In the context of statistics, probability theory is integral to the development and application of models that describe real-world phenomena. It underpins key statistical concepts such as random variables, probability distributions, expectation, variance, and covariance. These concepts are crucial for conducting hypothesis testing, estimating model parameters, and predicting future observations.</p>
+<p>Furthermore, probability theory is vital in the assessment of risk and uncertainty. In fields such as finance, insurance, and economics, the ability to quantify risk using probabilistic models is crucial for making informed decisions. This includes evaluating the likelihood of financial losses, determining insurance premiums, and forecasting market trends under uncertainty.</p>
+<p>In addition, probability theory lays the groundwork for advanced statistical techniques such as Bayesian inference, which incorporates prior knowledge into the statistical analysis, and stochastic modeling, used extensively in areas like financial modeling and risk assessment.</p>
+<p>The role of probability in statistics is not just theoretical; it has practical implications in everyday data analysis. Whether it’s deciding the probability of a stock’s return over a certain threshold or assessing the risk of a new investment, probability theory is the tool that helps convert raw data into actionable insights.</p>
+<p>As we delve deeper into this chapter, we will explore the fundamental principles of probability theory, its applications in various statistical methods, and its crucial role in making sense of uncertainty and variability in data. By gaining a solid understanding of probability theory, readers will be well-equipped to tackle complex data analysis tasks with confidence and precision.</p>
+<section id="basic-principles-and-tools-of-probability-theory" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="basic-principles-and-tools-of-probability-theory"><span class="header-section-number">3.1</span> Basic Principles and Tools of Probability Theory</h2>
+<section id="sample-space-and-events" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="sample-space-and-events"><span class="header-section-number">3.1.1</span> Sample Space and Events</h3>
+<p>A sample space <span class="math inline">\(\Omega\)</span> is a set containing all conceivable outcomes of a random phenomenon. An event <span class="math inline">\(A\)</span> is a subset of the sample space <span class="math inline">\(\Omega\)</span>; thus, <span class="math inline">\(A \subseteq \Omega\)</span>. The notation <span class="math inline">\(P(\cdot)\)</span> indicates probability.</p>
+</section>
+<section id="union-intersection-and-complement-of-events" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="union-intersection-and-complement-of-events"><span class="header-section-number">3.1.2</span> Union, Intersection, and Complement of Events</h3>
+<p>Given two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, the union operation <span class="math inline">\((A \cup B)\)</span> corresponds to the set of outcomes contained in either <span class="math inline">\(A\)</span> or <span class="math inline">\(B\)</span> or both. The intersection operation <span class="math inline">\((A \cap B)\)</span> is the set of outcomes that lie in both <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>. The complement of an event <span class="math inline">\(A'\)</span> refers to the set of outcomes in the sample space that are not in <span class="math inline">\(A\)</span>: <span class="math display">\[\Omega = A \cup A'\quad,\quad A \cap A' = \emptyset\]</span></p>
+</section>
+<section id="conditional-probability" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="conditional-probability"><span class="header-section-number">3.1.3</span> Conditional Probability</h3>
+<p>Conditional probability is the probability of an event <span class="math inline">\(A\)</span> given that another event <span class="math inline">\(B\)</span> occurs: <span class="math display">\[P(A \mid B) = \frac{P(A \cap B)}{P(B)} \qquad (\text{assuming}\;\; P(B)&gt;0)\]</span></p>
+</section>
+<section id="multiplicative-property-of-conditional-probability" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="multiplicative-property-of-conditional-probability"><span class="header-section-number">3.1.4</span> Multiplicative Property of Conditional Probability</h3>
+<p>For any two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, the joint probability satisfies the identity: <span class="math display">\[P(A \cap B) = P(A)\times P(B \mid A) = P(B) \times P(A \mid B)\]</span></p>
+</section>
+<section id="chain-rule-for-conditional-probability" class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="chain-rule-for-conditional-probability"><span class="header-section-number">3.1.5</span> Chain Rule for Conditional Probability</h3>
+<p>Given three events <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, and <span class="math inline">\(C\)</span>, the chain rule decomposes the joint probability as follows: <span class="math display">\[P(A \cap B \cap C) = P(A) \times P(B \mid A) \times P(C \mid A \cap B)\]</span></p>
+</section>
+<section id="bayes-formula" class="level3" data-number="3.1.6">
+<h3 data-number="3.1.6" class="anchored" data-anchor-id="bayes-formula"><span class="header-section-number">3.1.6</span> Bayes’ Formula</h3>
+<p>Bayes’ formula relates the conditional probabilities of two events, say <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, as follows: <span class="math display">\[P(A \mid B) = \frac{P(B \mid A) \times P(A)}{P(B)}\]</span></p>
+</section>
+<section id="independence-of-events" class="level3" data-number="3.1.7">
+<h3 data-number="3.1.7" class="anchored" data-anchor-id="independence-of-events"><span class="header-section-number">3.1.7</span> Independence of Events</h3>
+<p>Two events <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are independent if and only if <span class="math display">\[P(A \cap B) = P(A) \times P(B)\]</span></p>
+<p>Independent events satisfy the following equality: <span class="math display">\[P(A \mid B) = P(A) \qquad \text{and} \qquad P(B \mid A) = P(B)\]</span></p>
+</section>
+<section id="partition-of-the-sample-space" class="level3" data-number="3.1.8">
+<h3 data-number="3.1.8" class="anchored" data-anchor-id="partition-of-the-sample-space"><span class="header-section-number">3.1.8</span> Partition of the Sample Space</h3>
+<p>A finite set <span class="math inline">\(\{A_1, A_2, \dots , A_n\}\)</span> is a partition of the sample space if the following two conditions are satisfied:</p>
+<ol type="1">
+<li>The events in the set are mutually exclusive: <span class="math display">\[A_i \cap A_j = \emptyset \qquad \forall \; i \neq j\]</span></li>
+<li>The union of the events coincides with the whole sample space: <span class="math display">\[\bigcup_{i=1}^n A_i = \Omega\]</span></li>
+</ol>
+</section>
+<section id="total-probability-theorem" class="level3" data-number="3.1.9">
+<h3 data-number="3.1.9" class="anchored" data-anchor-id="total-probability-theorem"><span class="header-section-number">3.1.9</span> Total Probability Theorem</h3>
+<p>Consider a partition of the sample space <span class="math inline">\(\{A_1, A_2, \dots , A_n\}\)</span> and an arbitrary event <span class="math inline">\(B\)</span>. The total probability theorem states that: <span class="math display">\[P(B) = \sum_{i=1}^{n} P(B \cap A_i) = \sum_{i=1}^{n} P(B \mid A_i) \times P(A_i)\]</span></p>
+</section>
+<section id="bayes-theorem-extensions" class="level3" data-number="3.1.10">
+<h3 data-number="3.1.10" class="anchored" data-anchor-id="bayes-theorem-extensions"><span class="header-section-number">3.1.10</span> Bayes’ Theorem Extensions</h3>
+<p>Generalizations of Bayes’ theorem arise from the total probability theorem. Given a partition of the sample space <span class="math inline">\(\{A_1, A_2, \dots , A_n\}\)</span> and an arbitrary event <span class="math inline">\(B\)</span>, the extended Bayes’ theorem reads: <span class="math display">\[P(A_i \mid B) = \frac{P(B \mid A_i) \times P(A_i)}{\sum_{j=1}^{n} P(B \mid A_j) \times P(A_j)}, \quad \forall\; i \in \{1, 2, \dots, n\}\]</span></p>
+<p>These concepts and relations form the backbone of probability theory, allowing us to perform calculations and make inferences based on the underlying structure of random phenomena. In the following sections, we explore more advanced tools and techniques, such as random variables, probability distributions, moments, and densities, which are essential for modeling financial and economic processes.</p>
+</section>
+<section id="example-fraction-of-domestic-production-exports" class="level3" data-number="3.1.11">
+<h3 data-number="3.1.11" class="anchored" data-anchor-id="example-fraction-of-domestic-production-exports"><span class="header-section-number">3.1.11</span> Example: Fraction of Domestic Production Exports</h3>
+<p>Assume the US produces 20 billion barrels of oil annually, exports 5 billion barrels, imports 2 billion barrels, and consumes the rest domestically. What percentage of domestic production does the US export?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>domestic_production <span class="ot">&lt;-</span> <span class="dv">20</span> <span class="sc">-</span> <span class="dv">2</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>export_percentage <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="sc">/</span> domestic_production <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>export_percentage</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 27.77778</code></pre>
+</div>
+</div>
+</section>
+<section id="independent-events" class="level3" data-number="3.1.12">
+<h3 data-number="3.1.12" class="anchored" data-anchor-id="independent-events"><span class="header-section-number">3.1.12</span> Independent Events</h3>
+<p>Two events are independent if the occurrence of one doesn’t affect the probability of the other. That is, P(A|B) = P(A) and P(B|A) = P(B). Equivalently, P(A ∩ B) = P(A) × P(B).</p>
+</section>
+<section id="random-variables" class="level3" data-number="3.1.13">
+<h3 data-number="3.1.13" class="anchored" data-anchor-id="random-variables"><span class="header-section-number">3.1.13</span> Random Variables</h3>
+<p>A random variable is a rule associating numerical values with outcomes in a sample space. There are two types of random variables: discrete and continuous.</p>
+</section>
+<section id="probability-mass-functions-discrete-random-variables" class="level3" data-number="3.1.14">
+<h3 data-number="3.1.14" class="anchored" data-anchor-id="probability-mass-functions-discrete-random-variables"><span class="header-section-number">3.1.14</span> Probability Mass Functions (Discrete Random Variables)</h3>
+<p>For a discrete random variable, the PMF gives the probability of each value taken by the variable.</p>
+<section id="example-rolling-a-six-sided-die" class="level4" data-number="3.1.14.1">
+<h4 data-number="3.1.14.1" class="anchored" data-anchor-id="example-rolling-a-six-sided-die"><span class="header-section-number">3.1.14.1</span> Example: Rolling a Six-Sided Die</h4>
+<p>What is the probability of rolling a six-sided die twice and getting a sum equal to 7?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>die_faces <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>combinations <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(<span class="at">die1 =</span> <span class="dv">1</span><span class="sc">:</span>die_faces, <span class="at">die2 =</span> <span class="dv">1</span><span class="sc">:</span>die_faces)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>desired_combinations <span class="ot">&lt;-</span> combinations[(combinations<span class="sc">$</span>die1 <span class="sc">+</span> combinations<span class="sc">$</span>die2) <span class="sc">==</span> <span class="dv">7</span>,]</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>probability <span class="ot">&lt;-</span> <span class="fu">nrow</span>(desired_combinations) <span class="sc">/</span> (die_faces <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>probability</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1666667</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="probability-density-functions-continuous-random-variables" class="level3" data-number="3.1.15">
+<h3 data-number="3.1.15" class="anchored" data-anchor-id="probability-density-functions-continuous-random-variables"><span class="header-section-number">3.1.15</span> Probability Density Functions (Continuous Random Variables)</h3>
+<p>For a continuous random variable, the PDF gives the relative likelihood of the variable taking on any specific value within a defined region.</p>
+<section id="example-generating-random-values" class="level4" data-number="3.1.15.1">
+<h4 data-number="3.1.15.1" class="anchored" data-anchor-id="example-generating-random-values"><span class="header-section-number">3.1.15.1</span> Example: Generating Random Values</h4>
+<p>Generate 10 random values drawn from a uniform distribution between 0 and 1 and plot the PDF.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>random_values <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">10</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>pdf_plot <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">x =</span> random_values, <span class="at">pdf =</span> <span class="fu">dnorm</span>(random_values))</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pdf_plot, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> pdf)) <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="primer_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This section builds on the Fundamentals introduced in Section 1, providing a foundation in probability theory essential for understanding more advanced statistical techniques. Including examples and R code encourages interactive learning and promotes better retention. Move forward with Section 3, focusing on Statistical Inference, and remember to provide clear definitions, descriptions, and R code examples.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="proability-schools-of-thought" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Proability Schools of Thought</h1>
+<p>Probability theory offers a systematic approach to studying uncertain events and measuring uncertainty. Its foundational role in statistical analysis cannot be overstated, as it underpins the methods and techniques used to make sense of random phenomena and data. Understanding probability theory is essential not only for mastering statistical concepts but also for conducting robust and insightful data analysis in various fields.</p>
+<p>Unlike many other branches of mathematics, probability theory is characterized by its lack of a single, unifying theory. This unique aspect stems from its historical development and the diverse applications it has found across different domains. Probability has evolved through contributions from mathematicians, philosophers, statisticians, and scientists, each bringing their perspective and influencing its theoretical foundations. As a result, probability theory encompasses a rich tapestry of approaches and interpretations.</p>
+<p>There are two major schools of thought in probability theory: the frequentist and the Bayesian perspectives. The frequentist approach, which is the traditional form of probability, interprets probability as the long-run frequency of events occurring in repeated trials. It is grounded in the concept of an objective, empirical observation of frequencies. On the other hand, the Bayesian approach views probability as a measure of belief or certainty about the occurrence of an event, incorporating prior knowledge and subjective judgment into its framework.</p>
+<p>This divergence in foundational understanding reflects the versatile and adaptable nature of probability theory. It allows for a range of methodologies and approaches tailored to the specific needs and nature of the problem at hand. In practice, this means that probability theory can be applied flexibly across disciplines – from the natural sciences, where it helps model inherent randomness, to the social sciences, where it captures the uncertainty in human behavior, and in finance and economics, where it aids in risk assessment and decision-making under uncertainty.</p>
+<p>Moreover, the lack of a unifying theory in probability does not imply a weakness; rather, it highlights the field’s richness and its capacity to adapt and evolve. As we delve further into probability theory, we will explore these different interpretations and how they influence the application of statistical methods. We will examine how probability enables us to model complex, real-world situations with uncertainty and how it aids in the extraction of meaningful insights from data, despite and because of its diverse theoretical underpinnings.</p>
+<p>In summary, the study of probability theory is a journey through a landscape filled with varied interpretations and methodologies, each providing valuable insights into the nature of uncertainty and randomness. This chapter aims to navigate this landscape, shedding light on the multifaceted nature of probability and its crucial role in data analysis.</p>
+<section id="frequentism" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="frequentism"><span class="header-section-number">4.1</span> Frequentism</h2>
+<p>Frequentism posits that probabilities correspond to the long-run frequencies of events in repeated trials. It concentrates on estimating the parameters of probability distributions governing the generation of data, instead of considering alternative hypotheses. Many commonly used statistical tests, such as t-tests and chi-square tests, stem from the Frequentist perspective.</p>
+<p>In financial time series econometrics, frequentism dominates academic publication and discourse. This approach, which emphasises the analysis and interpretation of data through frequency-based probability, is central in scholarly research within this field. Frequentist methods, which revolve around estimating parameters based on observed frequencies, such as mean or variance, are extensively applied and featured in academic literature. These methods are favoured for their suitability in constructing models that make inferences or predictions about future data, particularly in large datasets typical in finance. This prevalence in academia contrasts with Bayesian methods, which, despite their practical utility, have a less prominent representation in scholarly publications. The dominance of frequentism in academic circles is reflective of its foundational role in the long-term analysis of financial data, where historical trends and patterns are crucial for understanding and forecasting economic phenomena.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Frequentism takes a long-run frequency perspective, asserting that probabilities are the relative frequencies of events obtained through repeated observations. This perspective became widely accepted in the nineteenth century thanks to British polymath John Venn and Austrian mathematician Johann Radon, among others. Sir Ronald Fisher, a renowned geneticist and statistician, championed Frequentism in the twentieth century, arguing that probability should solely deal with random variation in observations.</p>
+<p>Reference:</p>
+<ul>
+<li>von Mises, Richard. Probability, Statistics, and Truth. London: George Allen &amp; Unwin Ltd., 1957.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="bayesian-methods" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="bayesian-methods"><span class="header-section-number">4.2</span> Bayesian Methods</h2>
+<p>Bayesian methods treat probabilities as degrees of belief concerning the truthfulness of propositions, conditioned on prior evidence. Bayesian inference combines prior knowledge with current evidence to update beliefs. This paradigm excels at capturing uncertainty in model parameters and accounts for complex interactions between variables.</p>
+<p>In contrast, Bayesian inference in financial time series econometrics offers a different perspective, one that incorporates prior knowledge and beliefs into the analysis. This method involves updating the probability for a hypothesis as more evidence or information becomes available. In the context of financial markets, Bayesian approaches are particularly valuable for their adaptability and ability to handle uncertainty. They allow for the incorporation of both historical data and expert opinions, making them well-suited for dynamic and rapidly changing markets. Bayesian models can adjust more fluidly to new information, such as changes in market conditions or economic indicators, which is a critical advantage in finance. This flexibility enables more nuanced forecasting and risk assessment, especially in situations where data is limited or highly volatile. Consequently, while Bayesian methods may not dominate academic publications to the extent of frequentist approaches, they are increasingly recognised for their practical applications in financial analysis, especially in areas like portfolio optimization, risk management, and algorithmic trading, where real-time decision-making is crucial.</p>
+<div class="callout-importance">
+<p>Lastly, Bayesian methods trace their roots to English cleric and mathematician Thomas Bayes, whose revolutionary work, “<em>An Essay Towards Solving a Problem in the Doctrine of Chances</em>” laid the groundwork for Bayesian inference. Bayesian methods were subsequently promoted by French scholar Pierre-Simon Laplace in the late eighteenth century and garnered renewed interest in the mid-twentieth century, largely owing to British statistician Harold Jeffreys and American statistician Leonard Savage.</p>
+<p>Reference:</p>
+<ul>
+<li>Dale, Andrew I.; Walker, Samuel G. A Course in Bayesian Statistical Methods. Boca Raton, FL: CRC Press, Taylor &amp; Francis Group, 2020.</li>
+</ul>
+</div>
+<p>Classical probability theory also plays a significant role in financial time series econometrics, providing a fundamental framework for understanding and modelling uncertainty in financial markets. In this approach, probabilities are determined based on the assumption of equally likely outcomes, and this theory underpins many traditional financial models. Classical probability is particularly evident in the modelling of market events that can be approximated as random and independent, such as in the case of certain types of stock price movements or interest rate changes. It forms the basis for widely used financial concepts like the Efficient Market Hypothesis, which assumes that market prices reflect all available information and thus follow a random walk. Additionally, classical probability models are integral to the development of risk assessment tools such as Value at Risk (VaR), which estimates the potential loss in an investment, or portfolio, under normal market conditions over a set time period. These tools rely on the classical probability distribution of past market data to predict future risks. Despite the growing sophistication of statistical methods in finance, the clarity and simplicity of classical probability continue to make it a cornerstone in the field, especially for basic risk management and pricing models.</p>
+</section>
+<section id="how-are-they-related" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="how-are-they-related"><span class="header-section-number">4.3</span> How are they related?</h2>
+<p>Classical probability is often considered a distinct paradigm within the broader context of probability theory, but it is also related to and distinct from both frequentist and Bayesian perspectives.</p>
+<p>The classical definition of probability, also known as the “a priori” or “theoretical” probability, dates back to the work of mathematicians like Pierre-Simon Laplace and Blaise Pascal. It is based on the principle of equally likely outcomes. In classical probability, the probability of an event is calculated by dividing the number of favorable outcomes by the total number of possible outcomes, assuming that all outcomes are equally likely. This approach is most applicable in well-defined and symmetrical situations, like the roll of a fair die or the flip of a fair coin, where it’s reasonable to assume that all outcomes have the same chance of occurring.</p>
+<p>On the other hand, the frequentist perspective, which developed later, is based on the idea of long-run frequencies. According to this view, the probability of an event is the limit of its relative frequency in a large number of trials. It’s an empirical approach, relying on actual experimentation or observed data.</p>
+<p>The Bayesian perspective, in contrast, incorporates prior knowledge or beliefs about an event into the probability assessment. It treats probability as a subjective degree of belief, which can be updated as new evidence is gathered.</p>
+<p>Classical probability can be seen as a special case within the frequentist perspective, where the assumption of equally likely outcomes aligns with the idea of long-run frequencies in idealized conditions. However, in many real-world situations, the assumption of equally likely outcomes is not valid, and that’s where the frequentist and Bayesian approaches become more applicable.</p>
+<p>In summary, classical probability is often considered a foundational concept that underlies more complex probabilistic reasoning found in both frequentist and Bayesian statistics. It provides a simple and intuitive way to understand probability in situations with symmetrical and clearly defined outcomes, but it has its limitations, especially in more complex or asymmetrical scenarios where the other two perspectives offer more flexibility and practical applicability.</p>
+<p>In finance, the classical probability paradigm manifests in cases like determining the probability of a stock returning a positive value during a fixed period, assuming historical stock returns follow a symmetric distribution. Another example is estimating the probability of exceeding a given level of credit risk based on historical borrower profiles.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Classical Probability, sometimes referred to as the “equiprobable” or “axiomatic” approach, goes back to the seventeenth century, with the pioneering work of French mathematician Blaise Pascal and Dutch scientist Christiaan Huygens. The classical interpretation posits that probabilities are ratios of favorable outcomes to the total number of equally probable outcomes. Jacob Bernoulli, Swiss mathematician, expanded upon the classical interpretation in his influential book “<em>Ars Conjectandi</em>” published posthumously in 1713.</p>
+<p>Reference:</p>
+<ul>
+<li><a href="https://download.tuxfamily.org/openmathdep/algebra/Probability-Todhunter.pdf">Todhunter, Isaac. A History of the Mathematical Theory of Probability: From the Time of Pascal to That of Lagrange. London: Macmillan and Co., 1865</a>.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="connection-between-classical-probability-and-bayesian-methods" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="connection-between-classical-probability-and-bayesian-methods"><span class="header-section-number">4.4</span> Connection between Classical Probability and Bayesian Methods</h2>
+<ul>
+<li><strong>Prior Distributions from Classical Principles</strong>: In Bayesian analysis, the choice of a prior distribution is crucial. Classical probability, with its focus on equally likely outcomes, can provide a natural starting point for these priors, especially in situations where little is known a priori (e.g., using a uniform distribution as a non-informative prior).</li>
+<li><strong>Incorporating Symmetry and Equilibrium</strong>: Classical principles often embody symmetry and equilibrium concepts, which can be useful in formulating prior beliefs in a Bayesian context, particularly in financial markets where assumptions of equilibrium are common.</li>
+<li><strong>Educational Foundation</strong>: Classical probability often serves as an introductory framework for students and practitioners, creating a foundational understanding that can be built upon with Bayesian methods, especially in understanding probabilistic models in finance.</li>
+</ul>
+</section>
+<section id="link-between-frequentism-and-bayesian-methods" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="link-between-frequentism-and-bayesian-methods"><span class="header-section-number">4.5</span> Link Between Frequentism and Bayesian Methods</h2>
+<ul>
+<li><strong>Interpretation of Probability</strong>: While the philosophical foundations differ, both frequentist and Bayesian methods deal with assessing uncertainty. In financial analytics, this translates to quantifying risks and making predictions.</li>
+<li><strong>Updating Beliefs with Data</strong>: In practice, Bayesian methods often start with a ‘frequentist’ analysis to inform the initial model or prior. As new data becomes available, these priors are updated, showing a practical workflow that combines elements of both paradigms.</li>
+<li><strong>Model Evaluation and Comparison</strong>: Both approaches offer methods for model evaluation and comparison, such as p-values and Bayes factors, which are critical in financial model selection and validation.</li>
+</ul>
+</section>
+<section id="shared-tenets-across-paradigms" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="shared-tenets-across-paradigms"><span class="header-section-number">4.6</span> Shared Tenets Across Paradigms</h2>
+<ul>
+<li><strong>Common Statistical Ground</strong>: Despite philosophical differences, all paradigms use common statistical tools and concepts. For example, regression analysis can be approached from any of the three paradigms, with the underlying mathematics largely similar.</li>
+<li><strong>The Role of Large Sample Theory</strong>: In financial analytics, as sample sizes increase, the distinctions between Bayesian and frequentist estimates often diminish (e.g., Bayesian posterior distributions converging to frequentist confidence intervals), indicating a practical convergence of these approaches in large-data scenarios.</li>
+<li><strong>Ethos of Probability</strong>: The fundamental ethos that underlies all three paradigms is the use of probability to make sense of uncertainty, a core tenet in financial risk assessment and decision-making processes.</li>
+</ul>
+</section>
+<section id="impact-in-financial-analytics" class="level2" data-number="4.7">
+<h2 data-number="4.7" class="anchored" data-anchor-id="impact-in-financial-analytics"><span class="header-section-number">4.7</span> Impact in Financial Analytics</h2>
+<ul>
+<li><strong>Holistic Approach to Problem-Solving</strong>: The overlaps between these paradigms allow financial analysts to adopt a more holistic approach. Depending on the problem, data availability, and the nature of uncertainty, analysts can choose the most appropriate method or even blend methods for a more comprehensive analysis.</li>
+<li><strong>Innovation through Integration</strong>: The field of financial analytics benefits from the integration of these paradigms. For instance, Bayesian methods informed by frequentist insights can lead to more robust predictive models in financial markets.</li>
+<li><strong>Flexibility and Adaptability</strong>: Embracing multiple paradigms enables analysts to adapt to different types of financial data and varying degrees of uncertainty, a critical ability in the dynamic and often unpredictable world of finance.</li>
+</ul>
+<p>In conclusion, the interplay and overlaps between Classical Probability, Frequentism, and Bayesian methods contribute significantly to the richness and depth of financial analytics. This pluralistic approach not only fosters a more comprehensive understanding of probability and statistics but also drives innovation and adaptability in tackling complex financial challenges.</p>
+</section>
+</section>
+<section id="excercises" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Excercises</h1>
+<section id="theoretical-questions" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="theoretical-questions"><span class="header-section-number">5.1</span> Theoretical Questions:</h2>
+<section id="easier" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="easier"><span class="header-section-number">5.1.1</span> Easier</h3>
+<ol type="1">
+<li><p><strong>Definition of Probability:</strong> What is probability in the context of financial analysis, and why is it important?</p></li>
+<li><p><strong>Basic Statistical Measures:</strong> Describe mean, median, and mode. How are they used in financial data analysis?</p></li>
+<li><p><strong>Understanding Risk:</strong> What is the role of standard deviation in measuring risk in financial portfolios?</p></li>
+<li><p><strong>Simple Probability Models:</strong> How would you use a simple probability model to estimate the likelihood of a stock’s price increase?</p></li>
+<li><p><strong>Frequentist Approach Basics:</strong> What is the frequentist approach to probability, and how is it applied in finance?</p></li>
+</ol>
+</section>
+<section id="advanced" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="advanced"><span class="header-section-number">5.1.2</span> Advanced</h3>
+<ol start="6" type="1">
+<li><p><strong>Comparative Analysis of Probability Approaches:</strong> Compare and contrast the Bayesian and frequentist approaches in the context of predicting stock market trends.</p></li>
+<li><p><strong>Bayesian Inference in Market Analysis:</strong> How does Bayesian inference aid in updating market forecasts with new information?</p></li>
+<li><p><strong>Significance Testing in Finance:</strong> Discuss the importance and limitations of p-values in financial hypothesis testing.</p></li>
+<li><p><strong>Box’s Iterative Model:</strong> Explain George Box’s iterative approach to modeling in financial econometrics with examples.</p></li>
+<li><p><strong>Predictive Modeling in Finance:</strong> Discuss the role of predictive modeling in finance and the statistical techniques commonly used.</p></li>
+</ol>
+</section>
+</section>
+<section id="practical-questions-with-starter-code" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="practical-questions-with-starter-code"><span class="header-section-number">5.2</span> Practical Questions with Starter Code:**</h2>
+<section id="easier-1" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="easier-1"><span class="header-section-number">5.2.1</span> Easier</h3>
+<ol type="1">
+<li><strong>Calculating Stock Returns:</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Calculate the annualized return of a stock</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>   initial_price <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>   final_price <span class="ot">&lt;-</span> <span class="dv">150</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>   years <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>   annualized_return <span class="ot">&lt;-</span> (final_price <span class="sc">/</span> initial_price)<span class="sc">^</span>(<span class="dv">1</span><span class="sc">/</span>years) <span class="sc">-</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Calculate and interpret the annualized return of a stock over a three-year period.</p>
+<ol start="2" type="1">
+<li><strong>Descriptive Statistics of Financial Data:</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Summarize a dataset of stock prices</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>   stock_prices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">125</span>, <span class="dv">130</span>, <span class="dv">128</span>, <span class="dv">135</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summary</span>(stock_prices)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  120.0   125.0   128.0   127.6   130.0   135.0 </code></pre>
+</div>
+</div>
+<p>Summarize and interpret the descriptive statistics of a stock price dataset.</p>
+<ol start="3" type="1">
+<li><strong>Basic Risk Assessment:</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Calculate standard deviation of stock returns</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>   stock_returns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.02</span>, <span class="sc">-</span><span class="fl">0.03</span>, <span class="fl">0.04</span>, <span class="fl">0.01</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">sd</span>(stock_returns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.03114482</code></pre>
+</div>
+</div>
+<p>Calculate and interpret the standard deviation of stock returns.</p>
+<ol start="4" type="1">
+<li><strong>Simple Probability Calculation:</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Calculate the probability of a fair coin landing heads</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>   probability_heads <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">/</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Calculate and interpret the probability of an event in a financial context.</p>
+<ol start="5" type="1">
+<li><strong>Basic Time Series Forecasting:</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Using a simple moving average for forecasting</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>   stock_prices <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">120</span>, <span class="dv">122</span>, <span class="dv">121</span>, <span class="dv">123</span>, <span class="dv">125</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>   forecast <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">tail</span>(stock_prices, <span class="at">n=</span><span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Use a simple moving average to forecast the next data point in a financial time series.</p>
+</section>
+<section id="advanced-1" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="advanced-1"><span class="header-section-number">5.2.2</span> Advanced:</h3>
+<ol start="6" type="1">
+<li><strong>Advanced Risk Modeling (VaR):</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Calculate Value at Risk (VaR) for a stock portfolio</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>portfolio_returns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.05</span>, <span class="fl">0.1</span>, <span class="fl">0.03</span>, <span class="sc">-</span><span class="fl">0.02</span>, <span class="fl">0.04</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>alpha <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>VaR <span class="ot">&lt;-</span> <span class="fu">quantile</span>(portfolio_returns, alpha)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Calculate and interpret Value at Risk for a portfolio.</p>
+<ol start="7" type="1">
+<li><strong>Bayesian Update in Stock Forecasting:</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Perform a Bayesian update for stock price prediction</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>prior <span class="ot">&lt;-</span> <span class="fu">dbeta</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>) <span class="co"># Uniform prior</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>likelihood <span class="ot">&lt;-</span> <span class="fu">dbinom</span>(<span class="dv">6</span>, <span class="at">size=</span><span class="dv">10</span>, <span class="at">prob=</span><span class="fl">0.5</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>posterior <span class="ot">&lt;-</span> prior <span class="sc">*</span> likelihood</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Update the probability of a stock’s price increase using Bayesian inference.</p>
+<ol start="8" type="1">
+<li><strong>Hypothesis Testing in Financial Returns:</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Test if a new strategy outperforms the market</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>   strategy_returns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.07</span>, <span class="fl">0.08</span>, <span class="fl">0.09</span>, <span class="fl">0.06</span>, <span class="fl">0.1</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>   market_returns <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.05</span>, <span class="fl">0.05</span>, <span class="fl">0.05</span>, <span class="fl">0.05</span>, <span class="fl">0.05</span>)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>   <span class="fu">t.test</span>(strategy_returns, market_returns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  strategy_returns and market_returns
+t = 4.2426, df = 4, p-value = 0.01324
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ 0.01036757 0.04963243
+sample estimates:
+mean of x mean of y 
+     0.08      0.05 </code></pre>
+</div>
+</div>
+<p>Conduct and interpret a hypothesis test comparing a new investment strategy to market returns.</p>
+<ol start="9" type="1">
+<li><strong>Complex Time Series Analysis:</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Fit an ARIMA model to financial time series data</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(forecast)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>   arima_model <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(stock_prices)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">forecast</span>(arima_model, <span class="at">h=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Point Forecast    Lo 80    Hi 80    Lo 95    Hi 95
+6          122.2 119.7349 124.6651 118.4299 125.9701</code></pre>
+</div>
+</div>
+<p>Fit an ARIMA model to a financial time series and forecast future values.</p>
+<ol start="10" type="1">
+<li><strong>Portfolio Optimization:</strong></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Optimize a portfolio using Markowitz model</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">library</span>(PortfolioAnalytics)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: zoo</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'zoo'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    as.Date, as.Date.numeric</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: xts</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: foreach</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: PerformanceAnalytics</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'PerformanceAnalytics'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following object is masked from 'package:graphics':
+
+    legend</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Define assets and their returns</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>   portfolio_returns <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fl">0.12</span>, <span class="fl">0.1</span>, <span class="fl">0.15</span>, <span class="fl">0.09</span>), <span class="at">ncol=</span><span class="dv">4</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Portfolio optimization code goes here</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Optimize a financial portfolio using the Markowitz model and interpret the results.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>These questions aim to test both theoretical understanding and practical skills, covering a range of complexities suitable for learners at different levels.</p>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="references" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> References</h1>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Gelman2013" class="csl-entry" role="listitem">
+Gelman, Andrew, Jennifer Hill, Hal Stern, David Dunson, Aki Vehtari, and Donald Rubin. 2013. <em>Bayesian Data Analysis</em>. Chapman; Hall/CRC.
+</div>
+<div id="ref-Gelman2020" class="csl-entry" role="listitem">
+Gelman, Andrew, Jennifer Hill, and Aki Vehtari. 2020. <span>“<span class="nocase">Regression and Other Stories</span>.”</span> <a href="https://doi.org/10.1017/9781139161879">https://doi.org/10.1017/9781139161879</a>.
+</div>
+<div id="ref-Jonah2019" class="csl-entry" role="listitem">
+Jonah, Gabry, Daniel Simpson, Aki Vehtari, Michael Betancourt, and Andrew Gelman. 2019. <span>“<span class="nocase">Visualization in Bayesian workflow</span>.”</span> <em>J. R. Stat. Soc. Ser. A Stat. Soc.</em> 182 (2): 389–402. <a href="https://doi.org/10.1111/rssa.12378">https://doi.org/10.1111/rssa.12378</a>.
+</div>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./tools.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Toolkit</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

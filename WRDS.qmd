@@ -1,0 +1,242 @@
+---
+title: "Accessing High-Quality Financial Data on the WRDS Cloud"
+author: "Barry Quinn"
+editor: visual
+---
+
+## A Step-by-Step Guide
+
+In the field of finance, the quality and integrity of the data used for analysis are crucial. High-quality data ensures accurate and reliable insights, which are essential for making informed decisions. This is particularly true in academic research and applied finance, where the precision and validity of findings can significantly impact the outcome of studies and financial strategies. Access to comprehensive and credible datasets, like those provided by Wharton Research Data Services (WRDS), is therefore a cornerstone for any rigorous financial analysis. WRDS offers a wide range of financial, accounting, banking, and economic data, making it a valuable resource for researchers and practitioners alike.
+
+Financial services firms are turning more and more to the cloud for the `Big Data` [solutions](https://aws.amazon.com/partners/featured/financial-services/data-lakes-analytics/). To leverage these datasets effectively, particularly in an environment that integrates finance, technology, and data science, accessing and manipulating this data efficiently is key. One effective way to do this is by using R, a powerful statistical programming language widely used in finance and data analysis. Here's how you can access the WRDS API using R and the [WRDS Cloud](https://wrds-www.wharton.upenn.edu/pages/support/the-wrds-cloud/).
+
+Here's a step-by-step guide to access the WRDS API using R:
+
+> Before beginning go to <https://wrds-www.wharton.upenn.edu> and register for a WRDS account using your university email. Note your password and username as you will need these credentials below.
+
+Certainly! To access Wharton Research Data Services (WRDS) using R on Posit Cloud, individuals affiliated with Queen's University Belfast (QUB) can typically create a WRDS account using their QUB email address. Here is an introduction with instructions, including creating a username and password and accessing WRDS data using R:
+
+### Introduction: Creating a WRDS Account with QUB Email Credentials
+
+As a senior lecturer at Queen's University Belfast, you can leverage your QUB email address to create a WRDS (Wharton Research Data Services) account. WRDS provides a comprehensive source of financial, accounting, economic, management, marketing, banking, and insurance data.
+
+1.  **Visit the WRDS Website**: Go to the WRDS website and look for the registration or sign-up option.
+
+2.  **Select Your Institution**: Choose or search for 'Queen's University Belfast' as your affiliated institution.
+
+3.  **Provide Your QUB Email**: During the registration process, use your QUB email address (`@qub.ac.uk`) to sign up. This is essential as WRDS uses institutional email addresses for verification.
+
+4.  **Complete the Registration Form**: Fill in the required details. This typically includes your name, role (e.g., faculty, student, staff), and contact information.
+
+5.  **Account Verification and Activation**: After submitting the form, WRDS may send a verification email to your QUB account. Follow any provided instructions to activate your account.
+
+6.  **Set Username and Password**: Once your account is verified and activated, you will be prompted to create a username and password. These credentials will be used to access WRDS data.
+
+### Accessing WRDS Data Using R on Posit Cloud
+
+After setting up your WRDS account, you can access the data using R on Posit Cloud:
+
+1.  **Install and Load the RPostgreSQL Package**:
+
+```{R}
+# install.packages("RPostgreSQL")
+library(RPostgreSQL)
+```
+
+2.  **Set Up Your WRDS Credentials**:
+
+```{R}
+   wrds_username <- 'your_username'  # Replace with your WRDS username
+   wrds_password <- 'your_password'  # Replace with your WRDS password
+wrds_username <- 'bquinn' 
+wrds_password <- 'adamskiquinn'
+```
+
+3.  **Establish a Database Connection**:
+
+```{R}
+   drv <- dbDriver("PostgreSQL")
+   con <- dbConnect(drv, 
+                    dbname = 'wrds', 
+                    host = 'wrds-pgdata.wharton.upenn.edu', 
+                    port = 9737,
+                    user = wrds_username, 
+                    password = wrds_password)
+```
+
+4.  **Query the Database**:
+
+```{R}
+   query <- "SELECT * FROM your_dataset LIMIT 10;"  # Replace with your query
+   data <- dbGetQuery(con, query)
+```
+
+5.  **Close the Connection**:
+
+```{R}
+   dbDisconnect(con)
+```
+
+Remember to use your credentials responsibly and adhere to WRDS's data usage policies. The availability of specific datasets may vary based on your institution's subscription. Always refer to the latest WRDS documentation for the most current information and procedures. Remember to handle the data according to WRDS's terms of use, especially regarding confidentiality and redistribution. Also, while querying, be aware of the size of datasets in WRDS, as some are quite large and complex queries might take a significant amount of time or system resources.
+
+## Case Study: 10 years of daily prices for Chinese Listed Technology Firm
+
+The remote connection to WRDS is very useful. Yet, the database itself contains many different tables. You can check the WRDS homepage to identify the table's name you are looking for. Alternatively, you can also query the data structure with the function `dbSendQuery()`. If you are interested, there is an exercise below that is based on WRDS' tutorial on ["Querying WRDS Data using R".](https://wrds-www.wharton.upenn.edu/pages/support/programming-wrds/programming-r/querying-wrds-data-r/). See tips and tricks below to understand the table schema in WRDS.
+
+1.  Identify company table in Compustat Global Firm accounting data are an important source of information that we use in portfolio analyses in subsequent chapters. The commonly used source for firm financial information is Compustat provided by [S&P Global Market Intelligence,](https://www.spglobal.com/marketintelligence/en/) which is a global data vendor that provides financial, statistical, and market information on active and inactive companies throughout the world.
+
+```{r}
+idg_db <-tbl(wrds,in_schema('compg',"g_company"))
+```
+
+2.  Define dates for daily prices
+
+```{r}
+start_date <- ymd("2013-01-01")
+end_date <- ymd(Sys.Date())
+```
+
+3.  Use [GIC](https://en.wikipedia.org/wiki/Global_Industry_Classification_Standard) industry sector code to identify technology firms.
+
+```{r}
+compustat_qtr_china <- idg_db |>
+  filter( loc=="CHN",
+          gsector=="40") |>
+  collect()
+```
+
+4.  Daily prices
+
+```{r}
+gvkeys<-compustat_qtr_china_sic$gvkey
+dly_db <-tbl(wrds,in_schema('comp',"g_secd"))
+compustat_qtr_china_dly <- dly_db |>
+  filter( gvkey %in% gvkeys &
+          datadate >= start_date & datadate <= end_date ) |>
+  collect()
+```
+
+## Reset WRDS connection
+
+Only run this if you have set up the WRDS connection to run when you restart your R session
+
+```{r}
+#| eval: false
+rm(wrds)
+.rs.restartR()
+```
+
+## Preparing Compustat data
+
+Firm accounting data are an important source of information that we use in portfolio analyses in subsequent chapters. The commonly used source for firm financial information is Compustat provided by [S&P Global Market Intelligence,](https://www.spglobal.com/marketintelligence/en/) which is a global data vendor that provides financial, statistical, and market information on active and inactive companies throughout the world. .
+
+1.  Identify company table in Compustat Global
+
+```{r}
+idg_db <-tbl(wrds,in_schema('compg',"g_company"))
+```
+
+2.  Define dates for daily prices
+
+```{r}
+start_date <- ymd("1990-01-01")
+end_date <- ymd(Sys.Date())
+```
+
+3.  Use [GIC](https://en.wikipedia.org/wiki/Global_Industry_Classification_Standard) industry sector code to identify financials
+
+<!--# We could also use the SIC codes in tips and tricks OR be more precise but using some of the lower level GIC codes -->
+
+```{r}
+compustat_qtr_china <- idg_db |>
+  filter( loc=="CHN",
+          gsector=="40") |>
+  collect()
+```
+
+OR use SIC codes
+
+```{r}
+compustat_qtr_china_sic <- idg_db |>
+  filter( loc=="CHN" &
+          sic %in% SIC_codes) |>
+  collect()
+```
+
+## daily prices
+
+```{r}
+gvkeys<-compustat_qtr_china_sic$gvkey
+dly_db <-tbl(wrds,in_schema('comp',"g_secd"))
+compustat_qtr_china_dly <- dly_db |>
+  filter( gvkey %in% gvkeys &
+          datadate >= start_date & datadate <= end_date ) |>
+  collect()
+```
+
+Full descriptions of the above data
+
+```{r}
+compustat_item_list_vendor |> filter(Mnemonic %in% names(compustat_qtr_china_dly)) |> distinct(Mnemonic,.keep_all = T)
+```
+
+## Extract quarter financial statement predictors for second stage regressions
+
+<!--# Veronica: Can you look at the literature and add in some of the so called control variables used in second stage covar regressions.  For example leverage, maturity mismatch etc -->
+
+To access Global Compustat data, we can again tap WRDS, which hosts the `g_fundq` table that contains quarterly firm-level information on Global companies.
+
+```{r}
+fundg_db <- tbl(wrds, in_schema("compg", "g_fundq"))
+compustat_item_list_vendor %>% filter(Mnemonic %in% names(fundg_db)) |> distinct(Mnemonic,.keep_all = TRUE)->var_descriptions
+```
+
+```{r}
+compustat_qtr_china_financials <- fundg_db |>
+  filter(gvkey %in% gvkeys &
+          datadate >= start_date & datadate <= end_date) |>
+  select(gvkey,
+         conm,
+         datadate,
+         dlttq,    # Long-Term Debt - Total
+         dptcq) |>   # Deposits - Total - Customer 
+         collect()
+```
+
+```{r}
+saveRDS(list(gic_search=compustat_qtr_china,sic_search=compustat_qtr_china_sic,daily=compustat_qtr_china_dly,financials=compustat_qtr_china_financials),"china.rds")
+```
+
+## Tips and tricks
+
+For a full description of the variables avaliable we can match this names in the above table with the master file of descriptions for WRDS
+
+As we mentioned above, the WRDS database runs on PostgreSQL rather than SQLite. Finding the right tables for your data needs can be tricky in the WRDS PostgreSQL instance, as the tables are organized in schemas. If you wonder what the purpose of schemas is, check out [this documetation.](https://www.postgresql.org/docs/9.1/ddl-schemas.html) For instance, if you want to find all tables that live in the `crsp` schema, you run
+
+```{r eval = FALSE}
+dbListObjects(wrds, Id(schema = "compg")) |> select(table) |> unlist()
+```
+
+This operation returns a list of all tables that belong to the `crsp` family on WRDS, e.g., `<Id> schema = crsp, table = msenames`. Similarly, you can fetch a list of all tables that belong to the `comp` family via
+
+```{r eval = FALSE}
+dbListObjects(wrds, Id(schema = "comp"))
+```
+
+If you want to get all schemas, then run
+
+```{r eval = FALSE}
+dbListObjects(wrds)
+```
+
+Find all the tables in the compustat global database
+
+```{r}
+dbListObjects(wrds, Id(schema = "compg")) %>% unlist()
+```
+
+::: callout-tip
+### Wrap-Up
+
+The following is a 20 minute video which provide more details on access the WRDS cloud. {{\<video https://player.vimeo.com/video/428102451?h=43994b89a1 \>}} Lastly, if you encounter specific issues or error messages, WRDS provides support, and there’s a wealth of community knowledge around common issues faced when using WRDS with R.
+:::

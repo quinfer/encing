@@ -1,0 +1,40 @@
+project:
+  type: book
+
+book:
+  title: "Advanced Financial Data Analytics"
+  subtitle: "A Modern Approach to Financial Research and Analytics"
+  author: "Barry Quinn"
+  cover-image: "images/DALL·E 2024-01-18 16.32.37 - Create a professional logo for an advanced financial data analytics course. The design should be vibrant, with a medium level of detail, balancing com.png"
+  date: '`r Sys.Date()`'
+  chapters:
+    - index.qmd
+    - part: "Core Concepts"
+      chapters:
+        - primer.qmd
+        - tools.qmd
+        - returns.qmd
+        - time_series.qmd
+        - bayesian_methods.qmd
+        - ml.qmd
+    - part: "Advanced Material"
+      chapters: 
+        - multilevel.qmd
+        - causal.qmd
+        - colliderbias.qmd
+    - references.qmd
+  appendices: 
+    - resources.qmd
+    - solutions.qmd
+    - academic-integrity.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+
+

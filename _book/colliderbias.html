@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Barry Quinn">
+
+<title>Advanced Financial Data Analytics - 10&nbsp; Causal Salad, Endogeneity and collider bias</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./causal.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./multilevel.html">Advanced Material</a></li><li class="breadcrumb-item"><a href="./colliderbias.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Causal Salad, Endogeneity and collider bias</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Advanced Financial Data Analytics</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Preface</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Core Concepts</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./primer.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Statistics and Probability Primer</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Toolkit</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./returns.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Understanding Financial Data and Asset Returns</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./time_series.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Financial times series econometrics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bayesian_methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Bayesian Methods</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./ml.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Machine Learning in Finance</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Advanced Material</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./multilevel.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Modeling Multilevel Data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./causal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Causal inference</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./colliderbias.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Causal Salad, Endogeneity and collider bias</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">References</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./resources.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">resources</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./solutions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Chapter solutions</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#perils-of-causal-salad-in-econometric-analysis" id="toc-perils-of-causal-salad-in-econometric-analysis" class="nav-link active" data-scroll-target="#perils-of-causal-salad-in-econometric-analysis"><span class="header-section-number">10.1</span> Perils of Causal Salad in Econometric Analysis</a></li>
+  <li><a href="#introduction-to-endogeneity" id="toc-introduction-to-endogeneity" class="nav-link" data-scroll-target="#introduction-to-endogeneity"><span class="header-section-number">10.2</span> Introduction to Endogeneity</a>
+  <ul class="collapse">
+  <li><a href="#simultaneity-simultaneous-equations-bias" id="toc-simultaneity-simultaneous-equations-bias" class="nav-link" data-scroll-target="#simultaneity-simultaneous-equations-bias"><span class="header-section-number">10.2.1</span> 1. Simultaneity (Simultaneous Equations Bias)</a></li>
+  <li><a href="#omitted-variable-bias" id="toc-omitted-variable-bias" class="nav-link" data-scroll-target="#omitted-variable-bias"><span class="header-section-number">10.2.2</span> 2. Omitted Variable Bias</a></li>
+  <li><a href="#measurement-error" id="toc-measurement-error" class="nav-link" data-scroll-target="#measurement-error"><span class="header-section-number">10.2.3</span> 3. Measurement Error</a></li>
+  <li><a href="#self-selection" id="toc-self-selection" class="nav-link" data-scroll-target="#self-selection"><span class="header-section-number">10.2.4</span> 4. Self-Selection</a></li>
+  <li><a href="#reverse-causality" id="toc-reverse-causality" class="nav-link" data-scroll-target="#reverse-causality"><span class="header-section-number">10.2.5</span> 5. Reverse Causality</a></li>
+  <li><a href="#error-in-variables" id="toc-error-in-variables" class="nav-link" data-scroll-target="#error-in-variables"><span class="header-section-number">10.2.6</span> 5. Error in variables</a></li>
+  <li><a href="#real-world-example" id="toc-real-world-example" class="nav-link" data-scroll-target="#real-world-example"><span class="header-section-number">10.2.7</span> Real-World Example:</a></li>
+  <li><a href="#r-simulation" id="toc-r-simulation" class="nav-link" data-scroll-target="#r-simulation"><span class="header-section-number">10.2.8</span> R Simulation:</a></li>
+  <li><a href="#simultaneity-simultaneous-equations-bias-1" id="toc-simultaneity-simultaneous-equations-bias-1" class="nav-link" data-scroll-target="#simultaneity-simultaneous-equations-bias-1"><span class="header-section-number">10.2.9</span> 1. Simultaneity (Simultaneous Equations Bias)</a></li>
+  <li><a href="#omitted-variable-bias-1" id="toc-omitted-variable-bias-1" class="nav-link" data-scroll-target="#omitted-variable-bias-1"><span class="header-section-number">10.2.10</span> 2. Omitted Variable Bias</a></li>
+  <li><a href="#measurement-error-1" id="toc-measurement-error-1" class="nav-link" data-scroll-target="#measurement-error-1"><span class="header-section-number">10.2.11</span> 3. Measurement Error</a></li>
+  <li><a href="#self-selection-1" id="toc-self-selection-1" class="nav-link" data-scroll-target="#self-selection-1"><span class="header-section-number">10.2.12</span> 4. Self-Selection</a></li>
+  <li><a href="#reverse-causality-1" id="toc-reverse-causality-1" class="nav-link" data-scroll-target="#reverse-causality-1"><span class="header-section-number">10.2.13</span> 5. Reverse Causality</a></li>
+  <li><a href="#implications-of-treating-market-sentiment-as-a-collider" id="toc-implications-of-treating-market-sentiment-as-a-collider" class="nav-link" data-scroll-target="#implications-of-treating-market-sentiment-as-a-collider"><span class="header-section-number">10.2.14</span> Implications of Treating Market Sentiment as a Collider:</a></li>
+  <li><a href="#how-to-handle-colliders" id="toc-how-to-handle-colliders" class="nav-link" data-scroll-target="#how-to-handle-colliders"><span class="header-section-number">10.2.15</span> How to Handle Colliders:</a></li>
+  </ul></li>
+  <li><a href="#simulating-endogeneity-and-collider-bias" id="toc-simulating-endogeneity-and-collider-bias" class="nav-link" data-scroll-target="#simulating-endogeneity-and-collider-bias"><span class="header-section-number">10.3</span> Simulating Endogeneity and Collider Bias</a></li>
+  <li><a href="#practical-implications-in-finance" id="toc-practical-implications-in-finance" class="nav-link" data-scroll-target="#practical-implications-in-finance"><span class="header-section-number">10.4</span> Practical Implications in Finance</a></li>
+  <li><a href="#mitigating-endogeneity-and-collider-bias" id="toc-mitigating-endogeneity-and-collider-bias" class="nav-link" data-scroll-target="#mitigating-endogeneity-and-collider-bias"><span class="header-section-number">10.5</span> Mitigating Endogeneity and Collider Bias</a>
+  <ul class="collapse">
+  <li><a href="#directed-acyclic-graphs-dags-for-key-concepts" id="toc-directed-acyclic-graphs-dags-for-key-concepts" class="nav-link" data-scroll-target="#directed-acyclic-graphs-dags-for-key-concepts"><span class="header-section-number">10.5.1</span> Directed Acyclic Graphs (DAGs) for Key Concepts</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Causal Salad, Endogeneity and collider bias</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Barry Quinn </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<p>[](images/DALL·E 2024-01-29 16.56.33 - A humorous and illustrative image depicting the concept of “causal salad” in linear regression modeling. The scene is set in a chaotic kitchen, where .png)</p>
+<section id="perils-of-causal-salad-in-econometric-analysis" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="perils-of-causal-salad-in-econometric-analysis"><span class="header-section-number">10.1</span> Perils of Causal Salad in Econometric Analysis</h2>
+<p>In the realm of econometric analysis, a prevalent pitfall is the creation of what can be colloquially termed a “causal salad.” This term refers to the misguided practice of indiscriminately adding more predictors to a model, often without adequate theoretical justification or understanding of the underlying causal relationships. This approach can lead to models that are overfitted, misinterpreted, and ultimately misleading.</p>
+<p>A common manifestation of this issue is the practice of blindly incorporating a variety of predictors into a model and then presenting these additions as some form of robustness test. While robustness checks are essential in econometrics to ensure that results are not an artifact of specific model specifications, the unprincipled expansion of the model with additional predictors can do more harm than good. It often leads to false confidence in the model’s findings and obscures the true relationships between variables.</p>
+<p>This indiscriminate approach ignores the crucial need for a model to be grounded in a solid theoretical framework. Without a clear understanding of the potential causal pathways and the role of each variable, adding more predictors can introduce biases, such as endogeneity and collider bias, rather than alleviate them. These biases can significantly distort the estimates and lead to erroneous conclusions, particularly in complex fields like finance where the stakes are high.</p>
+<p>In this chapter, we will explore the concepts of endogeneity and collider bias in depth, demonstrating how they arise and their implications in econometric models. We will particularly focus on real-world finance examples to illustrate these concepts and discuss strategies to avoid the pitfalls of causal salad through careful model specification and robustness testing.</p>
+</section>
+<section id="introduction-to-endogeneity" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="introduction-to-endogeneity"><span class="header-section-number">10.2</span> Introduction to Endogeneity</h2>
+<p>Endogeneity is a crucial concept in econometrics, referring to situations where an explanatory variable is correlated with the error term. This correlation can stem from omitted variables, measurement errors, or simultaneity issues in the model. Endogeneity leads to biased and inconsistent estimates, making it challenging to deduce the true effects of explanatory variables on the dependent variable. Endogeneity, a critical issue in econometric analysis, can manifest in several main ways, significantly affecting the validity and interpretation of regression results. Understanding these manifestations is crucial for choosing appropriate methods to address them. Here are the primary forms of endogeneity:</p>
+<section id="simultaneity-simultaneous-equations-bias" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="simultaneity-simultaneous-equations-bias"><span class="header-section-number">10.2.1</span> 1. Simultaneity (Simultaneous Equations Bias)</h3>
+<p><strong>Scenario:</strong> This occurs when the dependent variable and one or more independent variables are mutually determined. For example, in a supply and demand model, both supply and demand depend on the price and quantity, making them simultaneously determined. <strong>Real-World Example:</strong> In finance, simultaneity often occurs in the relationship between a company’s investment decisions and its stock performance. A firm’s investment can influence its stock price, but simultaneously, the market’s valuation of the firm can affect its investment capabilities.</p>
+<p><strong>R Simulation:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>investment_shock <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>stock_performance_shock <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>stock_price <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> investment_shock <span class="sc">-</span> <span class="fl">0.5</span> <span class="sc">*</span> stock_performance_shock</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>investment <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> stock_price <span class="sc">+</span> investment_shock</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Regression without considering simultaneity</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(investment <span class="sc">~</span> stock_price)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = investment ~ stock_price)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.51291 -0.51686  0.00869  0.46892  2.48394 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.06837    0.07244   0.944    0.345    
+stock_price  1.28033    0.03452  37.095   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.7378 on 998 degrees of freedom
+Multiple R-squared:  0.5796,    Adjusted R-squared:  0.5792 
+F-statistic:  1376 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="omitted-variable-bias" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="omitted-variable-bias"><span class="header-section-number">10.2.2</span> 2. Omitted Variable Bias</h3>
+<p><strong>Scenario:</strong> This happens when a model misses out on an important variable that is correlated with both the dependent and an independent variable. The omitted variable’s effect is then wrongly attributed to the included variables, leading to biased estimates. <strong>Real-World Example:</strong> When estimating the impact of macroeconomic indicators on stock market returns, omitting relevant variables like political stability or international market trends can lead to biased estimates.</p>
+<p><strong>R Simulation:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>economic_indicator <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>political_stability <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)  <span class="co"># Omitted variable</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>stock_returns <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> economic_indicator <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> political_stability <span class="sc">+</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Regression without the omitted variable</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(stock_returns <span class="sc">~</span> economic_indicator)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = stock_returns ~ economic_indicator)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-10.7261  -2.2906   0.0117   2.1686  10.8766 
+
+Coefficients:
+                   Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)          1.1033     0.1012   10.90   &lt;2e-16 ***
+economic_indicator   2.2451     0.1021   21.99   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 3.2 on 998 degrees of freedom
+Multiple R-squared:  0.3264,    Adjusted R-squared:  0.3257 
+F-statistic: 483.6 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="measurement-error" class="level3" data-number="10.2.3">
+<h3 data-number="10.2.3" class="anchored" data-anchor-id="measurement-error"><span class="header-section-number">10.2.3</span> 3. Measurement Error</h3>
+<p><strong>Scenario:</strong> When variables are measured inaccurately, this measurement error can lead to endogeneity. This is especially problematic if the measurement error is not random but systematically related to the true value or other variables in the model. <strong>Real-World Example:</strong> If financial analysts use mismeasured or approximated figures for a company’s earnings (due to accounting discrepancies), this can lead to incorrect inferences about the company’s financial health.</p>
+<p><strong>R Simulation:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>true_earnings <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>measurement_error <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="at">sd =</span> <span class="fl">0.5</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>observed_earnings <span class="ot">&lt;-</span> true_earnings <span class="sc">+</span> measurement_error</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>stock_price <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> true_earnings <span class="sc">+</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Regression with observed earnings</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(stock_price <span class="sc">~</span> observed_earnings)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = stock_price ~ observed_earnings)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.5889 -0.8497 -0.0049  0.8982  4.1774 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)        0.95440    0.04067   23.47   &lt;2e-16 ***
+observed_earnings  1.54565    0.03533   43.74   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.285 on 998 degrees of freedom
+Multiple R-squared:  0.6572,    Adjusted R-squared:  0.6569 
+F-statistic:  1914 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="self-selection" class="level3" data-number="10.2.4">
+<h3 data-number="10.2.4" class="anchored" data-anchor-id="self-selection"><span class="header-section-number">10.2.4</span> 4. Self-Selection</h3>
+<p><strong>Scenario:</strong> Self-selection bias arises in observational data when the sample is not randomly selected but determined by the characteristics of the individuals or entities. For example, if individuals select themselves into a treatment based on characteristics that also affect the outcome, this can lead to biased estimates of the treatment effect. <strong>Real-World Example:</strong> In a study of the performance of mutual funds, if fund managers self-select into certain investment strategies based on unobserved skills, this could bias the estimated effect of these strategies on fund performance.</p>
+<p><strong>R Simulation:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>manager_skill <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>strategy <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(manager_skill <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>)  <span class="co"># High skill managers choose a certain strategy</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>fund_performance <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> manager_skill <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> strategy <span class="sc">+</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Regression without considering self-selection</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(fund_performance <span class="sc">~</span> strategy)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = fund_performance ~ strategy)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-6.1758 -1.0677 -0.0817  1.1015  5.8937 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  -0.5887     0.0723  -8.142 1.15e-15 ***
+strategy      6.2938     0.1017  61.862  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.609 on 998 degrees of freedom
+Multiple R-squared:  0.7932,    Adjusted R-squared:  0.7929 
+F-statistic:  3827 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="reverse-causality" class="level3" data-number="10.2.5">
+<h3 data-number="10.2.5" class="anchored" data-anchor-id="reverse-causality"><span class="header-section-number">10.2.5</span> 5. Reverse Causality</h3>
+<p><strong>Scenario:</strong> This occurs when the direction of causality between the independent and dependent variables is unclear or bi-directional. For instance, higher income might lead to better health outcomes, but at the same time, better health could lead to higher income, creating a reverse causality issue. <strong>Real-World Example:</strong> Considering the relationship between corporate borrowing and profitability, higher profitability might lead to more borrowing due to increased creditworthiness, but at the same time, more borrowing can lead to higher profitability due to increased investment capacity.</p>
+<p><strong>R Simulation:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>profitability <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>borrowing <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> profitability <span class="sc">+</span> <span class="fu">rnorm</span>(n)  <span class="co"># borrowing influenced by profitability</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Regression of borrowing on profitability</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(borrowing <span class="sc">~</span> profitability)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = borrowing ~ profitability)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-3.0279 -0.6914  0.0043  0.7087  3.2911 
+
+Coefficients:
+              Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)    0.04105    0.03183    1.29    0.198    
+profitability  2.08805    0.03211   65.03   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.006 on 998 degrees of freedom
+Multiple R-squared:  0.8091,    Adjusted R-squared:  0.8089 
+F-statistic:  4229 on 1 and 998 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+</section>
+<section id="error-in-variables" class="level3" data-number="10.2.6">
+<h3 data-number="10.2.6" class="anchored" data-anchor-id="error-in-variables"><span class="header-section-number">10.2.6</span> 5. Error in variables</h3>
+<p><strong>Scenario</strong>: This is a specific type of measurement error where the error is in the independent variables. It can lead to biased and inconsistent parameter estimates. A scenario where the residuals from one regression are used in a subsequent regression is an example of error in variables. This is a common issue in finance where analysts might use estimated variables (like residuals from a regression) as predictors in further analyses, without realizing that these estimates carry their own error terms.</p>
+</section>
+<section id="real-world-example" class="level3" data-number="10.2.7">
+<h3 data-number="10.2.7" class="anchored" data-anchor-id="real-world-example"><span class="header-section-number">10.2.7</span> Real-World Example:</h3>
+<p>In finance, this could occur when an analyst first regresses a company’s stock returns on certain economic indicators to estimate “unexplained returns” (residuals). These residuals, which are supposed to represent the portion of returns not explained by economic indicators, might then be used in a subsequent regression to examine other factors, like investor sentiment. However, since these residuals contain estimation errors, using them as predictors in a new regression can lead to biased results.</p>
+</section>
+<section id="r-simulation" class="level3" data-number="10.2.8">
+<h3 data-number="10.2.8" class="anchored" data-anchor-id="r-simulation"><span class="header-section-number">10.2.8</span> R Simulation:</h3>
+<p>First, we’ll run a regression to obtain residuals, and then use these residuals in a subsequent regression.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># First Regression: Stock Returns on Economic Indicators</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>economic_indicators <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>stock_returns <span class="ot">&lt;-</span> <span class="fl">1.5</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> economic_indicators <span class="sc">+</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>first_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(stock_returns <span class="sc">~</span> economic_indicators)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>residuals_from_first <span class="ot">&lt;-</span> <span class="fu">residuals</span>(first_model)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Second Regression: Using Residuals as Predictor</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>investor_sentiment <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>second_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(residuals_from_first <span class="sc">~</span> investor_sentiment)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(second_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = residuals_from_first ~ investor_sentiment)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.9805 -0.6842  0.0078  0.6866  3.2665 
+
+Coefficients:
+                    Estimate Std. Error t value Pr(&gt;|t|)
+(Intercept)        0.0005848  0.0318190   0.018    0.985
+investor_sentiment 0.0290768  0.0325323   0.894    0.372
+
+Residual standard error: 1.006 on 998 degrees of freedom
+Multiple R-squared:  0.0007998, Adjusted R-squared:  -0.0002014 
+F-statistic: 0.7988 on 1 and 998 DF,  p-value: 0.3717</code></pre>
+</div>
+</div>
+<p>In this simulation, the second regression uses residuals (unexplained returns) from the first regression as the dependent variable and examines their relationship with investor sentiment. However, since these residuals contain estimation errors from the first regression, the results of the second regression could be biased or misleading.</p>
+<p>This example underscores the importance of understanding the properties of variables used in regressions, especially when they are derived from previous estimations. It’s essential to account for potential errors and biases introduced in such scenarios.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Each R simulation provides a basic model to illustrate how these endogeneity issues might manifest in financial data. In practice, more sophisticated models and techniques would be employed to identify and correct for these issues, such as instrumental variable regression, fixed effects models, or structural equation modeling.</p>
+</div>
+</div>
+<p>## R simulations</p>
+</section>
+<section id="simultaneity-simultaneous-equations-bias-1" class="level3" data-number="10.2.9">
+<h3 data-number="10.2.9" class="anchored" data-anchor-id="simultaneity-simultaneous-equations-bias-1"><span class="header-section-number">10.2.9</span> 1. Simultaneity (Simultaneous Equations Bias)</h3>
+<p>In simultaneous equations models, there is a mutual dependence among the explanatory variables and the response variable. We’ll simulate a simple supply and demand model where both supply and demand depend on price, but price is also determined by supply and demand.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load necessary library</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate data</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>demand_shock <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>supply_shock <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>price <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.5</span> <span class="sc">*</span> demand_shock <span class="sc">-</span> <span class="fl">0.5</span> <span class="sc">*</span> supply_shock</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>quantity <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="fl">0.3</span> <span class="sc">*</span> price <span class="sc">+</span> demand_shock</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Run regression without considering simultaneity</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(quantity <span class="sc">~</span> price)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="omitted-variable-bias-1" class="level3" data-number="10.2.10">
+<h3 data-number="10.2.10" class="anchored" data-anchor-id="omitted-variable-bias-1"><span class="header-section-number">10.2.10</span> 2. Omitted Variable Bias</h3>
+<p>Omitting an essential variable leads to biased estimates of the remaining variables. Let’s look at a simulation representing this situation.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate data with an omitted variable</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)  <span class="co"># An omitted variable</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> x1 <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> x2 <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform regression excluding the second variable</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="measurement-error-1" class="level3" data-number="10.2.11">
+<h3 data-number="10.2.11" class="anchored" data-anchor-id="measurement-error-1"><span class="header-section-number">10.2.11</span> 3. Measurement Error</h3>
+<p>Measurement errors introduce incorrect information about independent variables, resulting in erroneous parameter estimates. Let’s examine a simulation demonstrating this concept.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate data with measurement error</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>x_true <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>measurement_error <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="fl">0.5</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>x_measured <span class="ot">&lt;-</span> x_true <span class="sc">+</span> measurement_error</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> x_true <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Conduct regression with measured data</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x_measured)</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="self-selection-1" class="level3" data-number="10.2.12">
+<h3 data-number="10.2.12" class="anchored" data-anchor-id="self-selection-1"><span class="header-section-number">10.2.12</span> 4. Self-Selection</h3>
+<p>Individuals voluntarily participating in programs based on certain traits creates selection bias. Now, let’s explore a scenario involving self-selection.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate data with self-selection</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>ability <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>treatment <span class="ot">&lt;-</span> (ability <span class="sc">&gt;</span> <span class="dv">0</span>) <span class="sc">+</span> 0L  <span class="co"># Individuals with higher abilities opt for treatment</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> ability <span class="sc">+</span> <span class="dv">3</span> <span class="sc">*</span> treatment <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute regression ignoring self-selection</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> treatment)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="reverse-causality-1" class="level3" data-number="10.2.13">
+<h3 data-number="10.2.13" class="anchored" data-anchor-id="reverse-causality-1"><span class="header-section-number">10.2.13</span> 5. Reverse Causality</h3>
+<p>Here, we simulate scenarios where determining the direction of causality becomes challenging.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Simulate data with reverse causality</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">0</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> y <span class="sc">+</span> <span class="fu">rnorm</span>(n, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Carry out regression assuming wrong causality</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(x <span class="sc">~</span> y)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>These examples provide foundational insights into various endogeneity problems encountered during applied econometrics analyses. More sophisticated approaches—such as instrumental variables, fixed effects, or structural equation modeling—may be needed to tackle these challenges effectively in practical settings. ## Collider Bias – A Special Case of Endogeneity</p>
+<p>Collider bias, a subset of selection bias, occurs when conditioning on a variable, known as a collider, that is influenced by two or more other variables. This conditioning induces an association between these variables, even if they were independent initially.</p>
+<p>##Example 1: Stock Market Analysis - <strong>Scenario</strong>: Analyzing the relationship between a company’s financial health and stock returns, considering market sentiment as a collider. Here is the R script to plot the DAG (Directed Acyclic Graph) for your scenario using the <code>dagitty</code> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dagitty)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the DAG</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>dag <span class="ot">&lt;-</span> <span class="fu">dagitty</span>(<span class="st">'dag {</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="st">  Financial_Health -&gt; Stock_Returns</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="st">  Market_Sentiment -&gt; Stock_Returns</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="st">  Financial_Health -&gt; Market_Sentiment</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="st">}'</span>)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the DAG</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dag)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Plot coordinates for graph not supplied! Generating coordinates, see ?coordinates for how to set your own.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="colliderbias_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>This script defines a DAG where: - <code>Financial_Health</code> influences <code>Stock_Returns</code>. - <code>Market_Sentiment</code> also influences <code>Stock_Returns</code>. - <code>Financial_Health</code> affects <code>Market_Sentiment</code>.</p>
+<p>In this DAG, <code>Market_Sentiment</code> is a collider on the path between <code>Financial_Health</code> and <code>Stock_Returns</code>. This means that conditioning on <code>Market_Sentiment</code> (e.g., through controlling or stratifying in a regression analysis) would open a backdoor path and potentially introduce bias in the estimation of the effect of <code>Financial_Health</code> on <code>Stock_Returns</code>. You can run this script in an R environment to visualize the DAG. It will help in understanding the causal relationships and in identifying potential sources of bias in your analysis.</p>
+<p>Understanding the implications of treating <code>Market Sentiment</code> as a collider in the context of your Directed Acyclic Graph (DAG) is crucial for causal inference and avoiding common statistical biases.</p>
+<p>::: ### What is a Collider?</p>
+<p>A collider is a variable that is influenced by two or more other variables in a causal diagram or DAG. In your scenario, <code>Market Sentiment</code> is a collider because it is influenced by both <code>Financial Health</code> and <code>Stock Returns</code>.</p>
+</section>
+<section id="implications-of-treating-market-sentiment-as-a-collider" class="level3" data-number="10.2.14">
+<h3 data-number="10.2.14" class="anchored" data-anchor-id="implications-of-treating-market-sentiment-as-a-collider"><span class="header-section-number">10.2.14</span> Implications of Treating Market Sentiment as a Collider:</h3>
+<ol type="1">
+<li><p><strong>Opening a Backdoor Path:</strong> In DAGs, conditioning on a collider (like including it as a control variable in a regression model) opens a backdoor path. This can introduce bias into the estimation of causal effects. If you control for <code>Market Sentiment</code>, you inadvertently create a non-causal association between <code>Financial Health</code> and <code>Stock Returns</code> through the collider, leading to biased estimates.</p></li>
+<li><p><strong>Spurious Correlation:</strong> Controlling for <code>Market Sentiment</code> can create a spurious correlation between <code>Financial Health</code> and <code>Stock Returns</code>. Even if there is no direct causal link between these two variables, conditioning on the collider makes it seem like there is a relationship.</p></li>
+<li><p><strong>Simpson’s Paradox:</strong> This is a phenomenon where a trend appears in different groups of data but disappears or reverses when these groups are combined. Controlling for <code>Market Sentiment</code> might show different relationships between <code>Financial Health</code> and <code>Stock Returns</code> in subgroups (e.g., high vs.&nbsp;low market sentiment), which could be misleading.</p></li>
+<li><p><strong>Selection Bias:</strong> If your analysis only includes data conditioned on certain values of the collider (e.g., only looking at times of positive market sentiment), this can lead to selection bias. The analysis might not be generalizable to all market conditions.</p></li>
+<li><p><strong>Misinterpretation of Causal Effects:</strong> Finally, including colliders in your model without proper understanding can lead to misinterpretation of causal effects. It can mask or inflate the true relationship between the variables of interest.</p></li>
+</ol>
+</section>
+<section id="how-to-handle-colliders" class="level3" data-number="10.2.15">
+<h3 data-number="10.2.15" class="anchored" data-anchor-id="how-to-handle-colliders"><span class="header-section-number">10.2.15</span> How to Handle Colliders:</h3>
+<ul>
+<li><strong>Do Not Control for Colliders:</strong> Unless you have a specific reason to do so, avoid controlling for colliders in your causal analyses.</li>
+<li><strong>Use DAGs for Model Specification:</strong> DAGs can help you identify which variables to include or exclude from your models to avoid bias.</li>
+<li><strong>Consider Alternative Methods:</strong> If it’s essential to understand the impact of colliders, consider alternative statistical methods like stratification or structural equation modeling.</li>
+</ul>
+<p>In summary, recognizing and appropriately handling colliders like <code>Market Sentiment</code> is vital for accurate causal inference. Misinterpreting or improperly controlling for such variables can lead to biased estimates and erroneous conclusions.</p>
+<p>For further analysis, would you like to: - Explore alternative methods for dealing with colliders? - Delve into advanced causal inference techniques? - Discuss another aspect of econometric analysis or finance?</p>
+</section>
+</section>
+<section id="simulating-endogeneity-and-collider-bias" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="simulating-endogeneity-and-collider-bias"><span class="header-section-number">10.3</span> Simulating Endogeneity and Collider Bias</h2>
+<ul>
+<li><strong>Python Implementation</strong>: A Python code example demonstrating the simulation of endogeneity due to collider bias.</li>
+<li><strong>R Implementation</strong>: An R code example showing how controlling for a collider can induce an artificial association in a regression model.</li>
+</ul>
+</section>
+<section id="practical-implications-in-finance" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="practical-implications-in-finance"><span class="header-section-number">10.4</span> Practical Implications in Finance</h2>
+<p>This section discusses real-world scenarios in finance where endogeneity and collider bias play a significant role, such as in stock market analysis, credit risk assessment, and investment portfolio performance.</p>
+</section>
+<section id="mitigating-endogeneity-and-collider-bias" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="mitigating-endogeneity-and-collider-bias"><span class="header-section-number">10.5</span> Mitigating Endogeneity and Collider Bias</h2>
+<ul>
+<li><strong>Statistical Methods</strong>: Discusses various statistical methods and techniques to detect and address endogeneity and collider bias.</li>
+<li><strong>Best Practices</strong>: Offers best practices for econometric modeling to minimize the impact of these biases.</li>
+</ul>
+<section id="section-7-conclusion" class="level4" data-number="10.5.0.1">
+<h4 data-number="10.5.0.1" class="anchored" data-anchor-id="section-7-conclusion"><span class="header-section-number">10.5.0.1</span> Section 7: Conclusion</h4>
+<p>Summarizes the key points of the chapter, emphasizing the importance of understanding and addressing endogeneity and collider bias in econometric analysis, especially in the field of finance.</p>
+<hr>
+</section>
+<section id="directed-acyclic-graphs-dags-for-key-concepts" class="level3" data-number="10.5.1">
+<h3 data-number="10.5.1" class="anchored" data-anchor-id="directed-acyclic-graphs-dags-for-key-concepts"><span class="header-section-number">10.5.1</span> Directed Acyclic Graphs (DAGs) for Key Concepts</h3>
+<ol type="1">
+<li><strong>DAG for Stock Market Analysis</strong>:
+<ul>
+<li>Nodes: Company’s Financial Health (X1), Stock Returns (Y), Market Sentiment (Z), External Economic Conditions (X2).</li>
+<li>Arrows: From X1 to Y, from X1 and X2 to Z.</li>
+</ul></li>
+<li><strong>DAG for Credit Risk Assessment</strong>:
+<ul>
+<li>Nodes: Borrower’s Income (X1), Probability of Default (Y), Loan Amount (Z), Bank’s Risk Policies (X2).</li>
+<li>Arrows: From X1 to Y and Z, from X2 to Z.</li>
+</ul></li>
+</ol>
+<p>These DAGs help visualize the relationships and potential biases in these scenarios, aiding in a better understanding of the concepts.</p>
+<hr>
+<p>For further analysis, would you like to: - Explore more on DAGs and their role in econometrics? - Delve into advanced topics related to endogeneity and collider bias? - Discuss other econometric concepts relevant to financial analysis?</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./causal.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Causal inference</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">References</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
