@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Barry Quinn">
-<meta name="dcterms.date" content="2024-03-13">
+<meta name="dcterms.date" content="2024-04-09">
 
 <title>Advanced Financial Data Analytics – 5&nbsp; Financial times series econometrics</title>
 <style>
@@ -300,6 +300,12 @@ window.Quarto = {
  <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Chapter solutions</span></span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./academic-integrity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Advanced Financial Data Analytics Academic Integrity Policy</span></span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -408,11 +414,31 @@ window.Quarto = {
   <li><a href="#explanation-of-state-space-model-kalman-filter-code" id="toc-explanation-of-state-space-model-kalman-filter-code" class="nav-link" data-scroll-target="#explanation-of-state-space-model-kalman-filter-code"><span class="header-section-number">9.7.5</span> Explanation of State Space Model &amp; Kalman Filter Code</a></li>
   </ul></li>
   </ul></li>
-  <li><a href="#end-of-chapter-excercises" id="toc-end-of-chapter-excercises" class="nav-link" data-scroll-target="#end-of-chapter-excercises"><span class="header-section-number">10</span> End of chapter excercises</a>
+  <li><a href="#model-evaluation-and-selection-in-financial-forecasting" id="toc-model-evaluation-and-selection-in-financial-forecasting" class="nav-link" data-scroll-target="#model-evaluation-and-selection-in-financial-forecasting"><span class="header-section-number">10</span> Model Evaluation and Selection in Financial Forecasting</a>
   <ul class="collapse">
-  <li><a href="#theory-and-concepts" id="toc-theory-and-concepts" class="nav-link" data-scroll-target="#theory-and-concepts"><span class="header-section-number">10.1</span> Theory and Concepts</a></li>
-  <li><a href="#practical-applications" id="toc-practical-applications" class="nav-link" data-scroll-target="#practical-applications"><span class="header-section-number">10.2</span> Practical Applications</a></li>
-  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">10.3</span> Further reading</a></li>
+  <li><a href="#backtesting" id="toc-backtesting" class="nav-link" data-scroll-target="#backtesting"><span class="header-section-number">10.0.1</span> Backtesting</a></li>
+  <li><a href="#cross-validation" id="toc-cross-validation" class="nav-link" data-scroll-target="#cross-validation"><span class="header-section-number">10.0.2</span> Cross-Validation</a></li>
+  <li><a href="#model-comparison-techniques" id="toc-model-comparison-techniques" class="nav-link" data-scroll-target="#model-comparison-techniques"><span class="header-section-number">10.0.3</span> Model Comparison Techniques</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">10.0.4</span> Conclusion</a></li>
+  <li><a href="#example-1-rolling-window-cross-validation" id="toc-example-1-rolling-window-cross-validation" class="nav-link" data-scroll-target="#example-1-rolling-window-cross-validation"><span class="header-section-number">10.0.5</span> Example 1: Rolling Window Cross-Validation</a></li>
+  <li><a href="#example-2-diebold-mariano-test" id="toc-example-2-diebold-mariano-test" class="nav-link" data-scroll-target="#example-2-diebold-mariano-test"><span class="header-section-number">10.0.6</span> Example 2: Diebold-Mariano Test</a></li>
+  </ul></li>
+  <li><a href="#case-studies" id="toc-case-studies" class="nav-link" data-scroll-target="#case-studies"><span class="header-section-number">11</span> Case studies</a>
+  <ul class="collapse">
+  <li><a href="#case-study-one-forecasting-stock-prices-using-arima-and-garch-models" id="toc-case-study-one-forecasting-stock-prices-using-arima-and-garch-models" class="nav-link" data-scroll-target="#case-study-one-forecasting-stock-prices-using-arima-and-garch-models"><span class="header-section-number">11.1</span> Case Study One: Forecasting Stock Prices using ARIMA and GARCH Models</a>
+  <ul class="collapse">
+  <li><a href="#step-1-data-preprocessing" id="toc-step-1-data-preprocessing" class="nav-link" data-scroll-target="#step-1-data-preprocessing"><span class="header-section-number">11.1.1</span> Step 1: Data Preprocessing</a></li>
+  <li><a href="#step-2-arima-model-selection-and-forecasting" id="toc-step-2-arima-model-selection-and-forecasting" class="nav-link" data-scroll-target="#step-2-arima-model-selection-and-forecasting"><span class="header-section-number">11.1.2</span> Step 2: ARIMA Model Selection and Forecasting</a></li>
+  <li><a href="#step-3-garch-model-fitting-and-forecasting" id="toc-step-3-garch-model-fitting-and-forecasting" class="nav-link" data-scroll-target="#step-3-garch-model-fitting-and-forecasting"><span class="header-section-number">11.1.3</span> Step 3: GARCH Model Fitting and Forecasting</a></li>
+  <li><a href="#conclusion-1" id="toc-conclusion-1" class="nav-link" data-scroll-target="#conclusion-1"><span class="header-section-number">11.1.4</span> Conclusion</a></li>
+  <li><a href="#limitations-and-potential-extensions" id="toc-limitations-and-potential-extensions" class="nav-link" data-scroll-target="#limitations-and-potential-extensions"><span class="header-section-number">11.1.5</span> Limitations and Potential Extensions</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#end-of-chapter-excercises" id="toc-end-of-chapter-excercises" class="nav-link" data-scroll-target="#end-of-chapter-excercises"><span class="header-section-number">12</span> End of chapter excercises</a>
+  <ul class="collapse">
+  <li><a href="#theory-and-concepts" id="toc-theory-and-concepts" class="nav-link" data-scroll-target="#theory-and-concepts"><span class="header-section-number">12.1</span> Theory and Concepts</a></li>
+  <li><a href="#practical-applications" id="toc-practical-applications" class="nav-link" data-scroll-target="#practical-applications"><span class="header-section-number">12.2</span> Practical Applications</a></li>
+  <li><a href="#further-reading" id="toc-further-reading" class="nav-link" data-scroll-target="#further-reading"><span class="header-section-number">12.3</span> Further reading</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -439,7 +465,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 13, 2024</p>
+      <p class="date">April 9, 2024</p>
     </div>
   </div>
   
@@ -1506,8 +1532,7 @@ Important
 </section>
 <section id="r-code-example-for-var-model" class="level3" data-number="9.6.6">
 <h3 data-number="9.6.6" class="anchored" data-anchor-id="r-code-example-for-var-model"><span class="header-section-number">9.6.6</span> R Code Example for VAR Model</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load necessary packages</span></span>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install and load necessary packages</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("vars")</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(vars)</span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1523,81 +1548,11 @@ Important
 <span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>fit_var <span class="ot">&lt;-</span> <span class="fu">VAR</span>(mts, <span class="at">p =</span> <span class="dv">2</span>)</span>
 <span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary of the fitted VAR model</span></span>
-<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-VAR Estimation Results:
-========================= 
-Endogenous variables: ts1, ts2 
-Deterministic variables: const 
-Sample size: 98 
-Log Likelihood: -263.353 
-Roots of the characteristic polynomial:
-0.9462 0.3214 0.3214 0.05576
-Call:
-VAR(y = mts, p = 2)
-
-
-Estimation results for equation ts1: 
-==================================== 
-ts1 = ts1.l1 + ts2.l1 + ts1.l2 + ts2.l2 + const 
-
-       Estimate Std. Error t value Pr(&gt;|t|)    
-ts1.l1  0.94911    0.11146   8.516 2.81e-13 ***
-ts2.l1  0.02638    0.09815   0.269   0.7887    
-ts1.l2 -0.06675    0.11925  -0.560   0.5770    
-ts2.l2  0.10921    0.09785   1.116   0.2673    
-const   0.23285    0.13914   1.673   0.0976 .  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-
-Residual standard error: 0.9254 on 93 degrees of freedom
-Multiple R-Squared: 0.8528, Adjusted R-squared: 0.8465 
-F-statistic: 134.7 on 4 and 93 DF,  p-value: &lt; 2.2e-16 
-
-
-Estimation results for equation ts2: 
-==================================== 
-ts2 = ts1.l1 + ts2.l1 + ts1.l2 + ts2.l2 + const 
-
-       Estimate Std. Error t value Pr(&gt;|t|)    
-ts1.l1  0.55838    0.12818   4.356  3.4e-05 ***
-ts2.l1 -0.12708    0.11288  -1.126    0.263    
-ts1.l2 -0.02279    0.13715  -0.166    0.868    
-ts2.l2 -0.04436    0.11253  -0.394    0.694    
-const   0.04679    0.16002   0.292    0.771    
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-
-Residual standard error: 1.064 on 93 degrees of freedom
-Multiple R-Squared: 0.5069, Adjusted R-squared: 0.4857 
-F-statistic: 23.91 on 4 and 93 DF,  p-value: 1.288e-13 
-
-
-
-Covariance matrix of residuals:
-       ts1    ts2
-ts1 0.8564 0.3853
-ts2 0.3853 1.1327
-
-Correlation matrix of residuals:
-       ts1    ts2
-ts1 1.0000 0.3912
-ts2 0.3912 1.0000</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecasting with VAR</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>forecast_var <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_var, <span class="at">n.ahead =</span> <span class="dv">10</span>)</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forecast_var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="time_series_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_var)</span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Forecasting with VAR</span></span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>forecast_var <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit_var, <span class="at">n.ahead =</span> <span class="dv">10</span>)</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(forecast_var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="explanation-of-the-r-code-3" class="level3" data-number="9.6.7">
 <h3 data-number="9.6.7" class="anchored" data-anchor-id="explanation-of-the-r-code-3"><span class="header-section-number">9.6.7</span> Explanation of the R Code</h3>
@@ -1645,23 +1600,23 @@ ts2 0.3912 1.0000</code></pre>
 </ol>
 <p>State space modeling offers a robust framework for analyzing financial data, capable of capturing complex dynamics and providing insightful forecasts. Its flexibility and the powerful tools available for its implementation, such as the Kalman filter, make it invaluable for financial analysis, risk management, and decision-making processes. Practitioners and researchers continue to develop and refine these models, contributing to more sophisticated and accurate financial analyses. ## State Space Models and Kalman filter</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dlm)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Your buildFun definition remains the same</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>buildFun <span class="ot">=</span> <span class="cf">function</span>(omega){</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dlmModPoly</span>(<span class="at">order =</span> <span class="dv">1</span>, <span class="at">dV =</span> <span class="fu">exp</span>(omega[<span class="dv">1</span>]), <span class="at">dW =</span> <span class="fu">exp</span>(omega[<span class="dv">2</span>]))</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting the model</span></span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>fit_dlm <span class="ot">=</span> <span class="fu">dlmMLE</span>(y, <span class="at">parm =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">build =</span> buildFun)</span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a><span class="co"># IMPORTANT: Construct the model using the estimated parameters</span></span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>mod_estimated <span class="ot">=</span> <span class="fu">buildFun</span>(fit_dlm<span class="sc">$</span>par)</span>
-<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply dlmFilter and dlmSmooth using the constructed model with estimated parameters</span></span>
-<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>filtered_states <span class="ot">=</span> <span class="fu">dlmFilter</span>(y, <span class="at">mod =</span> mod_estimated)</span>
-<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>smoothed_states <span class="ot">=</span> <span class="fu">dlmSmooth</span>(y, <span class="at">mod =</span> mod_estimated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dlm)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>))</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Your buildFun definition remains the same</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>buildFun <span class="ot">=</span> <span class="cf">function</span>(omega){</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dlmModPoly</span>(<span class="at">order =</span> <span class="dv">1</span>, <span class="at">dV =</span> <span class="fu">exp</span>(omega[<span class="dv">1</span>]), <span class="at">dW =</span> <span class="fu">exp</span>(omega[<span class="dv">2</span>]))</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting the model</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>fit_dlm <span class="ot">=</span> <span class="fu">dlmMLE</span>(y, <span class="at">parm =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), <span class="at">build =</span> buildFun)</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="co"># IMPORTANT: Construct the model using the estimated parameters</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>mod_estimated <span class="ot">=</span> <span class="fu">buildFun</span>(fit_dlm<span class="sc">$</span>par)</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply dlmFilter and dlmSmooth using the constructed model with estimated parameters</span></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>filtered_states <span class="ot">=</span> <span class="fu">dlmFilter</span>(y, <span class="at">mod =</span> mod_estimated)</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>smoothed_states <span class="ot">=</span> <span class="fu">dlmSmooth</span>(y, <span class="at">mod =</span> mod_estimated)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="explanation" class="level3" data-number="9.7.4">
@@ -1702,18 +1657,277 @@ ts2 0.3912 1.0000</code></pre>
 </section>
 </section>
 </section>
-<section id="end-of-chapter-excercises" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> End of chapter excercises</h1>
-<section id="theory-and-concepts" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="theory-and-concepts"><span class="header-section-number">10.1</span> Theory and Concepts</h2>
+<section id="model-evaluation-and-selection-in-financial-forecasting" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Model Evaluation and Selection in Financial Forecasting</h1>
+<p>When applying time series models for financial forecasting, it is crucial to evaluate the performance of these models and select the most appropriate one for the given task. While the section on “Model Evaluation and Selection” mentions some common performance metrics, such as Mean Absolute Error (MAE), Root Mean Squared Error (RMSE), and Akaike Information Criterion (AIC), a more detailed discussion of backtesting, cross-validation, and model comparison techniques can be beneficial for readers interested in applying these methods in practice.</p>
+<section id="backtesting" class="level3" data-number="10.0.1">
+<h3 data-number="10.0.1" class="anchored" data-anchor-id="backtesting"><span class="header-section-number">10.0.1</span> Backtesting</h3>
+<p>Backtesting is a technique used to evaluate the performance of a forecasting model by simulating its application to historical data. The goal is to assess how well the model would have performed if it had been used to make predictions in the past. Backtesting involves the following steps:</p>
+<ol type="1">
+<li>Split the historical data into two subsets: a training set and a testing set.</li>
+<li>Fit the model to the training set and use it to make predictions for the testing set.</li>
+<li>Compare the predictions with the actual values in the testing set using appropriate performance metrics.</li>
+<li>Repeat steps 2-3 for different time periods or rolling windows to assess the model’s robustness.</li>
+</ol>
+<p>Backtesting is particularly important in financial forecasting, as it helps to identify potential overfitting, instability, or biases in the model. It also provides an estimate of the model’s out-of-sample performance, which is crucial for making informed investment decisions.</p>
+</section>
+<section id="cross-validation" class="level3" data-number="10.0.2">
+<h3 data-number="10.0.2" class="anchored" data-anchor-id="cross-validation"><span class="header-section-number">10.0.2</span> Cross-Validation</h3>
+<p>Cross-validation is another technique used to assess the performance of a forecasting model and to prevent overfitting. It involves splitting the data into multiple subsets, fitting the model to a subset of the data, and evaluating its performance on the remaining subsets. The most common cross-validation methods in time series analysis are:</p>
+<ol type="1">
+<li><p>Rolling window cross-validation: This method involves splitting the data into a series of overlapping windows, where each window is used as a testing set and the preceding observations are used as the training set. The model is fitted and evaluated on each window, and the performance metrics are averaged across all windows.</p></li>
+<li><p>Time series cross-validation: This method is similar to rolling window cross-validation but ensures that the testing set always follows the training set in time. This preserves the temporal structure of the data and prevents information leakage from future observations.</p></li>
+<li><p>Blocked cross-validation: This method involves splitting the data into non-overlapping blocks, where each block is used as a testing set and the remaining blocks are used as the training set. This approach is useful when the data exhibits seasonality or long-term trends, as it ensures that each block contains complete seasonal cycles or trend components.</p></li>
+</ol>
+<p>Cross-validation helps to assess the model’s performance on unseen data and provides a more reliable estimate of its generalization ability. It is particularly useful when comparing different models or tuning hyperparameters, as it helps to select the model that performs best on average across multiple subsets of the data.</p>
+</section>
+<section id="model-comparison-techniques" class="level3" data-number="10.0.3">
+<h3 data-number="10.0.3" class="anchored" data-anchor-id="model-comparison-techniques"><span class="header-section-number">10.0.3</span> Model Comparison Techniques</h3>
+<p>When multiple forecasting models are available, it is essential to compare their performance and select the most appropriate one for the given task. Some common model comparison techniques in financial forecasting include:</p>
+<ol type="1">
+<li><p>Statistical tests: Paired t-tests or Wilcoxon signed-rank tests can be used to compare the performance of two models based on their errors or residuals. These tests assess whether the difference in performance between the models is statistically significant.</p></li>
+<li><p>Diebold-Mariano test: This test compares the forecasting accuracy of two models by assessing the difference in their loss functions, such as squared errors or absolute errors. It is particularly useful when the models are not nested and have different structures or assumptions.</p></li>
+<li><p>Model confidence set: This approach identifies a subset of models that contains the best model with a given level of confidence. It is based on a sequence of hypothesis tests that eliminate inferior models until a subset of models with similar performance is obtained.</p></li>
+<li><p>Information criteria: As mentioned in the section, information criteria such as AIC or Bayesian Information Criterion (BIC) can be used to compare models based on their goodness-of-fit and complexity. These criteria penalize models with more parameters and favor simpler models that provide a good balance between fit and parsimony.</p></li>
+</ol>
+<p>By applying these model comparison techniques, analysts and investors can select the most appropriate forecasting model for their specific needs and data characteristics. It is important to note that the choice of the best model may depend on various factors, such as the forecasting horizon, the available data, the desired interpretability, and the computational resources.</p>
+</section>
+<section id="conclusion" class="level3" data-number="10.0.4">
+<h3 data-number="10.0.4" class="anchored" data-anchor-id="conclusion"><span class="header-section-number">10.0.4</span> Conclusion</h3>
+<p>Evaluating and selecting the most appropriate forecasting model is a critical step in financial forecasting. Backtesting, cross-validation, and model comparison techniques provide valuable tools for assessing the performance and robustness of different models and for preventing overfitting or biases. By expanding the discussion of these techniques in the book, readers can gain a more comprehensive understanding of how to apply and evaluate time series models in practice, leading to more informed and reliable financial forecasting.</p>
+</section>
+<section id="example-1-rolling-window-cross-validation" class="level3" data-number="10.0.5">
+<h3 data-number="10.0.5" class="anchored" data-anchor-id="example-1-rolling-window-cross-validation"><span class="header-section-number">10.0.5</span> Example 1: Rolling Window Cross-Validation</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tseries)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate sample time series data</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the rolling window cross-validation function</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>rolling_cv <span class="ot">&lt;-</span> <span class="cf">function</span>(data, n_splits, model_func) {</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(data)</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>  split_size <span class="ot">&lt;-</span> <span class="fu">floor</span>(n <span class="sc">/</span> n_splits)</span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>  mse_scores <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(n_splits <span class="sc">-</span> <span class="dv">1</span>)) {</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>    train_start <span class="ot">&lt;-</span> (i <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> split_size <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>    train_end <span class="ot">&lt;-</span> i <span class="sc">*</span> split_size</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>    test_start <span class="ot">&lt;-</span> train_end <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>    test_end <span class="ot">&lt;-</span> <span class="fu">min</span>(test_start <span class="sc">+</span> split_size <span class="sc">-</span> <span class="dv">1</span>, n)</span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>    train_data <span class="ot">&lt;-</span> data[train_start<span class="sc">:</span>train_end]</span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>    test_data <span class="ot">&lt;-</span> data[test_start<span class="sc">:</span>test_end]</span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>    model <span class="ot">&lt;-</span> <span class="fu">model_func</span>(train_data)</span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>    predictions <span class="ot">&lt;-</span> <span class="fu">forecast</span>(model, <span class="at">h =</span> <span class="fu">length</span>(test_data))</span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>    mse <span class="ot">&lt;-</span> <span class="fu">mean</span>((test_data <span class="sc">-</span> predictions<span class="sc">$</span>mean)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>    mse_scores <span class="ot">&lt;-</span> <span class="fu">c</span>(mse_scores, mse)</span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">mean</span>(mse_scores))</span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the ARIMA model function</span></span>
+<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>arima_model <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a>  model <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(data)</span>
+<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(model)</span>
+<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform rolling window cross-validation</span></span>
+<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a>avg_mse <span class="ot">&lt;-</span> <span class="fu">rolling_cv</span>(data, <span class="at">n_splits =</span> <span class="dv">5</span>, <span class="at">model_func =</span> arima_model)</span>
+<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Average MSE score:"</span>, avg_mse, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Average MSE score: 0.9248774 </code></pre>
+</div>
+</div>
+<p>This example demonstrates how to perform rolling window cross-validation on a time series dataset in R. It defines a <code>rolling_cv</code> function that splits the data into multiple windows, fits an ARIMA model on the training data using the <code>auto.arima</code> function from the <code>forecast</code> package, and evaluates its performance on the testing data using the Mean Squared Error (MSE) metric. The average MSE score across all cross-validation folds is then calculated and printed.</p>
+</section>
+<section id="example-2-diebold-mariano-test" class="level3" data-number="10.0.6">
+<h3 data-number="10.0.6" class="anchored" data-anchor-id="example-2-diebold-mariano-test"><span class="header-section-number">10.0.6</span> Example 2: Diebold-Mariano Test</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>diebold_mariano_test <span class="ot">&lt;-</span> <span class="cf">function</span>(forecast_errors_1, forecast_errors_2, <span class="at">h =</span> <span class="dv">1</span>, <span class="at">one_sided =</span> <span class="cn">TRUE</span>) {</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  d <span class="ot">&lt;-</span> forecast_errors_1 <span class="sc">-</span> forecast_errors_2</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(d)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the autocovariance of the loss differential</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>  gamma_0 <span class="ot">&lt;-</span> <span class="fu">acf</span>(d, <span class="at">plot =</span> <span class="cn">FALSE</span>, <span class="at">lag.max =</span> <span class="dv">1</span>)<span class="sc">$</span>acf[<span class="dv">2</span>]</span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the asymptotic variance of the loss differential</span></span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>  var_d <span class="ot">&lt;-</span> gamma_0 <span class="sc">/</span> n</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the Diebold-Mariano test statistic</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>  dm_statistic <span class="ot">&lt;-</span> <span class="fu">mean</span>(d) <span class="sc">/</span> <span class="fu">sqrt</span>(var_d)</span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the p-value</span></span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (one_sided) {</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>    p_value <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(dm_statistic, <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>    p_value <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> <span class="fu">pt</span>(<span class="fu">abs</span>(dm_statistic), <span class="at">df =</span> n <span class="sc">-</span> <span class="dv">1</span>))</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb36-22"><a href="#cb36-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb36-23"><a href="#cb36-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">dm_statistic =</span> dm_statistic, <span class="at">p_value =</span> p_value))</span>
+<span id="cb36-24"><a href="#cb36-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-25"><a href="#cb36-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-26"><a href="#cb36-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Example usage</span></span>
+<span id="cb36-27"><a href="#cb36-27" aria-hidden="true" tabindex="-1"></a>forecast_errors_1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb36-28"><a href="#cb36-28" aria-hidden="true" tabindex="-1"></a>forecast_errors_2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb36-29"><a href="#cb36-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-30"><a href="#cb36-30" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">diebold_mariano_test</span>(forecast_errors_1, forecast_errors_2)</span>
+<span id="cb36-31"><a href="#cb36-31" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Diebold-Mariano test statistic:"</span>, result<span class="sc">$</span>dm_statistic, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Diebold-Mariano test statistic: NaN </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"P-value:"</span>, result<span class="sc">$</span>p_value, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>P-value: NaN </code></pre>
+</div>
+</div>
+<p>This example implements the Diebold-Mariano test for comparing the accuracy of two forecasts in R. The <code>diebold_mariano_test</code> function takes the forecast errors of two models and returns the Diebold-Mariano test statistic and the corresponding p-value. The example demonstrates how to use the function to compare the accuracy of two sets of forecast errors.</p>
+</section>
+</section>
+<section id="case-studies" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Case studies</h1>
+<section id="case-study-one-forecasting-stock-prices-using-arima-and-garch-models" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="case-study-one-forecasting-stock-prices-using-arima-and-garch-models"><span class="header-section-number">11.1</span> Case Study One: Forecasting Stock Prices using ARIMA and GARCH Models</h2>
+<p>In this case study, we will demonstrate how ARIMA and GARCH models can be used to forecast the daily closing prices of a specific stock. We will use the historical price data of Apple Inc.&nbsp;(AAPL) from January 1, 2010, to December 31, 2020, as an example.</p>
+<section id="step-1-data-preprocessing" class="level3" data-number="11.1.1">
+<h3 data-number="11.1.1" class="anchored" data-anchor-id="step-1-data-preprocessing"><span class="header-section-number">11.1.1</span> Step 1: Data Preprocessing</h3>
+<p>First, we need to load the necessary libraries and download the historical stock price data using the <code>quantmod</code> package in R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quantmod)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rugarch)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Download historical stock price data for AAPL</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">getSymbols</span>(<span class="st">"AAPL"</span>, <span class="at">from =</span> <span class="st">"2010-01-01"</span>, <span class="at">to =</span> <span class="st">"2020-12-31"</span>, <span class="at">src =</span> <span class="st">"yahoo"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "AAPL"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract the closing prices</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>aapl_prices <span class="ot">&lt;-</span> <span class="fu">Cl</span>(AAPL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Next, we will convert the closing prices to log returns, which are more suitable for modeling and forecasting.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert closing prices to log returns</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>aapl_returns <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(aapl_prices))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="step-2-arima-model-selection-and-forecasting" class="level3" data-number="11.1.2">
+<h3 data-number="11.1.2" class="anchored" data-anchor-id="step-2-arima-model-selection-and-forecasting"><span class="header-section-number">11.1.2</span> Step 2: ARIMA Model Selection and Forecasting</h3>
+<p>We will use the <code>auto.arima()</code> function from the <code>forecast</code> package to automatically select the best ARIMA model based on the Akaike Information Criterion (AIC).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit an ARIMA model</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>arima_model <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(aapl_returns)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model summary</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(arima_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Series: aapl_returns 
+ARIMA(0,0,1) with non-zero mean 
+
+Coefficients:
+          ma1   mean
+      -0.0507  1e-03
+s.e.   0.0188  3e-04
+
+sigma^2 = 0.0003183:  log likelihood = 7215.25
+AIC=-14424.5   AICc=-14424.49   BIC=-14406.72
+
+Training set error measures:
+                       ME       RMSE        MAE MPE MAPE      MASE         ACF1
+Training set 1.665001e-07 0.01783582 0.01238638 NaN  Inf 0.6889601 -0.000720936</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate forecasts for the next 30 days</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>arima_forecast <span class="ot">&lt;-</span> <span class="fu">forecast</span>(arima_model, <span class="at">h =</span> <span class="dv">30</span>)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the forecasted returns</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(arima_forecast)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="time_series_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The <code>auto.arima()</code> function suggests that an ARIMA(1,0,1) model is the best fit for the log returns of AAPL stock prices. The model summary provides information about the estimated parameters and their significance. The <code>forecast()</code> function is then used to generate forecasts for the next 30 days, which are plotted for visual inspection.</p>
+</section>
+<section id="step-3-garch-model-fitting-and-forecasting" class="level3" data-number="11.1.3">
+<h3 data-number="11.1.3" class="anchored" data-anchor-id="step-3-garch-model-fitting-and-forecasting"><span class="header-section-number">11.1.3</span> Step 3: GARCH Model Fitting and Forecasting</h3>
+<p>To account for the time-varying volatility in the stock returns, we will fit a GARCH(1,1) model to the residuals of the ARIMA model using the <code>rugarch</code> package.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the GARCH model</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>garch_spec <span class="ot">&lt;-</span> <span class="fu">ugarchspec</span>(<span class="at">variance.model =</span> <span class="fu">list</span>(<span class="at">model =</span> <span class="st">"sGARCH"</span>, <span class="at">garchOrder =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>)), </span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">mean.model =</span> <span class="fu">list</span>(<span class="at">armaOrder =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>), <span class="at">include.mean =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">distribution.model =</span> <span class="st">"norm"</span>)</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit the GARCH model</span></span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>garch_model <span class="ot">&lt;-</span> <span class="fu">ugarchfit</span>(<span class="at">spec =</span> garch_spec, <span class="at">data =</span> <span class="fu">residuals</span>(arima_model))</span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Print the model summary</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(garch_model)</span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate volatility forecasts for the next 30 days</span></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a>garch_forecast <span class="ot">&lt;-</span> <span class="fu">ugarchforecast</span>(garch_model, <span class="at">n.ahead =</span> <span class="dv">30</span>)</span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot the forecasted volatility</span></span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(garch_forecast, <span class="at">which =</span> <span class="st">"sigma"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The GARCH(1,1) model is specified using the <code>ugarchspec()</code> function, which defines the variance and mean equations, as well as the distribution of the error terms. The <code>ugarchfit()</code> function is then used to estimate the model parameters based on the residuals of the ARIMA model. The model summary provides information about the estimated parameters and their significance.</p>
+<p>Finally, the <code>ugarchforecast()</code> function is used to generate volatility forecasts for the next 30 days, which are plotted for visual inspection.</p>
+</section>
+<section id="conclusion-1" class="level3" data-number="11.1.4">
+<h3 data-number="11.1.4" class="anchored" data-anchor-id="conclusion-1"><span class="header-section-number">11.1.4</span> Conclusion</h3>
+<p>In this case study, we demonstrated how ARIMA and GARCH models can be used to forecast the daily closing prices and volatility of Apple Inc.&nbsp;(AAPL) stock. The ARIMA model captures the linear dependence and short-term dynamics in the log returns, while the GARCH model accounts for the time-varying volatility in the residuals.</p>
+<p>By combining these two models, we can obtain more accurate and reliable forecasts of future stock prices and volatility, which can be used to inform investment decisions and risk management strategies. However, it is important to note that these models are based on historical data and may not always provide accurate predictions of future market movements, especially in the presence of unexpected events or structural changes in the market.</p>
+</section>
+<section id="limitations-and-potential-extensions" class="level3" data-number="11.1.5">
+<h3 data-number="11.1.5" class="anchored" data-anchor-id="limitations-and-potential-extensions"><span class="header-section-number">11.1.5</span> Limitations and Potential Extensions</h3>
+<p>While the ARIMA and GARCH models are powerful tools for forecasting stock prices and volatility, they have certain limitations and can be extended in various ways to improve their performance and applicability.</p>
+<section id="limitations" class="level4" data-number="11.1.5.1">
+<h4 data-number="11.1.5.1" class="anchored" data-anchor-id="limitations"><span class="header-section-number">11.1.5.1</span> Limitations</h4>
+<ol type="1">
+<li><p><strong>Linearity assumption</strong>: ARIMA models assume a linear relationship between the current and past values of the time series, which may not always hold for stock prices. In reality, stock markets can exhibit non-linear dynamics, such as regime shifts or structural breaks, which cannot be captured by linear models.</p></li>
+<li><p><strong>Constant volatility assumption</strong>: The basic GARCH model assumes that the unconditional variance of the time series is constant over time, which may not be realistic for stock markets. In practice, the volatility of stock returns can be influenced by various factors, such as market sentiment, economic news, or political events, which can lead to time-varying unconditional variance.</p></li>
+<li><p><strong>Limited ability to capture long-term dependencies</strong>: ARIMA and GARCH models are designed to capture short-term dependencies in the time series, but they may struggle to model long-term patterns or cycles in the stock market. This limitation can be particularly relevant for investors with longer investment horizons or for analyzing the impact of macroeconomic factors on stock prices.</p></li>
+<li><p><strong>Sensitivity to extreme events</strong>: ARIMA and GARCH models can be sensitive to extreme events or outliers in the data, such as market crashes or sudden spikes in volatility. These events can have a disproportionate impact on the model parameters and forecasts, leading to biased or unreliable results.</p></li>
+</ol>
+</section>
+<section id="potential-extensions" class="level4" data-number="11.1.5.2">
+<h4 data-number="11.1.5.2" class="anchored" data-anchor-id="potential-extensions"><span class="header-section-number">11.1.5.2</span> Potential Extensions</h4>
+<ol type="1">
+<li><p><strong>Regime-switching models</strong>: To capture non-linear dynamics and structural breaks in the stock market, regime-switching models, such as Markov-switching GARCH or threshold GARCH, can be used. These models allow for different regimes or states in the data, each with its own set of parameters and dynamics, and can provide more accurate forecasts during periods of market turbulence or shifts.</p></li>
+<li><p><strong>Long memory models</strong>: To account for long-term dependencies in the stock market, long memory models, such as fractionally integrated ARIMA (ARFIMA) or fractionally integrated GARCH (FIGARCH), can be employed. These models can capture the persistence and slow decay of shocks in the time series, which can be relevant for modeling the impact of macroeconomic factors or market sentiment on stock prices.</p></li>
+<li><p><strong>Multivariate models</strong>: To incorporate the influence of external factors or the relationships between multiple stocks, multivariate time series models, such as vector autoregressive (VAR) or multivariate GARCH (MGARCH), can be used. These models can capture the dynamic interactions and spillovers between different stocks or markets, as well as the impact of macroeconomic variables or sentiment data on stock prices.</p></li>
+<li><p><strong>Machine learning techniques</strong>: To improve the forecasting performance and capture non-linear patterns in the stock market, machine learning techniques, such as neural networks, support vector machines, or random forests, can be combined with ARIMA and GARCH models. These techniques can learn complex relationships from the data and adapt to changing market conditions, potentially leading to more accurate and robust forecasts.</p></li>
+<li><p><strong>Bayesian methods</strong>: To incorporate prior knowledge or uncertainty in the model parameters, Bayesian methods, such as Bayesian ARIMA or Bayesian GARCH, can be employed. These methods can provide probabilistic forecasts and allow for the integration of expert opinions or market insights into the modeling process.</p></li>
+</ol>
+</section>
+<section id="conclusion-2" class="level4" data-number="11.1.5.3">
+<h4 data-number="11.1.5.3" class="anchored" data-anchor-id="conclusion-2"><span class="header-section-number">11.1.5.3</span> Conclusion</h4>
+<p>While ARIMA and GARCH models are valuable tools for forecasting stock prices and volatility, it is important to be aware of their limitations and consider potential extensions to improve their performance and applicability. By combining these models with more advanced techniques, such as regime-switching, long memory, multivariate, or machine learning methods, analysts and investors can obtain more accurate and reliable forecasts, especially in the presence of non-linear dynamics, structural breaks, or external factors influencing the stock market.</p>
+<p>However, it is crucial to note that no single model or technique can perfectly predict future stock prices or volatility, and it is essential to use these tools in combination with fundamental analysis, market insights, and risk management strategies. Additionally, the performance of these models should be regularly evaluated and updated based on new data and changing market conditions to ensure their continued relevance and effectiveness.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="end-of-chapter-excercises" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> End of chapter excercises</h1>
+<section id="theory-and-concepts" class="level2" data-number="12.1">
+<h2 data-number="12.1" class="anchored" data-anchor-id="theory-and-concepts"><span class="header-section-number">12.1</span> Theory and Concepts</h2>
 <ol type="1">
 <li><p><strong>Forecasting Techniques</strong>: Explain the concept of time series decomposition and its relevance in financial forecasting. Provide an example of a financial time series that exhibits trend and seasonality components.</p></li>
 <li><p><strong>Model Evaluation</strong>: Discuss the importance of model evaluation and selection in time series forecasting. What are some common performance metrics used to assess the accuracy of forecasts?</p></li>
 <li><p><strong>Random Walk Hypothesis</strong>: Describe the random walk hypothesis and its implications for financial markets. How does the concept of a random walk relate to the efficient market hypothesis?</p></li>
 </ol>
 </section>
-<section id="practical-applications" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="practical-applications"><span class="header-section-number">10.2</span> Practical Applications</h2>
+<section id="practical-applications" class="level2" data-number="12.2">
+<h2 data-number="12.2" class="anchored" data-anchor-id="practical-applications"><span class="header-section-number">12.2</span> Practical Applications</h2>
 <ol type="1">
 <li><p>Download historical daily stock prices for a company of your choice from a financial data provider (e.g., Yahoo Finance or Google Finance) for the past 5 years. Load the data into R and perform the following tasks:</p>
 <ol type="a">
@@ -1734,11 +1948,54 @@ ts2 0.3912 1.0000</code></pre>
 <li><p>Download historical daily stock prices for two related companies (e.g., from the same industry) for the past 5 years. Perform a cointegration analysis to determine if there is a long-run relationship between the two stock price series. If cointegration is found, estimate a Vector Error Correction Model (VECM) and interpret the results.</p></li>
 <li><p>Conduct a Granger causality test on the stock price data of the two companies from exercise 6. Determine if the price of one stock can be used to predict the price of the other stock. Discuss the implications of the test results for investment and risk management strategies.</p></li>
 <li><p>Simulate a random walk process with drift and volatility parameters of your choice. Plot the simulated price series and calculate the daily returns. Compare the characteristics of the simulated random walk with those of the real stock price data from exercise 1. Discuss the similarities and differences between the two series and the implications for financial modeling and forecasting.</p></li>
+<li><p>Backtesting ARMA Models:</p>
+<ul>
+<li>Download historical daily stock prices for a company of your choice (e.g., Apple Inc.) for the past 5 years.</li>
+<li>Split the data into a training set (first 4 years) and a testing set (last 1 year).</li>
+<li>Fit an ARMA(1, 1) model on the training set and make predictions for the testing set.</li>
+<li>Calculate the Mean Absolute Error (MAE) and Root Mean Squared Error (RMSE) between the predicted and actual values.</li>
+<li>Repeat the process using a rolling window approach, where the model is updated every quarter with the latest data.</li>
+<li>Compare the performance of the static and rolling window approaches.</li>
+</ul></li>
+<li><p>Cross-Validating GARCH Models:</p></li>
 </ol>
-<p>These exercises cover a range of topics from the chapter, including data visualization, smoothing techniques, stationarity testing, ARIMA modeling, GARCH modeling, cointegration analysis, Granger causality, and random walk simulations. They provide hands-on practice with R programming and reinforce the key concepts and techniques covered in the chapter.</p>
+<ul>
+<li>Use the same stock price data as in Exercise 1.</li>
+<li>Implement a time series cross-validation approach to evaluate the performance of a GARCH(1, 1) model.</li>
+<li>Split the data into multiple training and testing sets, ensuring that the testing sets always follow the training sets in time.</li>
+<li>Fit the GARCH model on each training set and make predictions for the corresponding testing set.</li>
+<li>Calculate the MSE and MAE for each fold and compute the average scores across all folds.</li>
+<li>Compare the results with a standard GARCH model fitted on the entire dataset.</li>
+</ul>
+<ol start="11" type="1">
+<li>Comparing Forecast Models:</li>
+</ol>
+<ul>
+<li>Download historical monthly sales data for a retail company for the past 10 years.</li>
+<li>Fit the following models to the data:
+<ul>
+<li>ARIMA(p, d, q) model with different orders (e.g., (1, 1, 1), (2, 1, 2), (3, 1, 3)).</li>
+<li>Exponential Smoothing (ETS) model with different trend and seasonality components.</li>
+<li>Prophet model from Facebook’s Prophet library.</li>
+</ul></li>
+<li>Use rolling window cross-validation to evaluate the performance of each model.</li>
+<li>Calculate the MAE, RMSE, and Mean Absolute Percentage Error (MAPE) for each model.</li>
+<li>Perform the Diebold-Mariano test to compare the accuracy of the models pairwise.</li>
+<li>Select the best-performing model based on the evaluation metrics and the Diebold-Mariano test results.</li>
+</ul>
+<ol start="12" type="1">
+<li>Tuning Hyperparameters with Cross-Validation:</li>
+</ol>
+<ul>
+<li>Use the same sales data as in Exercise 3.</li>
+<li>Implement a grid search or random search approach to tune the hyperparameters of an ARIMA model.</li>
+<li>Define a range of values for the orders (p, d, q) and use time series cross-validation to evaluate the model’s performance for each combination of hyperparameters.</li>
+<li>Select the best set of hyperparameters based on the cross-validation scores.</li>
+<li>Fit the ARIMA model with the optimal hyperparameters on the entire dataset and make predictions for the next 12 months.</li>
+</ul>
 </section>
-<section id="further-reading" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">10.3</span> Further reading</h2>
+<section id="further-reading" class="level2" data-number="12.3">
+<h2 data-number="12.3" class="anchored" data-anchor-id="further-reading"><span class="header-section-number">12.3</span> Further reading</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">

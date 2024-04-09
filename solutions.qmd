@@ -157,6 +157,7 @@ editor: visual
 
 10. Portfolio Optimization:
 The Markowitz model involves optimizing a portfolio by finding the best combination of assets that minimizes risk (variance) for a given expected return, or maximizes return for a given level of risk. This is achieved by adjusting the weights of each asset in the portfolio.
+
 **Solution:**
 ```{R}
 # Load the quadprog library for quadratic programming
@@ -603,3 +604,289 @@ Explanation:
 - The simulated price series is compared with the real stock price data by plotting them together using `ggplot()` and `geom_line()`.
 - The return distributions of the real and simulated data are compared using histograms and density plots with `ggplot()`, `geom_histogram()`, and `geom_density()`.
 - The similarities and differences between the real and simulated series, as well as their implications for financial modeling and forecasting, can be discussed based on the visual comparison and return distributions.
+
+
+
+Exercise 9: Backtesting ARMA Models:
+
+```R
+library(quantmod)
+library(forecast)
+
+# Download historical stock prices
+getSymbols("AAPL", from = "2016-01-01", to = "2021-12-31")
+prices <- Cl(AAPL)
+
+# Split the data into training and testing sets
+train_data <- prices["2016-01-01/2019-12-31"]
+test_data <- prices["2020-01-01/2021-12-31"]
+
+# Fit an ARMA(1, 1) model on the training set
+model <- arima(train_data, order = c(1, 0, 1))
+
+# Make predictions for the testing set
+predictions <- forecast(model, h = length(test_data))
+
+# Calculate MAE and RMSE
+mae <- mean(abs(test_data - predictions$mean))
+rmse <- sqrt(mean((test_data - predictions$mean)^2))
+
+# Rolling window approach
+window_size <- 252  # One year of trading days
+mae_rolling <- c()
+rmse_rolling <- c()
+
+for (i in seq_along(test_data)) {
+  if (i < window_size) next
+  
+  train_data_rolling <- prices[(i - window_size + 1):(i - 1)]
+  test_data_rolling <- prices[i]
+  
+  model_rolling <- arima(train_data_rolling, order = c(1, 0, 1))
+  prediction_rolling <- forecast(model_rolling, h = 1)
+  
+  mae_rolling <- c(mae_rolling, abs(test_data_rolling - prediction_rolling$mean[1]))
+  rmse_rolling <- c(rmse_rolling, (test_data_rolling - prediction_rolling$mean[1])^2)
+}
+
+# Compare static and rolling window approaches
+cat("Static Approach:\n")
+cat("MAE:", mae, "\n")
+cat("RMSE:", rmse, "\n\n")
+
+cat("Rolling Window Approach:\n")
+cat("MAE:", mean(mae_rolling), "\n")
+cat("RMSE:", sqrt(mean(rmse_rolling)), "\n")
+```
+
+Excercise 10: Cross-Validating GARCH Models:
+
+```R
+library(quantmod)
+library(rugarch)
+
+# Download historical stock prices
+getSymbols("AAPL", from = "2016-01-01", to = "2021-12-31")
+returns <- diff(log(Cl(AAPL)))
+
+# Define the time series cross-validation function
+ts_cv <- function(data, n_splits, model_func) {
+  n <- length(data)
+  split_size <- floor(n / n_splits)
+  
+  mse_scores <- c()
+  mae_scores <- c()
+  
+  for (i in 1:(n_splits - 1)) {
+    train_start <- (i - 1) * split_size + 1
+    train_end <- i * split_size
+    test_start <- train_end + 1
+    test_end <- min(test_start + split_size - 1, n)
+    
+    train_data <- data[train_start:train_end]
+    test_data <- data[test_start:test_end]
+    
+    model <- model_func(train_data)
+    predictions <- predict(model, n.ahead = length(test_data), cond.dist = "norm")
+    
+    mse <- mean((test_data - predictions$mean)^2)
+    mae <- mean(abs(test_data - predictions$mean))
+    
+    mse_scores <- c(mse_scores, mse)
+    mae_scores <- c(mae_scores, mae)
+  }
+  
+  return(list(mse = mean(mse_scores), mae = mean(mae_scores)))
+}
+
+# Define the GARCH model function
+garch_model <- function(data) {
+  spec <- ugarchspec(variance.model = list(model = "sGARCH", garchOrder = c(1, 1)),
+                     mean.model = list(armaOrder = c(0, 0)))
+  model <- ugarchfit(spec, data)
+  return(model)
+}
+
+# Perform time series cross-validation
+cv_results <- ts_cv(returns, n_splits = 5, model_func = garch_model)
+cat("Cross-Validation Results:\n")
+cat("MSE:", cv_results$mse, "\n")
+cat("MAE:", cv_results$mae, "\n\n")
+
+# Fit GARCH model on the entire dataset
+full_model <- garch_model(returns)
+cat("Full Model Results:\n")
+cat("MSE:", mean(full_model@fit$residuals^2), "\n")
+cat("MAE:", mean(abs(full_model@fit$residuals)), "\n")
+```
+
+Excercise 11: Comparing Forecast Models
+
+```R
+library(quantmod)
+library(forecast)
+library(prophet)
+library(Metrics)
+
+# Download historical sales data
+sales_data <- getSymbols("OLP", from = "2011-01-01", to = "2021-12-31", auto.assign = FALSE)
+monthly_sales <- to.monthly(sales_data)[,4]
+
+# Function to perform rolling window cross-validation
+rolling_cv <- function(data, n_splits, model_func) {
+  n <- length(data)
+  split_size <- floor(n / n_splits)
+  
+  mae_scores <- c()
+  rmse_scores <- c()
+  mape_scores <- c()
+  
+  for (i in 1:(n_splits - 1)) {
+    train_start <- (i - 1) * split_size + 1
+    train_end <- i * split_size
+    test_start <- train_end + 1
+    test_end <- min(test_start + split_size - 1, n)
+    
+    train_data <- data[train_start:train_end]
+    test_data <- data[test_start:test_end]
+    
+    model <- model_func(train_data)
+    predictions <- forecast(model, h = length(test_data))
+    
+    mae <- mae(test_data, predictions$mean)
+    rmse <- rmse(test_data, predictions$mean)
+    mape <- mape(test_data, predictions$mean)
+    
+    mae_scores <- c(mae_scores, mae)
+    rmse_scores <- c(rmse_scores, rmse)
+    mape_scores <- c(mape_scores, mape)
+  }
+  
+  return(list(mae = mean(mae_scores), rmse = mean(rmse_scores), mape = mean(mape_scores)))
+}
+
+# ARIMA model function
+arima_model <- function(data) {
+  model <- auto.arima(data)
+  return(model)
+}
+
+# ETS model function
+ets_model <- function(data) {
+  model <- ets(data)
+  return(model)
+}
+
+# Prophet model function
+prophet_model <- function(data) {
+  df <- data.frame(ds = as.Date(time(data)), y = as.numeric(data))
+  model <- prophet(df)
+  return(model)
+}
+
+# Perform rolling window cross-validation for each model
+arima_results <- rolling_cv(monthly_sales, n_splits = 5, model_func = arima_model)
+ets_results <- rolling_cv(monthly_sales, n_splits = 5, model_func = ets_model)
+prophet_results <- rolling_cv(monthly_sales, n_splits = 5, model_func = prophet_model)
+
+# Compare model performance
+cat("ARIMA Results:\n")
+print(arima_results)
+cat("\nETS Results:\n")
+print(ets_results)
+cat("\nProphet Results:\n")
+print(prophet_results)
+
+# Perform Diebold-Mariano test
+arima_errors <- monthly_sales - forecast(arima_model(monthly_sales), h = length(monthly_sales))$mean
+ets_errors <- monthly_sales - forecast(ets_model(monthly_sales), h = length(monthly_sales))$mean
+prophet_errors <- monthly_sales - forecast(prophet_model(monthly_sales), h = length(monthly_sales))$yhat
+
+dm_test_arima_ets <- dm.test(arima_errors, ets_errors)
+dm_test_arima_prophet <- dm.test(arima_errors, prophet_errors)
+dm_test_ets_prophet <- dm.test(ets_errors, prophet_errors)
+
+cat("\nDiebold-Mariano Test Results:\n")
+cat("ARIMA vs ETS: p-value =", dm_test_arima_ets$p.value, "\n")
+cat("ARIMA vs Prophet: p-value =", dm_test_arima_prophet$p.value, "\n")
+cat("ETS vs Prophet: p-value =", dm_test_ets_prophet$p.value, "\n")
+```
+
+Excercise 11: Tuning Hyperparameters with Cross-Validation
+
+```R
+library(quantmod)
+library(forecast)
+
+# Download historical sales data
+sales_data <- getSymbols("OLP", from = "2011-01-01", to = "2021-12-31", auto.assign = FALSE)
+monthly_sales <- to.monthly(sales_data)[,4]
+
+# Function to perform time series cross-validation
+ts_cv <- function(data, n_splits, model_func, ...) {
+  n <- length(data)
+  split_size <- floor(n / n_splits)
+  
+  mse_scores <- c()
+  
+  for (i in 1:(n_splits - 1)) {
+    train_start <- (i - 1) * split_size + 1
+    train_end <- i * split_size
+    test_start <- train_end + 1
+    test_end <- min(test_start + split_size - 1, n)
+    
+    train_data <- data[train_start:train_end]
+    test_data <- data[test_start:test_end]
+    
+    model <- model_func(train_data, ...)
+    predictions <- forecast(model, h = length(test_data))
+    
+    mse <- mean((test_data - predictions$mean)^2)
+    mse_scores <- c(mse_scores, mse)
+  }
+  
+  return(mean(mse_scores))
+}
+
+# Grid search function
+grid_search <- function(data, p_values, d_values, q_values) {
+  best_score <- Inf
+  best_params <- NULL
+  
+  for (p in p_values) {
+    for (d in d_values) {
+      for (q in q_values) {
+        score <- ts_cv(data, n_splits = 5, model_func = arima, order = c(p, d, q))
+        
+        if (score < best_score) {
+          best_score <- score
+          best_params <- c(p, d, q)
+        }
+      }
+    }
+  }
+  
+  return(list(best_params = best_params, best_score = best_score))
+}
+
+# Define the range of hyperparameters
+p_values <- 0:3
+d_values <- 0:1
+q_values <- 0:3
+
+# Perform grid search
+grid_search_results <- grid_search(monthly_sales, p_values, d_values, q_values)
+cat("Best Hyperparameters:", grid_search_results$best_params, "\n")
+cat("Best Cross-Validation Score:", grid_search_results$best_score, "\n")
+
+# Fit ARIMA model with the optimal hyperparameters
+best_model <- arima(monthly_sales, order = grid_search_results$best_params)
+
+# Make predictions for the next 12 months
+predictions <- forecast(best_model, h = 12)
+print(predictions)
+```
+
+These sample solutions provide detailed implementations of the practical exercises using R and relevant packages. They cover various aspects of model evaluation and selection, including backtesting, cross-validation, model comparison, and hyperparameter tuning.
+
+The first exercise demonstrates backtesting an ARMA model on stock price data, comparing static and rolling window approaches. The second exercise shows how to perform time series cross-validation for a GARCH model. The third exercise compares the performance of different forecasting models (ARIMA, ETS, and Prophet) using rolling window cross-validation and the

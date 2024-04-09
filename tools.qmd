@@ -162,36 +162,77 @@ financial_data$column[is.na(financial_data$column)] <- mean(financial_data$colum
 clean_data <- na.omit(financial_data)
 ```
 
-### Detecting and Removing Outliers
+Certainly! Here's an updated section on outlier detection that incorporates the methods used in the sample answer:
 
-Outliers can distort statistical analyses and models. A common method is to use s-scores or interquartile range (IQR).
+### Detecting Outliers
 
-#### s-score Example:
+Outliers can distort statistical analyses and models. There are various methods to detect outliers, including visual inspection, statistical measures, and outlier detection techniques.
 
-```{R}
-#| eval: false 
-s_scores <- scale(financial_data$column)
-outliers <- which(abs(s_scores) > 3)
+#### Visual Inspection
+
+Plotting the data using histograms and boxplots can help identify potential outliers visually.
+
+```{r}
+#| eval: false
+hist(data$column, main = "Histogram", xlab = "Values")
+boxplot(data$column, main = "Boxplot")
 ```
 
-#### IQR Example:
+#### Z-score Method
 
-```{R}
-#| eval: false 
-IQR_values <- IQR(financial_data$column)
-Q1 <- quantile(financial_data$column, 0.25)
-Q3 <- quantile(financial_data$column, 0.75)
-outliers <- which(financial_data$column < Q1 - 1.5 * IQR_values | financial_data$column > Q3 + 1.5 * IQR_values)
+Z-scores, also known as standard scores, measure how many standard deviations an observation is from the mean. Observations with Z-scores greater than a certain threshold (e.g., 3 or 4) are considered potential outliers.
+
+```{r}
+#| eval: false
+z_scores <- (data$column - mean(data$column)) / sd(data$column)
+outliers <- which(abs(z_scores) > 3)
 ```
 
-### Removing Outliers
+#### Interquartile Range (IQR) Method
 
-Outliers can be removed based on the identified indices.
+The IQR method identifies outliers based on the spread of the data. Observations falling below Q1 - 1.5 * IQR or above Q3 + 1.5 * IQR are considered potential outliers, where Q1 and Q3 are the first and third quartiles, respectively.
 
-```{R}
-#| eval: false 
-financial_data <- financial_data[-outliers, ]
+```{r}
+#| eval: false
+Q1 <- quantile(data$column, 0.25)
+Q3 <- quantile(data$column, 0.75)
+IQR_value <- IQR(data$column)
+outliers <- which(data$column < Q1 - 1.5 * IQR_value | data$column > Q3 + 1.5 * IQR_value)
 ```
+
+### Handling Outliers
+
+Once outliers are identified, there are different approaches to handle them depending on the context and the nature of the data.
+
+#### Removal
+
+Outliers can be removed from the dataset if they are determined to be erroneous or irrelevant to the analysis.
+
+```{r}
+#| eval: false
+data <- data[-outliers, ]
+```
+
+#### Transformation
+
+Outliers can be transformed using mathematical functions (e.g., logarithmic or square root transformations) to reduce their impact on the analysis.
+
+```{r}
+#| eval: false
+data$transformed_column <- log(data$column)
+```
+
+#### Winsorization
+
+Winsorization replaces outliers with the nearest non-outlier values, preserving the sample size while reducing the influence of extreme values.
+
+```{r}
+#| eval: false
+data$winsorized_column <- ifelse(data$column < Q1 - 1.5 * IQR_value, Q1 - 1.5 * IQR_value,
+                                 ifelse(data$column > Q3 + 1.5 * IQR_value, Q3 + 1.5 * IQR_value, data$column))
+```
+
+It's important to consider the specific context and domain knowledge when deciding how to handle outliers. Removing outliers should be done with caution, as they may contain valuable information. Consulting with subject matter experts and considering the impact of outliers on the analysis can guide the decision-making process.
 
 ### Normalising and Scaling Data
 
@@ -209,7 +250,7 @@ min_max_normalise <- function(x) {
 financial_data$normalised_column <- min_max_normalise(financial_data$column)
 ```
 
-#### Standardisation (s-score Normalisation)
+#### Standardisation (z-score Normalisation)
 
 Rescales data to have a mean of 0 and a standard deviation of 1.
 

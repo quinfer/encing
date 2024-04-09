@@ -2,12 +2,12 @@
     "sortOrder": [
         {
             "columnIndex": 2,
-            "ascending": false
+            "ascending": true
         },
         {
             "columnIndex": 4,
             "ascending": false
         }
     ],
-    "path": "~/Documents/GitHub/encing/.git/refs/remotes/origin"
+    "path": "~/Documents/GitHub/encing/images/logos"
 }
