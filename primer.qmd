@@ -8,6 +8,7 @@ format: html
 
 ![](images/logos/cover-image.png){width="30%" style="float: left; margin-right: 10px;"} Statistics, the science of learning from data, is essential in decision-making and scientific inquiry. It involves collecting, analyzing, and interpreting data to measure and manage uncertainty. This discipline is crucial in validating research and ensuring conclusions are reliable. Central to statistics is probability theory, the foundation for managing uncertainty and randomness in data, which is especially vital in financial analytics. Here, statistics help model market behaviors, assess risks, and forecast trends using techniques like regression analysis, hypothesis testing, and time series analysis. Advanced financial analytics not only describe but also predict and optimize, using statistical models for risk management and algorithmic trading. The rise of big data and machine learning has further enhanced these models, enabling the detection of complex patterns in financial markets. Thus, statistics and probability theory are fundamental to financial decision-making, equipping practitioners with tools for mastering advanced financial analytics in a volatile world
 
+
 ## Statisticall modelling as an iterative process.
 
 **Statisticians, like artists, have the bad habit of falling in love with their models.**
