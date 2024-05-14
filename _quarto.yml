@@ -2,8 +2,8 @@ project:
   type: book
 
 book:
-  title: "Advanced Financial Data Analytics"
-  subtitle: "A Modern Approach to Financial Research and Analytics"
+  title: "Don't Fence Me In"
+  subtitle: "Advancing the Art and Science of Financial Analytics with Econometrics, Bayesian Methods, and Machine Learning"
   author: "Barry Quinn"
   cover-image: "images/logos/cover-image.png"
   date: '`r Sys.Date()`'

@@ -1,11 +1,12 @@
-name: advancedfinancialanalytics
-title: AdvancedFinancialAnalytics
+name: encing
+title: encing
 username: quinfer
 account: quinfer
 server: q-rap.connect.qub.ac.uk
 hostUrl: https://q-rap.connect.qub.ac.uk/__api__
-appId: 65
-bundleId: 642
-url: https://q-rap.connect.qub.ac.uk/AFDA/
+appId: 82
+bundleId: 641
+url: https://q-rap.connect.qub.ac.uk/content/981ca46a-c4e2-4992-9fc5-ee1603167496/
+version: 1
 asMultiple: FALSE
 asStatic: TRUE
