@@ -5,7 +5,7 @@ book:
   title: "Don't Fence Me In"
   subtitle: "Advancing the Art and Science of Financial Analytics with Econometrics, Bayesian Methods, and Machine Learning"
   author: "Barry Quinn"
-  cover-image: "images/logos/cover-image.png"
+  cover-image: "images/stable_diffusion_cover.png"
   date: '`r Sys.Date()`'
   chapters:
     - index.qmd
